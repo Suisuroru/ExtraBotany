@@ -1,0 +1,72 @@
+package io.grasspow.extrabotany.data.recipes;
+
+import io.grasspow.extrabotany.common.block.ExtraBotanyBlocks;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.item.BotaniaItems;
+import vazkii.botania.common.lib.BotaniaTags;
+
+import java.util.function.Consumer;
+
+import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+
+public class CraftingRecipeProvider extends vazkii.botania.data.recipes.CraftingRecipeProvider {
+    public CraftingRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
+    }
+
+    @Override
+    public String getName() {
+        return "ExtraBotany crafting recipes";
+    }
+
+    @Override
+    public void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        genCraftTableRecipes(consumer);
+    }
+
+    private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_MANASTEEL))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ELEMENTIUM_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_ELEMENTIUM))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.TERRASTEEL_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
+                .save(consumer);
+        compression(ExtraBotanyBlocks.PHOTONIUM_BLOCK,ExtraBotanyItems.PHOTONIUM).save(consumer);
+        compression(ExtraBotanyBlocks.SHADOWIUM_BLOCK,ExtraBotanyItems.SHADOWIUM).save(consumer);
+    }
+
+    private ShapedRecipeBuilder compression(RegistryObject<Block> block, RegistryObject<Item> item) {
+        return compression(block.get(),item.get());
+    }
+
+    @Override
+    protected ResourceLocation prefix(String path) {
+        return resId(path);
+    }
+}

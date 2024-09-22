@@ -1,0 +1,22 @@
+{
+  "advancement.extrabotany.nightmare_fuel_eat.desc": "食用一个梦魇燃料(这真的能吃吗)",
+  "advancement.extrabotany.nightmare_fuel_eat.title": "Deep Dark Fantasy",
+  "advancement.extrabotany.root.desc": "不要错过今天，去过好每一天",
+  "advancement.extrabotany.root.title": "欢迎来到世界",
+  "block.extrabotany.photonium_block": "光子块",
+  "block.extrabotany.shadowium_block": "暗影块",
+  "item.extrabotany.elementium_hammer": "源质钢锤",
+  "item.extrabotany.fried_chicken": "香香鸡",
+  "item.extrabotany.gilded_mashed_potato": "魔力鸡尾酒",
+  "item.extrabotany.gilded_potato": "镀金服务器",
+  "item.extrabotany.mana_drink": "镀金土豆泥",
+  "item.extrabotany.manasteel_hammer": "魔力钢锤",
+  "item.extrabotany.nightmare_fuel": "梦魇染料",
+  "item.extrabotany.photonium": "光子锭",
+  "item.extrabotany.pylon": "模拟人生",
+  "item.extrabotany.shadowium": "暗影锭",
+  "item.extrabotany.spirit_fuel": "精神燃料",
+  "item.extrabotany.terrasteel_hammer": "泰拉钢锤",
+  "item.extrabotany.ultimate_hammer": "镀金究极锤",
+  "itemGroup.extrabotany": "额外植物学"
+}
