@@ -13,6 +13,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.crafting.BotaniaRecipeTypes;
 import vazkii.botania.common.helper.ItemNBTHelper;
+import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.function.Consumer;
 
@@ -32,7 +33,12 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
         Ingredient GILDED_MASHED_POTATO = Ingredient.of(ModItems.GILDED_MASHED_POTATO.get());
+        Ingredient SPIRIT = Ingredient.of(ModItems.SPIRIT.get());
+        Ingredient NIGHTMARE_FUEL = Ingredient.of(ModItems.NIGHTMARE_FUEL.get());
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ModItems.ULTIMATE_HAMMER.get()), 100000, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, Ingredient.of(Items.GOLD_BLOCK), Ingredient.of(ModItems.TERRASTEEL_HAMMER.get())));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ModItems.PHOTONIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), GILDED_MASHED_POTATO, SPIRIT, SPIRIT, SPIRIT));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ModItems.SHADOWIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), GILDED_MASHED_POTATO, NIGHTMARE_FUEL, NIGHTMARE_FUEL, NIGHTMARE_FUEL));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_POTATO), new ItemStack(ModItems.GILDED_POTATO.get()), 800, Ingredient.of(Items.POTATO), Ingredient.of(Items.GOLD_NUGGET)));
     }
 
     private static ResourceLocation idFor(String s) {

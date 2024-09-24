@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "botania:petals/green"
+    },
+    "S": {
+      "item": "extrabotany:spirit"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GSG",
+    "GGG"
+  ],
+  "result": {
+    "item": "extrabotany:pylon"
+  },
+  "show_notification": true
+}

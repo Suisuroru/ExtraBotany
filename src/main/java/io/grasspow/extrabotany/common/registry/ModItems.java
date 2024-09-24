@@ -7,9 +7,12 @@ import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.UltimateHammer;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -100,5 +103,37 @@ public class ModItems {
 
     private static Item.Properties stackTo16() {
         return defaultItem().stacksTo(16);
+    }
+
+    public static class DefaultStacks {
+        public static ItemStack gilded_potato = new ItemStack(ModItems.GILDED_POTATO.get());
+
+        static {
+            gilded_potato.addTagElement("Enchantments", get());
+            gilded_potato.getOrCreateTag().putShort("pedestal_deny", (short) 1);
+        }
+
+        private static ListTag get() {
+            ListTag listTag = new ListTag();
+            CompoundTag tag = new CompoundTag();
+            tag.putString("id", "minecraft:protection");
+            tag.putShort("lvl", (short) 4);
+            listTag.add(tag);
+            CompoundTag tag1 = new CompoundTag();
+            tag.putString("id", "minecraft:blast_protection");
+            tag.putShort("lvl", (short) 4);
+            listTag.add(tag1);
+            CompoundTag tag2 = new CompoundTag();
+            tag.putString("id", "minecraft:fire_protection");
+            tag.putShort("lvl", (short) 4);
+            listTag.add(tag2);
+            CompoundTag tag3 = new CompoundTag();
+            tag.putString("id", "minecraft:projectile_protection");
+            tag.putShort("lvl", (short) 4);
+            listTag.add(tag3);
+            return listTag;
+        }
+
+
     }
 }

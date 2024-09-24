@@ -57,6 +57,14 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" W ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PYLON.get())
+                .define('G', BotaniaTags.Items.PETALS_GREEN)
+                .define('S', ModItems.SPIRIT.get())
+                .pattern("GGG")
+                .pattern("GSG")
+                .pattern("GGG")
+                .unlockedBy("has_item", conditionsFromItem(ModItems.SPIRIT.get()))
+                .save(consumer);
         compression(ModBlocks.PHOTONIUM_BLOCK, ModItems.PHOTONIUM).save(consumer);
         compression(ModBlocks.SHADOWIUM_BLOCK, ModItems.SHADOWIUM).save(consumer);
     }

@@ -1,0 +1,48 @@
+{
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "botania:manasteel_ingot"
+    },
+    {
+      "item": "botania:elementium_ingot"
+    },
+    {
+      "item": "botania:terrasteel_ingot"
+    },
+    {
+      "item": "botania:gaia_ingot"
+    },
+    {
+      "item": "botania:mana_diamond"
+    },
+    {
+      "item": "botania:dragonstone"
+    }
+  ],
+  "mana": 1000000,
+  "output": {
+    "item": "extrabotany:gilded_potato",
+    "nbt": {
+      "Enchantments": [
+        {
+          "id": "minecraft:protection",
+          "lvl": 4
+        },
+        {
+          "id": "minecraft:blast_protection",
+          "lvl": 4
+        },
+        {
+          "id": "minecraft:fire_protection",
+          "lvl": 4
+        },
+        {
+          "id": "minecraft:projectile_protection",
+          "lvl": 4
+        }
+      ],
+      "pedestal_deny": 1
+    }
+  }
+}
