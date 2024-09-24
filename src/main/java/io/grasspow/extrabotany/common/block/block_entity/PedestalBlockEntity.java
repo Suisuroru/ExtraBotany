@@ -6,6 +6,7 @@ import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -38,6 +39,10 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         return getItemHandler().getItem(0).isEmpty();
     }
 
+    public ItemStack getItem() {
+        return getItemHandler().getItem(0).copy();
+    }
+
     public boolean addItem(Player player, ItemStack stack) {
         if (stack.getItem() instanceof WandOfTheForestItem || stack.is(BotaniaItems.lexicon)) {
             return false;
@@ -65,7 +70,7 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         AtomicBoolean flag = new AtomicBoolean(false);
         Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
-            if (!recipe.getClickTool().is(stack.getItem())) return;
+            if (!recipe.containClickTool(stack.getItem())) return;
             ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
             getItemHandler().setItem(0, result.copy());
             if (player != null) {
@@ -75,6 +80,8 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
                     stack.setCount(0);
                 }
             }
+            ExperienceOrb orb = new ExperienceOrb(level, worldPosition.getX() + 0.5, worldPosition.getY() + 0.5, worldPosition.getZ() + 0.9, 1);
+            level.addFreshEntity(orb);
             flag.set(true);
         });
         return flag.get();

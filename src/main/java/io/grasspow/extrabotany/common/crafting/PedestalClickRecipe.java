@@ -11,6 +11,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -18,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import vazkii.botania.common.crafting.recipe.RecipeUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PedestalClickRecipe implements Recipe<Container> {
@@ -78,8 +80,12 @@ public class PedestalClickRecipe implements Recipe<Container> {
         return ModRecipeTypes.PEDESTAL_CLICK.get();
     }
 
-    public ItemStack getClickTool() {
-        return inputs.get(1).getItems()[0];
+    public ItemStack[] getClickTools() {
+        return inputs.get(1).getItems();
+    }
+
+    public boolean containClickTool(Item item) {
+        return Arrays.stream(getClickTools()).anyMatch(itemStack -> itemStack.is(item));
     }
 
     public static class Serializer implements RecipeSerializer<PedestalClickRecipe> {

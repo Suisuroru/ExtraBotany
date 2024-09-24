@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Block;
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
 
-public class ModTags {
+public final class ModTags {
     public static class Items {
         public static final TagKey<Item> HAMMER = tag("hammer");
 
