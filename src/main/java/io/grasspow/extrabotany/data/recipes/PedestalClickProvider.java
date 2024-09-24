@@ -1,8 +1,6 @@
 package io.grasspow.extrabotany.data.recipes;
 
 import com.google.gson.JsonObject;
-import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
-import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.data.PackOutput;
@@ -10,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.helper.ItemNBTHelper;
 import vazkii.botania.data.recipes.BotaniaRecipeProvider;
@@ -24,7 +23,7 @@ public class PedestalClickProvider extends BotaniaRecipeProvider {
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "ExtraBotany pedestal recipes";
     }
 

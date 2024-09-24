@@ -1,7 +1,6 @@
 package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.common.block.ExtraBotanyBlocks;
-import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
