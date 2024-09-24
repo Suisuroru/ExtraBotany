@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.block.block_entity;
 
-import io.grasspow.extrabotany.common.crafting.PedestalRecipe;
+import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
 import io.grasspow.extrabotany.common.registry.ModBlockEntities;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
@@ -63,7 +63,7 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         itemHandler.setItem(0, getItemHandler().getItem(0));
         itemHandler.setItem(1, stack.copy());
         AtomicBoolean flag = new AtomicBoolean(false);
-        Optional<PedestalRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
+        Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
             if (!recipe.getClickTool().is(stack.getItem())) return;
             ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());

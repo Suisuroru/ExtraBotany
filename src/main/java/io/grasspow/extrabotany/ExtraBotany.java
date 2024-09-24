@@ -26,6 +26,7 @@ public class ExtraBotany {
         ModItems.init(modEventBus);
         ModTabs.init(modEventBus);
         ModRecipeTypes.init(modEventBus);
+        ModSounds.init(modEventBus);
         context.registerConfig(ModConfig.Type.COMMON, ConfigHandler.SPEC);
     }
 

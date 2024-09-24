@@ -20,13 +20,13 @@ import vazkii.botania.common.crafting.recipe.RecipeUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedestalRecipe implements Recipe<Container> {
+public class PedestalClickRecipe implements Recipe<Container> {
 
     private final ResourceLocation id;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
 
-    public PedestalRecipe(ResourceLocation id, ItemStack output, Ingredient... inputs) {
+    public PedestalClickRecipe(ResourceLocation id, ItemStack output, Ingredient... inputs) {
         Preconditions.checkArgument(inputs.length <= 2, "Cannot have more than 2 ingredients");
         this.id = id;
         this.inputs = NonNullList.of(Ingredient.EMPTY, inputs);
@@ -82,31 +82,31 @@ public class PedestalRecipe implements Recipe<Container> {
         return inputs.get(1).getItems()[0];
     }
 
-    public static class Serializer implements RecipeSerializer<PedestalRecipe> {
+    public static class Serializer implements RecipeSerializer<PedestalClickRecipe> {
         @NotNull
         @Override
-        public PedestalRecipe fromJson(@NotNull ResourceLocation id, @NotNull JsonObject json) {
+        public PedestalClickRecipe fromJson(@NotNull ResourceLocation id, @NotNull JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
             JsonArray ingrs = GsonHelper.getAsJsonArray(json, "ingredients");
             List<Ingredient> inputItems = new ArrayList<>();
             for (JsonElement e : ingrs) {
                 inputItems.add(Ingredient.fromJson(e));
             }
-            return new PedestalRecipe(id, output, inputItems.toArray(new Ingredient[0]));
+            return new PedestalClickRecipe(id, output, inputItems.toArray(new Ingredient[0]));
         }
 
         @Override
-        public PedestalRecipe fromNetwork(@NotNull ResourceLocation id, @NotNull FriendlyByteBuf buf) {
+        public PedestalClickRecipe fromNetwork(@NotNull ResourceLocation id, @NotNull FriendlyByteBuf buf) {
             Ingredient[] inputItems = new Ingredient[buf.readVarInt()];
             for (int i = 0; i < inputItems.length; i++) {
                 inputItems[i] = Ingredient.fromNetwork(buf);
             }
             ItemStack output = buf.readItem();
-            return new PedestalRecipe(id, output, inputItems);
+            return new PedestalClickRecipe(id, output, inputItems);
         }
 
         @Override
-        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull PedestalRecipe recipe) {
+        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull PedestalClickRecipe recipe) {
             buf.writeVarInt(recipe.getIngredients().size());
             for (Ingredient input : recipe.getIngredients()) {
                 input.toNetwork(buf);
