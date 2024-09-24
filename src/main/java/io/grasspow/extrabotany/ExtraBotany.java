@@ -1,10 +1,12 @@
 package io.grasspow.extrabotany;
 
-import io.grasspow.extrabotany.common.ModTabs;
+import io.grasspow.extrabotany.common.block.block_entity.ExtraBotanyBlockEntities;
+import io.grasspow.extrabotany.common.item.ExtraBotanyTabs;
 import io.grasspow.extrabotany.common.block.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.core.ConfigHandler;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibMisc;
+import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -23,9 +25,11 @@ public class ExtraBotany {
 
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
+        ExtraBotanyBlockEntities.init(modEventBus);
         ExtraBotanyBlocks.init(modEventBus);
         ExtraBotanyItems.init(modEventBus);
-        ModTabs.init(modEventBus);
+        ExtraBotanyTabs.init(modEventBus);
+        ModRecipeTypes.init(modEventBus);
         context.registerConfig(ModConfig.Type.COMMON, ConfigHandler.SPEC);
     }
 

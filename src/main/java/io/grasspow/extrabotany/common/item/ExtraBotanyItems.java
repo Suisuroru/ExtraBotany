@@ -31,6 +31,7 @@ public class ExtraBotanyItems {
     //block
     public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
     public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
+    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
 
     // cosmetic bauble
     public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,
@@ -54,6 +55,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO,defaultItem());
     public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM,defaultItem());
     public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM,defaultItem());
+    public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
 
     public static void init(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

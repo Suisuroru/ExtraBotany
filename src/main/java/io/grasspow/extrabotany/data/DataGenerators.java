@@ -5,6 +5,7 @@ import io.grasspow.extrabotany.data.lang.EnUsProvider;
 import io.grasspow.extrabotany.data.lang.ZhCnProvider;
 import io.grasspow.extrabotany.data.recipes.CraftingRecipeProvider;
 import io.grasspow.extrabotany.data.recipes.ManaInfusionProvider;
+import io.grasspow.extrabotany.data.recipes.PedestalClickProvider;
 import io.grasspow.extrabotany.data.recipes.RunicAltarProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +39,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new CraftingRecipeProvider(output));
         generator.addProvider(event.includeServer(), new ManaInfusionProvider(output));
         generator.addProvider(event.includeServer(), new RunicAltarProvider(output));
+        generator.addProvider(event.includeServer(), new PedestalClickProvider(output));
 
     }
 }

@@ -28,6 +28,7 @@ public class LanguageHelper {
         //block item
         addItem(ExtraBotanyItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
         addItem(ExtraBotanyItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
+        addItem(ExtraBotanyItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
         // cosmetic bauble
         addItem(ExtraBotanyItems.PYLON, "Pylon","模拟人生");
         // food
@@ -45,11 +46,13 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");
         addItem(ExtraBotanyItems.SHADOWIUM, "Gilded Potato", "暗影锭");
+        addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
     }
 
     private static void transBlock() {
         addBlock(ExtraBotanyBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
         addBlock(ExtraBotanyBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
+        addBlock(ExtraBotanyBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
     }
 
     private static void transEntity() {

@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common;
+package io.grasspow.extrabotany.common.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
@@ -15,11 +15,11 @@ import static io.grasspow.extrabotany.common.block.ExtraBotanyBlocks.MOD_BLOCKS;
 import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.MOD_ITEMS;
 import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.PYLON;
 
-public class ModTabs {
+public class ExtraBotanyTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TAB_EXTRABOTANY = CREATIVE_MODE_TABS.register("tab_extrabotany", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.extrabotany").withStyle(style -> style.withColor(ChatFormatting.WHITE))) //The language key for the title of your CreativeModeTab
+            .title(Component.translatable("itemGroup.extrabotany").withStyle(style -> style.withColor(ChatFormatting.WHITE)))
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> PYLON.get().getDefaultInstance())
             .backgroundSuffix("botania.png")

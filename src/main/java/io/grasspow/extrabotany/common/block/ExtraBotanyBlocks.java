@@ -1,6 +1,5 @@
 package io.grasspow.extrabotany.common.block;
 
-import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -22,6 +21,7 @@ public class ExtraBotanyBlocks {
 
     public static final RegistryObject<Block> PHOTONIUM_BLOCK = regDefBlock(LibBlockNames.PHOTONIUM_BLOCK, BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
     public static final RegistryObject<Block> SHADOWIUM_BLOCK = regDefBlock(LibBlockNames.SHADOWIUM_BLOCK, BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    public static final RegistryObject<Block> PEDESTAL = regDefBlock(LibBlockNames.PEDESTAL, PedestalBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, ()->new Block(props));

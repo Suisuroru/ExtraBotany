@@ -4,9 +4,9 @@ import net.minecraft.resources.ResourceLocation;
 
 public class LibBlockNames {
 
-
     public static final String PHOTONIUM_BLOCK = "photonium_block";
     public static final String SHADOWIUM_BLOCK = "shadowium_block";
+    public static final String PEDESTAL = "pedestal";
     public static final String POWER_FRAME = "powerframe";
     public static final String TERRA_ALTAR = "terraaltar";
     public static final String MANA_BUFFER = "manabuffer";

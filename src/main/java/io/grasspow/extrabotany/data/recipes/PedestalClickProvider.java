@@ -1,66 +1,60 @@
 package io.grasspow.extrabotany.data.recipes;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
+import io.grasspow.extrabotany.common.libs.LibRecipeNames;
+import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.Nullable;
-import vazkii.botania.common.crafting.BotaniaRecipeTypes;
 import vazkii.botania.common.helper.ItemNBTHelper;
+import vazkii.botania.data.recipes.BotaniaRecipeProvider;
 
 import java.util.function.Consumer;
 
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
-
-public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarProvider {
-    public RunicAltarProvider(PackOutput packOutput) {
+public class PedestalClickProvider extends BotaniaRecipeProvider {
+    public PedestalClickProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
     public String getName() {
-        return "ExtraBotany rune altar recipes";
+        return "ExtraBotany pedestal recipes";
     }
 
     @Override
-    public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        Ingredient GILDED_MASHED_POTATO = Ingredient.of(ExtraBotanyItems.GILDED_MASHED_POTATO.get());
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER),new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()),100000,GILDED_MASHED_POTATO,GILDED_MASHED_POTATO,GILDED_MASHED_POTATO,Ingredient.of(Items.GOLD_BLOCK),Ingredient.of(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
+    protected void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
+//        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT),Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()),Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()), new ItemStack(ExtraBotanyItems.SPIRIT.get())));
     }
 
     private static ResourceLocation idFor(String s) {
-        return resId("runic_altar/" + s);
+        return resId(LibRecipeNames.PEDESTAL_CLICK + "/" + s);
     }
 
     protected static class FinishedRecipe implements net.minecraft.data.recipes.FinishedRecipe {
         private final ResourceLocation id;
+        private final Ingredient inputItem;
+        private final Ingredient clickTool;
         private final ItemStack output;
-        private final int mana;
-        private final Ingredient[] inputs;
 
-        protected FinishedRecipe(ResourceLocation id, ItemStack output, int mana, Ingredient... inputs) {
+        public FinishedRecipe(ResourceLocation id, Ingredient inputItem, Ingredient clickTool, ItemStack output) {
             this.id = id;
+            this.inputItem = inputItem;
+            this.clickTool = clickTool;
             this.output = output;
-            this.mana = mana;
-            this.inputs = inputs;
         }
 
         @Override
         public void serializeRecipeData(JsonObject json) {
+            json.add("inputItem", inputItem.toJson());
+            json.add("clickTool", clickTool.toJson());
             json.add("output", ItemNBTHelper.serializeStack(output));
-            JsonArray ingredients = new JsonArray();
-            for (Ingredient ingr : inputs) {
-                ingredients.add(ingr.toJson());
-            }
-            json.addProperty("mana", mana);
-            json.add("ingredients", ingredients);
         }
 
         @Override
@@ -70,7 +64,7 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
 
         @Override
         public RecipeSerializer<?> getType() {
-            return BotaniaRecipeTypes.RUNE_SERIALIZER;
+            return ModRecipeTypes.PEDESTAL_CLICK_SERIALIZER.get();
         }
 
         @Nullable
