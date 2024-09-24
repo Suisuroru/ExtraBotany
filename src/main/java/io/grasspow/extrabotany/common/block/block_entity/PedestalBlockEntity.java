@@ -15,6 +15,7 @@ import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.WandOfTheForestItem;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
 
@@ -56,9 +57,19 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
 
     public boolean processContainItem(ItemStack stack, Player player) {
         if (level == null) return false;
-        Optional<PedestalRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), getItemHandler(), level);
+        SimpleContainer itemHandler = new SimpleContainer(2) {
+            @Override
+            public int getMaxStackSize() {
+                return 1;
+            }
+        };
+        itemHandler.setItem(0, getItemHandler().getItem(0));
+        itemHandler.setItem(1, stack.copy());
+        AtomicBoolean flag = new AtomicBoolean(false);
+        Optional<PedestalRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
-            ItemStack result = recipe.assemble(getItemHandler(), getLevel().registryAccess());
+            if (!recipe.getClickTool().is(stack.getItem())) return;
+            ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
             getItemHandler().setItem(0, result.copy());
             if (player != null) {
                 stack.hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
@@ -67,7 +78,8 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
                     stack.setCount(0);
                 }
             }
+            flag.set(true);
         });
-        return matchingRecipe.isPresent();
+        return flag.get();
     }
 }

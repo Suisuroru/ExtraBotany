@@ -1,8 +1,13 @@
 package io.grasspow.extrabotany.data.recipes;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
+import io.grasspow.extrabotany.common.libs.ModTags;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +34,8 @@ public class PedestalClickProvider extends BotaniaRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-//        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT),Ingredient.of(ModItems.SPIRIT_FUEL.get()),Ingredient.of(ModItems.SPIRIT_FUEL.get()), new ItemStack(ModItems.SPIRIT.get())));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT), new ItemStack(ModItems.SPIRIT.get()), Ingredient.of(ModItems.SPIRIT_FUEL.get()), Ingredient.of(ModTags.Items.HAMMER)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_MASHED_POTATO), new ItemStack(ModItems.GILDED_MASHED_POTATO.get()), Ingredient.of(ModItems.GILDED_POTATO.get()), Ingredient.of(ModTags.Items.HAMMER)));
     }
 
     private static ResourceLocation idFor(String s) {
@@ -38,22 +44,23 @@ public class PedestalClickProvider extends BotaniaRecipeProvider {
 
     protected static class FinishedRecipe implements net.minecraft.data.recipes.FinishedRecipe {
         private final ResourceLocation id;
-        private final Ingredient inputItem;
-        private final Ingredient clickTool;
         private final ItemStack output;
+        private final NonNullList<Ingredient> inputItems;
 
-        public FinishedRecipe(ResourceLocation id, Ingredient inputItem, Ingredient clickTool, ItemStack output) {
+        public FinishedRecipe(ResourceLocation id, ItemStack output, Ingredient... inputItems) {
             this.id = id;
-            this.inputItem = inputItem;
-            this.clickTool = clickTool;
             this.output = output;
+            this.inputItems = NonNullList.of(Ingredient.EMPTY, inputItems);
         }
 
         @Override
         public void serializeRecipeData(JsonObject json) {
-            json.add("inputItem", inputItem.toJson());
-            json.add("clickTool", clickTool.toJson());
             json.add("output", ItemNBTHelper.serializeStack(output));
+            JsonArray ingredients = new JsonArray();
+            for (Ingredient ingr : inputItems) {
+                ingredients.add(ingr.toJson());
+            }
+            json.add("ingredients", ingredients);
         }
 
         @Override

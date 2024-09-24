@@ -1,6 +1,9 @@
 package io.grasspow.extrabotany.data;
 
+import io.grasspow.extrabotany.api.IHammer;
 import io.grasspow.extrabotany.common.libs.LibMisc;
+import io.grasspow.extrabotany.common.libs.ModTags;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -25,6 +28,12 @@ public class ItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.generateAccessoryTags();
+
+        ModItems.MOD_ITEMS.forEach(item -> {
+            if (item.get() instanceof IHammer) {
+                tag(ModTags.Items.HAMMER).add(item.get());
+            }
+        });
     }
 
     @Override

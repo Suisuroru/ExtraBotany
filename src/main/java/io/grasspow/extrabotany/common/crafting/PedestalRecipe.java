@@ -1,9 +1,12 @@
 package io.grasspow.extrabotany.common.crafting;
 
+import com.google.common.base.Preconditions;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -12,18 +15,21 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import vazkii.botania.common.crafting.recipe.RecipeUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PedestalRecipe implements Recipe<Container> {
 
     private final ResourceLocation id;
-    private final Ingredient inputItem;
-    private final ItemStack clickTool;
+    private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
 
-    public PedestalRecipe(ResourceLocation id, Ingredient inputItem, ItemStack clickTool, ItemStack output) {
+    public PedestalRecipe(ResourceLocation id, ItemStack output, Ingredient... inputs) {
+        Preconditions.checkArgument(inputs.length <= 2, "Cannot have more than 2 ingredients");
         this.id = id;
-        this.inputItem = inputItem;
-        this.clickTool = clickTool;
+        this.inputs = NonNullList.of(Ingredient.EMPTY, inputs);
         this.output = output;
     }
 
@@ -34,7 +40,12 @@ public class PedestalRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container input, Level level) {
-        return this.inputItem.test(input.getItem(0));
+        return RecipeUtils.matches(inputs, input, null);
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return inputs;
     }
 
     @Override
@@ -64,29 +75,34 @@ public class PedestalRecipe implements Recipe<Container> {
 
     @Override
     public RecipeType<?> getType() {
-        return BuiltInRegistries.RECIPE_TYPE.get(getId());
+        return ModRecipeTypes.PEDESTAL_CLICK.get();
     }
 
     public ItemStack getClickTool() {
-        return clickTool;
+        return inputs.get(1).getItems()[0];
     }
 
     public static class Serializer implements RecipeSerializer<PedestalRecipe> {
         @NotNull
         @Override
         public PedestalRecipe fromJson(@NotNull ResourceLocation id, @NotNull JsonObject json) {
-            Ingredient inputItem = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "inputItem"));
-            ItemStack clickTool = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "clickTool"));
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-            return new PedestalRecipe(id, inputItem, clickTool, output);
+            JsonArray ingrs = GsonHelper.getAsJsonArray(json, "ingredients");
+            List<Ingredient> inputItems = new ArrayList<>();
+            for (JsonElement e : ingrs) {
+                inputItems.add(Ingredient.fromJson(e));
+            }
+            return new PedestalRecipe(id, output, inputItems.toArray(new Ingredient[0]));
         }
 
         @Override
         public PedestalRecipe fromNetwork(@NotNull ResourceLocation id, @NotNull FriendlyByteBuf buf) {
-            Ingredient inputItem = Ingredient.fromNetwork(buf);
-            ItemStack clickTool = buf.readItem();
+            Ingredient[] inputItems = new Ingredient[buf.readVarInt()];
+            for (int i = 0; i < inputItems.length; i++) {
+                inputItems[i] = Ingredient.fromNetwork(buf);
+            }
             ItemStack output = buf.readItem();
-            return new PedestalRecipe(id, inputItem, clickTool, output);
+            return new PedestalRecipe(id, output, inputItems);
         }
 
         @Override

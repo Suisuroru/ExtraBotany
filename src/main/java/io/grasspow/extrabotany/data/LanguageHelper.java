@@ -34,9 +34,9 @@ public class LanguageHelper {
         // food
         addItem(ModItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ModItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");
-        addItem(ModItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "魔力鸡尾酒");
+        addItem(ModItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "镀金土豆泥");
         addItem(ModItems.FRIED_CHICKEN, "Fried Chicken", "香香鸡");
-        addItem(ModItems.MANA_DRINK, "Mana Drink", "镀金土豆泥");
+        addItem(ModItems.MANA_DRINK, "Mana Drink", "魔力鸡尾酒");
         //tool
         addItem(ModItems.MANASTEEL_HAMMER, "Manasteel Hammer", "魔力钢锤");
         addItem(ModItems.ELEMENTIUM_HAMMER, "Elementium Hammer", "源质钢锤");

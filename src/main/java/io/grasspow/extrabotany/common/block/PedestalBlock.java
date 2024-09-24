@@ -21,7 +21,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import vazkii.botania.api.internal.VanillaPacketDispatcher;
 import vazkii.botania.common.helper.InventoryHelper;
 
 public class PedestalBlock extends BaseEntityBlock {
@@ -56,25 +55,18 @@ public class PedestalBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestal)) {
             return InteractionResult.PASS;
         }
-        ItemStack heldStack = player.getItemInHand(hand);
-        if (pedestal.isEmpty()) {
-            if (heldStack.isEmpty()) {
-                return InteractionResult.PASS;
-            } else if (pedestal.addItem(player, heldStack)) {
-                level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GLOW_ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 0.8F);
-                return InteractionResult.SUCCESS;
-            }
-        } else if (!heldStack.isEmpty()) {
-            if (pedestal.processContainItem(heldStack, player)) {
-                VanillaPacketDispatcher.dispatchTEToNearbyPlayers(pedestal);
-                return InteractionResult.SUCCESS;
-            }
+        ItemStack mainStack = player.getMainHandItem();
+        ItemStack offStack = player.getOffhandItem();
+        boolean isEmpty = pedestal.isEmpty();
+        ItemStack itemToAdd = isEmpty ? (!offStack.isEmpty() ? offStack : mainStack) : ItemStack.EMPTY;
+        if (isEmpty ? !itemToAdd.isEmpty() && pedestal.addItem(player, itemToAdd) : pedestal.processContainItem(mainStack, player)) {
+            level.playSound(null, pos, isEmpty ? SoundEvents.GLOW_ITEM_FRAME_ADD_ITEM : SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
+            player.swing(isEmpty && !offStack.isEmpty() ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
             return InteractionResult.CONSUME;
-        } else if (hand.equals(InteractionHand.MAIN_HAND)) {
+        } else if (!isEmpty) {
             InventoryHelper.withdrawFromInventory(pedestal, player);
-            VanillaPacketDispatcher.dispatchTEToNearbyPlayers(pedestal);
-            level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GLOW_ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 0.25F, 0.5F);
-            return InteractionResult.SUCCESS;
+            level.playSound(null, pos, SoundEvents.GLOW_ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
         return InteractionResult.PASS;
     }
