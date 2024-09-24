@@ -29,6 +29,8 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new EnUsProvider(output));
         generator.addProvider(event.includeClient(), new ZhCnProvider(output));
 
+        generator.addProvider(event.includeClient(), new SoundDefinitionsProvider(output, fileHelper));
+
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, fileHelper));
 
         var blockTagProvider = new BlockTagProvider(output, lookupProvider, fileHelper);
