@@ -1,5 +1,6 @@
-package io.grasspow.extrabotany.common.block;
+package io.grasspow.extrabotany.common.registry;
 
+import io.grasspow.extrabotany.common.block.PedestalBlock;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -15,7 +16,7 @@ import java.util.function.Function;
 import static io.grasspow.extrabotany.ExtraBotany.MOD_ID;
 import static io.grasspow.extrabotany.ExtraBotany.logger;
 
-public class ExtraBotanyBlocks {
+public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     public static final ArrayList<RegistryObject<? extends Block>> MOD_BLOCKS = new ArrayList<>();
 

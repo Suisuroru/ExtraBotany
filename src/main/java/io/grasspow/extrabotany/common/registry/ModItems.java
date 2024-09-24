@@ -1,6 +1,6 @@
-package io.grasspow.extrabotany.common.item;
+package io.grasspow.extrabotany.common.registry;
 
-import io.grasspow.extrabotany.common.block.ExtraBotanyBlocks;
+import io.grasspow.extrabotany.common.item.ItemNightmareFuel;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
@@ -23,15 +23,15 @@ import java.util.function.Function;
 import static io.grasspow.extrabotany.ExtraBotany.MOD_ID;
 import static io.grasspow.extrabotany.ExtraBotany.logger;
 
-public class ExtraBotanyItems {
+public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
     public static final ArrayList<RegistryObject<Item>> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<RegistryObject<BlockItem>> MOD_BLOCK_ITEMS = new ArrayList<>();
 
     //block
-    public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
-    public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
-    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
+    public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ModBlocks.PHOTONIUM_BLOCK);
+    public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ModBlocks.SHADOWIUM_BLOCK);
+    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ModBlocks.PEDESTAL);
 
     // cosmetic bauble
     public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,
@@ -39,11 +39,11 @@ public class ExtraBotanyItems {
     );
 
     // food
-    public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ExtraBotanyFoods.SPIRIT_FUEL));
-    public static final RegistryObject<Item> NIGHTMARE_FUEL = regDefItem(LibItemNames.NIGHTMARE_FUEL, ItemNightmareFuel::new, food(ExtraBotanyFoods.NIGHTMARE_FUEL));
-    public static final RegistryObject<Item> GILDED_MASHED_POTATO = regDefItem(LibItemNames.GILDED_MASHED_POTATO, food(ExtraBotanyFoods.GILDED_MASHED_POTATO));
-    public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ExtraBotanyFoods.FRIED_CHICKEN));
-    public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, food(ExtraBotanyFoods.MANA_DRINK));
+    public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));
+    public static final RegistryObject<Item> NIGHTMARE_FUEL = regDefItem(LibItemNames.NIGHTMARE_FUEL, ItemNightmareFuel::new, food(ModFoods.NIGHTMARE_FUEL));
+    public static final RegistryObject<Item> GILDED_MASHED_POTATO = regDefItem(LibItemNames.GILDED_MASHED_POTATO, food(ModFoods.GILDED_MASHED_POTATO));
+    public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ModFoods.FRIED_CHICKEN));
+    public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, food(ModFoods.MANA_DRINK));
 
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());

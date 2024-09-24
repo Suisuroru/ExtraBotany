@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
-import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.DisplayInfo;
 import net.minecraft.advancements.FrameType;
@@ -35,15 +35,15 @@ public class AdvancementProvider extends ForgeAdvancementProvider {
         @Override
         public void generate(HolderLookup.Provider registries, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
             Advancement root = Advancement.Builder.advancement()
-                    .display(rootDisplay(ExtraBotanyItems.PYLON.get(), "advancement.extrabotany.root.title",
+                    .display(rootDisplay(ModItems.PYLON.get(), "advancement.extrabotany.root.title",
                             "advancement.extrabotany.root.desc", new ResourceLocation("botania:textures/block/livingwood_log.png")))
                     .addCriterion("lexicon", InventoryChangeTrigger.TriggerInstance.hasItems(BotaniaItems.lexicon))
                     .save(consumer, mainId(LibAdvancementNames.ROOT));
 
             Advancement nightmare_fuel_eat = Advancement.Builder.advancement()
-                    .display(simple(ExtraBotanyItems.NIGHTMARE_FUEL.get(), LibAdvancementNames.NIGHTMARE_FUEL_EAT, FrameType.TASK))
+                    .display(simple(ModItems.NIGHTMARE_FUEL.get(), LibAdvancementNames.NIGHTMARE_FUEL_EAT, FrameType.TASK))
                     .parent(root)
-                    .addCriterion(LibAdvancementNames.NIGHTMARE_FUEL_EAT, eatItem(ExtraBotanyItems.NIGHTMARE_FUEL.get()))
+                    .addCriterion(LibAdvancementNames.NIGHTMARE_FUEL_EAT, eatItem(ModItems.NIGHTMARE_FUEL.get()))
                     .save(consumer, mainId(LibAdvancementNames.NIGHTMARE_FUEL_EAT));
         }
     }

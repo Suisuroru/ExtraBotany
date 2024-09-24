@@ -29,7 +29,7 @@ public class PedestalClickProvider extends BotaniaRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-//        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT),Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()),Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()), new ItemStack(ExtraBotanyItems.SPIRIT.get())));
+//        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT),Ingredient.of(ModItems.SPIRIT_FUEL.get()),Ingredient.of(ModItems.SPIRIT_FUEL.get()), new ItemStack(ModItems.SPIRIT.get())));
     }
 
     private static ResourceLocation idFor(String s) {

@@ -14,7 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.*;
+import static io.grasspow.extrabotany.common.registry.ModItems.PYLON;
 
 public class ItemTagProvider extends ItemTagsProvider {
     public ItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,

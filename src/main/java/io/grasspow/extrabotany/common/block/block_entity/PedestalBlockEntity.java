@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.block.block_entity;
 
 import io.grasspow.extrabotany.common.crafting.PedestalRecipe;
+import io.grasspow.extrabotany.common.registry.ModBlockEntities;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
@@ -18,7 +19,7 @@ import java.util.Optional;
 public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
 
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ExtraBotanyBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
 

@@ -2,8 +2,8 @@ package io.grasspow.extrabotany.data.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -31,8 +31,8 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
 
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        Ingredient GILDED_MASHED_POTATO = Ingredient.of(ExtraBotanyItems.GILDED_MASHED_POTATO.get());
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER),new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()),100000,GILDED_MASHED_POTATO,GILDED_MASHED_POTATO,GILDED_MASHED_POTATO,Ingredient.of(Items.GOLD_BLOCK),Ingredient.of(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
+        Ingredient GILDED_MASHED_POTATO = Ingredient.of(ModItems.GILDED_MASHED_POTATO.get());
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ModItems.ULTIMATE_HAMMER.get()), 100000, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, Ingredient.of(Items.GOLD_BLOCK), Ingredient.of(ModItems.TERRASTEEL_HAMMER.get())));
     }
 
     private static ResourceLocation idFor(String s) {

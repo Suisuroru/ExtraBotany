@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
-import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.MOD_ITEMS;
+import static io.grasspow.extrabotany.common.registry.ModItems.MOD_ITEMS;
 
 public class ItemModelProvider extends net.minecraftforge.client.model.generators.ItemModelProvider {
     public ItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {

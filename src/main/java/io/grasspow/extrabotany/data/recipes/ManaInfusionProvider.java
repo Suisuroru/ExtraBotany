@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.data.recipes;
 
-import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +18,7 @@ public class ManaInfusionProvider extends vazkii.botania.data.recipes.ManaInfusi
 
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        consumer.accept(new FinishedRecipe(id("nightmare_fuel"),new ItemStack(ExtraBotanyItems.NIGHTMARE_FUEL.get()), Ingredient.of(Items.COAL),2000));
+        consumer.accept(new FinishedRecipe(id("nightmare_fuel"), new ItemStack(ModItems.NIGHTMARE_FUEL.get()), Ingredient.of(Items.COAL), 2000));
     }
 
     @Override

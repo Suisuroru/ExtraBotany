@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.item;
+package io.grasspow.extrabotany.common.registry;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
@@ -11,11 +11,11 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static io.grasspow.extrabotany.ExtraBotany.MOD_ID;
 import static io.grasspow.extrabotany.ExtraBotany.logger;
-import static io.grasspow.extrabotany.common.block.ExtraBotanyBlocks.MOD_BLOCKS;
-import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.MOD_ITEMS;
-import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.PYLON;
+import static io.grasspow.extrabotany.common.registry.ModBlocks.MOD_BLOCKS;
+import static io.grasspow.extrabotany.common.registry.ModItems.MOD_ITEMS;
+import static io.grasspow.extrabotany.common.registry.ModItems.PYLON;
 
-public class ExtraBotanyTabs {
+public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TAB_EXTRABOTANY = CREATIVE_MODE_TABS.register("tab_extrabotany", () -> CreativeModeTab.builder()

@@ -1,10 +1,10 @@
-package io.grasspow.extrabotany.common.item;
+package io.grasspow.extrabotany.common.registry;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
-public class ExtraBotanyFoods {
+public class ModFoods {
     public static final FoodProperties SPIRIT_FUEL = new FoodProperties.Builder()
             .nutrition(4).saturationMod(0.3F)
             .alwaysEat()

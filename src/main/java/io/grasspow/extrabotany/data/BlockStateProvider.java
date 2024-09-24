@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
-import io.grasspow.extrabotany.common.block.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.libs.LibMisc;
+import io.grasspow.extrabotany.common.registry.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -18,11 +18,11 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     @Override
     protected void registerStatesAndModels() {
         List.of(
-                ExtraBotanyBlocks.PHOTONIUM_BLOCK,
-                ExtraBotanyBlocks.SHADOWIUM_BLOCK
+                ModBlocks.PHOTONIUM_BLOCK,
+                ModBlocks.SHADOWIUM_BLOCK
         ).forEach(this::normal);
         List.of(
-                ExtraBotanyBlocks.PEDESTAL
+                ModBlocks.PEDESTAL
         ).forEach(this::custom);
     }
 
@@ -38,6 +38,6 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
      */
     private void custom(RegistryObject<Block> block) {
         String path = block.getId().getPath();
-        simpleBlockItem(block.get(), models().withExistingParent(path, new ResourceLocation("extrabotany:block/" + path)));
+        simpleBlockWithItem(block.get(), models().withExistingParent(path, new ResourceLocation("extrabotany:block/" + path + "_default")));
     }
 }

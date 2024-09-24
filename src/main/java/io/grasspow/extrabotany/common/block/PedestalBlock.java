@@ -25,7 +25,7 @@ import vazkii.botania.api.internal.VanillaPacketDispatcher;
 import vazkii.botania.common.helper.InventoryHelper;
 
 public class PedestalBlock extends BaseEntityBlock {
-    protected PedestalBlock(Properties pProperties) {
+    public PedestalBlock(Properties pProperties) {
         super(pProperties);
     }
 
