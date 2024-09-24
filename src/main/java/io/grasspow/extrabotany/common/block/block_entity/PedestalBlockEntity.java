@@ -42,21 +42,18 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         if (stack.getItem() instanceof WandOfTheForestItem || stack.is(BotaniaItems.lexicon)) {
             return false;
         }
-        if (getItemHandler().getItem(0).isEmpty()) {
-            ItemStack stackToAdd = stack.copyWithCount(1);
-            getItemHandler().setItem(0, stackToAdd);
-
-            if (player == null || !player.getAbilities().instabuild) {
-                stack.shrink(1);
-            }
-            VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
+        ItemStack stackToAdd = stack.copyWithCount(1);
+        getItemHandler().setItem(0, stackToAdd);
+        if (player == null || !player.getAbilities().instabuild) {
+            stack.shrink(1);
         }
+        VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
         return true;
     }
 
 
     public boolean processContainItem(ItemStack stack, Player player) {
-        if (level == null) return false;
+        if (level == null || stack.isEmpty()) return false;
         SimpleContainer itemHandler = new SimpleContainer(2) {
             @Override
             public int getMaxStackSize() {

@@ -59,12 +59,17 @@ public class PedestalBlock extends BaseEntityBlock {
         ItemStack offStack = player.getOffhandItem();
         boolean isEmpty = pedestal.isEmpty();
         ItemStack itemToAdd = isEmpty ? (!offStack.isEmpty() ? offStack : mainStack) : ItemStack.EMPTY;
+        if (isEmpty && itemToAdd.isEmpty()) return InteractionResult.PASS;
         if (isEmpty ? !itemToAdd.isEmpty() && pedestal.addItem(player, itemToAdd) : pedestal.processContainItem(mainStack, player)) {
             level.playSound(null, pos, isEmpty ? SoundEvents.GLOW_ITEM_FRAME_ADD_ITEM : SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
             player.swing(isEmpty && !offStack.isEmpty() ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
             return InteractionResult.CONSUME;
         } else if (!isEmpty) {
-            InventoryHelper.withdrawFromInventory(pedestal, player);
+            if (player.getAbilities().instabuild) {
+                pedestal.addItem(player, ItemStack.EMPTY);
+            } else {
+                InventoryHelper.withdrawFromInventory(pedestal, player);
+            }
             level.playSound(null, pos, SoundEvents.GLOW_ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
