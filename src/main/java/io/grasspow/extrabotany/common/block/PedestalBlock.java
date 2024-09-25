@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -34,7 +33,7 @@ public class PedestalBlock extends BaseEntityBlock {
     private static final VoxelShape MIDDLE = Block.box(4, 4, 4, 12, 12, 12);
     private static final VoxelShape BOTTOM_TOP = Block.box(2, 2, 2, 14, 20, 14);
     private static final VoxelShape BOTTOM_END = Block.box(0, 0, 0, 16, 2, 16);
-    private static final VoxelShape SHAPE = Shapes.join(TOP, Shapes.join(MIDDLE, Shapes.join(BOTTOM_TOP, BOTTOM_END, BooleanOp.OR), BooleanOp.OR), BooleanOp.OR);
+    private static final VoxelShape SHAPE = Shapes.or(TOP, MIDDLE, BOTTOM_TOP, BOTTOM_END);
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -63,7 +62,7 @@ public class PedestalBlock extends BaseEntityBlock {
         ItemStack itemToAdd = isEmpty ? (!offStack.isEmpty() ? offStack : mainStack) : ItemStack.EMPTY;
         if (isEmpty && itemToAdd.isEmpty()) return InteractionResult.PASS;
         if (isEmpty ? !itemToAdd.isEmpty() && pedestal.addItem(player, itemToAdd) : pedestal.processContainItem(mainStack, player)) {
-            level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.playSound(player, pos, isEmpty ? SoundEvents.ITEM_PICKUP : SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
             player.swing(isEmpty && !offStack.isEmpty() ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
             return InteractionResult.CONSUME;
         } else if (!isEmpty) {

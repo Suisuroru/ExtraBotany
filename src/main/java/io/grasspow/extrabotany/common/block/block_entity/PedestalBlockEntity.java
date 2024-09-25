@@ -49,6 +49,7 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         }
         ItemStack stackToAdd = stack.copyWithCount(1);
         getItemHandler().setItem(0, stackToAdd);
+        setChanged();
         if (player == null || !player.getAbilities().instabuild) {
             stack.shrink(1);
         }
@@ -80,7 +81,7 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
                     stack.setCount(0);
                 }
             }
-            ExperienceOrb orb = new ExperienceOrb(level, worldPosition.getX() + 0.5, worldPosition.getY() + 0.5, worldPosition.getZ() + 0.9, 1);
+            ExperienceOrb orb = new ExperienceOrb(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1.2, worldPosition.getZ() + 0.5, 1);
             level.addFreshEntity(orb);
             flag.set(true);
         });
