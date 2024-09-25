@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.client.render.block_entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import io.grasspow.extrabotany.common.block.block_entity.PedestalBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,6 +12,8 @@ import net.minecraft.world.item.ItemDisplayContext;
 
 public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
 
+    private int rot = 0;
+
     public PedestalBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {
     }
 
@@ -18,6 +21,8 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
     public void render(PedestalBlockEntity pedestal, float v, PoseStack matrixStack, MultiBufferSource iRenderTypeBuffer, int combinedLightIn, int combinedOverlayIn) {
         var stack = pedestal.getItem();
         if (!stack.isEmpty()) {
+            if (rot > 360 * 4) rot = 0;
+            rot++;
             matrixStack.pushPose();
             var item = stack.getItem();
             float yOff;
@@ -28,6 +33,7 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
             }
             matrixStack.translate(0.5F, 0.9F + yOff, 0.5F);
             matrixStack.scale(0.8f, 0.8f, 0.8f);
+            matrixStack.mulPose(Axis.YP.rotationDegrees(rot * 0.25f));
             Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.GROUND, combinedLightIn, combinedOverlayIn, matrixStack, iRenderTypeBuffer, pedestal.getLevel(), 0);
             matrixStack.popPose();
         }
