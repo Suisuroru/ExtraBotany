@@ -6,24 +6,23 @@ import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.api.internal.VanillaPacketDispatcher;
-import vazkii.botania.common.block.block_entity.SimpleInventoryBlockEntity;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.WandOfTheForestItem;
 
 import java.util.Optional;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
+public class PedestalBlockEntity extends ModBlockEntity {
+    private Random rand = new Random();
 
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
-
 
     @Override
     protected SimpleContainer createItemHandler() {
@@ -49,14 +48,13 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         }
         ItemStack stackToAdd = stack.copyWithCount(1);
         getItemHandler().setItem(0, stackToAdd);
-        setChanged();
         if (player == null || !player.getAbilities().instabuild) {
             stack.shrink(1);
         }
+        inventoryChanged();
         VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
         return true;
     }
-
 
     public boolean processContainItem(ItemStack stack, Player player) {
         if (level == null || stack.isEmpty()) return false;
@@ -72,8 +70,6 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
         Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
             if (!recipe.containClickTool(stack.getItem())) return;
-            ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
-            getItemHandler().setItem(0, result.copy());
             if (player != null) {
                 stack.hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             } else {
@@ -81,8 +77,10 @@ public class PedestalBlockEntity extends SimpleInventoryBlockEntity {
                     stack.setCount(0);
                 }
             }
-            ExperienceOrb orb = new ExperienceOrb(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1.2, worldPosition.getZ() + 0.5, 1);
-            level.addFreshEntity(orb);
+            if (rand.nextInt(10) < 3) {
+                ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
+                getItemHandler().setItem(0, result.copy());
+            }
             flag.set(true);
         });
         return flag.get();
