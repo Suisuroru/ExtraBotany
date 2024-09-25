@@ -2,23 +2,23 @@ package io.grasspow.extrabotany.common.block.block_entity;
 
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
 import io.grasspow.extrabotany.common.registry.ModBlockEntities;
+import io.grasspow.extrabotany.common.registry.ModItems;
 import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import vazkii.botania.api.internal.VanillaPacketDispatcher;
-import vazkii.botania.common.item.BotaniaItems;
-import vazkii.botania.common.item.WandOfTheForestItem;
 
 import java.util.Optional;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PedestalBlockEntity extends ModBlockEntity {
     private Random rand = new Random();
+    public boolean processing = false;
 
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -39,25 +39,37 @@ public class PedestalBlockEntity extends ModBlockEntity {
     }
 
     public ItemStack getItem() {
-        return getItemHandler().getItem(0).copy();
+        return getItemHandler().getItem(0);
     }
 
-    public boolean addItem(Player player, ItemStack stack) {
-        if (stack.getItem() instanceof WandOfTheForestItem || stack.is(BotaniaItems.lexicon)) {
-            return false;
+    public boolean addItem(ItemStack stack) {
+        if (isEmpty() && !stack.isEmpty()) {
+            if (stack.is(ModItems.GILDED_POTATO.get()) && stack.getOrCreateTag().getBoolean("pedestal_deny")) {
+                return false;
+            }
+            getItemHandler().setItem(0, stack.split(1));
+            inventoryChanged();
+            return true;
         }
-        ItemStack stackToAdd = stack.copyWithCount(1);
-        getItemHandler().setItem(0, stackToAdd);
-        if (player == null || !player.getAbilities().instabuild) {
-            stack.shrink(1);
+        return false;
+    }
+
+    public ItemStack removeItem() {
+        if (!isEmpty()) {
+            ItemStack item = getItemHandler().getItem(0);
+            getItemHandler().setItem(0, ItemStack.EMPTY);
+            inventoryChanged();
+            return item.copy();
         }
-        inventoryChanged();
-        VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
-        return true;
+        return ItemStack.EMPTY;
     }
 
     public boolean processContainItem(ItemStack stack, Player player) {
-        if (level == null || stack.isEmpty()) return false;
+        processing = true;
+        if (level == null) {
+            processing = false;
+            return false;
+        }
         SimpleContainer itemHandler = new SimpleContainer(2) {
             @Override
             public int getMaxStackSize() {
@@ -66,7 +78,6 @@ public class PedestalBlockEntity extends ModBlockEntity {
         };
         itemHandler.setItem(0, getItemHandler().getItem(0));
         itemHandler.setItem(1, stack.copy());
-        AtomicBoolean flag = new AtomicBoolean(false);
         Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
             if (!recipe.containClickTool(stack.getItem())) return;
@@ -79,10 +90,13 @@ public class PedestalBlockEntity extends ModBlockEntity {
             }
             if (rand.nextInt(10) < 3) {
                 ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
-                getItemHandler().setItem(0, result.copy());
+                player.getInventory().placeItemBackInInventory(result.copy());
+                removeItem();
+            } else {
+                level.playSound(null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1f, 1f);
             }
-            flag.set(true);
         });
-        return flag.get();
+        processing = false;
+        return matchingRecipe.isPresent();
     }
 }

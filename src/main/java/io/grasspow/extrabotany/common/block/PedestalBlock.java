@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.block;
 
 import io.grasspow.extrabotany.common.block.block_entity.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.libs.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -8,11 +9,12 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,9 +24,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import vazkii.botania.common.helper.InventoryHelper;
+import vazkii.botania.common.block.BotaniaWaterloggedBlock;
 
-public class PedestalBlock extends BaseEntityBlock {
+public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBlock {
     public PedestalBlock(Properties pProperties) {
         super(pProperties);
     }
@@ -42,7 +44,7 @@ public class PedestalBlock extends BaseEntityBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState pState) {
-//        must return MODEL to render custom model
+//      must return MODEL to render custom model
         return RenderShape.MODEL;
     }
 
@@ -51,28 +53,39 @@ public class PedestalBlock extends BaseEntityBlock {
         return new PedestalBlockEntity(pPos, pState);
     }
 
+    //todo: there is still a bug to fix,temporary put on hold.
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (!(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestal)) {
-            return InteractionResult.PASS;
-        }
-        ItemStack mainStack = player.getMainHandItem();
-        ItemStack offStack = player.getOffhandItem();
-        boolean isEmpty = pedestal.isEmpty();
-        ItemStack itemToAdd = isEmpty ? (!offStack.isEmpty() ? offStack : mainStack) : ItemStack.EMPTY;
-        if (isEmpty && itemToAdd.isEmpty()) return InteractionResult.PASS;
-        if (isEmpty ? !itemToAdd.isEmpty() && pedestal.addItem(player, itemToAdd) : pedestal.processContainItem(mainStack, player)) {
-            level.playSound(player, pos, isEmpty ? SoundEvents.ITEM_PICKUP : SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
-            player.swing(isEmpty && !offStack.isEmpty() ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
-            return InteractionResult.CONSUME;
-        } else if (!isEmpty) {
-            if (player.getAbilities().instabuild) {
-                pedestal.addItem(player, ItemStack.EMPTY);
-            } else {
-                InventoryHelper.withdrawFromInventory(pedestal, player);
+        BlockEntity tileEntity = level.getBlockEntity(pos);
+        if (tileEntity instanceof PedestalBlockEntity pedestal) {
+            ItemStack heldStack = player.getItemInHand(hand);
+            ItemStack offhandStack = player.getOffhandItem();
+            if (pedestal.isEmpty() && !pedestal.processing) {
+                if (!offhandStack.isEmpty()) {
+                    if (hand.equals(InteractionHand.MAIN_HAND) && !offhandStack.is(ModTags.Items.PEDESTAL_DENY) && !(heldStack.getItem() instanceof BlockItem)) {
+                        return InteractionResult.PASS; // Pass to off-hand if that item is placeable
+                    }
+                    if (hand.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModTags.Items.PEDESTAL_DENY)) {
+                        return InteractionResult.PASS; // Items in this tag should not be placed from the off-hand
+                    }
+                }
+                if (heldStack.isEmpty()) {
+                    return InteractionResult.PASS;
+                } else if (pedestal.addItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
+                    level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1F);
+                    return InteractionResult.SUCCESS;
+                }
+
+            } else if (!heldStack.isEmpty()) {
+                if (pedestal.processContainItem(heldStack, player)) {
+                    return InteractionResult.SUCCESS;
+                }
+                return InteractionResult.CONSUME;
+            } else if (hand.equals(InteractionHand.MAIN_HAND)) {
+                player.getInventory().placeItemBackInInventory(pedestal.removeItem());
+                level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1F, 1F);
+                return InteractionResult.SUCCESS;
             }
-            level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
-            return InteractionResult.sidedSuccess(level.isClientSide);
         }
         return InteractionResult.PASS;
     }

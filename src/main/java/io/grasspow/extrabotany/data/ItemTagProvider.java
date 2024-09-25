@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -34,6 +35,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 tag(ModTags.Items.HAMMER).add(item.get());
             }
         });
+
+        tag(ModTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
     }
 
     @Override

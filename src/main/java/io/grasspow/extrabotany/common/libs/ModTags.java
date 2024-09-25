@@ -11,6 +11,7 @@ import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 public final class ModTags {
     public static class Items {
         public static final TagKey<Item> HAMMER = tag("hammer");
+        public static final TagKey<Item> PEDESTAL_DENY = tag("pedestal_deny");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, resId(name));
