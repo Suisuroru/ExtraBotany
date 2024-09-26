@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.lib.BotaniaTags;
 
@@ -64,6 +65,13 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("GSG")
                 .pattern("GGG")
                 .unlockedBy("has_item", conditionsFromItem(ModItems.SPIRIT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_BOTTLE.get())
+                .define('G', BotaniaBlocks.manaGlass)
+                .pattern("G G")
+                .pattern("G G")
+                .pattern(" G ")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.manaGlass))
                 .save(consumer);
         compression(ModBlocks.PHOTONIUM_BLOCK, ModItems.PHOTONIUM).save(consumer);
         compression(ModBlocks.SHADOWIUM_BLOCK, ModItems.SHADOWIUM).save(consumer);

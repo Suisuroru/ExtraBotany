@@ -34,9 +34,10 @@ public class ModFoods {
             .build();
 
     public static final FoodProperties MANA_DRINK = new FoodProperties.Builder()
-            .nutrition(0).saturationMod(0F)
+            .nutrition(0).saturationMod(1F)
             .alwaysEat()
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1200, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.JUMP, 1200, 0), 1.0F)
             .build();

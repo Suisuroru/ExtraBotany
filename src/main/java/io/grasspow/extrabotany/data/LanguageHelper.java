@@ -47,6 +47,7 @@ public class LanguageHelper {
         addItem(ModItems.PHOTONIUM, "Phontonium", "光子锭");
         addItem(ModItems.SHADOWIUM, "Gilded Potato", "暗影锭");
         addItem(ModItems.SPIRIT, "Spirit Fragment", "精神碎片");
+        addItem(ModItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
     }
 
     private static void transBlock() {

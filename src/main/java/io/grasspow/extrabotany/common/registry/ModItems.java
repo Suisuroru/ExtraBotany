@@ -1,6 +1,8 @@
 package io.grasspow.extrabotany.common.registry;
 
+import io.grasspow.extrabotany.common.item.EmptyBottleItem;
 import io.grasspow.extrabotany.common.item.ItemNightmareFuel;
+import io.grasspow.extrabotany.common.item.ManaDrinkItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
@@ -46,7 +48,7 @@ public class ModItems {
     public static final RegistryObject<Item> NIGHTMARE_FUEL = regDefItem(LibItemNames.NIGHTMARE_FUEL, ItemNightmareFuel::new, food(ModFoods.NIGHTMARE_FUEL));
     public static final RegistryObject<Item> GILDED_MASHED_POTATO = regDefItem(LibItemNames.GILDED_MASHED_POTATO, food(ModFoods.GILDED_MASHED_POTATO));
     public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ModFoods.FRIED_CHICKEN));
-    public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, food(ModFoods.MANA_DRINK));
+    public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
 
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
@@ -59,6 +61,7 @@ public class ModItems {
     public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM,defaultItem());
     public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM,defaultItem());
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
+    public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
 
     public static void init(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
