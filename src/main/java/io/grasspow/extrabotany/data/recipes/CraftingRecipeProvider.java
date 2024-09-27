@@ -1,11 +1,16 @@
 package io.grasspow.extrabotany.data.recipes;
 
+import io.grasspow.extrabotany.common.crafting.CocktailRecipe;
+import io.grasspow.extrabotany.common.crafting.InfiniteWineRecipe;
+import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
+import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -34,6 +39,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
+        buildSpecialCraftingRecipes(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
                 .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
                 .define('W', BotaniaItems.livingwoodTwig)
@@ -75,6 +81,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .save(consumer);
         compression(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM).save(consumer);
         compression(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM).save(consumer);
+    }
+
+    protected void buildSpecialCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+        SpecialRecipeBuilder.special(CocktailRecipe.SERIALIZER)
+                .save(consumer, "dynamic/" + LibRecipeNames.COCKTAIL_UPGRADE);
+        SpecialRecipeBuilder.special(SplashGrenadeRecipe.SERIALIZER)
+                .save(consumer, "dynamic/" + LibRecipeNames.SPLASH_GRENADE_UPGRADE);
+        SpecialRecipeBuilder.special(InfiniteWineRecipe.SERIALIZER)
+                .save(consumer, "dynamic/" + LibRecipeNames.INFINITE_WINE_UPGRADE);
     }
 
     private ShapedRecipeBuilder compression(RegistryObject<Block> block, RegistryObject<Item> item) {

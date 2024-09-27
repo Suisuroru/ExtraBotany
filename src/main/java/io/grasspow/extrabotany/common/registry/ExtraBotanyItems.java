@@ -3,6 +3,8 @@ package io.grasspow.extrabotany.common.registry;
 import io.grasspow.extrabotany.common.item.EmptyBottleItem;
 import io.grasspow.extrabotany.common.item.ItemNightmareFuel;
 import io.grasspow.extrabotany.common.item.ManaDrinkItem;
+import io.grasspow.extrabotany.common.item.brew.Cocktail;
+import io.grasspow.extrabotany.common.item.brew.InfiniteWine;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenade;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
@@ -48,6 +50,8 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
 
     //brew
+    public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, Cocktail::new, stackTo32());
+    public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWine::new, nonStackable());
     public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenade::new, stackTo32());
 
     //tool
@@ -62,6 +66,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM,defaultItem());
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
+    public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultItem());
 
     private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

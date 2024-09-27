@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import vazkii.botania.common.lib.BotaniaTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -33,10 +34,11 @@ public class ItemTagProvider extends ItemTagsProvider {
         ExtraBotanyItems.MOD_ITEMS.forEach(item -> {
             if (item.get() instanceof IHammer) {
                 tag(ModTags.Items.HAMMER).add(item.get());
+                tag(BotaniaTags.Items.MANA_USING_ITEMS).add(item.get());
             }
         });
-
         tag(ModTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
+        tag(BotaniaTags.Items.MANA_USING_ITEMS).add(ExtraBotanyItems.INFINITE_WINE.get());
     }
 
     @Override

@@ -46,7 +46,7 @@ public final class ColorHandler {
             int b = Math.max(0, Math.min(255, (color & 0xFF) + add));
 
             return r << 16 | g << 8 | b;
-        }, ExtraBotanyItems.SPLASH_GRENADE.get());
+        }, ExtraBotanyItems.SPLASH_GRENADE.get(), ExtraBotanyItems.COCKTAIL.get(), ExtraBotanyItems.INFINITE_WINE.get());
     }
 
     private ColorHandler() {

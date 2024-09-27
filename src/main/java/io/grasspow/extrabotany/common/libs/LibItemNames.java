@@ -63,14 +63,14 @@ public class LibItemNames {
     public static final String MANA_DRINK = "mana_drink";
 
     public static final String SPLASH_GRENADE = "splash_grenade";
-    public static final String BREW_COCKTAIL = "cocktail";
-    public static final String BREW_INFINITEWINE = "infinitewine";
+    public static final String COCKTAIL = "cocktail";
+    public static final String INFINITE_WINE = "infinite_wine";
 
     public static final String SPIRIT = "spirit";
     public static final String PHOTONIUM = "photonium";
     public static final String SHADOWIUM = "shadowium";
     public static final String AERIALITE = "aerialite";
-    public static final String HEROMEDAL = "heromedal";
+    public static final String HERO_MEDAL = "hero_medal";
     public static final String GOLDCLOTH = "goldcloth";
     public static final String ORICHALCOS = "orichalcos";
     public static final String GILDED_POTATO = "gilded_potato";

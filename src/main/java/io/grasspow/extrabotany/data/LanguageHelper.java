@@ -43,13 +43,17 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.TERRASTEEL_HAMMER, "Terrasteel Hammer", "泰拉钢锤");
         addItem(ExtraBotanyItems.ULTIMATE_HAMMER, "Ultimate Hammer", "镀金究极锤");
         //brew
+        addItem(ExtraBotanyItems.COCKTAIL, "Special-made Cocktail of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
+        addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
+        ;
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");
         addItem(ExtraBotanyItems.SHADOWIUM, "Gilded Potato", "暗影锭");
         addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
         addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
+        addItem(ExtraBotanyItems.HERO_MEDAL, "Medal of Heroism", "英雄勋章");
     }
 
     private static void transBlock() {
