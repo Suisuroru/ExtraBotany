@@ -7,6 +7,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.item.CustomCreativeTabContents;
 
 import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_BLOCKS;
@@ -24,7 +25,11 @@ public class ExtraBotanyTabs {
             .withSearchBar()
             .displayItems((parameters, output) -> {
                 MOD_ITEMS.forEach(item -> {
-                    output.accept(item.get());
+                    if (item.get() instanceof CustomCreativeTabContents cc) {
+                        cc.addToCreativeTab(item.get(), output);
+                    } else {
+                        output.accept(item.get());
+                    }
                 });
                 MOD_BLOCKS.forEach(item -> {
                     output.accept(item.get());

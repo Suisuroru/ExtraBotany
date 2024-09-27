@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.block.block_entity;
+package io.grasspow.extrabotany.common.entity.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;

@@ -62,7 +62,7 @@ public class LibItemNames {
     public static final String FRIED_CHICKEN = "fried_chicken";
     public static final String MANA_DRINK = "mana_drink";
 
-    public static final String BREW_SPLASHGRENADE = "splashgrenade";
+    public static final String SPLASH_GRENADE = "splash_grenade";
     public static final String BREW_COCKTAIL = "cocktail";
     public static final String BREW_INFINITEWINE = "infinitewine";
 

@@ -1,8 +1,8 @@
-package io.grasspow.extrabotany.client.render.block_entity;
+package io.grasspow.extrabotany.client.render.entity.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import io.grasspow.extrabotany.common.block.block_entity.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;

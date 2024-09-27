@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.block;
 
-import io.grasspow.extrabotany.common.block.block_entity.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.libs.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

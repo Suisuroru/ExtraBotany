@@ -42,6 +42,8 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.ELEMENTIUM_HAMMER, "Elementium Hammer", "源质钢锤");
         addItem(ExtraBotanyItems.TERRASTEEL_HAMMER, "Terrasteel Hammer", "泰拉钢锤");
         addItem(ExtraBotanyItems.ULTIMATE_HAMMER, "Ultimate Hammer", "镀金究极锤");
+        //brew
+        addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");

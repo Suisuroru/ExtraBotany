@@ -2,6 +2,8 @@ package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.api.item.IHammer;
+import io.grasspow.extrabotany.common.libs.LibItemNames;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -25,6 +27,9 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
             Item item = defItem.get();
             if (item instanceof IHammer) {
                 heldItem(item);
+            } else if (item.equals(ExtraBotanyItems.SPLASH_GRENADE.get())) {
+                singleTexture(ExtraBotanyItems.SPLASH_GRENADE.getId().getPath(), mcLoc("item/generated"), "layer1", modLoc("item/" + LibItemNames.SPLASH_GRENADE + "1"))
+                        .texture("layer0", modLoc("item/" + LibItemNames.SPLASH_GRENADE));
             } else {
                 basicItem(item);
             }

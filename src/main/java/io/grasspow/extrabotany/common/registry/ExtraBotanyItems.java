@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.common.registry;
 import io.grasspow.extrabotany.common.item.EmptyBottleItem;
 import io.grasspow.extrabotany.common.item.ItemNightmareFuel;
 import io.grasspow.extrabotany.common.item.ManaDrinkItem;
+import io.grasspow.extrabotany.common.item.brew.SplashGrenade;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
@@ -45,6 +46,9 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> GILDED_MASHED_POTATO = regDefItem(LibItemNames.GILDED_MASHED_POTATO, food(ModFoods.GILDED_MASHED_POTATO));
     public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ModFoods.FRIED_CHICKEN));
     public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
+
+    //brew
+    public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenade::new, stackTo32());
 
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
@@ -97,6 +101,10 @@ public class ExtraBotanyItems {
 
     private static Item.Properties stackTo16() {
         return defaultItem().stacksTo(16);
+    }
+
+    private static Item.Properties stackTo32() {
+        return defaultItem().stacksTo(32);
     }
 
     public static DeferredRegister<Item> getItems() {

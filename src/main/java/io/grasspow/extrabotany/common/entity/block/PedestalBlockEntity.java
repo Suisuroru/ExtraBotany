@@ -1,7 +1,7 @@
-package io.grasspow.extrabotany.common.block.block_entity;
+package io.grasspow.extrabotany.common.entity.block;
 
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyBlockEntities;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.BlockPos;
@@ -21,7 +21,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
     public boolean processing = false;
 
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ExtraBotanyBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(ExtraBotanyEntities.Blocks.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
     @Override

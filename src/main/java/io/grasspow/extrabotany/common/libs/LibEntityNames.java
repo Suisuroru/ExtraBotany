@@ -13,7 +13,7 @@ public class LibEntityNames {
     public static final String VOID = "void";
     public static final String FLAMESCIONSWORD = "flamescionsword";
     public static final String FLAMESCIONULT = "flamescionult";
-    public static final String SPLASHGRENADE = "splashgrenade";
+    public static final String SPLASH_GRENADE = "splash_grenade";
 
     public static final String EGO = "ego";
     public static final String EGOMINION = "egominion";
