@@ -1,7 +1,6 @@
 package io.grasspow.extrabotany.common.registry;
 
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -12,9 +11,9 @@ import java.util.List;
 import static io.grasspow.extrabotany.common.libs.LibMisc.MOD_ID;
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
-public final class ModSounds {
+public final class ExtraBotanySounds {
     private static final List<RegistryObject<SoundEvent>> SOUND_EVENTS = new ArrayList<>();
-    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MOD_ID);
+    private static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MOD_ID);
 
 //    public static final RegistryObject<SoundEvent> PEDESTAL_PICK = reg(LibSoundEventNames.PEDESTAL_PICK);
 //    public static final RegistryObject<SoundEvent> PEDESTAL_PUT = reg(LibSoundEventNames.PEDESTAL_PUT);
@@ -25,10 +24,7 @@ public final class ModSounds {
         return sound;
     }
 
-    private ModSounds() {
-    }
-
-    public static void init(IEventBus modEventBus) {
-        SOUNDS.register(modEventBus);
+    public static DeferredRegister<SoundEvent> getSounds() {
+        return SOUNDS;
     }
 }

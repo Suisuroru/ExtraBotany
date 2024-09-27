@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data.recipes;
 
 import io.grasspow.extrabotany.common.libs.LibItemNames;
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +19,8 @@ public class ManaInfusionProvider extends vazkii.botania.data.recipes.ManaInfusi
 
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        consumer.accept(new FinishedRecipe(id(LibItemNames.NIGHTMARE_FUEL), new ItemStack(ModItems.NIGHTMARE_FUEL.get()), Ingredient.of(Items.COAL), 2000));
-        consumer.accept(new FinishedRecipe(id(LibItemNames.FRIED_CHICKEN), new ItemStack(ModItems.FRIED_CHICKEN.get()), Ingredient.of(Items.COOKED_CHICKEN), 600));
+        consumer.accept(new FinishedRecipe(id(LibItemNames.NIGHTMARE_FUEL), new ItemStack(ExtraBotanyItems.NIGHTMARE_FUEL.get()), Ingredient.of(Items.COAL), 2000));
+        consumer.accept(new FinishedRecipe(id(LibItemNames.FRIED_CHICKEN), new ItemStack(ExtraBotanyItems.FRIED_CHICKEN.get()), Ingredient.of(Items.COOKED_CHICKEN), 600));
     }
 
     @Override

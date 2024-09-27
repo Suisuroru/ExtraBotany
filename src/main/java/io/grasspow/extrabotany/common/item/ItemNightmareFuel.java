@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.item;
 
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -26,10 +26,10 @@ public class ItemNightmareFuel extends Item {
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
         }
         if (pStack.isEmpty()) {
-            return new ItemStack(ModItems.SPIRIT_FUEL.get());
+            return new ItemStack(ExtraBotanyItems.SPIRIT_FUEL.get());
         } else {
             if (living instanceof Player player && !player.getAbilities().instabuild) {
-                ItemStack itemstack = new ItemStack(ModItems.SPIRIT_FUEL.get());
+                ItemStack itemstack = new ItemStack(ExtraBotanyItems.SPIRIT_FUEL.get());
                 if (!player.getInventory().add(itemstack)) {
                     player.drop(itemstack, false);
                 }

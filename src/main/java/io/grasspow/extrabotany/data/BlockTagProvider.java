@@ -14,7 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-import static io.grasspow.extrabotany.common.registry.ModBlocks.*;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.*;
 
 
 public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {

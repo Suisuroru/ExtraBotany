@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.data.loot;
 
-import io.grasspow.extrabotany.common.registry.ModBlocks;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static io.grasspow.extrabotany.common.registry.ModBlocks.*;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.*;
 
 public class BlockLootTableProvider extends BlockLootSubProvider {
     public BlockLootTableProvider() {
@@ -26,6 +26,6 @@ public class BlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.MOD_BLOCKS.stream().map(RegistryObject::get).collect(Collectors.toSet());
+        return ExtraBotanyBlocks.MOD_BLOCKS.stream().map(RegistryObject::get).collect(Collectors.toSet());
     }
 }

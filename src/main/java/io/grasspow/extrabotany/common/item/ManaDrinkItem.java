@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.item;
 
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -27,7 +27,7 @@ public class ManaDrinkItem extends Item {
             ManaItemHandler.instance().dispatchManaExact(stack, player, 10000, true);
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
-                player.getInventory().placeItemBackInInventory(new ItemStack(ModItems.EMPTY_BOTTLE.get()));
+                player.getInventory().placeItemBackInInventory(new ItemStack(ExtraBotanyItems.EMPTY_BOTTLE.get()));
             }
         }
         return stack;

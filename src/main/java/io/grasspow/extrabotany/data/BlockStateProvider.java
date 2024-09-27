@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import io.grasspow.extrabotany.common.registry.ModBlocks;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -18,11 +18,11 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     @Override
     protected void registerStatesAndModels() {
         List.of(
-                ModBlocks.PHOTONIUM_BLOCK,
-                ModBlocks.SHADOWIUM_BLOCK
+                ExtraBotanyBlocks.PHOTONIUM_BLOCK,
+                ExtraBotanyBlocks.SHADOWIUM_BLOCK
         ).forEach(this::normal);
         List.of(
-                ModBlocks.PEDESTAL
+                ExtraBotanyBlocks.PEDESTAL
         ).forEach(this::custom);
     }
 

@@ -1,9 +1,9 @@
 package io.grasspow.extrabotany.common.block.block_entity;
 
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
-import io.grasspow.extrabotany.common.registry.ModBlockEntities;
-import io.grasspow.extrabotany.common.registry.ModItems;
-import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlockEntities;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,7 +21,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
     public boolean processing = false;
 
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(ExtraBotanyBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
 
     public boolean addItem(ItemStack stack) {
         if (isEmpty() && !stack.isEmpty()) {
-            if (stack.is(ModItems.GILDED_POTATO.get()) && stack.getOrCreateTag().getBoolean("pedestal_deny")) {
+            if (stack.is(ExtraBotanyItems.GILDED_POTATO.get()) && stack.getOrCreateTag().getBoolean("pedestal_deny")) {
                 return false;
             }
             getItemHandler().setItem(0, stack.split(1));
@@ -78,7 +78,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
         };
         itemHandler.setItem(0, getItemHandler().getItem(0));
         itemHandler.setItem(1, stack.copy());
-        Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
+        Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
         matchingRecipe.ifPresent(recipe -> {
             if (!recipe.containClickTool(stack.getItem())) return;
             if (player != null) {

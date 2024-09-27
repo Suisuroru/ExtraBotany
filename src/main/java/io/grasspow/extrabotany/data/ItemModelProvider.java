@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
-import io.grasspow.extrabotany.ExtraBotany;
-import io.grasspow.extrabotany.api.IHammer;
+import io.grasspow.extrabotany.api.ExtraBotanyAPI;
+import io.grasspow.extrabotany.api.item.IHammer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -12,11 +12,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
-import static io.grasspow.extrabotany.common.registry.ModItems.MOD_ITEMS;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.MOD_ITEMS;
 
 public class ItemModelProvider extends net.minecraftforge.client.model.generators.ItemModelProvider {
     public ItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, ExtraBotany.MOD_ID, existingFileHelper);
+        super(output, ExtraBotanyAPI.MOD_ID, existingFileHelper);
     }
 
     @Override

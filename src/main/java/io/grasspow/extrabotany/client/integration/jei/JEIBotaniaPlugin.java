@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.client.integration.jei;
 
-import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
@@ -37,7 +37,7 @@ public class JEIBotaniaPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        registry.addRecipes(PedestalClickRecipeCategory.TYPE, sortRecipes(ModRecipeTypes.PEDESTAL_CLICK.get(), BY_ID));
+        registry.addRecipes(PedestalClickRecipeCategory.TYPE, sortRecipes(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get(), BY_ID));
     }
 
     private static <T extends Recipe<C>, C extends Container> List<T> sortRecipes(RecipeType<T> type, Comparator<? super T> comparator) {

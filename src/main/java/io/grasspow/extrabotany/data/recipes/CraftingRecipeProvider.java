@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data.recipes;
 
-import io.grasspow.extrabotany.common.registry.ModBlocks;
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -34,7 +34,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MANASTEEL_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
                 .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
                 .define('W', BotaniaItems.livingwoodTwig)
                 .pattern("MMM")
@@ -42,7 +42,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" W ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_MANASTEEL))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ELEMENTIUM_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ELEMENTIUM_HAMMER.get())
                 .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
                 .define('W', BotaniaItems.livingwoodTwig)
                 .pattern("MMM")
@@ -50,7 +50,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" W ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_ELEMENTIUM))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.TERRASTEEL_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.TERRASTEEL_HAMMER.get())
                 .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
                 .define('W', BotaniaItems.livingwoodTwig)
                 .pattern("MMM")
@@ -58,23 +58,23 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" W ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PYLON.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.PYLON.get())
                 .define('G', BotaniaTags.Items.PETALS_GREEN)
-                .define('S', ModItems.SPIRIT.get())
+                .define('S', ExtraBotanyItems.SPIRIT.get())
                 .pattern("GGG")
                 .pattern("GSG")
                 .pattern("GGG")
-                .unlockedBy("has_item", conditionsFromItem(ModItems.SPIRIT.get()))
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_BOTTLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.EMPTY_BOTTLE.get())
                 .define('G', BotaniaBlocks.manaGlass)
                 .pattern("G G")
                 .pattern("G G")
                 .pattern(" G ")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.manaGlass))
                 .save(consumer);
-        compression(ModBlocks.PHOTONIUM_BLOCK, ModItems.PHOTONIUM).save(consumer);
-        compression(ModBlocks.SHADOWIUM_BLOCK, ModItems.SHADOWIUM).save(consumer);
+        compression(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM).save(consumer);
+        compression(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM).save(consumer);
     }
 
     private ShapedRecipeBuilder compression(RegistryObject<Block> block, RegistryObject<Item> item) {

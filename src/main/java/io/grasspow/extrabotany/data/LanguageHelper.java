@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
-import io.grasspow.extrabotany.common.registry.ModBlocks;
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -26,34 +26,34 @@ public class LanguageHelper {
 
     private static void transItem() {
         //block item
-        addItem(ModItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
-        addItem(ModItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
-        addItem(ModItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
+        addItem(ExtraBotanyItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
+        addItem(ExtraBotanyItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
+        addItem(ExtraBotanyItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
         // cosmetic bauble
-        addItem(ModItems.PYLON, "Pylon", "模拟人生");
+        addItem(ExtraBotanyItems.PYLON, "Pylon", "模拟人生");
         // food
-        addItem(ModItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
-        addItem(ModItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");
-        addItem(ModItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "镀金土豆泥");
-        addItem(ModItems.FRIED_CHICKEN, "Fried Chicken", "香香鸡");
-        addItem(ModItems.MANA_DRINK, "Mana Drink", "魔力鸡尾酒");
+        addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
+        addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");
+        addItem(ExtraBotanyItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "镀金土豆泥");
+        addItem(ExtraBotanyItems.FRIED_CHICKEN, "Fried Chicken", "香香鸡");
+        addItem(ExtraBotanyItems.MANA_DRINK, "Mana Drink", "魔力鸡尾酒");
         //tool
-        addItem(ModItems.MANASTEEL_HAMMER, "Manasteel Hammer", "魔力钢锤");
-        addItem(ModItems.ELEMENTIUM_HAMMER, "Elementium Hammer", "源质钢锤");
-        addItem(ModItems.TERRASTEEL_HAMMER, "Terrasteel Hammer", "泰拉钢锤");
-        addItem(ModItems.ULTIMATE_HAMMER, "Ultimate Hammer", "镀金究极锤");
+        addItem(ExtraBotanyItems.MANASTEEL_HAMMER, "Manasteel Hammer", "魔力钢锤");
+        addItem(ExtraBotanyItems.ELEMENTIUM_HAMMER, "Elementium Hammer", "源质钢锤");
+        addItem(ExtraBotanyItems.TERRASTEEL_HAMMER, "Terrasteel Hammer", "泰拉钢锤");
+        addItem(ExtraBotanyItems.ULTIMATE_HAMMER, "Ultimate Hammer", "镀金究极锤");
         //misc
-        addItem(ModItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
-        addItem(ModItems.PHOTONIUM, "Phontonium", "光子锭");
-        addItem(ModItems.SHADOWIUM, "Gilded Potato", "暗影锭");
-        addItem(ModItems.SPIRIT, "Spirit Fragment", "精神碎片");
-        addItem(ModItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
+        addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
+        addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");
+        addItem(ExtraBotanyItems.SHADOWIUM, "Gilded Potato", "暗影锭");
+        addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
+        addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
     }
 
     private static void transBlock() {
-        addBlock(ModBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
-        addBlock(ModBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
-        addBlock(ModBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
+        addBlock(ExtraBotanyBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
+        addBlock(ExtraBotanyBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
+        addBlock(ExtraBotanyBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
     }
 
     private static void transEntity() {

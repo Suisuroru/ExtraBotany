@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import io.grasspow.extrabotany.common.registry.ModRecipeTypes;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -72,12 +72,12 @@ public class PedestalClickRecipe implements Recipe<Container> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipeTypes.PEDESTAL_CLICK_SERIALIZER.get();
+        return ExtraBotanyRecipeTypes.PEDESTAL_CLICK_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeTypes.PEDESTAL_CLICK.get();
+        return ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get();
     }
 
     public ItemStack[] getClickTools() {

@@ -8,15 +8,12 @@ import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.UltimateHammer;
+import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -25,18 +22,17 @@ import java.util.ArrayList;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import static io.grasspow.extrabotany.ExtraBotany.MOD_ID;
-import static io.grasspow.extrabotany.ExtraBotany.logger;
+import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 
-public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+public class ExtraBotanyItems {
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
     public static final ArrayList<RegistryObject<Item>> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<RegistryObject<BlockItem>> MOD_BLOCK_ITEMS = new ArrayList<>();
 
     //block
-    public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ModBlocks.PHOTONIUM_BLOCK);
-    public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ModBlocks.SHADOWIUM_BLOCK);
-    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ModBlocks.PEDESTAL);
+    public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
+    public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
+    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
 
     // cosmetic bauble
     public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,
@@ -63,12 +59,7 @@ public class ModItems {
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
 
-    public static void init(IEventBus modEventBus) {
-        ITEMS.register(modEventBus);
-        logger.info("Mod Items Initialized");
-    }
-
-    public static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
+    private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         MOD_BLOCK_ITEMS.add(item);
         return item;
@@ -108,35 +99,39 @@ public class ModItems {
         return defaultItem().stacksTo(16);
     }
 
-    public static class DefaultStacks {
-        public static ItemStack gilded_potato = new ItemStack(ModItems.GILDED_POTATO.get());
-
-        static {
-            gilded_potato.addTagElement("Enchantments", get());
-            gilded_potato.getOrCreateTag().putShort("pedestal_deny", (short) 1);
-        }
-
-        private static ListTag get() {
-            ListTag listTag = new ListTag();
-            CompoundTag tag = new CompoundTag();
-            tag.putString("id", "minecraft:protection");
-            tag.putShort("lvl", (short) 4);
-            listTag.add(tag);
-            CompoundTag tag1 = new CompoundTag();
-            tag.putString("id", "minecraft:blast_protection");
-            tag.putShort("lvl", (short) 4);
-            listTag.add(tag1);
-            CompoundTag tag2 = new CompoundTag();
-            tag.putString("id", "minecraft:fire_protection");
-            tag.putShort("lvl", (short) 4);
-            listTag.add(tag2);
-            CompoundTag tag3 = new CompoundTag();
-            tag.putString("id", "minecraft:projectile_protection");
-            tag.putShort("lvl", (short) 4);
-            listTag.add(tag3);
-            return listTag;
-        }
-
-
+    public static DeferredRegister<Item> getItems() {
+        return ITEMS;
     }
+
+    //    public static class DefaultStacks {
+//        public static ItemStack gilded_potato = new ItemStack(ExtraBotanyItems.GILDED_POTATO.get());
+//
+//        static {
+//            gilded_potato.addTagElement("Enchantments", get());
+//            gilded_potato.getOrCreateTag().putShort("pedestal_deny", (short) 1);
+//        }
+//
+//        private static ListTag get() {
+//            ListTag listTag = new ListTag();
+//            CompoundTag tag = new CompoundTag();
+//            tag.putString("id", "minecraft:protection");
+//            tag.putShort("lvl", (short) 4);
+//            listTag.add(tag);
+//            CompoundTag tag1 = new CompoundTag();
+//            tag.putString("id", "minecraft:blast_protection");
+//            tag.putShort("lvl", (short) 4);
+//            listTag.add(tag1);
+//            CompoundTag tag2 = new CompoundTag();
+//            tag.putString("id", "minecraft:fire_protection");
+//            tag.putShort("lvl", (short) 4);
+//            listTag.add(tag2);
+//            CompoundTag tag3 = new CompoundTag();
+//            tag.putString("id", "minecraft:projectile_protection");
+//            tag.putShort("lvl", (short) 4);
+//            listTag.add(tag3);
+//            return listTag;
+//        }
+//
+//
+//    }
 }

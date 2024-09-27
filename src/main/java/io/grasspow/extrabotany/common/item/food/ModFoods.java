@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.registry;
+package io.grasspow.extrabotany.common.item.food;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

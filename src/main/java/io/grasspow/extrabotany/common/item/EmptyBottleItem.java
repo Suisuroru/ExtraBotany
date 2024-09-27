@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.item;
 
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -27,7 +27,7 @@ public class EmptyBottleItem extends Item {
         if (block instanceof ManaPoolBlock && world.getBlockEntity(pos) instanceof ManaPoolBlockEntity entity) {
             entity.receiveMana(-10000);
             stack.shrink(1);
-            ctx.getPlayer().getInventory().placeItemBackInInventory(new ItemStack(ModItems.MANA_DRINK.get()));
+            ctx.getPlayer().getInventory().placeItemBackInInventory(new ItemStack(ExtraBotanyItems.MANA_DRINK.get()));
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;

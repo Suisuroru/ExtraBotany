@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -15,11 +14,11 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.ArrayList;
 import java.util.function.Function;
 
-import static io.grasspow.extrabotany.ExtraBotany.MOD_ID;
-import static io.grasspow.extrabotany.ExtraBotany.logger;
+import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 
-public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
+
+public class ExtraBotanyBlocks {
+    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     public static final ArrayList<RegistryObject<? extends Block>> MOD_BLOCKS = new ArrayList<>();
 
     public static final RegistryObject<Block> PHOTONIUM_BLOCK = regDefBlock(LibBlockNames.PHOTONIUM_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
@@ -38,13 +37,11 @@ public class ModBlocks {
         return block;
     }
 
-    private static BlockBehaviour.Properties livingrock() {
-//        return BlockBehaviour.Properties.of().strength(2, 10).sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops();
-        return BlockBehaviour.Properties.of().strength(2, 10).sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops();
+    public static DeferredRegister<Block> getBlocks() {
+        return BLOCKS;
     }
 
-    public static void init(IEventBus modEventBus) {
-        BLOCKS.register(modEventBus);
-        logger.debug("Mod Blocks Initialized");
+    private static BlockBehaviour.Properties livingrock() {
+        return BlockBehaviour.Properties.of().strength(2, 10).sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops();
     }
 }

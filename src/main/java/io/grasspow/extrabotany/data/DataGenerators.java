@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.data;
 
-import io.grasspow.extrabotany.ExtraBotany;
+import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.data.lang.EnUsProvider;
 import io.grasspow.extrabotany.data.lang.ZhCnProvider;
 import io.grasspow.extrabotany.data.recipes.CraftingRecipeProvider;
@@ -11,7 +11,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = ExtraBotany.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = ExtraBotanyAPI.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent

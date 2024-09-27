@@ -3,7 +3,7 @@ package io.grasspow.extrabotany.client.integration.jei;
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
-import io.grasspow.extrabotany.common.registry.ModItems;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -30,7 +30,7 @@ public class PedestalClickRecipeCategory implements IRecipeCategory<PedestalClic
     private final Component localizedName;
     private final IDrawable overlay;
     private final IDrawable icon;
-    private final ItemStack renderStack = new ItemStack(ModItems.PEDESTAL_ITEM.get());
+    private final ItemStack renderStack = new ItemStack(ExtraBotanyItems.PEDESTAL_ITEM.get());
 
     public PedestalClickRecipeCategory(IGuiHelper guiHelper) {
         background = guiHelper.createBlankDrawable(142, 46);
