@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.common.helper.ItemNBTHelper;
-import vazkii.botania.common.item.brew.BaseBrewItem;
 import vazkii.botania.common.item.equipment.CustomDamageItem;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.RelicImpl;
@@ -23,12 +22,12 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class InfiniteWine extends BaseBrewItem implements Relic, CustomDamageItem {
+public class InfiniteWine extends BaseBrewItemEX implements Relic, CustomDamageItem {
     private static final String TAG_SOULBIND_UUID = "soulbindUUID";
     private static final int MANA_PER_DAMAGE = 12000;
 
     public InfiniteWine(Properties builder) {
-        super(builder, 12, 18, ExtraBotanyItems.EMPTY_BOTTLE);
+        super(builder, 12, 18, 1.5f, 1, ExtraBotanyItems.EMPTY_BOTTLE);
     }
 
     @Override
@@ -68,6 +67,7 @@ public class InfiniteWine extends BaseBrewItem implements Relic, CustomDamageIte
         };
     }
 
+    //todo:auto consume mana to add times using infinite-wine
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
         if (!world.isClientSide && entity instanceof Player player) {

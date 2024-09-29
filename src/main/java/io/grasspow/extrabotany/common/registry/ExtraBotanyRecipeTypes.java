@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.common.registry;
 
-import io.grasspow.extrabotany.common.crafting.CocktailRecipe;
-import io.grasspow.extrabotany.common.crafting.InfiniteWineRecipe;
+import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
+import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
 import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
 import io.grasspow.extrabotany.common.libs.LibMisc;
@@ -20,14 +20,14 @@ public class ExtraBotanyRecipeTypes {
     public static final RegistryObject<RecipeType<PedestalClickRecipe>> PEDESTAL_CLICK = RECIPE_TYPES.register(LibRecipeNames.PEDESTAL_CLICK, () -> registerRecipeType(LibRecipeNames.PEDESTAL_CLICK));
     public static final RegistryObject<RecipeSerializer<PedestalClickRecipe>> PEDESTAL_CLICK_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.PEDESTAL_CLICK, PedestalClickRecipe.Serializer::new);
 
-    public static final RegistryObject<RecipeType<CocktailRecipe>> COCKTAIL_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.COCKTAIL_UPGRADE, () -> registerRecipeType(LibRecipeNames.COCKTAIL_UPGRADE));
-    public static final RegistryObject<RecipeSerializer<CocktailRecipe>> COCKTAIL_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.COCKTAIL_UPGRADE, () -> CocktailRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeType<CocktailUpgradeRecipe>> COCKTAIL_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.COCKTAIL_UPGRADE, () -> registerRecipeType(LibRecipeNames.COCKTAIL_UPGRADE));
+    public static final RegistryObject<RecipeSerializer<CocktailUpgradeRecipe>> COCKTAIL_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.COCKTAIL_UPGRADE, () -> CocktailUpgradeRecipe.SERIALIZER);
 
     public static final RegistryObject<RecipeType<SplashGrenadeRecipe>> SPLASH_GRENADE_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.SPLASH_GRENADE_UPGRADE, () -> registerRecipeType(LibRecipeNames.INFINITE_WINE_UPGRADE));
     public static final RegistryObject<RecipeSerializer<SplashGrenadeRecipe>> SPLASH_GRENADE_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.SPLASH_GRENADE_UPGRADE, () -> SplashGrenadeRecipe.SERIALIZER);
 
-    public static final RegistryObject<RecipeType<InfiniteWineRecipe>> INFINITE_WINE_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> registerRecipeType(LibRecipeNames.INFINITE_WINE_UPGRADE));
-    public static final RegistryObject<RecipeSerializer<InfiniteWineRecipe>> INFINITE_WINE_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> InfiniteWineRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeType<InfiniteWineUpgradeRecipe>> INFINITE_WINE_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> registerRecipeType(LibRecipeNames.INFINITE_WINE_UPGRADE));
+    public static final RegistryObject<RecipeSerializer<InfiniteWineUpgradeRecipe>> INFINITE_WINE_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> InfiniteWineUpgradeRecipe.SERIALIZER);
 
     private static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<>() {

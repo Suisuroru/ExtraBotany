@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.forge;
 
 import com.google.common.base.Suppliers;
+import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWine;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import vazkii.botania.api.BotaniaForgeCapabilities;
+import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.forge.CapabilityUtil;
 
@@ -56,6 +58,7 @@ public class ForgeCommonInitializer {
         ExtraBotanyRecipeTypes.getRecipeSerializers().register(modEventBus);
 //        ModEffects.getEffects().register(bus);
 //        ModBrews.registerBrews();
+        bind(BotaniaRegistries.BREWS, ExtraBotanyBrews::submitRegistrations);
         ExtraBotanyTabs.getTabs().register(modEventBus);
     }
 

@@ -3,10 +3,7 @@ package io.grasspow.extrabotany.data;
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.data.lang.EnUsProvider;
 import io.grasspow.extrabotany.data.lang.ZhCnProvider;
-import io.grasspow.extrabotany.data.recipes.CraftingRecipeProvider;
-import io.grasspow.extrabotany.data.recipes.ManaInfusionProvider;
-import io.grasspow.extrabotany.data.recipes.PedestalClickProvider;
-import io.grasspow.extrabotany.data.recipes.RunicAltarProvider;
+import io.grasspow.extrabotany.data.recipes.*;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -44,6 +41,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ManaInfusionProvider(output));
         generator.addProvider(event.includeServer(), new RunicAltarProvider(output));
         generator.addProvider(event.includeServer(), new PedestalClickProvider(output));
+        generator.addProvider(event.includeServer(), new BrewProvider(output));
 
     }
 }

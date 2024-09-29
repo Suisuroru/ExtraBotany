@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data.recipes;
 
-import io.grasspow.extrabotany.common.crafting.CocktailRecipe;
-import io.grasspow.extrabotany.common.crafting.InfiniteWineRecipe;
+import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
+import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
 import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.BotaniaBlocks;
@@ -40,6 +41,14 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
     private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
         buildSpecialCraftingRecipes(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyItems.PEDESTAL_ITEM.get())
+                .define('G', Items.GOLD_NUGGET)
+                .define('L', BotaniaBlocks.livingrock)
+                .pattern("LGL")
+                .pattern(" L ")
+                .pattern("LLL")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.livingrock))
+                .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
                 .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
                 .define('W', BotaniaItems.livingwoodTwig)
@@ -84,11 +93,11 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     protected void buildSpecialCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-        SpecialRecipeBuilder.special(CocktailRecipe.SERIALIZER)
+        SpecialRecipeBuilder.special(CocktailUpgradeRecipe.SERIALIZER)
                 .save(consumer, "dynamic/" + LibRecipeNames.COCKTAIL_UPGRADE);
         SpecialRecipeBuilder.special(SplashGrenadeRecipe.SERIALIZER)
                 .save(consumer, "dynamic/" + LibRecipeNames.SPLASH_GRENADE_UPGRADE);
-        SpecialRecipeBuilder.special(InfiniteWineRecipe.SERIALIZER)
+        SpecialRecipeBuilder.special(InfiniteWineUpgradeRecipe.SERIALIZER)
                 .save(consumer, "dynamic/" + LibRecipeNames.INFINITE_WINE_UPGRADE);
     }
 

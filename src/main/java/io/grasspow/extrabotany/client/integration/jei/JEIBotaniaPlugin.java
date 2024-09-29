@@ -1,10 +1,15 @@
 package io.grasspow.extrabotany.client.integration.jei;
 
+import io.grasspow.extrabotany.client.integration.jei.crafting.CocktailUpgradeRecipeWrapper;
+import io.grasspow.extrabotany.client.integration.jei.crafting.InfiniteWineUpgradeRecipeWrapper;
+import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
+import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IVanillaCategoryExtensionRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -33,6 +38,12 @@ public class JEIBotaniaPlugin implements IModPlugin {
         registry.addRecipeCategories(
                 new PedestalClickRecipeCategory(registry.getJeiHelpers().getGuiHelper())
         );
+    }
+
+    @Override
+    public void registerVanillaCategoryExtensions(IVanillaCategoryExtensionRegistration registration) {
+        registration.getCraftingCategory().addCategoryExtension(CocktailUpgradeRecipe.class, CocktailUpgradeRecipeWrapper::new);
+        registration.getCraftingCategory().addCategoryExtension(InfiniteWineUpgradeRecipe.class, InfiniteWineUpgradeRecipeWrapper::new);
     }
 
     @Override

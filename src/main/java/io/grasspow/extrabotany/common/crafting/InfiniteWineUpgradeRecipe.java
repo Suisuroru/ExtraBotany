@@ -2,7 +2,6 @@ package io.grasspow.extrabotany.common.crafting;
 
 
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -15,13 +14,12 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import vazkii.botania.api.brew.BrewItem;
 import vazkii.botania.common.helper.ItemNBTHelper;
-import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.brew.BaseBrewItem;
 
-public class CocktailRecipe extends CustomRecipe {
-    public static final SimpleCraftingRecipeSerializer<CocktailRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<>(CocktailRecipe::new);
+public class InfiniteWineUpgradeRecipe extends CustomRecipe {
+    public static final SimpleCraftingRecipeSerializer<InfiniteWineUpgradeRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<>(InfiniteWineUpgradeRecipe::new);
 
-    public CocktailRecipe(ResourceLocation pId, CraftingBookCategory pCategory) {
+    public InfiniteWineUpgradeRecipe(ResourceLocation pId, CraftingBookCategory pCategory) {
         super(pId, pCategory);
     }
 
@@ -33,9 +31,9 @@ public class CocktailRecipe extends CustomRecipe {
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
             if (!stack.isEmpty()) {
-                if (stack.getItem() == BotaniaItems.brewFlask && !foundBrew) {
+                if (stack.getItem() == ExtraBotanyItems.COCKTAIL.get() && !foundBrew) {
                     foundBrew = true;
-                } else if (stack.getItem() == ExtraBotanyItems.MANA_DRINK.get() && !foundItem) {
+                } else if (stack.getItem() == ExtraBotanyItems.HERO_MEDAL.get() && !foundItem) {
                     foundItem = true;
                 } else {
                     return false;
@@ -45,39 +43,25 @@ public class CocktailRecipe extends CustomRecipe {
         return foundBrew && foundItem;
     }
 
-    @NotNull
-    @Override
-    public NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
-        NonNullList<ItemStack> nonnulllist = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack stack = inv.getItem(i);
-            if (!stack.isEmpty() && stack.getItem() == BotaniaItems.brewFlask) {
-                nonnulllist.set(i, new ItemStack(BotaniaItems.flask));
-                break;
-            }
-        }
-        return nonnulllist;
-    }
 
-    //todo:add duration
     @NotNull
     @Override
     public ItemStack assemble(CraftingContainer inv, RegistryAccess pRegistryAccess) {
         ItemStack brewstack = ItemStack.EMPTY;
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
-            if (!stack.isEmpty() && stack.getItem() == BotaniaItems.brewFlask) {
+            if (!stack.isEmpty() && stack.getItem() == ExtraBotanyItems.COCKTAIL.get()) {
                 brewstack = stack;
                 break;
             }
         }
 
         BrewItem brew = (BrewItem) brewstack.getItem();
-        ItemStack cocktail = new ItemStack(ExtraBotanyItems.COCKTAIL.get());
-        BaseBrewItem.setBrew(cocktail, brew.getBrew(brewstack));
-        int left = ItemNBTHelper.getInt(brewstack, "swigsLeft", 6);
-        ItemNBTHelper.setInt(cocktail, "swigsLeft", left == 6 ? 8 : ((int) (((float) left / (float) 6)) * 8));
-        return cocktail;
+        ItemStack infiniteWine = new ItemStack(ExtraBotanyItems.INFINITE_WINE.get());
+        BaseBrewItem.setBrew(infiniteWine, brew.getBrew(brewstack));
+        int left = ItemNBTHelper.getInt(brewstack, "swigsLeft", 8);
+        ItemNBTHelper.setInt(infiniteWine, "swigsLeft", left == 8 ? 12 : ((int) (((float) left / (float) 8) * 12)));
+        return infiniteWine;
     }
 
     @Override
@@ -87,7 +71,7 @@ public class CocktailRecipe extends CustomRecipe {
 
     @NotNull
     @Override
-    public RecipeSerializer<CocktailRecipe> getSerializer() {
+    public RecipeSerializer<InfiniteWineUpgradeRecipe> getSerializer() {
         return SERIALIZER;
     }
 }

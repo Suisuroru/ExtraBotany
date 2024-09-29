@@ -22,6 +22,13 @@ public class LanguageHelper {
         transBlock();
         transEntity();
         transAdvancement();
+
+        //brew
+        add("extrabotany.brew.revolution", "Revolution", "革命");
+        add("extrabotany.brew.all_mighty", "All-mighty", "全能");
+        add("extrabotany.brew.shell", "Shell", "龟壳");
+        add("extrabotany.brew.deadpool", "Deadpool", "死灵");
+        add("extrabotany.brew.floating", "Floating", "漂浮");
     }
 
     private static void transItem() {
@@ -46,7 +53,6 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made Cocktail of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
-        ;
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");
