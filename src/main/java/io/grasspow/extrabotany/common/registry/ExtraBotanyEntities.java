@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.registry;
 
 import com.mojang.datafixers.DSL;
+import io.grasspow.extrabotany.common.entity.block.LivingrockBarrelBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.ManaBufferBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
@@ -30,6 +31,8 @@ public class ExtraBotanyEntities {
                         ExtraBotanyBlocks.MANA_BUFFER.get(),
                         ExtraBotanyBlocks.QUANTUM_MANA_BUFFER.get()
                 ).build(DSL.remainderType()));
+        public static final RegistryObject<BlockEntityType<LivingrockBarrelBlockEntity>> LIVINGROCK_BARREL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.LIVINGROCK_BARREL,
+                () -> BlockEntityType.Builder.of(LivingrockBarrelBlockEntity::new, ExtraBotanyBlocks.LIVINGROCK_BARREL.get()).build(DSL.remainderType()));
 
         public static DeferredRegister<BlockEntityType<?>> getBlockEntityTypes() {
             return BLOCK_ENTITY_TYPES;
