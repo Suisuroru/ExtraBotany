@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.registry;
 
 import com.mojang.datafixers.DSL;
+import io.grasspow.extrabotany.common.entity.block.ManaBufferBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
@@ -24,6 +25,11 @@ public class ExtraBotanyEntities {
 
         public static final RegistryObject<BlockEntityType<PedestalBlockEntity>> PEDESTAL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.PEDESTAL,
                 () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, ExtraBotanyBlocks.PEDESTAL.get()).build(DSL.remainderType()));
+        public static final RegistryObject<BlockEntityType<ManaBufferBlockEntity>> MANA_BUFFER = BLOCK_ENTITY_TYPES.register(LibBlockNames.MANA_BUFFER,
+                () -> BlockEntityType.Builder.of(ManaBufferBlockEntity::new,
+                        ExtraBotanyBlocks.MANA_BUFFER.get(),
+                        ExtraBotanyBlocks.QUANTUM_MANA_BUFFER.get()
+                ).build(DSL.remainderType()));
 
         public static DeferredRegister<BlockEntityType<?>> getBlockEntityTypes() {
             return BLOCK_ENTITY_TYPES;
