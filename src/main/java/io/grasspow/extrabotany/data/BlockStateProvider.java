@@ -3,12 +3,13 @@ package io.grasspow.extrabotany.data;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
+
+import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
 public class BlockStateProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
     public BlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -22,7 +23,9 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
                 ExtraBotanyBlocks.SHADOWIUM_BLOCK
         ).forEach(this::normal);
         List.of(
-                ExtraBotanyBlocks.PEDESTAL
+                ExtraBotanyBlocks.PEDESTAL,
+                ExtraBotanyBlocks.MANA_BUFFER,
+                ExtraBotanyBlocks.QUANTUM_MANA_BUFFER
         ).forEach(this::custom);
     }
 
@@ -38,6 +41,6 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
      */
     private void custom(RegistryObject<Block> block) {
         String path = block.getId().getPath();
-        simpleBlockWithItem(block.get(), models().withExistingParent(path, new ResourceLocation("extrabotany:block/" + path + "_default")));
+        simpleBlockWithItem(block.get(), models().withExistingParent(path, resId("block/" + path + "_default")));
     }
 }

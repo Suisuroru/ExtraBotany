@@ -13,15 +13,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.block.BotaniaWaterloggedBlock;
@@ -31,21 +28,9 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
         super(pProperties);
     }
 
-    private static final VoxelShape TOP = Block.box(2, 12, 2, 14, 20, 14);
-    private static final VoxelShape MIDDLE = Block.box(4, 4, 4, 12, 12, 12);
-    private static final VoxelShape BOTTOM_TOP = Block.box(2, 2, 2, 14, 20, 14);
-    private static final VoxelShape BOTTOM_END = Block.box(0, 0, 0, 16, 2, 16);
-    private static final VoxelShape SHAPE = Shapes.or(TOP, MIDDLE, BOTTOM_TOP, BOTTOM_END);
-
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
-    }
-
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-//      must return MODEL to render custom model
-        return RenderShape.MODEL;
+        return Shapes.PEDESTAL;
     }
 
     @Override

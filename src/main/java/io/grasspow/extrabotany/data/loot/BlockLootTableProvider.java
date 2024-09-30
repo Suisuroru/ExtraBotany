@@ -8,9 +8,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.*;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_BLOCKS;
 
 public class BlockLootTableProvider extends BlockLootSubProvider {
     public BlockLootTableProvider() {
@@ -19,9 +18,7 @@ public class BlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, PEDESTAL
-        ).map(RegistryObject::get).forEach(this::dropSelf);
+        MOD_BLOCKS.stream().map(RegistryObject::get).forEach(this::dropSelf);
     }
 
     @Override
