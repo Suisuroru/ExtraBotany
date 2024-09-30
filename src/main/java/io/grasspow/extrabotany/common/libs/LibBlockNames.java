@@ -6,9 +6,12 @@ public class LibBlockNames {
 
     public static final String PHOTONIUM_BLOCK = "photonium_block";
     public static final String SHADOWIUM_BLOCK = "shadowium_block";
+    public static final String ORICHALCOS_BLOCK = "orichalcos_block";
     public static final String PEDESTAL = "pedestal";
     public static final String MANA_BUFFER = "mana_buffer";
     public static final String QUANTUM_MANA_BUFFER = "quantum_mana_buffer";
+    public static final String TROPHY = "trophy";
+    public static final String LIVINGROCK_BARREL = "livingrock_barrel";
     public static final String POWER_FRAME = "powerframe";
     public static final String TERRA_ALTAR = "terraaltar";
     public static final String DIMENSION_CATALYST = "dimensioncatalyst";

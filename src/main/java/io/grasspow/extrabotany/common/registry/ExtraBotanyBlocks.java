@@ -1,7 +1,9 @@
 package io.grasspow.extrabotany.common.registry;
 
+import io.grasspow.extrabotany.common.block.LivingrockBarrelBlock;
 import io.grasspow.extrabotany.common.block.ManaBufferBlock;
 import io.grasspow.extrabotany.common.block.PedestalBlock;
+import io.grasspow.extrabotany.common.block.TrophyBlock;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,18 +27,21 @@ public class ExtraBotanyBlocks {
 
     public static final RegistryObject<Block> PHOTONIUM_BLOCK = regDefBlock(LibBlockNames.PHOTONIUM_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
     public static final RegistryObject<Block> SHADOWIUM_BLOCK = regDefBlock(LibBlockNames.SHADOWIUM_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
+    public static final RegistryObject<Block> ORICHALCOS_BLOCK = regDefBlock(LibBlockNames.ORICHALCOS_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
     public static final RegistryObject<Block> PEDESTAL = regDefBlock(LibBlockNames.PEDESTAL, PedestalBlock::new, livingrock());
     public static final RegistryObject<Block> MANA_BUFFER = regDefBlock(LibBlockNames.MANA_BUFFER, ManaBufferBlock::new, ManaBufferBlock.Variant.DEFAULT, livingrock());
     public static final RegistryObject<Block> QUANTUM_MANA_BUFFER = regDefBlock(LibBlockNames.QUANTUM_MANA_BUFFER, ManaBufferBlock::new, ManaBufferBlock.Variant.QUANTUM, livingrock());
+    public static final RegistryObject<Block> TROPHY = regDefBlock(LibBlockNames.TROPHY, TrophyBlock::new, BlockBehaviour.Properties.copy(Blocks.SKELETON_SKULL));
+    public static final RegistryObject<Block> LIVINGROCK_BARREL = regDefBlock(LibBlockNames.LIVINGROCK_BARREL, LivingrockBarrelBlock::new, livingrock());
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
-        RegistryObject<Block> block = BLOCKS.register(name, ()->new Block(props));
+        RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));
         MOD_BLOCKS.add(block);
         return block;
     }
 
     private static <B extends Block> RegistryObject<B> regDefBlock(String name, Function<BlockBehaviour.Properties, ? extends B> func, BlockBehaviour.Properties props) {
-        RegistryObject<B> block = BLOCKS.register(name,()->func.apply(props));
+        RegistryObject<B> block = BLOCKS.register(name, () -> func.apply(props));
         MOD_BLOCKS.add(block);
         return block;
     }

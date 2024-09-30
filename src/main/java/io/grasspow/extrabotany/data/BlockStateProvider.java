@@ -20,12 +20,15 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     protected void registerStatesAndModels() {
         List.of(
                 ExtraBotanyBlocks.PHOTONIUM_BLOCK,
-                ExtraBotanyBlocks.SHADOWIUM_BLOCK
+                ExtraBotanyBlocks.SHADOWIUM_BLOCK,
+                ExtraBotanyBlocks.ORICHALCOS_BLOCK
         ).forEach(this::normal);
         List.of(
                 ExtraBotanyBlocks.PEDESTAL,
                 ExtraBotanyBlocks.MANA_BUFFER,
-                ExtraBotanyBlocks.QUANTUM_MANA_BUFFER
+                ExtraBotanyBlocks.QUANTUM_MANA_BUFFER,
+                ExtraBotanyBlocks.TROPHY,
+                ExtraBotanyBlocks.LIVINGROCK_BARREL
         ).forEach(this::custom);
     }
 

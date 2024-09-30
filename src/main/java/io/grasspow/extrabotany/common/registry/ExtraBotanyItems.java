@@ -35,9 +35,12 @@ public class ExtraBotanyItems {
     //block
     public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
     public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
+    public static final RegistryObject<BlockItem> ORICHALCOS_BLOCK = regDefBlockItem(ExtraBotanyBlocks.ORICHALCOS_BLOCK);
     public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
-    public static final RegistryObject<BlockItem> MANA_BUFFER = regDefBlockItem(ExtraBotanyBlocks.MANA_BUFFER);
-    public static final RegistryObject<BlockItem> QUANTUM_MANA_BUFFER = regDefBlockItem(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER);
+    public static final RegistryObject<BlockItem> MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.MANA_BUFFER);
+    public static final RegistryObject<BlockItem> QUANTUM_MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER);
+    public static final RegistryObject<BlockItem> TROPHY_ITEM = regDefBlockItem(ExtraBotanyBlocks.TROPHY);
+    public static final RegistryObject<BlockItem> LIVINGROCK_BARREL_ITEM = regDefBlockItem(ExtraBotanyBlocks.LIVINGROCK_BARREL);
 
     // cosmetic bauble
     public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,
@@ -66,6 +69,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO,defaultItem());
     public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM,defaultItem());
     public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM,defaultItem());
+    public static final RegistryObject<Item> ORICHALCOS = regDefItem(LibItemNames.ORICHALCOS, defaultItem());
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
     public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultItem());

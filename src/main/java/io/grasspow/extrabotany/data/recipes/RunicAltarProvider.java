@@ -32,13 +32,17 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
 
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        Ingredient GILDED_MASHED_POTATO = Ingredient.of(ExtraBotanyItems.GILDED_MASHED_POTATO.get());
         Ingredient SPIRIT = Ingredient.of(ExtraBotanyItems.SPIRIT.get());
         Ingredient NIGHTMARE_FUEL = Ingredient.of(ExtraBotanyItems.NIGHTMARE_FUEL.get());
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()), 100000, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, GILDED_MASHED_POTATO, Ingredient.of(Items.GOLD_BLOCK), Ingredient.of(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), GILDED_MASHED_POTATO, SPIRIT, SPIRIT, SPIRIT));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), GILDED_MASHED_POTATO, NIGHTMARE_FUEL, NIGHTMARE_FUEL, NIGHTMARE_FUEL));
+        Ingredient hero_medal = Ingredient.of(ExtraBotanyItems.HERO_MEDAL.get());
+        Ingredient gaiaIngot = Ingredient.of(BotaniaItems.gaiaIngot);
+        Ingredient lifeEssence = Ingredient.of(BotaniaItems.lifeEssence);
+        Ingredient gilded_mashed_potato = Ingredient.of(ExtraBotanyItems.GILDED_MASHED_POTATO.get());
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()), 100000, gilded_mashed_potato, gilded_mashed_potato, gilded_mashed_potato, Ingredient.of(Items.GOLD_BLOCK), Ingredient.of(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), gilded_mashed_potato, SPIRIT, SPIRIT, SPIRIT));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, Ingredient.of(BotaniaItems.elementium), gilded_mashed_potato, NIGHTMARE_FUEL, NIGHTMARE_FUEL, NIGHTMARE_FUEL));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_POTATO), new ItemStack(ExtraBotanyItems.GILDED_POTATO.get()), 800, Ingredient.of(Items.POTATO), Ingredient.of(Items.GOLD_NUGGET)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ORICHALCOS), new ItemStack(ExtraBotanyItems.ORICHALCOS.get()), 1000000, gaiaIngot, gaiaIngot, gaiaIngot, gaiaIngot, lifeEssence, lifeEssence, gilded_mashed_potato, hero_medal));
     }
 
     private static ResourceLocation idFor(String s) {

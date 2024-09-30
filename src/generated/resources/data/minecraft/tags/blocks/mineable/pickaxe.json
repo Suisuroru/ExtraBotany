@@ -2,8 +2,10 @@
   "values": [
     "extrabotany:photonium_block",
     "extrabotany:shadowium_block",
+    "extrabotany:orichalcos_block",
     "extrabotany:pedestal",
     "extrabotany:mana_buffer",
-    "extrabotany:quantum_mana_buffer"
+    "extrabotany:quantum_mana_buffer",
+    "extrabotany:livingrock_barrel"
   ]
 }

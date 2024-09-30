@@ -41,7 +41,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
     private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
         buildSpecialCraftingRecipes(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyItems.PEDESTAL_ITEM.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.PEDESTAL.get())
                 .define('G', Items.GOLD_NUGGET)
                 .define('L', BotaniaBlocks.livingrock)
                 .pattern("LGL")
@@ -88,8 +88,33 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" G ")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.manaGlass))
                 .save(consumer);
-        compression(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM).save(consumer);
-        compression(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.LIVINGROCK_BARREL.get())
+                .define('G', BotaniaBlocks.livingrock)
+                .pattern("G G")
+                .pattern("G G")
+                .pattern("GGG")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.livingrock))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.MANA_BUFFER.get())
+                .define('P', BotaniaBlocks.fabulousPool)
+                .define('L', BotaniaItems.lensNormal)
+                .define('I', BotaniaItems.gaiaIngot)
+                .pattern("PLP")
+                .pattern("PIP")
+                .pattern("PLP")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.gaiaIngot))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.QUANTUM_MANA_BUFFER.get())
+                .define('B', ExtraBotanyBlocks.MANA_BUFFER.get())
+                .define('O', ExtraBotanyItems.ORICHALCOS.get())
+                .pattern("BBB")
+                .pattern("BOB")
+                .pattern("BBB")
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.ORICHALCOS.get()))
+                .save(consumer);
+        ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
+        ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
+        ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
     }
 
     protected void buildSpecialCraftingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -101,8 +126,13 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .save(consumer, "dynamic/" + LibRecipeNames.INFINITE_WINE_UPGRADE);
     }
 
+    private void ingotStorage(RegistryObject<Block> block, RegistryObject<Item> item, Consumer<FinishedRecipe> consumer) {
+        compression(block.get(), item.get()).save(consumer);
+        deconstruct(consumer, block.get(), item.get(), block.getId().getPath() + "_deconstruct");
+    }
+
     private ShapedRecipeBuilder compression(RegistryObject<Block> block, RegistryObject<Item> item) {
-        return compression(block.get(),item.get());
+        return compression(block.get(), item.get());
     }
 
     @Override

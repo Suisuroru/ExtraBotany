@@ -33,9 +33,9 @@ public class LanguageHelper {
 
     private static void transItem() {
         //block item
-        addItem(ExtraBotanyItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
-        addItem(ExtraBotanyItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
-        addItem(ExtraBotanyItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
+//        addItem(ExtraBotanyItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
+//        addItem(ExtraBotanyItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
+//        addItem(ExtraBotanyItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
         // cosmetic bauble
         addItem(ExtraBotanyItems.PYLON, "Pylon", "模拟人生");
         // food
@@ -55,8 +55,9 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
-        addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium", "光子锭");
-        addItem(ExtraBotanyItems.SHADOWIUM, "Gilded Potato", "暗影锭");
+        addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium Ingot", "光子锭");
+        addItem(ExtraBotanyItems.SHADOWIUM, "Shadowium Ingot", "暗影锭");
+        addItem(ExtraBotanyItems.ORICHALCOS, "Orichalcos Ingot", "奥利哈刚锭");
         addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
         addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
         addItem(ExtraBotanyItems.HERO_MEDAL, "Medal of Heroism", "英雄勋章");
@@ -65,9 +66,12 @@ public class LanguageHelper {
     private static void transBlock() {
         addBlock(ExtraBotanyBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
         addBlock(ExtraBotanyBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
+        addBlock(ExtraBotanyBlocks.ORICHALCOS_BLOCK, "Orichalcos Block", "奥利哈刚块");
         addBlock(ExtraBotanyBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
         addBlock(ExtraBotanyBlocks.MANA_BUFFER, "Mana Buffer", "魔力缓存器");
         addBlock(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER, "Quantum Mana Buffer", "量子魔力缓存器");
+        addBlock(ExtraBotanyBlocks.TROPHY, "Trophy", "奖杯");
+        addBlock(ExtraBotanyBlocks.LIVINGROCK_BARREL, "Livingrock Barrel", "活石桶");
     }
 
     private static void transEntity() {
