@@ -11,9 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class ItemNightmareFuel extends Item {
+public class NightmareFuelItem extends Item {
 
-    public ItemNightmareFuel(Item.Properties prop) {
+    public NightmareFuelItem(Item.Properties prop) {
         super(prop);
     }
 

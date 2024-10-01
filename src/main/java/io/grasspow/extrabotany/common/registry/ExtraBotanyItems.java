@@ -1,11 +1,11 @@
 package io.grasspow.extrabotany.common.registry;
 
 import io.grasspow.extrabotany.common.item.EmptyBottleItem;
-import io.grasspow.extrabotany.common.item.ItemNightmareFuel;
 import io.grasspow.extrabotany.common.item.ManaDrinkItem;
-import io.grasspow.extrabotany.common.item.brew.Cocktail;
-import io.grasspow.extrabotany.common.item.brew.InfiniteWine;
-import io.grasspow.extrabotany.common.item.brew.SplashGrenade;
+import io.grasspow.extrabotany.common.item.NightmareFuelItem;
+import io.grasspow.extrabotany.common.item.brew.CocktailItem;
+import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
+import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManasteelHammer;
@@ -49,15 +49,15 @@ public class ExtraBotanyItems {
 
     // food
     public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));
-    public static final RegistryObject<Item> NIGHTMARE_FUEL = regDefItem(LibItemNames.NIGHTMARE_FUEL, ItemNightmareFuel::new, food(ModFoods.NIGHTMARE_FUEL));
+    public static final RegistryObject<Item> NIGHTMARE_FUEL = regDefItem(LibItemNames.NIGHTMARE_FUEL, NightmareFuelItem::new, food(ModFoods.NIGHTMARE_FUEL));
     public static final RegistryObject<Item> GILDED_MASHED_POTATO = regDefItem(LibItemNames.GILDED_MASHED_POTATO, food(ModFoods.GILDED_MASHED_POTATO));
     public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ModFoods.FRIED_CHICKEN));
     public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
 
     //brew
-    public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, Cocktail::new, stackTo32());
-    public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWine::new, nonStackable());
-    public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenade::new, stackTo32());
+    public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, CocktailItem::new, stackTo32());
+    public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWineItem::new, nonStackable());
+    public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenadeItem::new, stackTo32());
 
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
