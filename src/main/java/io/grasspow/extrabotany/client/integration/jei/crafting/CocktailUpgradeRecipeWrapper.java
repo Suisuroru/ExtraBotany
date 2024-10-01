@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.client.integration.jei.crafting;
 
 import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
-import io.grasspow.extrabotany.common.item.brew.Cocktail;
+import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -32,7 +32,7 @@ public class CocktailUpgradeRecipeWrapper implements ICraftingCategoryExtension 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ICraftingGridHelper helper, IFocusGroup focusGroup) {
         var foci = focusGroup.getFocuses(VanillaTypes.ITEM_STACK, RecipeIngredientRole.INPUT)
-                .filter(f -> f.getTypedValue().getIngredient().getItem() instanceof Cocktail)
+                .filter(f -> f.getTypedValue().getIngredient().getItem() instanceof CocktailItem)
                 .map(f -> f.getTypedValue().getIngredient())
                 .toList();
 

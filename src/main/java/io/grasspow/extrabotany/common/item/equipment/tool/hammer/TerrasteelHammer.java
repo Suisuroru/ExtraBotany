@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.item.equipment.tool;
+package io.grasspow.extrabotany.common.item.equipment.tool.hammer;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -6,9 +6,9 @@ import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.equipment.tool.terrasteel.TerraShattererItem;
 import vazkii.botania.common.lib.BotaniaTags;
 
-public class ElementiumHammer extends ManasteelHammer {
-    public ElementiumHammer(Properties props) {
-        super(ModTiers.ELEMENTIUM, props, -2.8F);
+public class TerrasteelHammer extends ManasteelHammer {
+    public TerrasteelHammer(Properties props) {
+        super(ModTiers.TERRASTEEL, props, -2.8F);
     }
 
     public static boolean shouldFilterOut(Entity e, ItemStack tool, ItemStack drop) {

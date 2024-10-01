@@ -50,7 +50,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.TERRASTEEL_HAMMER, "Terrasteel Hammer", "泰拉钢锤");
         addItem(ExtraBotanyItems.ULTIMATE_HAMMER, "Ultimate Hammer", "镀金究极锤");
         //brew
-        addItem(ExtraBotanyItems.COCKTAIL, "Special-made Cocktail of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
+        addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
         //misc

@@ -2,7 +2,7 @@ package io.grasspow.extrabotany.forge;
 
 import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
-import io.grasspow.extrabotany.common.item.brew.InfiniteWine;
+import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import net.minecraft.core.Registry;
@@ -68,7 +68,7 @@ public class ForgeCommonInitializer {
     }
 
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
-            ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWine::makeRelic
+            ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic
     ));
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {

@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class InfiniteWine extends BaseBrewItemEX implements Relic, CustomDamageItem {
+public class InfiniteWineItem extends BaseBrewItemEX implements Relic, CustomDamageItem {
     private static final String TAG_SOULBIND_UUID = "soulbindUUID";
     private static final int MANA_PER_DAMAGE = 12000;
 
-    public InfiniteWine(Properties builder) {
+    public InfiniteWineItem(Properties builder) {
         super(builder, 12, 18, 1.5f, 1, ExtraBotanyItems.EMPTY_BOTTLE);
     }
 

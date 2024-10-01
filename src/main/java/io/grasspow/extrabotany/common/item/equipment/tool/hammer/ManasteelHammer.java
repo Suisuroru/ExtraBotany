@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.item.equipment.tool;
+package io.grasspow.extrabotany.common.item.equipment.tool.hammer;
 
 import io.grasspow.extrabotany.api.item.IHammer;
 import net.minecraft.world.InteractionHand;
