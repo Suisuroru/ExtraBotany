@@ -1,7 +1,6 @@
 package io.grasspow.extrabotany.common.block;
 
 import io.grasspow.extrabotany.common.entity.block.LivingrockBarrelBlockEntity;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -32,7 +31,13 @@ public class LivingrockBarrelBlock extends BotaniaBlock implements EntityBlock {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        if (level.isClientSide()) return null;
-        return createTickerHelper(type, ExtraBotanyEntities.Blocks.LIVINGROCK_BARREL_BLOCK_ENTITY.get(), LivingrockBarrelBlockEntity::tick);
+        if (!level.isClientSide) {
+            return (level1, blockPos, blockState, t) -> {
+                if (t instanceof LivingrockBarrelBlockEntity barrel) {
+                    barrel.tick(level, barrel);
+                }
+            };
+        }
+        return null;
     }
 }

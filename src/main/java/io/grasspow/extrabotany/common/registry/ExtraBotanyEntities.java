@@ -26,7 +26,7 @@ public class ExtraBotanyEntities {
 
         public static final RegistryObject<BlockEntityType<PedestalBlockEntity>> PEDESTAL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.PEDESTAL,
                 () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, ExtraBotanyBlocks.PEDESTAL.get()).build(DSL.remainderType()));
-        public static final RegistryObject<BlockEntityType<ManaBufferBlockEntity>> MANA_BUFFER = BLOCK_ENTITY_TYPES.register(LibBlockNames.MANA_BUFFER,
+        public static final RegistryObject<BlockEntityType<ManaBufferBlockEntity>> MANA_BUFFER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.MANA_BUFFER,
                 () -> BlockEntityType.Builder.of(ManaBufferBlockEntity::new,
                         ExtraBotanyBlocks.MANA_BUFFER.get(),
                         ExtraBotanyBlocks.QUANTUM_MANA_BUFFER.get()

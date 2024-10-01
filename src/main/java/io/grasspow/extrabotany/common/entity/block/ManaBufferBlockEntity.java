@@ -34,11 +34,11 @@ public class ManaBufferBlockEntity extends BotaniaBlockEntity implements ManaPoo
     }
 
     public ManaBufferBlockEntity(BlockPos pos, BlockState state) {
-        super(ExtraBotanyEntities.Blocks.MANA_BUFFER.get(), pos, state);
+        super(ExtraBotanyEntities.Blocks.MANA_BUFFER_BLOCK_ENTITY.get(), pos, state);
     }
 
     public ManaBufferBlockEntity(BlockPos pos, BlockState state, ManaBufferBlock.Variant variant) {
-        super(ExtraBotanyEntities.Blocks.MANA_BUFFER.get(), pos, state);
+        super(ExtraBotanyEntities.Blocks.MANA_BUFFER_BLOCK_ENTITY.get(), pos, state);
         this.variant = variant;
         manaCap = variant.equals(ManaBufferBlock.Variant.DEFAULT) ? 64000000 : 1024000000;
         speed = variant.equals(ManaBufferBlock.Variant.DEFAULT) ? 400 : 5000;

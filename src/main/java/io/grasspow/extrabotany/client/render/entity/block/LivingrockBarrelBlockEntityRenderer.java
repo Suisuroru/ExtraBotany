@@ -9,55 +9,45 @@
 package io.grasspow.extrabotany.client.render.entity.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import io.grasspow.extrabotany.common.entity.block.LivingrockBarrelBlockEntity;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
-import vazkii.botania.client.core.helper.RenderHelper;
-import vazkii.botania.common.helper.VecHelper;
-
-import java.util.Objects;
+import vazkii.patchouli.client.book.LiquidBlockVertexConsumer;
 
 public class LivingrockBarrelBlockEntityRenderer implements BlockEntityRenderer<LivingrockBarrelBlockEntity> {
 
-    // Overrides for when we call this renderer from a cart
-    private final TextureAtlasSprite waterSprite;
-
     public LivingrockBarrelBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {
-        this.waterSprite = Objects.requireNonNull(
-                Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
-                        .apply(new ResourceLocation("block/water"))
-        );
     }
 
-    //todo:render barrel‘s fluid with amount
     @Override
-    public void render(@Nullable LivingrockBarrelBlockEntity barrel, float f, PoseStack ms, MultiBufferSource buffers, int light, int overlay) {
-        int insideUVStart = 1;
-        int insideUVEnd = 16 - insideUVStart;
-        float poolBottom = 1F / 16F + 0.001F;
-        float poolTop = 15F / 16F;
-        int current = barrel == null ? 0 : barrel.getAmount();
-        int max = barrel == null ? 0 : barrel.getMax();
-        float level = (float) current / (float) max;
-        if (level > 0) {
-            ms.pushPose();
-            ms.translate(0, Mth.clampedMap(level, 0, 1, poolBottom, poolTop), 0);
-            ms.mulPose(VecHelper.rotateX(90F));
-            VertexConsumer buffer = buffers.getBuffer(RenderType.waterMask());
-            RenderHelper.renderIconCropped(
-                    ms, buffer,
-                    insideUVStart, insideUVStart, insideUVEnd, insideUVEnd,
-                    this.waterSprite, 0xFFFFFF, 1, light);
-            ms.popPose();
+    public void render(@Nullable LivingrockBarrelBlockEntity barrel, float f, PoseStack matrixStack, MultiBufferSource buffers, int light, int overlay) {
+        if (barrel.getFluidAmount() > 0) {
+            BlockState state = Fluids.WATER.defaultFluidState().createLegacyBlock();
+            matrixStack.pushPose();
+            float fillAmount = barrel.getFluidProportion();
+
+            matrixStack.translate(0.06F, 0.1875F, 0.06F);
+            matrixStack.scale(0.88F, fillAmount * 0.9F, 0.88F);
+
+            BlockRenderDispatcher blockRenderer = Minecraft.getInstance().getBlockRenderer();
+            blockRenderer.renderLiquid(
+                    barrel.getBlockPos(),
+                    barrel.getLevel(),
+                    new LiquidBlockVertexConsumer(
+                            buffers.getBuffer(
+                                    ItemBlockRenderTypes.getRenderLayer(Fluids.WATER.defaultFluidState())),
+                            matrixStack,
+                            barrel.getBlockPos()),
+                    state,
+                    Fluids.WATER.defaultFluidState());
+            matrixStack.popPose();
         }
     }
 
