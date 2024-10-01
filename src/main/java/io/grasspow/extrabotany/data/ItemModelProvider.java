@@ -31,7 +31,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
                 ExtraBotanyItems.ELEMENTIUM_HAMMER,
                 ExtraBotanyItems.MANASTEEL_HAMMER,
                 ExtraBotanyItems.TERRASTEEL_HAMMER,
-                ExtraBotanyItems.ULTIMATE_HAMMER
+                ExtraBotanyItems.ULTIMATE_HAMMER,
+                ExtraBotanyItems.MANA_READER
         ).forEach(this::heldItem);
         generated1(LibItemNames.SPLASH_GRENADE);
 
