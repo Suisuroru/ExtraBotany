@@ -73,6 +73,7 @@ public class LanguageHelper {
         addBlock(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER, "Quantum Mana Buffer", "量子魔力缓存器");
         addBlock(ExtraBotanyBlocks.TROPHY, "Trophy", "奖杯");
         addBlock(ExtraBotanyBlocks.LIVINGROCK_BARREL, "Livingrock Barrel", "活石桶");
+        addBlock(ExtraBotanyBlocks.DIMENSION_CATALYST, "Dimension Catalyst", "次元催化器");
     }
 
     private static void transEntity() {

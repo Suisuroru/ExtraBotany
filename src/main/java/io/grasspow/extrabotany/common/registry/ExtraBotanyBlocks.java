@@ -1,9 +1,6 @@
 package io.grasspow.extrabotany.common.registry;
 
-import io.grasspow.extrabotany.common.block.LivingrockBarrelBlock;
-import io.grasspow.extrabotany.common.block.ManaBufferBlock;
-import io.grasspow.extrabotany.common.block.PedestalBlock;
-import io.grasspow.extrabotany.common.block.TrophyBlock;
+import io.grasspow.extrabotany.common.block.*;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -33,6 +30,7 @@ public class ExtraBotanyBlocks {
     public static final RegistryObject<Block> QUANTUM_MANA_BUFFER = regDefBlock(LibBlockNames.QUANTUM_MANA_BUFFER, ManaBufferBlock::new, ManaBufferBlock.Variant.QUANTUM, livingrock());
     public static final RegistryObject<Block> TROPHY = regDefBlock(LibBlockNames.TROPHY, TrophyBlock::new, BlockBehaviour.Properties.copy(Blocks.SKELETON_SKULL));
     public static final RegistryObject<Block> LIVINGROCK_BARREL = regDefBlock(LibBlockNames.LIVINGROCK_BARREL, LivingrockBarrelBlock::new, livingrock());
+    public static final RegistryObject<Block> DIMENSION_CATALYST = regDefBlock(LibBlockNames.DIMENSION_CATALYST, DimensionCatalystBlock::new, livingrock());
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));

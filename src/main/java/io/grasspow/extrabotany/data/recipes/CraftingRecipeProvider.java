@@ -121,6 +121,16 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("S  ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.GEMS_MANA_DIAMOND))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.DIMENSION_CATALYST.get())
+                .define('L', BotaniaBlocks.livingrock)
+                .define('E', Items.ENDER_EYE)
+                .define('N', ExtraBotanyItems.NIGHTMARE_FUEL.get())
+                .define('A', BotaniaBlocks.alchemyCatalyst)
+                .pattern("LEL")
+                .pattern("NAN")
+                .pattern("LNL")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.alchemyCatalyst))
+                .save(consumer);
         ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
         ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
         ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);

@@ -42,7 +42,8 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
         ).map(RegistryObject::get).forEach(tag(BlockTags.BEACON_BASE_BLOCKS)::add);
         Stream.of(
                 PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK,
-                PEDESTAL, MANA_BUFFER, QUANTUM_MANA_BUFFER, LIVINGROCK_BARREL
+                PEDESTAL, MANA_BUFFER, QUANTUM_MANA_BUFFER, LIVINGROCK_BARREL,
+                DIMENSION_CATALYST
         ).map(RegistryObject::get).forEach(tag(BlockTags.MINEABLE_WITH_PICKAXE)::add);
     }
 }

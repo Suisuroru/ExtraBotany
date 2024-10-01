@@ -38,7 +38,7 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
         return new PedestalBlockEntity(pPos, pState);
     }
 
-    //todo: fix bug:displays wrong numbers when using swift.
+    //todo: pedestal's fast process
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         BlockEntity tileEntity = level.getBlockEntity(pos);

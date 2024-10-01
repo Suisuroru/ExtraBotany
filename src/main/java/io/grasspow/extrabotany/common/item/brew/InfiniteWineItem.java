@@ -67,7 +67,7 @@ public class InfiniteWineItem extends BaseBrewItemEX implements Relic, CustomDam
         };
     }
 
-    //todo:auto consume mana to add times using infinite-wine
+    //todo: infinite_wine consume mana to add use times
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
         if (!world.isClientSide && entity instanceof Player player) {

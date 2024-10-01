@@ -6,6 +6,7 @@
     "extrabotany:pedestal",
     "extrabotany:mana_buffer",
     "extrabotany:quantum_mana_buffer",
-    "extrabotany:livingrock_barrel"
+    "extrabotany:livingrock_barrel",
+    "extrabotany:dimension_catalyst"
   ]
 }

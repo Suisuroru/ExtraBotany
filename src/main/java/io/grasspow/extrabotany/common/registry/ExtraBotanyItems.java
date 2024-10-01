@@ -42,6 +42,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<BlockItem> QUANTUM_MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER);
     public static final RegistryObject<BlockItem> TROPHY_ITEM = regDefBlockItem(ExtraBotanyBlocks.TROPHY);
     public static final RegistryObject<BlockItem> LIVINGROCK_BARREL_ITEM = regDefBlockItem(ExtraBotanyBlocks.LIVINGROCK_BARREL);
+    public static final RegistryObject<BlockItem> DIMENSION_CATALYST = regDefBlockItem(ExtraBotanyBlocks.DIMENSION_CATALYST);
 
     // cosmetic bauble
     public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,

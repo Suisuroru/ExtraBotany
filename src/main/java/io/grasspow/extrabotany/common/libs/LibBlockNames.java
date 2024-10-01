@@ -14,7 +14,7 @@ public class LibBlockNames {
     public static final String LIVINGROCK_BARREL = "livingrock_barrel";
     public static final String POWER_FRAME = "powerframe";
     public static final String TERRA_ALTAR = "terraaltar";
-    public static final String DIMENSION_CATALYST = "dimensioncatalyst";
+    public static final String DIMENSION_CATALYST = "dimension_catalyst";
 
     public static final ResourceLocation GENERATING_BELLFLOWER = new ResourceLocation(LibMisc.MOD_ID, "bellflower");
     public static final ResourceLocation GENERATING_MOONBLESS = new ResourceLocation(LibMisc.MOD_ID,"moonbless");

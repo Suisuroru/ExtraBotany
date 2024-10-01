@@ -36,7 +36,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         ).forEach(this::heldItem);
         generated1(LibItemNames.SPLASH_GRENADE);
 
-        //todo:fix brews' display model with swigsLeft
+        //todo: brews' model swift
         override1(LibItemNames.COCKTAIL, LibItemNames.EMPTY_BOTTLE, 7);
         override1(LibItemNames.INFINITE_WINE, LibItemNames.EMPTY_BOTTLE, 6, 2);
     }
