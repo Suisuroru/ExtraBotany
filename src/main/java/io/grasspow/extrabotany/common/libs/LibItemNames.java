@@ -71,7 +71,7 @@ public class LibItemNames {
     public static final String SHADOWIUM = "shadowium";
     public static final String AERIALITE = "aerialite";
     public static final String HERO_MEDAL = "hero_medal";
-    public static final String GOLDCLOTH = "goldcloth";
+    public static final String GOLD_CLOTH = "gold_cloth";
     public static final String ORICHALCOS = "orichalcos";
     public static final String GILDED_POTATO = "gilded_potato";
     public static final String EMPTY_BOTTLE = "empty_bottle";

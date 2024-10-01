@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.registry;
 
 import io.grasspow.extrabotany.common.item.EmptyBottleItem;
+import io.grasspow.extrabotany.common.item.GoldClothItem;
 import io.grasspow.extrabotany.common.item.ManaDrinkItem;
 import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
@@ -76,6 +77,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
     public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultItem());
+    public static final RegistryObject<Item> GOLD_CLOTH = regDefItem(LibItemNames.GOLD_CLOTH, GoldClothItem::new, defaultItem());
 
     private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

@@ -1,9 +1,6 @@
 package io.grasspow.extrabotany.common.registry;
 
-import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
-import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
-import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
-import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
+import io.grasspow.extrabotany.common.crafting.*;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import net.minecraft.world.item.crafting.Recipe;
@@ -28,6 +25,9 @@ public class ExtraBotanyRecipeTypes {
 
     public static final RegistryObject<RecipeType<InfiniteWineUpgradeRecipe>> INFINITE_WINE_UPGRADE = RECIPE_TYPES.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> registerRecipeType(LibRecipeNames.INFINITE_WINE_UPGRADE));
     public static final RegistryObject<RecipeSerializer<InfiniteWineUpgradeRecipe>> INFINITE_WINE_UPGRADE_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.INFINITE_WINE_UPGRADE, () -> InfiniteWineUpgradeRecipe.SERIALIZER);
+
+    public static final RegistryObject<RecipeType<GoldClothWipeRelicRecipe>> GOLD_CLOTH_WIPE_RELIC = RECIPE_TYPES.register(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC, () -> registerRecipeType(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC));
+    public static final RegistryObject<RecipeSerializer<GoldClothWipeRelicRecipe>> GOLD_CLOTH_WIPE_RELIC_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC, () -> GoldClothWipeRelicRecipe.SERIALIZER);
 
     private static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<>() {

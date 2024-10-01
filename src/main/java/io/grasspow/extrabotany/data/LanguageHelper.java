@@ -62,6 +62,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
         addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
         addItem(ExtraBotanyItems.HERO_MEDAL, "Medal of Heroism", "英雄勋章");
+        addItem(ExtraBotanyItems.GOLD_CLOTH, "Das Rheingold", "莱茵河的黄金");
     }
 
     private static void transBlock() {

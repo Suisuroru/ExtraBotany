@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.data.recipes;
 
 import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
+import io.grasspow.extrabotany.common.crafting.GoldClothWipeRelicRecipe;
 import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
 import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
@@ -15,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
@@ -41,8 +43,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
     private void genCraftTableRecipes(Consumer<FinishedRecipe> consumer) {
         buildSpecialCraftingRecipes(consumer);
+        buildCommonCraftingRecipes(consumer);
+        ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
+        ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
+        ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
+    }
+
+    private void buildCommonCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.PEDESTAL.get())
-                .define('G', Items.GOLD_NUGGET)
+                .define('G', Tags.Items.NUGGETS_GOLD)
                 .define('L', BotaniaBlocks.livingrock)
                 .pattern("LGL")
                 .pattern(" L ")
@@ -131,9 +140,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("LNL")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.alchemyCatalyst))
                 .save(consumer);
-        ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
-        ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
-        ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.GOLD_CLOTH.get(), 4)
+                .define('L', BotaniaItems.lifeEssence)
+                .define('C', BotaniaItems.manaweaveCloth)
+                .define('G', Tags.Items.INGOTS_GOLD)
+                .pattern("LCL")
+                .pattern("CGC")
+                .pattern("LCL")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.GEMS_MANA_DIAMOND))
+                .save(consumer);
     }
 
     protected void buildSpecialCraftingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -143,15 +158,13 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .save(consumer, "dynamic/" + LibRecipeNames.SPLASH_GRENADE_UPGRADE);
         SpecialRecipeBuilder.special(InfiniteWineUpgradeRecipe.SERIALIZER)
                 .save(consumer, "dynamic/" + LibRecipeNames.INFINITE_WINE_UPGRADE);
+        SpecialRecipeBuilder.special(GoldClothWipeRelicRecipe.SERIALIZER)
+                .save(consumer, "dynamic/" + LibRecipeNames.GOLD_CLOTH_WIPE_RELIC);
     }
 
     private void ingotStorage(RegistryObject<Block> block, RegistryObject<Item> item, Consumer<FinishedRecipe> consumer) {
         compression(block.get(), item.get()).save(consumer);
         deconstruct(consumer, block.get(), item.get(), block.getId().getPath() + "_deconstruct");
-    }
-
-    private ShapedRecipeBuilder compression(RegistryObject<Block> block, RegistryObject<Item> item) {
-        return compression(block.get(), item.get());
     }
 
     @Override
