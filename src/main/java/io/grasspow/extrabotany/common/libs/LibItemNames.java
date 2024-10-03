@@ -75,10 +75,10 @@ public class LibItemNames {
     public static final String ORICHALCOS = "orichalcos";
     public static final String GILDED_POTATO = "gilded_potato";
     public static final String EMPTY_BOTTLE = "empty_bottle";
-    public static final String THECHAOS = "thechaos";
-    public static final String THEORIGIN = "theorigin";
-    public static final String THEEND = "theend";
-    public static final String THEUNIVERSE = "theuniverse";
+    public static final String THE_CHAOS = "the_chaos";
+    public static final String THE_ORIGIN = "the_origin";
+    public static final String THE_END = "the_end";
+    public static final String THE_UNIVERSE = "the_universe";
     public static final String UNIVERSAL_PETAL = "universal_petal";
     public static final String ELEMENT_RUNE = "element_rune";
     public static final String SIN_RUNE = "sin_rune";

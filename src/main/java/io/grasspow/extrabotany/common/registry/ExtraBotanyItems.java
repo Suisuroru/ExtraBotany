@@ -93,6 +93,11 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> ELEMENT_RUNE = regDefItem(LibItemNames.ELEMENT_RUNE, defaultItem());
     public static final RegistryObject<Item> SIN_RUNE = regDefItem(LibItemNames.SIN_RUNE, defaultItem());
 
+    public static final RegistryObject<Item> THE_CHAOS = regDefItem(LibItemNames.THE_CHAOS, defaultItem());
+    public static final RegistryObject<Item> THE_ORIGIN = regDefItem(LibItemNames.THE_ORIGIN, defaultItem());
+    public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultItem());
+    public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultItem());
+
     private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         MOD_BLOCK_ITEMS.add(item);

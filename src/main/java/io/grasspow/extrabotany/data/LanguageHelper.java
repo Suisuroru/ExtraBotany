@@ -67,9 +67,15 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
         addItem(ExtraBotanyItems.HERO_MEDAL, "Medal of Heroism", "英雄勋章");
         addItem(ExtraBotanyItems.GOLD_CLOTH, "Das Rheingold", "莱茵河的黄金");
+
         addItem(ExtraBotanyItems.UNIVERSAL_PETAL, "Universal Petal", "彩虹花瓣");
         addItem(ExtraBotanyItems.ELEMENT_RUNE, "Rune of Element", "元灵符文");
         addItem(ExtraBotanyItems.SIN_RUNE, "Rune of Sin", "大罪符文");
+
+        addItem(ExtraBotanyItems.THE_CHAOS, "The Chaos", "混沌物质");
+        addItem(ExtraBotanyItems.THE_ORIGIN, "The Origin", "起源物质");
+        addItem(ExtraBotanyItems.THE_END, "The End", "终末物质");
+        addItem(ExtraBotanyItems.THE_UNIVERSE, "The Universe", "宇宙之心");
     }
 
     private static void transBlock() {

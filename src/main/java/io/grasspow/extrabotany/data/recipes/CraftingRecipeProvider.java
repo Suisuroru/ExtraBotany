@@ -7,6 +7,8 @@ import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -15,12 +17,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.lib.BotaniaTags;
+import vazkii.botania.mixin.RecipeProviderAccessor;
 
 import java.util.function.Consumer;
 
@@ -203,6 +207,34 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .requires(Ingredient.of(BotaniaTags.Items.PETALS), 8)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.THE_CHAOS.get())
+                .define('L', ExtraBotanyItems.PHOTONIUM.get())
+                .define('D', ExtraBotanyItems.SHADOWIUM.get())
+                .define('S', ExtraBotanyItems.SPIRIT.get())
+                .pattern(" D ")
+                .pattern("DSL")
+                .pattern(" L ")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.PHOTONIUM.get(), ExtraBotanyItems.SHADOWIUM.get(), ExtraBotanyItems.SPIRIT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.THE_ORIGIN.get())
+                .define('L', BotaniaItems.terrasteel)
+                .define('D', ExtraBotanyItems.AERIALITE.get())
+                .define('S', ExtraBotanyItems.SPIRIT.get())
+                .pattern(" D ")
+                .pattern("DSL")
+                .pattern(" L ")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.terrasteel, ExtraBotanyItems.AERIALITE.get(), ExtraBotanyItems.SPIRIT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.THE_END.get())
+                .define('L', ExtraBotanyItems.ORICHALCOS.get())
+                .define('D', BotaniaItems.gaiaIngot)
+                .define('S', ExtraBotanyItems.SPIRIT.get())
+                .pattern(" D ")
+                .pattern("DSL")
+                .pattern(" L ")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
+                .save(consumer);
     }
 
     private void ingotStorage(RegistryObject<Block> block, RegistryObject<Item> item, Consumer<FinishedRecipe> consumer) {
@@ -212,6 +244,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
     private void specialCrafting(RecipeSerializer<? extends CraftingRecipe> serializer, String name, Consumer<FinishedRecipe> consumer) {
         SpecialRecipeBuilder.special(serializer).save(consumer, "dynamic/" + name);
+    }
+
+    private static InventoryChangeTrigger.TriggerInstance conditionsFromItems(ItemLike... items) {
+        ItemPredicate[] preds = new ItemPredicate[items.length];
+        for (int i = 0; i < items.length; i++) {
+            preds[i] = ItemPredicate.Builder.item().of(items[i]).build();
+        }
+
+        return RecipeProviderAccessor.botania_condition(preds);
     }
 
     @Override

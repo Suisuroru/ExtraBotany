@@ -32,11 +32,18 @@ public class TerrestrialAgglomerationProvider extends vazkii.botania.data.recipe
 
     @Override
     public void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.AERIALITE), ManaPoolBlockEntity.MAX_MANA / 2,
-                new ItemStack(ExtraBotanyItems.AERIALITE.get()),
-                Ingredient.of(BotaniaItems.dragonstone),
-                Ingredient.of(BotaniaItems.enderAirBottle),
-                Ingredient.of(Items.PHANTOM_MEMBRANE)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.AERIALITE), ManaPoolBlockEntity.MAX_MANA / 2, new ItemStack(ExtraBotanyItems.AERIALITE.get()),
+                        Ingredient.of(BotaniaItems.dragonstone),
+                        Ingredient.of(BotaniaItems.enderAirBottle),
+                        Ingredient.of(Items.PHANTOM_MEMBRANE)
+                )
+        );
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.THE_UNIVERSE), ManaPoolBlockEntity.MAX_MANA, new ItemStack(ExtraBotanyItems.THE_UNIVERSE.get()),
+                        Ingredient.of(ExtraBotanyItems.THE_CHAOS.get()),
+                        Ingredient.of(ExtraBotanyItems.THE_END.get()),
+                        Ingredient.of(ExtraBotanyItems.THE_ORIGIN.get())
+                )
+        );
     }
 
     private static ResourceLocation idFor(String s) {
