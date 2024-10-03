@@ -17,7 +17,6 @@ import java.util.function.Function;
 
 import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 
-
 public class ExtraBotanyBlocks {
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     public static final ArrayList<RegistryObject<? extends Block>> MOD_BLOCKS = new ArrayList<>();
@@ -36,18 +35,21 @@ public class ExtraBotanyBlocks {
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));
+        ExtraBotanyItems.regDefBlockItem(block);
         MOD_BLOCKS.add(block);
         return block;
     }
 
     private static <B extends Block> RegistryObject<B> regDefBlock(String name, Function<BlockBehaviour.Properties, ? extends B> func, BlockBehaviour.Properties props) {
         RegistryObject<B> block = BLOCKS.register(name, () -> func.apply(props));
+        ExtraBotanyItems.regDefBlockItem((RegistryObject<Block>) block);
         MOD_BLOCKS.add(block);
         return block;
     }
 
     private static <B extends Block> RegistryObject<B> regDefBlock(String name, BiFunction<ManaBufferBlock.Variant, BlockBehaviour.Properties, ? extends B> func, ManaBufferBlock.Variant variant, BlockBehaviour.Properties props) {
         RegistryObject<B> block = BLOCKS.register(name, () -> func.apply(variant, props));
+        ExtraBotanyItems.regDefBlockItem((RegistryObject<Block>) block);
         MOD_BLOCKS.add(block);
         return block;
     }

@@ -17,7 +17,7 @@ public class LanguageHelper {
     public static final Map<String, String> zh_cn = new HashMap<>();
 
     public static void init() {
-        add("itemGroup.extrabotany", "Extra Botany", "额外植物学");
+        add("itemGroup.extrabotany", "ExtraBotany", "额外植物学");
         transItem();
         transBlock();
         transEntity();
@@ -32,12 +32,14 @@ public class LanguageHelper {
     }
 
     private static void transItem() {
-        //block item
-//        addItem(ExtraBotanyItems.PHOTONIUM_BLOCK_ITEM, "Photonium Block", "光子块");
-//        addItem(ExtraBotanyItems.SHADOWIUM_BLOCK_ITEM, "Shadowium Block", "暗影块");
-//        addItem(ExtraBotanyItems.PEDESTAL_ITEM, "Livingrock Pedestal", "活石祭坛");
         // cosmetic bauble
         addItem(ExtraBotanyItems.PYLON, "Pylon", "模拟人生");
+        //bauble
+        addItem(ExtraBotanyItems.AERO_STONE, "Aero Stone", "风之符石");
+        addItem(ExtraBotanyItems.AQUA_STONE, "Aqua stone", "水之符石");
+        addItem(ExtraBotanyItems.EARTH_STONE, "Earth Stone", "地之符石");
+        addItem(ExtraBotanyItems.IGNIS_STONE, "Ignis Stone", "火之符石");
+        addItem(ExtraBotanyItems.THE_COMMUNITY, "The Community", "四元归一石");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

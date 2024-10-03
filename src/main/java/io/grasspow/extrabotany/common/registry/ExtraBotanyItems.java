@@ -7,7 +7,7 @@ import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
-import io.grasspow.extrabotany.common.item.equipment.bauble.CosmeticBaubleItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
@@ -38,23 +38,17 @@ public class ExtraBotanyItems {
     public static final ArrayList<RegistryObject<Item>> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<RegistryObject<BlockItem>> MOD_BLOCK_ITEMS = new ArrayList<>();
 
-    //block
-    public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
-    public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
-    public static final RegistryObject<BlockItem> AERIALITE_BLOCK = regDefBlockItem(ExtraBotanyBlocks.AERIALITE_BLOCK);
-    public static final RegistryObject<BlockItem> ORICHALCOS_BLOCK = regDefBlockItem(ExtraBotanyBlocks.ORICHALCOS_BLOCK);
-    public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
-    public static final RegistryObject<BlockItem> MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.MANA_BUFFER);
-    public static final RegistryObject<BlockItem> QUANTUM_MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.QUANTUM_MANA_BUFFER);
-    public static final RegistryObject<BlockItem> TROPHY_ITEM = regDefBlockItem(ExtraBotanyBlocks.TROPHY);
-    public static final RegistryObject<BlockItem> LIVINGROCK_BARREL_ITEM = regDefBlockItem(ExtraBotanyBlocks.LIVINGROCK_BARREL);
-    public static final RegistryObject<BlockItem> DIMENSION_CATALYST = regDefBlockItem(ExtraBotanyBlocks.DIMENSION_CATALYST);
-    public static final RegistryObject<BlockItem> POWER_FRAME = regDefBlockItem(ExtraBotanyBlocks.POWER_FRAME);
-
     // cosmetic bauble
-    public static final RegistryObject<Item> PYLON = regDefItem(LibItemNames.PYLON,
+    public static final RegistryObject<Item> PYLON = regComBaubleItem(LibItemNames.PYLON,
             CosmeticBaubleItem::new, CosmeticBaubleItem.Variant.PYLON, new Item.Properties()
     );
+
+    //bauble
+    public static final RegistryObject<Item> AERO_STONE = regDefItem(LibItemNames.AERO_STONE, AeroStoneItem::new, nonStackable());
+    public static final RegistryObject<Item> AQUA_STONE = regDefItem(LibItemNames.AQUA_STONE, AquaStoneItem::new, nonStackable());
+    public static final RegistryObject<Item> EARTH_STONE = regDefItem(LibItemNames.EARTH_STONE, EarthStoneItem::new, nonStackable());
+    public static final RegistryObject<Item> IGNIS_STONE = regDefItem(LibItemNames.IGNIS_STONE, IgnisStoneItem::new, nonStackable());
+    public static final RegistryObject<Item> THE_COMMUNITY = regDefItem(LibItemNames.THE_COMMUNITY, TheCommunityItem::new, nonStackable());
 
     // food
     public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));
@@ -98,7 +92,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultItem());
     public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultItem());
 
-    private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
+    public static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         MOD_BLOCK_ITEMS.add(item);
         return item;
@@ -122,7 +116,7 @@ public class ExtraBotanyItems {
         return item;
     }
 
-    private static <I extends Item> RegistryObject<Item> regDefItem(String name, BiFunction<CosmeticBaubleItem.Variant, Item.Properties, ? extends I> func, CosmeticBaubleItem.Variant variant, Item.Properties props) {
+    private static <I extends Item> RegistryObject<Item> regComBaubleItem(String name, BiFunction<CosmeticBaubleItem.Variant, Item.Properties, ? extends I> func, CosmeticBaubleItem.Variant variant, Item.Properties props) {
         RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(variant, props));
         MOD_ITEMS.add(item);
         return item;

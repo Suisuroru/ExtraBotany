@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
+import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import io.grasspow.extrabotany.common.libs.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -31,10 +31,10 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         registerVanillaTag();
-        tag(ModTags.Blocks.PHOTONIUM_BLOCK).add(PHOTONIUM_BLOCK.get());
-        tag(ModTags.Blocks.SHADOWIUM_BLOCK).add(SHADOWIUM_BLOCK.get());
-        tag(ModTags.Blocks.AERIALITE_BLOCK).add(AERIALITE_BLOCK.get());
-        tag(ModTags.Blocks.ORICHALCOS_BLOCK).add(ORICHALCOS_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.PHOTONIUM_BLOCK).add(PHOTONIUM_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.SHADOWIUM_BLOCK).add(SHADOWIUM_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.AERIALITE_BLOCK).add(AERIALITE_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.ORICHALCOS_BLOCK).add(ORICHALCOS_BLOCK.get());
     }
 
     private void registerVanillaTag() {

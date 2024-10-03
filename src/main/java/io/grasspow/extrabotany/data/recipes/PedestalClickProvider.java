@@ -2,9 +2,9 @@ package io.grasspow.extrabotany.data.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
-import io.grasspow.extrabotany.common.libs.ModTags;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.NonNullList;
@@ -34,8 +34,8 @@ public class PedestalClickProvider extends BotaniaRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<net.minecraft.data.recipes.FinishedRecipe> consumer) {
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT), new ItemStack(ExtraBotanyItems.SPIRIT.get()), Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()), Ingredient.of(ModTags.Items.HAMMER)));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_MASHED_POTATO), new ItemStack(ExtraBotanyItems.GILDED_MASHED_POTATO.get()), Ingredient.of(ExtraBotanyItems.GILDED_POTATO.get()), Ingredient.of(ModTags.Items.HAMMER)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SPIRIT), new ItemStack(ExtraBotanyItems.SPIRIT.get()), Ingredient.of(ExtraBotanyItems.SPIRIT_FUEL.get()), Ingredient.of(ExtraBotanyTags.Items.HAMMER)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_MASHED_POTATO), new ItemStack(ExtraBotanyItems.GILDED_MASHED_POTATO.get()), Ingredient.of(ExtraBotanyItems.GILDED_POTATO.get()), Ingredient.of(ExtraBotanyTags.Items.HAMMER)));
     }
 
     private static ResourceLocation idFor(String s) {

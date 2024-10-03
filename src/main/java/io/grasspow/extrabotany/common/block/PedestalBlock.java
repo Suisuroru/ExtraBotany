@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.common.block;
 
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
-import io.grasspow.extrabotany.common.libs.ModTags;
+import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -47,10 +47,10 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
             ItemStack offhandStack = player.getOffhandItem();
             if (pedestal.isEmpty() && !pedestal.processing) {
                 if (!offhandStack.isEmpty()) {
-                    if (hand.equals(InteractionHand.MAIN_HAND) && !offhandStack.is(ModTags.Items.PEDESTAL_DENY) && !(heldStack.getItem() instanceof BlockItem)) {
+                    if (hand.equals(InteractionHand.MAIN_HAND) && !offhandStack.is(ExtraBotanyTags.Items.PEDESTAL_DENY) && !(heldStack.getItem() instanceof BlockItem)) {
                         return InteractionResult.PASS; // Pass to off-hand if that item is placeable
                     }
-                    if (hand.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModTags.Items.PEDESTAL_DENY)) {
+                    if (hand.equals(InteractionHand.OFF_HAND) && offhandStack.is(ExtraBotanyTags.Items.PEDESTAL_DENY)) {
                         return InteractionResult.PASS; // Items in this tag should not be placed from the off-hand
                     }
                 }

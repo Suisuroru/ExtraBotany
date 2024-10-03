@@ -19,11 +19,11 @@ public class LibItemNames {
     public static final String SILVERBULLET = "silverbullet";
 
     public static final String PEACEAMULET = "peaceamulet";
-    public static final String AEROSTONE = "aerostone";
-    public static final String AQUASTONE = "aquastone";
-    public static final String EARTHSTONE = "earthstone";
-    public static final String IGNISSTONE = "ignisstone";
-    public static final String THECOMMUNITY = "thecommunity";
+    public static final String AERO_STONE = "aero_stone";
+    public static final String AQUA_STONE = "aqua_stone";
+    public static final String EARTH_STONE = "earth_stone";
+    public static final String IGNIS_STONE = "ignis_stone";
+    public static final String THE_COMMUNITY = "the_community";
     public static final String POWERGLOVE = "powerglove";
     public static final String MOTORACCESSORY = "motoraccessory";
     public static final String COSMICCARKEYACCESSORY = "cosmiccarkeyaccessory";

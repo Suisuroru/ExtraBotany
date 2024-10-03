@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.api.item.IHammer;
+import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import io.grasspow.extrabotany.common.libs.ModTags;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,13 +18,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.lens.LensItem;
 import vazkii.botania.common.lib.BotaniaTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
-import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.PYLON;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
     public ItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,
@@ -42,17 +45,18 @@ public class ItemTagProvider extends ItemTagsProvider {
         generateAccessoryTags();
         ExtraBotanyItems.MOD_ITEMS.forEach(item -> {
             if (item.get() instanceof IHammer) {
-                tag(ModTags.Items.HAMMER).add(item.get());
+                tag(ExtraBotanyTags.Items.HAMMER).add(item.get());
                 tag(BotaniaTags.Items.MANA_USING_ITEMS).add(item.get());
             }
         });
-        tag(ModTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
+        tag(ExtraBotanyTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
         tag(BotaniaTags.Items.MANA_USING_ITEMS).add(ExtraBotanyItems.INFINITE_WINE.get());
         TagsProvider.TagAppender<Item> builder = this.tag(BotaniaTags.Items.LENS);
         BuiltInRegistries.ITEM.stream().filter(i -> i instanceof LensItem && BuiltInRegistries.ITEM.getKey(i).getNamespace().equals(LibMisc.MOD_ID))
                 .map(BuiltInRegistries.ITEM::getKey)
                 .sorted()
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
+
         List.of(
                         BotaniaTags.Items.PETALS,
                         BotaniaTags.Items.PETALS_BLACK,
@@ -71,15 +75,35 @@ public class ItemTagProvider extends ItemTagsProvider {
                         BotaniaTags.Items.PETALS_RED,
                         BotaniaTags.Items.PETALS_WHITE,
                         BotaniaTags.Items.PETALS_YELLOW)
-                .forEach(i -> tag(i).add(ExtraBotanyItems.UNIVERSAL_PETAL.get()));
-        tag(BotaniaTags.Items.RUNES).add(ExtraBotanyItems.ELEMENT_RUNE.get(), ExtraBotanyItems.SIN_RUNE.get());
+                .forEach(i -> tag(i).add(UNIVERSAL_PETAL.get()));
+
+        tag(BotaniaTags.Items.RUNES).add(ELEMENT_RUNE.get(), SIN_RUNE.get());
+        tag(ExtraBotanyTags.Items.RUNES_WATER).add(ELEMENT_RUNE.get(), BotaniaItems.runeWater);
+        tag(ExtraBotanyTags.Items.RUNES_FIRE).add(ELEMENT_RUNE.get(), BotaniaItems.runeFire);
+        tag(ExtraBotanyTags.Items.RUNES_EARTH).add(ELEMENT_RUNE.get(), BotaniaItems.runeEarth);
+        tag(ExtraBotanyTags.Items.RUNES_AIR).add(ELEMENT_RUNE.get(), BotaniaItems.runeAir);
+        tag(ExtraBotanyTags.Items.RUNES_SPRING).add(ELEMENT_RUNE.get(), BotaniaItems.runeSpring);
+        tag(ExtraBotanyTags.Items.RUNES_SUMMER).add(ELEMENT_RUNE.get(), BotaniaItems.runeSummer);
+        tag(ExtraBotanyTags.Items.RUNES_AUTUMN).add(ELEMENT_RUNE.get(), BotaniaItems.runeAutumn);
+        tag(ExtraBotanyTags.Items.RUNES_WINTER).add(ELEMENT_RUNE.get(), BotaniaItems.runeWinter);
+        tag(ExtraBotanyTags.Items.RUNES_MANA).add(SIN_RUNE.get(), BotaniaItems.runeMana);
+        tag(ExtraBotanyTags.Items.RUNES_LUST).add(SIN_RUNE.get(), BotaniaItems.runeLust);
+        tag(ExtraBotanyTags.Items.RUNES_GLUTTONY).add(SIN_RUNE.get(), BotaniaItems.runeGluttony);
+        tag(ExtraBotanyTags.Items.RUNES_GREED).add(SIN_RUNE.get(), BotaniaItems.runeGreed);
+        tag(ExtraBotanyTags.Items.RUNES_SLOTH).add(SIN_RUNE.get(), BotaniaItems.runeSloth);
+        tag(ExtraBotanyTags.Items.RUNES_WRATH).add(SIN_RUNE.get(), BotaniaItems.runeWrath);
+        tag(ExtraBotanyTags.Items.RUNES_ENVY).add(SIN_RUNE.get(), BotaniaItems.runeEnvy);
+        tag(ExtraBotanyTags.Items.RUNES_PRIDE).add(SIN_RUNE.get(), BotaniaItems.runePride);
     }
 
 
     private void generateAccessoryTags() {
-        tag(accessory("curio")).add(
-                PYLON.get()
-        );
+        Stream.of(
+                PYLON
+        ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
+        Stream.of(
+                AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY
+        ).map(RegistryObject::get).forEach(tag(accessory("curio"))::add);
     }
 
     private static TagKey<Item> accessory(String name) {
