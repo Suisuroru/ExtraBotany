@@ -22,6 +22,7 @@ public final class ModTags {
         public static final TagKey<Block> SHADOWIUM_BLOCK = tag(LibBlockNames.SHADOWIUM_BLOCK);
         public static final TagKey<Block> PHOTONIUM_BLOCK = tag(LibBlockNames.PHOTONIUM_BLOCK);
         public static final TagKey<Block> ORICHALCOS_BLOCK = tag(LibBlockNames.ORICHALCOS_BLOCK);
+        public static final TagKey<Block> AERIALITE_BLOCK = tag(LibBlockNames.AERIALITE_BLOCK);
 
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, resId(name));

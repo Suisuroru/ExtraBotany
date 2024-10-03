@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.client.render;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import vazkii.botania.api.brew.Brew;
@@ -47,6 +48,13 @@ public final class ColorHandler {
 
             return r << 16 | g << 8 | b;
         }, ExtraBotanyItems.SPLASH_GRENADE.get(), ExtraBotanyItems.COCKTAIL.get(), ExtraBotanyItems.INFINITE_WINE.get());
+
+        items.register((s, t) -> {
+            if (t != 0) {
+                return -1;
+            }
+            return Mth.hsvToRgb(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F);
+        }, ExtraBotanyItems.UNIVERSAL_PETAL.get());
     }
 
     private ColorHandler() {

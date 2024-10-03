@@ -42,6 +42,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new RunicAltarProvider(output));
         generator.addProvider(event.includeServer(), new PedestalClickProvider(output));
         generator.addProvider(event.includeServer(), new BrewProvider(output));
+        generator.addProvider(event.includeServer(), new TerrestrialAgglomerationProvider(output));
 
     }
 }

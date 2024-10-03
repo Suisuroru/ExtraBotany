@@ -79,9 +79,9 @@ public class LibItemNames {
     public static final String THEORIGIN = "theorigin";
     public static final String THEEND = "theend";
     public static final String THEUNIVERSE = "theuniverse";
-    public static final String UNIVERSALPETAL = "universalpetal";
-    public static final String ELEMENTRUNE = "elementrune";
-    public static final String SINRUNE = "sinrune";
+    public static final String UNIVERSAL_PETAL = "universal_petal";
+    public static final String ELEMENT_RUNE = "element_rune";
+    public static final String SIN_RUNE = "sin_rune";
     public static final String CHALLENGETICKET = "challengeticket";
 
     public static final String LENS_SMELT = "lens_smelt";

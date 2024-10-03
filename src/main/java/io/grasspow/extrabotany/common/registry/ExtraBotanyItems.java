@@ -41,6 +41,7 @@ public class ExtraBotanyItems {
     //block
     public static final RegistryObject<BlockItem> PHOTONIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.PHOTONIUM_BLOCK);
     public static final RegistryObject<BlockItem> SHADOWIUM_BLOCK_ITEM = regDefBlockItem(ExtraBotanyBlocks.SHADOWIUM_BLOCK);
+    public static final RegistryObject<BlockItem> AERIALITE_BLOCK = regDefBlockItem(ExtraBotanyBlocks.AERIALITE_BLOCK);
     public static final RegistryObject<BlockItem> ORICHALCOS_BLOCK = regDefBlockItem(ExtraBotanyBlocks.ORICHALCOS_BLOCK);
     public static final RegistryObject<BlockItem> PEDESTAL_ITEM = regDefBlockItem(ExtraBotanyBlocks.PEDESTAL);
     public static final RegistryObject<BlockItem> MANA_BUFFER_ITEM = regDefBlockItem(ExtraBotanyBlocks.MANA_BUFFER);
@@ -81,11 +82,16 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultItem());
     public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM, defaultItem());
     public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM, defaultItem());
+    public static final RegistryObject<Item> AERIALITE = regDefItem(LibItemNames.AERIALITE, defaultItem());
     public static final RegistryObject<Item> ORICHALCOS = regDefItem(LibItemNames.ORICHALCOS, defaultItem());
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
     public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultItem());
     public static final RegistryObject<Item> GOLD_CLOTH = regDefItem(LibItemNames.GOLD_CLOTH, GoldClothItem::new, defaultItem());
+
+    public static final RegistryObject<Item> UNIVERSAL_PETAL = regDefItem(LibItemNames.UNIVERSAL_PETAL, defaultItem());
+    public static final RegistryObject<Item> ELEMENT_RUNE = regDefItem(LibItemNames.ELEMENT_RUNE, defaultItem());
+    public static final RegistryObject<Item> SIN_RUNE = regDefItem(LibItemNames.SIN_RUNE, defaultItem());
 
     private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

@@ -25,7 +25,9 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
 
     @Override
     protected void registerModels() {
-        List<RegistryObject<Item>> ignores = List.of(ExtraBotanyItems.COCKTAIL, ExtraBotanyItems.INFINITE_WINE, ExtraBotanyItems.SPLASH_GRENADE);
+        List<RegistryObject<Item>> ignores = List.of(
+                ExtraBotanyItems.COCKTAIL, ExtraBotanyItems.INFINITE_WINE, ExtraBotanyItems.SPLASH_GRENADE
+        );
         new ArrayList<>(MOD_ITEMS).stream().filter(o -> !ignores.contains(o)).forEach(defItem -> basicItem(defItem.get()));
         List.of(
                 ExtraBotanyItems.ELEMENTIUM_HAMMER,

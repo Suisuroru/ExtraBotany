@@ -21,6 +21,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import vazkii.botania.common.item.lens.LensItem;
 import vazkii.botania.common.lib.BotaniaTags;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.PYLON;
@@ -38,8 +39,7 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.generateAccessoryTags();
-
+        generateAccessoryTags();
         ExtraBotanyItems.MOD_ITEMS.forEach(item -> {
             if (item.get() instanceof IHammer) {
                 tag(ModTags.Items.HAMMER).add(item.get());
@@ -53,6 +53,26 @@ public class ItemTagProvider extends ItemTagsProvider {
                 .map(BuiltInRegistries.ITEM::getKey)
                 .sorted()
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
+        List.of(
+                        BotaniaTags.Items.PETALS,
+                        BotaniaTags.Items.PETALS_BLACK,
+                        BotaniaTags.Items.PETALS_BLUE,
+                        BotaniaTags.Items.PETALS_BROWN,
+                        BotaniaTags.Items.PETALS_CYAN,
+                        BotaniaTags.Items.PETALS_GRAY,
+                        BotaniaTags.Items.PETALS_GREEN,
+                        BotaniaTags.Items.PETALS_LIGHT_BLUE,
+                        BotaniaTags.Items.PETALS_LIGHT_GRAY,
+                        BotaniaTags.Items.PETALS_LIME,
+                        BotaniaTags.Items.PETALS_MAGENTA,
+                        BotaniaTags.Items.PETALS_ORANGE,
+                        BotaniaTags.Items.PETALS_PINK,
+                        BotaniaTags.Items.PETALS_PURPLE,
+                        BotaniaTags.Items.PETALS_RED,
+                        BotaniaTags.Items.PETALS_WHITE,
+                        BotaniaTags.Items.PETALS_YELLOW)
+                .forEach(i -> tag(i).add(ExtraBotanyItems.UNIVERSAL_PETAL.get()));
+        tag(BotaniaTags.Items.RUNES).add(ExtraBotanyItems.ELEMENT_RUNE.get(), ExtraBotanyItems.SIN_RUNE.get());
     }
 
 

@@ -61,16 +61,21 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium Ingot", "光子锭");
         addItem(ExtraBotanyItems.SHADOWIUM, "Shadowium Ingot", "暗影锭");
+        addItem(ExtraBotanyItems.AERIALITE, "Aerialite Ingot", "天空锭");
         addItem(ExtraBotanyItems.ORICHALCOS, "Orichalcos Ingot", "奥利哈刚锭");
         addItem(ExtraBotanyItems.SPIRIT, "Spirit Fragment", "精神碎片");
         addItem(ExtraBotanyItems.EMPTY_BOTTLE, "Empty Mana Glass Bottle", "魔法玻璃空瓶");
         addItem(ExtraBotanyItems.HERO_MEDAL, "Medal of Heroism", "英雄勋章");
         addItem(ExtraBotanyItems.GOLD_CLOTH, "Das Rheingold", "莱茵河的黄金");
+        addItem(ExtraBotanyItems.UNIVERSAL_PETAL, "Universal Petal", "彩虹花瓣");
+        addItem(ExtraBotanyItems.ELEMENT_RUNE, "Rune of Element", "元灵符文");
+        addItem(ExtraBotanyItems.SIN_RUNE, "Rune of Sin", "大罪符文");
     }
 
     private static void transBlock() {
         addBlock(ExtraBotanyBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
         addBlock(ExtraBotanyBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
+        addBlock(ExtraBotanyBlocks.AERIALITE_BLOCK, "Aerialite Block", "天空块");
         addBlock(ExtraBotanyBlocks.ORICHALCOS_BLOCK, "Orichalcos Block", "奥利哈刚块");
         addBlock(ExtraBotanyBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
         addBlock(ExtraBotanyBlocks.MANA_BUFFER, "Mana Buffer", "魔力缓存器");

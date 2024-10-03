@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -48,6 +49,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
         ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
         ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
+        ingotStorage(ExtraBotanyBlocks.AERIALITE_BLOCK, ExtraBotanyItems.AERIALITE, consumer);
         ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
 
         buildCommonCraftingRecipes(consumer);
@@ -169,6 +171,37 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .requires(BotaniaItems.runeMana)
                 .requires(BotaniaItems.manaPowder)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.UNIVERSAL_PETAL.get(), 8)
+                .requires(Ingredient.of(BotaniaTags.Items.PETALS), 8)
+                .requires(BotaniaItems.lifeEssence)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.ELEMENT_RUNE.get(), 8)
+                .requires(BotaniaItems.lifeEssence)
+                .requires(BotaniaItems.runeAir)
+                .requires(BotaniaItems.runeEarth)
+                .requires(BotaniaItems.runeWater)
+                .requires(BotaniaItems.runeFire)
+                .requires(BotaniaItems.runeSpring)
+                .requires(BotaniaItems.runeSummer)
+                .requires(BotaniaItems.runeAutumn)
+                .requires(BotaniaItems.runeWinter)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.SIN_RUNE.get(), 8)
+                .requires(BotaniaItems.lifeEssence)
+                .requires(BotaniaItems.runeMana)
+                .requires(BotaniaItems.runePride)
+                .requires(BotaniaItems.runeGluttony)
+                .requires(BotaniaItems.runeWrath)
+                .requires(BotaniaItems.runeGreed)
+                .requires(BotaniaItems.runeEnvy)
+                .requires(BotaniaItems.runeLust)
+                .requires(BotaniaItems.runeSloth)
+                .requires(Ingredient.of(BotaniaTags.Items.PETALS), 8)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
     }
 

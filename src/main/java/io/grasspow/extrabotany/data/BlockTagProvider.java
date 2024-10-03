@@ -33,15 +33,16 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
         registerVanillaTag();
         tag(ModTags.Blocks.PHOTONIUM_BLOCK).add(PHOTONIUM_BLOCK.get());
         tag(ModTags.Blocks.SHADOWIUM_BLOCK).add(SHADOWIUM_BLOCK.get());
+        tag(ModTags.Blocks.AERIALITE_BLOCK).add(AERIALITE_BLOCK.get());
         tag(ModTags.Blocks.ORICHALCOS_BLOCK).add(ORICHALCOS_BLOCK.get());
     }
 
     private void registerVanillaTag() {
         Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK, AERIALITE_BLOCK
         ).map(RegistryObject::get).forEach(tag(BlockTags.BEACON_BASE_BLOCKS)::add);
         Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK,
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, AERIALITE_BLOCK, ORICHALCOS_BLOCK,
                 PEDESTAL, MANA_BUFFER, QUANTUM_MANA_BUFFER, LIVINGROCK_BARREL,
                 DIMENSION_CATALYST, POWER_FRAME
         ).map(RegistryObject::get).forEach(tag(BlockTags.MINEABLE_WITH_PICKAXE)::add);

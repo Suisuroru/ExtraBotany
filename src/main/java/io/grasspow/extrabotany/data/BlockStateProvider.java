@@ -21,6 +21,7 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
         List.of(
                 ExtraBotanyBlocks.PHOTONIUM_BLOCK,
                 ExtraBotanyBlocks.SHADOWIUM_BLOCK,
+                ExtraBotanyBlocks.AERIALITE_BLOCK,
                 ExtraBotanyBlocks.ORICHALCOS_BLOCK,
                 ExtraBotanyBlocks.DIMENSION_CATALYST
         ).forEach(this::normal);
