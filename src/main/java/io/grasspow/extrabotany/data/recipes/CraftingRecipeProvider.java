@@ -149,6 +149,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("LCL")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.GEMS_MANA_DIAMOND))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.POWER_FRAME.get())
+                .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
+                .define('P', BotaniaItems.pixieDust)
+                .define('L', BotaniaBlocks.livingrock)
+                .pattern("MMM")
+                .pattern("PLP")
+                .pattern("MMM")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.pixieDust))
+                .save(consumer);
     }
 
     protected void buildSpecialCraftingRecipes(Consumer<FinishedRecipe> consumer) {

@@ -31,6 +31,7 @@ public class ExtraBotanyBlocks {
     public static final RegistryObject<Block> TROPHY = regDefBlock(LibBlockNames.TROPHY, TrophyBlock::new, BlockBehaviour.Properties.copy(Blocks.SKELETON_SKULL));
     public static final RegistryObject<Block> LIVINGROCK_BARREL = regDefBlock(LibBlockNames.LIVINGROCK_BARREL, LivingrockBarrelBlock::new, livingrock());
     public static final RegistryObject<Block> DIMENSION_CATALYST = regDefBlock(LibBlockNames.DIMENSION_CATALYST, DimensionCatalystBlock::new, livingrock());
+    public static final RegistryObject<Block> POWER_FRAME = regDefBlock(LibBlockNames.POWER_FRAME, PowerFrameBlock::new, livingrock());
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));

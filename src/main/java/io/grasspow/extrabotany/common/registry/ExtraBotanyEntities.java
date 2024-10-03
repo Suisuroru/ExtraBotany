@@ -4,6 +4,7 @@ import com.mojang.datafixers.DSL;
 import io.grasspow.extrabotany.common.entity.block.LivingrockBarrelBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.ManaBufferBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
@@ -33,6 +34,8 @@ public class ExtraBotanyEntities {
                 ).build(DSL.remainderType()));
         public static final RegistryObject<BlockEntityType<LivingrockBarrelBlockEntity>> LIVINGROCK_BARREL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.LIVINGROCK_BARREL,
                 () -> BlockEntityType.Builder.of(LivingrockBarrelBlockEntity::new, ExtraBotanyBlocks.LIVINGROCK_BARREL.get()).build(DSL.remainderType()));
+        public static final RegistryObject<BlockEntityType<PowerFrameBlockEntity>> POWER_FRAME_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(LibBlockNames.POWER_FRAME,
+                () -> BlockEntityType.Builder.of(PowerFrameBlockEntity::new, ExtraBotanyBlocks.POWER_FRAME.get()).build(DSL.remainderType()));
 
         public static DeferredRegister<BlockEntityType<?>> getBlockEntityTypes() {
             return BLOCK_ENTITY_TYPES;

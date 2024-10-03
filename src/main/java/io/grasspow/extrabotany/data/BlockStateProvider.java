@@ -29,7 +29,8 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
                 ExtraBotanyBlocks.MANA_BUFFER,
                 ExtraBotanyBlocks.QUANTUM_MANA_BUFFER,
                 ExtraBotanyBlocks.TROPHY,
-                ExtraBotanyBlocks.LIVINGROCK_BARREL
+                ExtraBotanyBlocks.LIVINGROCK_BARREL,
+                ExtraBotanyBlocks.POWER_FRAME
         ).forEach(this::custom);
     }
 

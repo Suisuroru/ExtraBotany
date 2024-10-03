@@ -12,12 +12,8 @@ public final class Shapes {
     public static final VoxelShape QUANTUM_MANA_BUFFER = genShape3();
     public static final VoxelShape TROPHY = genShape4();
     public static final VoxelShape LIVINGROCK_BARREL = genShape5();
+    public static final VoxelShape POWER_FRAME = genShape6();
 
-    /*
-    VoxelShapes.cuboid      box
-    VoxelShapes.combine     join
-    BooleanBiFunction       BooleanOp
-     */
     private static VoxelShape genShape1() {
         VoxelShape shape = box(0, 0, 0, 1, 0.125, 1);
         shape = join(shape, box(0.125, 0.125, 0.125, 0.875, 0.25, 0.875), BooleanOp.OR);
@@ -105,6 +101,23 @@ public final class Shapes {
         shape = join(shape, box(0.9375, 0.0625, 0, 1, 0.9375, 1), BooleanOp.OR);
         shape = join(shape, box(0.0625, 0.0625, 0, 0.9375, 0.9375, 0.0625), BooleanOp.OR);
         shape = join(shape, box(0.0625, 0.0625, 0.9375, 0.9375, 0.9375, 1), BooleanOp.OR);
+        return shape;
+    }
+
+    private static VoxelShape genShape6() {
+        VoxelShape shape = box(0.9375, 0.9375, 0.0625, 1, 1, 0.9375);
+        shape = join(shape, box(0, 0.9375, 0.0625, 0.0625, 1, 0.9375), BooleanOp.OR);
+        shape = join(shape, box(0, 0.9375, 0, 1, 1, 0.0625), BooleanOp.OR);
+        shape = join(shape, box(0, 0.9375, 0.9375, 1, 1, 1), BooleanOp.OR);
+        shape = join(shape, box(0.9375, 0.0625, 0.9375, 1, 0.9375, 1), BooleanOp.OR);
+        shape = join(shape, box(0.9375, 0.0625, 0, 1, 0.9375, 0.0625), BooleanOp.OR);
+        shape = join(shape, box(0, 0.0625, 0.9375, 0.0625, 0.9375, 1), BooleanOp.OR);
+        shape = join(shape, box(0, 0.0625, 0, 0.0625, 0.9375, 0.0625), BooleanOp.OR);
+        shape = join(shape, box(0.9375, 0, 0.0625, 1, 0.0625, 0.9375), BooleanOp.OR);
+        shape = join(shape, box(0, 0, 0.0625, 0.0625, 0.0625, 0.9375), BooleanOp.OR);
+        shape = join(shape, box(0, 0, 0, 1, 0.0625, 0.0625), BooleanOp.OR);
+        shape = join(shape, box(0, 0, 0.9375, 1, 0.0625, 1), BooleanOp.OR);
+        shape = join(shape, box(0.125, 0.125, 0.125, 0.875, 0.875, 0.875), BooleanOp.OR);
         return shape;
     }
 }

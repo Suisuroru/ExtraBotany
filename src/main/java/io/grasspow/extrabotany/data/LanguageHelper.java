@@ -75,6 +75,7 @@ public class LanguageHelper {
         addBlock(ExtraBotanyBlocks.TROPHY, "Trophy", "奖杯");
         addBlock(ExtraBotanyBlocks.LIVINGROCK_BARREL, "Livingrock Barrel", "活石桶");
         addBlock(ExtraBotanyBlocks.DIMENSION_CATALYST, "Dimension Catalyst", "次元催化器");
+        addBlock(ExtraBotanyBlocks.POWER_FRAME, "Power Frame", "力量框架");
     }
 
     private static void transEntity() {
