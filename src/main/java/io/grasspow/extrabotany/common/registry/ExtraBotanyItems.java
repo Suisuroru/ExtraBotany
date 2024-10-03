@@ -14,6 +14,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
+import io.grasspow.extrabotany.common.item.len.LensMana;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -22,10 +23,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.item.lens.Lens;
+import vazkii.botania.common.item.lens.LensItem;
 
 import java.util.ArrayList;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 
@@ -63,6 +67,9 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWineItem::new, nonStackable());
     public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenadeItem::new, stackTo32());
 
+    //lens
+    public static final RegistryObject<Item> LENS_MANA = regDefLensItem(LibItemNames.LENS_MANA, stackTo16(), LensMana::new, LensItem.PROP_INTERACTION);
+
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
     public static final RegistryObject<Item> ELEMENTIUM_HAMMER = regDefItem(LibItemNames.ELEMENTIUM_HAMMER, ElementiumHammer::new, nonStackable());
@@ -71,9 +78,9 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MANA_READER = regDefItem(LibItemNames.MANA_READER, ManaReader::new, nonStackable());
 
     //misc
-    public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO,defaultItem());
-    public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM,defaultItem());
-    public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM,defaultItem());
+    public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultItem());
+    public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM, defaultItem());
+    public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM, defaultItem());
     public static final RegistryObject<Item> ORICHALCOS = regDefItem(LibItemNames.ORICHALCOS, defaultItem());
     public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
     public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
@@ -83,6 +90,12 @@ public class ExtraBotanyItems {
     private static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         MOD_BLOCK_ITEMS.add(item);
+        return item;
+    }
+
+    private static RegistryObject<Item> regDefLensItem(String name, Item.Properties props, Supplier<Lens> lens, int prop) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> new LensItem(props, lens.get(), prop));
+        MOD_ITEMS.add(item);
         return item;
     }
 

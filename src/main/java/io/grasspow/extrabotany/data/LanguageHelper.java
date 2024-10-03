@@ -17,7 +17,7 @@ public class LanguageHelper {
     public static final Map<String, String> zh_cn = new HashMap<>();
 
     public static void init() {
-        add("itemGroup.extrabotany","Extra Botany","额外植物学");
+        add("itemGroup.extrabotany", "Extra Botany", "额外植物学");
         transItem();
         transBlock();
         transEntity();
@@ -54,6 +54,9 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
+        //lens
+        addItemLens(ExtraBotanyItems.LENS_MANA, "Mana", "魔力");
+        addItem(ExtraBotanyItems.LENS_MANA, "Mana Lens: Mana", "魔力透镜:魔力");
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium Ingot", "光子锭");
@@ -106,6 +109,11 @@ public class LanguageHelper {
     private static void addItem(@NotNull RegistryObject<? extends Item> item, String en, String zh) {
         en_us.put(item.get().getDescriptionId(), en);
         zh_cn.put(item.get().getDescriptionId(), zh);
+    }
+
+    private static void addItemLens(@NotNull RegistryObject<? extends Item> item, String en, String zh) {
+        addItem(item, "Mana Lens:" + en, "魔力透镜:" + zh);
+        add(item.get().getDescriptionId() + ".short", en, zh);
     }
 
     private static void addBlock(@NotNull RegistryObject<? extends Block> block, String en, String zh) {

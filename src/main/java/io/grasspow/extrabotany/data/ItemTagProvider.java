@@ -5,9 +5,12 @@ import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.libs.ModTags;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -15,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import vazkii.botania.common.item.lens.LensItem;
 import vazkii.botania.common.lib.BotaniaTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -25,6 +29,11 @@ public class ItemTagProvider extends ItemTagsProvider {
     public ItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,
                            CompletableFuture<TagsProvider.TagLookup<Block>> blockTagProvider, ExistingFileHelper helper) {
         super(packOutput, lookupProvider, blockTagProvider, LibMisc.MOD_ID, helper);
+    }
+
+    @Override
+    public String getName() {
+        return "ExtraBotany item tags";
     }
 
     @Override
@@ -39,12 +48,13 @@ public class ItemTagProvider extends ItemTagsProvider {
         });
         tag(ModTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
         tag(BotaniaTags.Items.MANA_USING_ITEMS).add(ExtraBotanyItems.INFINITE_WINE.get());
+        TagsProvider.TagAppender<Item> builder = this.tag(BotaniaTags.Items.LENS);
+        BuiltInRegistries.ITEM.stream().filter(i -> i instanceof LensItem && BuiltInRegistries.ITEM.getKey(i).getNamespace().equals(LibMisc.MOD_ID))
+                .map(BuiltInRegistries.ITEM::getKey)
+                .sorted()
+                .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
     }
 
-    @Override
-    public String getName() {
-        return "ExtraBotany item tags";
-    }
 
     private void generateAccessoryTags() {
         tag(accessory("curio")).add(
