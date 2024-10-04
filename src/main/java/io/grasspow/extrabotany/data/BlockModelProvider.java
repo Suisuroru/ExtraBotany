@@ -11,8 +11,8 @@ import java.util.List;
 
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
-public class BlockStateProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
-    public BlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+public class BlockModelProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
+    public BlockModelProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, LibMisc.MOD_ID, exFileHelper);
     }
 

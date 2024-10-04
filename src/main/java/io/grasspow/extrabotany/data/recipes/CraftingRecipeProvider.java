@@ -204,7 +204,6 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .requires(BotaniaItems.runeEnvy)
                 .requires(BotaniaItems.runeLust)
                 .requires(BotaniaItems.runeSloth)
-                .requires(Ingredient.of(BotaniaTags.Items.PETALS), 8)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
 

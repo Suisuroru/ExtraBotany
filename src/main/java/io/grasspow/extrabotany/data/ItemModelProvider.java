@@ -1,74 +1,148 @@
 package io.grasspow.extrabotany.data;
 
-import io.grasspow.extrabotany.api.ExtraBotanyAPI;
+import com.google.gson.JsonElement;
+import com.mojang.datafixers.util.Pair;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
+import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.Block;
+import vazkii.botania.common.block.BotaniaBlocks;
+import vazkii.botania.common.block.BotaniaFlowerBlock;
+import vazkii.botania.common.block.LuminizerBlock;
+import vazkii.botania.common.block.decor.BotaniaMushroomBlock;
+import vazkii.botania.common.block.decor.FloatingFlowerBlock;
+import vazkii.botania.data.util.ModelWithOverrides;
+import vazkii.botania.data.util.OverrideHolder;
+import vazkii.botania.mixin.TextureSlotAccessor;
+import vazkii.botania.xplat.XplatAbstractions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
-import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.MOD_ITEMS;
+import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static vazkii.botania.data.ItemModelProvider.takeAll;
 
-public class ItemModelProvider extends net.minecraftforge.client.model.generators.ItemModelProvider {
+public class ItemModelProvider implements DataProvider {
+    private static final TextureSlot LAYER1 = TextureSlotAccessor.make("layer1");
+    private static final TextureSlot LAYER2 = TextureSlotAccessor.make("layer2");
+    private static final TextureSlot LAYER3 = TextureSlotAccessor.make("layer3");
+    private static final ModelTemplate GENERATED_1 = new ModelTemplate(Optional.of(new ResourceLocation("item/generated")), Optional.empty(), TextureSlot.LAYER0, LAYER1);
+    private static final ModelTemplate GENERATED_2 = new ModelTemplate(Optional.of(new ResourceLocation("item/generated")), Optional.empty(), TextureSlot.LAYER0, LAYER1, LAYER2);
+    private static final ModelTemplate HANDHELD_1 = new ModelTemplate(Optional.of(new ResourceLocation("item/handheld")), Optional.empty(), TextureSlot.LAYER0, LAYER1);
+    private static final ModelTemplate HANDHELD_3 = new ModelTemplate(Optional.of(new ResourceLocation("item/handheld")), Optional.empty(), TextureSlot.LAYER0, LAYER1, LAYER2, LAYER3);
+    private static final TextureSlot OUTSIDE = TextureSlotAccessor.make("outside");
+    private static final TextureSlot CORE = TextureSlotAccessor.make("core");
+    private static final ModelWithOverrides GENERATED_OVERRIDES = new ModelWithOverrides(new ResourceLocation("item/generated"), TextureSlot.LAYER0);
+    private static final ModelWithOverrides GENERATED_OVERRIDES_1 = new ModelWithOverrides(new ResourceLocation("item/generated"), TextureSlot.LAYER0, LAYER1);
+    private static final ModelWithOverrides HANDHELD_OVERRIDES = new ModelWithOverrides(new ResourceLocation("item/handheld"), TextureSlot.LAYER0);
+    private static final ModelWithOverrides HANDHELD_OVERRIDES_2 = new ModelWithOverrides(new ResourceLocation("item/handheld"), TextureSlot.LAYER0, LAYER1, LAYER2);
 
+    private final PackOutput packOutput;
 
-    public ItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, ExtraBotanyAPI.MOD_ID, existingFileHelper);
+    public ItemModelProvider(PackOutput packOutput) {
+        this.packOutput = packOutput;
     }
 
     @Override
-    protected void registerModels() {
-        List<RegistryObject<Item>> ignores = List.of(
-                ExtraBotanyItems.COCKTAIL, ExtraBotanyItems.INFINITE_WINE, ExtraBotanyItems.SPLASH_GRENADE
-        );
-        new ArrayList<>(MOD_ITEMS).stream().filter(o -> !ignores.contains(o)).forEach(defItem -> basicItem(defItem.get()));
-        List.of(
-                ExtraBotanyItems.ELEMENTIUM_HAMMER,
-                ExtraBotanyItems.MANASTEEL_HAMMER,
-                ExtraBotanyItems.TERRASTEEL_HAMMER,
-                ExtraBotanyItems.ULTIMATE_HAMMER,
-                ExtraBotanyItems.MANA_READER
-        ).forEach(this::heldItem);
-        generated1(LibItemNames.SPLASH_GRENADE);
-
-        //todo: brews' model swift
-        override1(LibItemNames.COCKTAIL, LibItemNames.EMPTY_BOTTLE, 7);
-        override1(LibItemNames.INFINITE_WINE, LibItemNames.EMPTY_BOTTLE, 6, 2);
+    public String getName() {
+        return "ExtraBotany item models";
     }
 
-    protected void heldItem(RegistryObject<Item> item) {
-        basicItem(item.get()).parent(new ModelFile.UncheckedModelFile("item/handheld"));
-    }
-
-    protected void generated1(String name) {
-        singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + name)
-        ).texture("layer1", modLoc("item/" + name + "_1"));
-    }
-
-    protected void override1(String name, String empty, int times) {
-        for (int i = 1; i <= times; i++) {
-            singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + empty)).texture("layer1", modLoc("item/" + name + "_" + i));
+    @Override
+    public CompletableFuture<?> run(CachedOutput cache) {
+        Set<Item> items = BuiltInRegistries.ITEM.stream().filter(i -> LibMisc.MOD_ID.equals(BuiltInRegistries.ITEM.getKey(i).getNamespace()))
+                .collect(Collectors.toSet());
+        Map<ResourceLocation, Supplier<JsonElement>> map = new HashMap<>();
+        registerItemBlocks(takeAll(items, i -> i instanceof BlockItem).stream().map(i -> (BlockItem) i).collect(Collectors.toSet()), map::put);
+        registerItemOverrides(items, map::put);
+        registerItems(items, map::put);
+        PackOutput.PathProvider modelPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models");
+        List<CompletableFuture<?>> output = new ArrayList<>();
+        for (Map.Entry<ResourceLocation, Supplier<JsonElement>> e : map.entrySet()) {
+            ResourceLocation id = e.getKey();
+            output.add(DataProvider.saveStable(cache, e.getValue().get(), modelPathProvider.json(id)));
         }
-        ItemModelBuilder builder = singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + empty)).texture("layer1", modLoc("item/" + name));
-        for (int i = 1; i <= times; i++) {
-            builder.override().predicate(new ResourceLocation("botania:swigs_taken"), i * 1.0f).model(new ModelFile.UncheckedModelFile(modLoc("item/" + name + "_" + i))).end();
-        }
+        return CompletableFuture.allOf(output.toArray(CompletableFuture[]::new));
     }
 
-    protected void override1(String name, String empty, int times, int skip) {
-        for (int i = 1; i <= times; i++) {
-            singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + empty)).texture("layer1", modLoc("item/" + name + "_" + (i * skip - 1)));
-        }
-        ItemModelBuilder builder = singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + empty)).texture("layer1", modLoc("item/" + name));
-        for (int i = 1; i <= times; i++) {
-            builder.override().predicate(new ResourceLocation("botania:swigs_taken"), i * skip * 1.0f - 1).model(new ModelFile.UncheckedModelFile(modLoc("item/" + name + "_" + (i * skip - 1)))).end();
-        }
+    private void registerItemBlocks(Set<BlockItem> itemBlocks, BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
+        //flowers
+        itemBlocks.removeIf(i -> {
+            var id = BuiltInRegistries.BLOCK.getKey(i.getBlock());
+            return id.getNamespace().equals(vazkii.botania.common.lib.LibMisc.MOD_ID) && i.getBlock() instanceof FloatingFlowerBlock;
+        });
+        Predicate<BlockItem> defaultGenerated = i -> {
+            Block b = i.getBlock();
+            return XplatAbstractions.INSTANCE.isSpecialFlowerBlock(b)
+                    || b instanceof BotaniaMushroomBlock
+                    || b instanceof LuminizerBlock
+                    || b instanceof BotaniaFlowerBlock
+                    || b == BotaniaBlocks.ghostRail;
+        };
+        takeAll(itemBlocks, defaultGenerated).forEach(i -> {
+            ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i.getBlock()), consumer);
+        });
     }
+
+    private void registerItemOverrides(Set<Item> items, BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
+        OverrideHolder cocktailOverrides = new OverrideHolder();
+        for (int i = 1; i <= 8; i++) {
+            ResourceLocation overrideModel = ModelLocationUtils.getModelLocation(ExtraBotanyItems.COCKTAIL.get(), "_" + i);
+            GENERATED_1.create(overrideModel,
+                    TextureMapping.layer0(resId("item/" + LibItemNames.EMPTY_BOTTLE)).put(LAYER1, overrideModel),
+                    consumer);
+            cocktailOverrides.add(overrideModel, Pair.of(resId("swigs_taken"), (double) i / 100));
+        }
+        GENERATED_OVERRIDES_1.create(ModelLocationUtils.getModelLocation(ExtraBotanyItems.COCKTAIL.get()),
+                TextureMapping.layer0(resId("item/" + LibItemNames.EMPTY_BOTTLE)).put(LAYER1, TextureMapping.getItemTexture(ExtraBotanyItems.COCKTAIL.get(), "_1")),
+                cocktailOverrides,
+                consumer);
+        items.remove(ExtraBotanyItems.COCKTAIL.get());
+
+        OverrideHolder infiniteWineOverrides = new OverrideHolder();
+        for (int i = 1; i <= 12; i++) {
+            ResourceLocation overrideModel = ModelLocationUtils.getModelLocation(ExtraBotanyItems.INFINITE_WINE.get(), "_" + (i / 2 + i % 2));
+            GENERATED_1.create(overrideModel,
+                    TextureMapping.layer0(resId("item/" + LibItemNames.INFINITE_WINE)).put(LAYER1, overrideModel),
+                    consumer);
+            infiniteWineOverrides.add(overrideModel, Pair.of(resId("swigs_taken"), (double) i / 100));
+        }
+        GENERATED_OVERRIDES_1.create(ModelLocationUtils.getModelLocation(ExtraBotanyItems.INFINITE_WINE.get()),
+                TextureMapping.layer0(resId("item/" + LibItemNames.INFINITE_WINE)).put(LAYER1, TextureMapping.getItemTexture(ExtraBotanyItems.INFINITE_WINE.get(), "_1")),
+                infiniteWineOverrides,
+                consumer);
+        items.remove(ExtraBotanyItems.INFINITE_WINE.get());
+    }
+
+    private void registerItems(Set<Item> items, BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
+        takeAll(items,
+                ExtraBotanyItems.SPLASH_GRENADE.get()
+        ).forEach(i -> GENERATED_1.create(ModelLocationUtils.getModelLocation(i),
+                TextureMapping
+                        .layer0(TextureMapping.getItemTexture(i))
+                        .put(LAYER1, TextureMapping.getItemTexture(i, "_1")),
+                consumer));
+        takeAll(items,
+                ExtraBotanyItems.ELEMENTIUM_HAMMER.get(),
+                ExtraBotanyItems.MANASTEEL_HAMMER.get(),
+                ExtraBotanyItems.TERRASTEEL_HAMMER.get(),
+                ExtraBotanyItems.ULTIMATE_HAMMER.get(),
+                ExtraBotanyItems.MANA_READER.get()
+        ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
+        takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
+    }
+
+
 }

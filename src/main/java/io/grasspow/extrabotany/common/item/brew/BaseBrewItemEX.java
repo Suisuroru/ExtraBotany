@@ -10,11 +10,14 @@ package io.grasspow.extrabotany.common.item.brew;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -42,6 +45,15 @@ public class BaseBrewItemEX extends BaseBrewItem {
         BaseBrewItemEX.amplifier = amplifier;
     }
 
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player player, @NotNull InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (getSwigsLeft(stack) <= 0) {
+            return InteractionResultHolder.fail(stack);
+        }
+        return super.use(world, player, hand);
+    }
+
     @NotNull
     @Override
     public ItemStack finishUsingItem(@NotNull ItemStack stack, Level world, LivingEntity living) {
@@ -61,7 +73,7 @@ public class BaseBrewItemEX extends BaseBrewItem {
 
             int swigs = getSwigsLeft(stack);
             if (living instanceof Player player && !player.getAbilities().instabuild) {
-                if (swigs == 1) {
+                if (swigs >= 1 && !stack.is(ExtraBotanyItems.INFINITE_WINE.get())) {
                     ItemStack result = getBaseStack();
                     if (!player.getInventory().add(result)) {
                         return result;

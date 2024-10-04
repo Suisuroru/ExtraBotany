@@ -19,8 +19,10 @@ public class DataGenerators {
         var lookupProvider = event.getLookupProvider();
         var fileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeClient(), new BlockStateProvider(output, fileHelper));
-        generator.addProvider(event.includeClient(), new ItemModelProvider(output, fileHelper));
+        generator.addProvider(event.includeClient(), new BlockstateProvider(output));
+        generator.addProvider(event.includeClient(), new BlockModelProvider(output, fileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelProvider(output));
+        generator.addProvider(event.includeClient(), new FloatingFlowerModelProvider(output));
 
         LanguageHelper.init();
         generator.addProvider(event.includeClient(), new EnUsProvider(output));
