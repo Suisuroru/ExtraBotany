@@ -11,6 +11,7 @@ import vazkii.botania.common.item.CustomCreativeTabContents;
 
 import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_BLOCKS;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_FLOWERS;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.MOD_ITEMS;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.PYLON;
 
@@ -32,6 +33,9 @@ public class ExtraBotanyTabs {
                     }
                 });
                 MOD_BLOCKS.forEach(item -> {
+                    output.accept(item.get());
+                });
+                MOD_FLOWERS.forEach(item -> {
                     output.accept(item.get());
                 });
             }).build());

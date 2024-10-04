@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.data;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -92,6 +93,7 @@ public class LanguageHelper {
         addBlock(ExtraBotanyBlocks.LIVINGROCK_BARREL, "Livingrock Barrel", "活石桶");
         addBlock(ExtraBotanyBlocks.DIMENSION_CATALYST, "Dimension Catalyst", "次元催化器");
         addBlock(ExtraBotanyBlocks.POWER_FRAME, "Power Frame", "力量框架");
+        addFlower(ExtraBotanyBlocks.ANNOYING_FLOWER, "Annoying Flower", "神烦花", "Time to rest", "摸了");
     }
 
     private static void transEntity() {
@@ -132,5 +134,17 @@ public class LanguageHelper {
     private static void addBlock(@NotNull RegistryObject<? extends Block> block, String en, String zh) {
         en_us.put(block.get().getDescriptionId(), en);
         zh_cn.put(block.get().getDescriptionId(), zh);
+    }
+
+    private static void addFlower(RegistryObject<Block> flower, String en, String zh, String refEn, String refZh) {
+        ResourceLocation id = flower.getId();
+        en_us.put(flower.get().getDescriptionId(), en);
+        en_us.put("block." + id.getNamespace() + ".floating_" + id.getPath(), "Floating " + en);
+        en_us.put(flower.get().getDescriptionId() + ".reference", refEn);
+        en_us.put("block." + id.getNamespace() + ".floating_" + id.getPath() + ".reference", refEn);
+        zh_cn.put(flower.get().getDescriptionId(), zh);
+        zh_cn.put("block." + id.getNamespace() + ".floating_" + id.getPath(), "浮空" + zh);
+        zh_cn.put(flower.get().getDescriptionId() + ".reference", refZh);
+        zh_cn.put("block." + id.getNamespace() + ".floating_" + id.getPath() + ".reference", refZh);
     }
 }

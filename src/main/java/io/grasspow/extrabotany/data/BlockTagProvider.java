@@ -10,6 +10,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.lib.BotaniaTags;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
@@ -31,6 +32,7 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         registerVanillaTag();
+        registerBotaniaTag();
         tag(ExtraBotanyTags.Blocks.PHOTONIUM_BLOCK).add(PHOTONIUM_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.SHADOWIUM_BLOCK).add(SHADOWIUM_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.AERIALITE_BLOCK).add(AERIALITE_BLOCK.get());
@@ -46,5 +48,11 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
                 PEDESTAL, MANA_BUFFER, QUANTUM_MANA_BUFFER, LIVINGROCK_BARREL,
                 DIMENSION_CATALYST, POWER_FRAME
         ).map(RegistryObject::get).forEach(tag(BlockTags.MINEABLE_WITH_PICKAXE)::add);
+    }
+
+    private void registerBotaniaTag() {
+        Stream.of(
+                ANNOYING_FLOWER, ANNOYING_FLOWER_FLOAT
+        ).map(RegistryObject::get).forEach(tag(BotaniaTags.Blocks.FUNCTIONAL_SPECIAL_FLOWERS)::add);
     }
 }

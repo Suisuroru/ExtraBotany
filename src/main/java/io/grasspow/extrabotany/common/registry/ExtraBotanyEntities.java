@@ -5,6 +5,7 @@ import io.grasspow.extrabotany.common.entity.block.LivingrockBarrelBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.ManaBufferBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
@@ -37,6 +38,14 @@ public class ExtraBotanyEntities {
 
         public static DeferredRegister<BlockEntityType<?>> getBlockEntityTypes() {
             return BLOCK_ENTITY_TYPES;
+        }
+
+        public static class Flowers {
+            public static final RegistryObject<BlockEntityType<AnnoyingFlowerBlockEntity>> ANNOYING_FLOWER = BLOCK_ENTITY_TYPES.register(LibBlockNames.ANNOYING_FLOWER,
+                    () -> BlockEntityType.Builder.of(AnnoyingFlowerBlockEntity::new,
+                            ExtraBotanyBlocks.ANNOYING_FLOWER.get(),
+                            ExtraBotanyBlocks.ANNOYING_FLOWER_FLOAT.get()
+                    ).build(DSL.remainderType()));
         }
     }
 

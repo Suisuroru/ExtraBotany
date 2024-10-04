@@ -17,6 +17,8 @@ public class LibBlockNames {
     public static final String TERRA_ALTAR = "terra_altar";
     public static final String DIMENSION_CATALYST = "dimension_catalyst";
 
+    public static final String ANNOYING_FLOWER = "annoying_flower";
+
     public static final ResourceLocation GENERATING_BELLFLOWER = new ResourceLocation(LibMisc.MOD_ID, "bellflower");
     public static final ResourceLocation GENERATING_MOONBLESS = new ResourceLocation(LibMisc.MOD_ID,"moonbless");
     public static final ResourceLocation GENERATING_SUNBLESS = new ResourceLocation(LibMisc.MOD_ID,"sunbless");

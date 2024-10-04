@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.item.block.SpecialFlowerBlockItem;
 import vazkii.botania.common.item.lens.Lens;
 import vazkii.botania.common.item.lens.LensItem;
 
@@ -73,29 +74,33 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MANA_READER = regDefItem(LibItemNames.MANA_READER, ManaReader::new, nonStackable());
 
     //misc
-    public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultItem());
-    public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM, defaultItem());
-    public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM, defaultItem());
-    public static final RegistryObject<Item> AERIALITE = regDefItem(LibItemNames.AERIALITE, defaultItem());
-    public static final RegistryObject<Item> ORICHALCOS = regDefItem(LibItemNames.ORICHALCOS, defaultItem());
-    public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultItem());
-    public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultItem());
-    public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultItem());
-    public static final RegistryObject<Item> GOLD_CLOTH = regDefItem(LibItemNames.GOLD_CLOTH, GoldClothItem::new, defaultItem());
+    public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());
+    public static final RegistryObject<Item> PHOTONIUM = regDefItem(LibItemNames.PHOTONIUM, defaultBuilder());
+    public static final RegistryObject<Item> SHADOWIUM = regDefItem(LibItemNames.SHADOWIUM, defaultBuilder());
+    public static final RegistryObject<Item> AERIALITE = regDefItem(LibItemNames.AERIALITE, defaultBuilder());
+    public static final RegistryObject<Item> ORICHALCOS = regDefItem(LibItemNames.ORICHALCOS, defaultBuilder());
+    public static final RegistryObject<Item> SPIRIT = regDefItem(LibItemNames.SPIRIT, defaultBuilder());
+    public static final RegistryObject<Item> EMPTY_BOTTLE = regDefItem(LibItemNames.EMPTY_BOTTLE, EmptyBottleItem::new, defaultBuilder());
+    public static final RegistryObject<Item> HERO_MEDAL = regDefItem(LibItemNames.HERO_MEDAL, defaultBuilder());
+    public static final RegistryObject<Item> GOLD_CLOTH = regDefItem(LibItemNames.GOLD_CLOTH, GoldClothItem::new, defaultBuilder());
 
-    public static final RegistryObject<Item> UNIVERSAL_PETAL = regDefItem(LibItemNames.UNIVERSAL_PETAL, defaultItem());
-    public static final RegistryObject<Item> ELEMENT_RUNE = regDefItem(LibItemNames.ELEMENT_RUNE, defaultItem());
-    public static final RegistryObject<Item> SIN_RUNE = regDefItem(LibItemNames.SIN_RUNE, defaultItem());
+    public static final RegistryObject<Item> UNIVERSAL_PETAL = regDefItem(LibItemNames.UNIVERSAL_PETAL, defaultBuilder());
+    public static final RegistryObject<Item> ELEMENT_RUNE = regDefItem(LibItemNames.ELEMENT_RUNE, defaultBuilder());
+    public static final RegistryObject<Item> SIN_RUNE = regDefItem(LibItemNames.SIN_RUNE, defaultBuilder());
 
-    public static final RegistryObject<Item> THE_CHAOS = regDefItem(LibItemNames.THE_CHAOS, defaultItem());
-    public static final RegistryObject<Item> THE_ORIGIN = regDefItem(LibItemNames.THE_ORIGIN, defaultItem());
-    public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultItem());
-    public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultItem());
+    public static final RegistryObject<Item> THE_CHAOS = regDefItem(LibItemNames.THE_CHAOS, defaultBuilder());
+    public static final RegistryObject<Item> THE_ORIGIN = regDefItem(LibItemNames.THE_ORIGIN, defaultBuilder());
+    public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultBuilder());
+    public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultBuilder());
 
-    public static RegistryObject<BlockItem> regDefBlockItem(RegistryObject<Block> block) {
+    public static void regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         MOD_BLOCK_ITEMS.add(item);
-        return item;
+    }
+
+    public static void regFlowerItem(RegistryObject<Block> block) {
+        RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new SpecialFlowerBlockItem(block.get(), defaultBuilder()));
+        MOD_BLOCK_ITEMS.add(item);
     }
 
     private static RegistryObject<Item> regDefLensItem(String name, Item.Properties props, Supplier<Lens> lens, int prop) {
@@ -122,24 +127,24 @@ public class ExtraBotanyItems {
         return item;
     }
 
-    private static Item.Properties defaultItem() {
+    private static Item.Properties defaultBuilder() {
         return new Item.Properties();
     }
 
     private static Item.Properties food(FoodProperties props) {
-        return defaultItem().food(props);
+        return defaultBuilder().food(props);
     }
 
     private static Item.Properties nonStackable() {
-        return defaultItem().stacksTo(1);
+        return defaultBuilder().stacksTo(1);
     }
 
     private static Item.Properties stackTo16() {
-        return defaultItem().stacksTo(16);
+        return defaultBuilder().stacksTo(16);
     }
 
     private static Item.Properties stackTo32() {
-        return defaultItem().stacksTo(32);
+        return defaultBuilder().stacksTo(32);
     }
 
     public static DeferredRegister<Item> getItems() {

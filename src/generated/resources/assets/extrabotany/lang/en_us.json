@@ -4,7 +4,11 @@
   "advancement.extrabotany.root.desc": "Don't have a good day, have a great day",
   "advancement.extrabotany.root.title": "Welcome to the World",
   "block.extrabotany.aerialite_block": "Aerialite Block",
+  "block.extrabotany.annoying_flower": "Annoying Flower",
+  "block.extrabotany.annoying_flower.reference": "Time to rest",
   "block.extrabotany.dimension_catalyst": "Dimension Catalyst",
+  "block.extrabotany.floating_annoying_flower": "Floating Annoying Flower",
+  "block.extrabotany.floating_annoying_flower.reference": "Time to rest",
   "block.extrabotany.livingrock_barrel": "Livingrock Barrel",
   "block.extrabotany.mana_buffer": "Mana Buffer",
   "block.extrabotany.orichalcos_block": "Orichalcos Block",
@@ -56,5 +60,5 @@
   "item.extrabotany.the_universe": "The Universe",
   "item.extrabotany.ultimate_hammer": "Ultimate Hammer",
   "item.extrabotany.universal_petal": "Universal Petal",
-  "itemGroup.extrabotany": "Extra Botany"
+  "itemGroup.extrabotany": "ExtraBotany"
 }
