@@ -6,7 +6,6 @@ import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -50,14 +49,12 @@ public class ForgeCommonInitializer {
         ExtraBotanyItems.getItems().register(modEventBus);
 
         ExtraBotanyEntities.Blocks.getBlockEntityTypes().register(modEventBus);
-        bind(Registries.ENTITY_TYPE, ExtraBotanyEntities.Brews::registerEntities);
+        ExtraBotanyEntities.getEntityTypes().register(modEventBus);
 
         ExtraBotanySounds.getSounds().register(modEventBus);
 
         ExtraBotanyRecipeTypes.getRecipeTypes().register(modEventBus);
         ExtraBotanyRecipeTypes.getRecipeSerializers().register(modEventBus);
-//        ModEffects.getEffects().register(bus);
-//        ModBrews.registerBrews();
         bind(BotaniaRegistries.BREWS, ExtraBotanyBrews::submitRegistrations);
         ExtraBotanyTabs.getTabs().register(modEventBus);
     }

@@ -15,6 +15,6 @@ public class ExtraBotanyEntityRenderers {
     }
 
     public static void registerEntityRenderers(EntityRenderers.EntityRendererConsumer consumer) {
-        consumer.accept(ExtraBotanyEntities.Brews.SPLASH_GRENADE, ThrownItemRenderer::new);
+        consumer.accept(ExtraBotanyEntities.SPLASH_GRENADE.get(), ThrownItemRenderer::new);
     }
 }

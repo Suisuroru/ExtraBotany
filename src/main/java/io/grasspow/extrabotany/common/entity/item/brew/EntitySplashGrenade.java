@@ -23,7 +23,7 @@ public class EntitySplashGrenade extends ThrownPotion {
     }
 
     public EntitySplashGrenade(Level level, LivingEntity living) {
-        super(ExtraBotanyEntities.Brews.SPLASH_GRENADE, level);
+        super(ExtraBotanyEntities.SPLASH_GRENADE.get(), level);
         setOwner(living);
     }
 

@@ -8,16 +8,14 @@ import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
+import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.BiConsumer;
 
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
@@ -42,17 +40,19 @@ public class ExtraBotanyEntities {
         }
     }
 
-    public static class Brews {
-        public static final EntityType<EntitySplashGrenade> SPLASH_GRENADE = EntityType.Builder
-                .<EntitySplashGrenade>of(EntitySplashGrenade::new, MobCategory.MISC)
-                .sized(0.05F, 0.05F)
-                .setUpdateInterval(10)
-                .setTrackingRange(64)
-                .setShouldReceiveVelocityUpdates(true)
-                .build(resId(LibEntityNames.SPLASH_GRENADE).toString());
+    private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, LibMisc.MOD_ID);
 
-        public static void registerEntities(BiConsumer<EntityType<?>, ResourceLocation> r) {
-            r.accept(SPLASH_GRENADE, resId(LibEntityNames.SPLASH_GRENADE));
-        }
+    public static DeferredRegister<EntityType<?>> getEntityTypes() {
+        return ENTITY_TYPES;
     }
+
+    public static final RegistryObject<EntityType<EntitySplashGrenade>> SPLASH_GRENADE = ENTITY_TYPES.register(LibItemNames.SPLASH_GRENADE,
+            () -> EntityType.Builder
+                    .<EntitySplashGrenade>of(EntitySplashGrenade::new, MobCategory.MISC)
+                    .sized(0.05F, 0.05F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.SPLASH_GRENADE).toString()));
+
 }
