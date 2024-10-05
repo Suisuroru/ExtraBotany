@@ -25,18 +25,18 @@ public class ExtraBotanyTabs {
             .backgroundSuffix("botania.png")
             .withSearchBar()
             .displayItems((parameters, output) -> {
+                MOD_FLOWERS.forEach(item -> {
+                    output.accept(item.get());
+                });
+                MOD_BLOCKS.forEach(item -> {
+                    output.accept(item.get());
+                });
                 MOD_ITEMS.forEach(item -> {
                     if (item.get() instanceof CustomCreativeTabContents cc) {
                         cc.addToCreativeTab(item.get(), output);
                     } else {
                         output.accept(item.get());
                     }
-                });
-                MOD_BLOCKS.forEach(item -> {
-                    output.accept(item.get());
-                });
-                MOD_FLOWERS.forEach(item -> {
-                    output.accept(item.get());
                 });
             }).build());
 

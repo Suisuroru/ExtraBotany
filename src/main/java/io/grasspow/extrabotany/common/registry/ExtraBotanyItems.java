@@ -58,11 +58,6 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> FRIED_CHICKEN = regDefItem(LibItemNames.FRIED_CHICKEN, food(ModFoods.FRIED_CHICKEN));
     public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
 
-    //brew
-    public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, CocktailItem::new, stackTo32());
-    public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWineItem::new, nonStackable());
-    public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenadeItem::new, stackTo32());
-
     //lens
     public static final RegistryObject<Item> LENS_MANA = regDefLensItem(LibItemNames.LENS_MANA, stackTo16(), LensMana::new, LensItem.PROP_INTERACTION);
 
@@ -92,6 +87,11 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> THE_ORIGIN = regDefItem(LibItemNames.THE_ORIGIN, defaultBuilder());
     public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultBuilder());
     public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultBuilder());
+
+    //brew
+    public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, CocktailItem::new, stackTo32());
+    public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWineItem::new, nonStackable());
+    public static final RegistryObject<Item> SPLASH_GRENADE = regDefItem(LibItemNames.SPLASH_GRENADE, SplashGrenadeItem::new, stackTo32());
 
     public static void regDefBlockItem(RegistryObject<Block> block) {
         RegistryObject<BlockItem> item = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
