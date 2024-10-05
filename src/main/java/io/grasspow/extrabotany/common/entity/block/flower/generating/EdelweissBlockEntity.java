@@ -3,7 +3,6 @@ package io.grasspow.extrabotany.common.entity.block.flower.generating;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -33,7 +32,7 @@ public class EdelweissBlockEntity extends GeneratingFlowerBlockEntity {
                 if (getMana() < getMaxMana()) {
                     for (SnowGolem golem : getLevel().getEntitiesOfClass(SnowGolem.class, new AABB(getEffectivePos().offset(-RANGE, -RANGE, -RANGE), getEffectivePos().offset(RANGE + 1, RANGE + 1, RANGE + 1)))) {
                         if (golem.isAlive()) {
-                            golem.remove(Entity.RemovalReason.KILLED);
+                            golem.discard();
                             addMana(1600);
                             burnTime += 200;
                             break;

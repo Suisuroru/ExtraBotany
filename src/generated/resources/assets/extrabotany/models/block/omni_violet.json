@@ -1,6 +1,6 @@
 {
   "parent": "botania:block/shapes/cross",
   "textures": {
-    "cross": "extrabotany:block/omniviolet"
+    "cross": "extrabotany:block/omni_violet"
   }
 }

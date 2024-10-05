@@ -4,7 +4,7 @@ public class LibAdvancementNames {
 
     public static final String ROOT = "root";
     public static final String NIGHTMARE_FUEL_EAT = "nightmare_fuel_eat";
-    public static final String TINKLEUSE = "tinkleuse";
+    public static final String TINKLE_USE = "tinkle_use";
     public static final String BLOODYENCHANTRESSUSE = "bloodyenchantressuse";
     public static final String MANABUFFERCRAFT = "manabuffercraft";
     public static final String MANAREADERCRAFT = "manareadercraft";

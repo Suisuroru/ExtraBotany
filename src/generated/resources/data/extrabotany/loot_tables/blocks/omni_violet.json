@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "extrabotany:floating_omniviolet"
+          "name": "extrabotany:omni_violet"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "extrabotany:blocks/floating_omniviolet"
+  "random_sequence": "extrabotany:blocks/omni_violet"
 }

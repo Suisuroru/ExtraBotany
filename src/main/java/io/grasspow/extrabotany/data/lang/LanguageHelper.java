@@ -103,7 +103,7 @@ public class LanguageHelper {
         addFlower(LibBlockNames.GEMINI_ORCHID, "Gemini Orchid", "双子兰", "Why is a raven like a writing desk?", "为什么乌鸦像写字台？");
         addFlower(LibBlockNames.SUN_BLESS, "Sunshine Lily", "日曜百合", "May the light heal and enlighten you", "愿光芒能治愈并指引你");
         addFlower(LibBlockNames.MOON_BLESS, "Moonlight Lily", "月光百合", "May you find all you have lost", "愿你能找到所有失去的东西");
-        addFlower(LibBlockNames.OMNIVIOLET, "Omniviolet", "全知瑾", "Need not to know", "我知万物");
+        addFlower(LibBlockNames.OMNI_VIOLET, "Omniviolet", "全知瑾", "Need not to know", "我知万物");
         addFlower(LibBlockNames.REIKAR_LILY, "Reikar Lily", "雷卡兰", "Game Crash", "游戏崩溃");
         addFlower(LibBlockNames.TINKLE_FLOWER, "Tinkle Flower", "叮当舞花", "My turn", "接下来是我的回合了");
 //        addFlower(LibBlockNames.BLOODY_ENCHANTRESS, "Bloody Enchantress", "血腥妖姬", "My turn", "接下来是我的回合了");

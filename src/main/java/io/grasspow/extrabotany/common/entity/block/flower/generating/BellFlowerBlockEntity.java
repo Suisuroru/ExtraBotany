@@ -3,15 +3,15 @@ package io.grasspow.extrabotany.common.entity.block.flower.generating;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import vazkii.botania.api.block_entity.GeneratingFlowerBlockEntity;
 import vazkii.botania.api.block_entity.RadiusDescriptor;
 
-public class BellFlowerBlockEntity extends PassiveGeneratingFlowerBlockEntity {
+public class BellFlowerBlockEntity extends GeneratingFlowerBlockEntity {
 
     private static final int RANGE = 2;
 
     public BellFlowerBlockEntity(BlockPos pos, BlockState state) {
         super(ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER.get(), pos, state);
-        setDecayTime(72000);
     }
 
     @Override

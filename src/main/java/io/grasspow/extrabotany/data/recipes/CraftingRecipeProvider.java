@@ -24,11 +24,13 @@ import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.lib.BotaniaTags;
+import vazkii.botania.forge.block.ForgeSpecialFlowerBlock;
 import vazkii.botania.mixin.RecipeProviderAccessor;
 
 import java.util.function.Consumer;
 
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_FLOWERS;
 
 public class CraftingRecipeProvider extends vazkii.botania.data.recipes.CraftingRecipeProvider {
     public CraftingRecipeProvider(PackOutput packOutput) {
@@ -57,6 +59,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
 
         buildCommonCraftingRecipes(consumer);
+        buildingFloatingFlowerRecipes(consumer);
     }
 
     private void buildCommonCraftingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -233,6 +236,19 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("DSL")
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
+                .save(consumer);
+    }
+
+    private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {
+        MOD_FLOWERS.stream().filter(b -> b.get() instanceof ForgeSpecialFlowerBlock).forEach(b -> createFloatingFlowerRecipe(consumer, b));
+    }
+
+    protected void createFloatingFlowerRecipe(Consumer<FinishedRecipe> consumer, RegistryObject<Block> block) {
+        Item output = getItemOrThrow(block.getId().withPrefix("floating_"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
+                .requires(BotaniaTags.Items.FLOATING_FLOWERS)
+                .requires(block.get())
+                .unlockedBy("has_item", conditionsFromItem(block.get()))
                 .save(consumer);
     }
 

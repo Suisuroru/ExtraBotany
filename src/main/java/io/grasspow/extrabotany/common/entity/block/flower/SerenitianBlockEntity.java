@@ -41,8 +41,8 @@ public class SerenitianBlockEntity extends FunctionalFlowerBlockEntity {
             if (!passiveDecayTicks.canAccess(generator)) {
                 passiveDecayTicks.setAccessible(true);
             }
-            if (passiveDecayTicks.getInt(generator) < 72000) {
-                passiveDecayTicks.setInt(generator, 2147483647);
+            if (passiveDecayTicks.getInt(generator) > 1000) {
+                passiveDecayTicks.setInt(generator, 0);
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             ExtraBotanyAPI.logger.error("catch exception when editing passiveDelay:{}", e.getMessage());

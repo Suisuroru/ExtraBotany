@@ -19,12 +19,12 @@ public class ExtraBotanyEntityRenderers {
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER.get(), SpecialFlowerBlockEntityRenderer::new);
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.EDELWEISS.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
-//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.GEMINI_ORCHID.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SUN_BLESS.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.MOON_BLESS.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.OMNI_VIOLET.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.REIKAR_LILY.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.TINKLE_FLOWER.get(), SpecialFlowerBlockEntityRenderer::new);
     }
 
     public static void registerEntityRenderers(EntityRenderers.EntityRendererConsumer consumer) {

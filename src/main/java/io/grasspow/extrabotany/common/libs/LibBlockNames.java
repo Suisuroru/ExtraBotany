@@ -22,7 +22,7 @@ public class LibBlockNames {
     public static final String GEMINI_ORCHID = "gemini_orchid";
     public static final String SUN_BLESS = "sun_bless";
     public static final String MOON_BLESS = "moon_bless";
-    public static final String OMNIVIOLET = "omniviolet";
+    public static final String OMNI_VIOLET = "omni_violet";
     public static final String REIKAR_LILY = "reikar_lily";
     public static final String TINKLE_FLOWER = "tinkle_flower";
 

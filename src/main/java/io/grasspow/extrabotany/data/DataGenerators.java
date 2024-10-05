@@ -48,6 +48,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new LootTableProvider(output));
 
         generator.addProvider(event.includeServer(), new CraftingRecipeProvider(output));
+        generator.addProvider(event.includeServer(), new PetalApothecaryProvider(output));
         generator.addProvider(event.includeServer(), new ManaInfusionProvider(output));
         generator.addProvider(event.includeServer(), new RunicAltarProvider(output));
         generator.addProvider(event.includeServer(), new PedestalClickProvider(output));

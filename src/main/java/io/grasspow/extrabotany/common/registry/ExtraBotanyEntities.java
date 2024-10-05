@@ -7,8 +7,7 @@ import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
-import io.grasspow.extrabotany.common.entity.block.flower.generating.BellFlowerBlockEntity;
-import io.grasspow.extrabotany.common.entity.block.flower.generating.EdelweissBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.flower.generating.*;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
@@ -63,6 +62,36 @@ public class ExtraBotanyEntities {
                     () -> BlockEntityType.Builder.of(EdelweissBlockEntity::new,
                             ExtraBotanyBlocks.EDELWEISS.get(),
                             ExtraBotanyBlocks.FLOATING_EDELWEISS.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<GeminiOrchidBlockEntity>> GEMINI_ORCHID = BLOCK_ENTITY_TYPES.register(LibBlockNames.GEMINI_ORCHID,
+                    () -> BlockEntityType.Builder.of(GeminiOrchidBlockEntity::new,
+                            ExtraBotanyBlocks.GEMINI_ORCHID.get(),
+                            ExtraBotanyBlocks.FLOATING_GEMINI_ORCHID.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<SunBlessBlockEntity>> SUN_BLESS = BLOCK_ENTITY_TYPES.register(LibBlockNames.SUN_BLESS,
+                    () -> BlockEntityType.Builder.of(SunBlessBlockEntity::new,
+                            ExtraBotanyBlocks.SUN_BLESS.get(),
+                            ExtraBotanyBlocks.FLOATING_SUN_BLESS.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<MoonBlessBlockEntity>> MOON_BLESS = BLOCK_ENTITY_TYPES.register(LibBlockNames.MOON_BLESS,
+                    () -> BlockEntityType.Builder.of(MoonBlessBlockEntity::new,
+                            ExtraBotanyBlocks.MOON_BLESS.get(),
+                            ExtraBotanyBlocks.FLOATING_MOON_BLESS.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<OmniVioletBlockEntity>> OMNI_VIOLET = BLOCK_ENTITY_TYPES.register(LibBlockNames.OMNI_VIOLET,
+                    () -> BlockEntityType.Builder.of(OmniVioletBlockEntity::new,
+                            ExtraBotanyBlocks.OMNI_VIOLET.get(),
+                            ExtraBotanyBlocks.FLOATING_OMNI_VIOLET.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<ReikarLilyBlockEntity>> REIKAR_LILY = BLOCK_ENTITY_TYPES.register(LibBlockNames.REIKAR_LILY,
+                    () -> BlockEntityType.Builder.of(ReikarLilyBlockEntity::new,
+                            ExtraBotanyBlocks.REIKAR_LILY.get(),
+                            ExtraBotanyBlocks.FLOATING_REIKAR_LILY.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<TinkleFlowerBlockEntity>> TINKLE_FLOWER = BLOCK_ENTITY_TYPES.register(LibBlockNames.TINKLE_FLOWER,
+                    () -> BlockEntityType.Builder.of(TinkleFlowerBlockEntity::new,
+                            ExtraBotanyBlocks.TINKLE_FLOWER.get(),
+                            ExtraBotanyBlocks.FLOATING_TINKLE_FLOWER.get()
                     ).build(DSL.remainderType()));
         }
     }
