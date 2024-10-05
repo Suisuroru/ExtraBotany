@@ -1,8 +1,9 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.tag;
 
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
@@ -10,8 +11,10 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.botania.common.block.FloatingSpecialFlowerBlock;
 import vazkii.botania.common.lib.BotaniaTags;
 
+import java.util.Comparator;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
@@ -52,7 +55,15 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
 
     private void registerBotaniaTag() {
         Stream.of(
-                ANNOYING_FLOWER, ANNOYING_FLOWER_FLOAT
+                ANNOYING_FLOWER, FLOATING_ANNOYING_FLOWER
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Blocks.FUNCTIONAL_SPECIAL_FLOWERS)::add);
+        tag(BotaniaTags.Blocks.SPECIAL_FLOATING_FLOWERS).add(
+                MOD_FLOWERS
+                        .stream()
+                        .map(RegistryObject::get)
+                        .filter(b -> b instanceof FloatingSpecialFlowerBlock)
+                        .sorted(Comparator.comparing(BuiltInRegistries.BLOCK::getKey))
+                        .toArray(Block[]::new)
+        );
     }
 }

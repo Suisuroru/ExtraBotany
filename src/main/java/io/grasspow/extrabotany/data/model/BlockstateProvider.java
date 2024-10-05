@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.model;
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.common.libs.LibMisc;

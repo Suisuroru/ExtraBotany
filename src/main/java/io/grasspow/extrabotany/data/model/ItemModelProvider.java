@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.model;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;

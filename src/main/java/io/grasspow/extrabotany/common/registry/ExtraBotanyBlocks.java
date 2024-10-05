@@ -48,7 +48,7 @@ public class ExtraBotanyBlocks {
 
     //flowers
     public static final RegistryObject<Block> ANNOYING_FLOWER = regDefFlower(LibBlockNames.ANNOYING_FLOWER, MobEffects.HUNGER, 360, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
-    public static final RegistryObject<Block> ANNOYING_FLOWER_FLOAT = regDefFlowerFloat(LibBlockNames.ANNOYING_FLOWER, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_ANNOYING_FLOWER = regDefFlowerFloat(LibBlockNames.ANNOYING_FLOWER, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));

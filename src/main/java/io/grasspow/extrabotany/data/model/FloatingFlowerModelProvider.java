@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.model;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
-import vazkii.botania.client.lib.ResourcesLib;
 import vazkii.botania.common.block.decor.FloatingFlowerBlock;
 import vazkii.botania.xplat.ClientXplatAbstractions;
 
@@ -52,7 +51,7 @@ public class FloatingFlowerModelProvider implements DataProvider {
                 obj.addProperty("parent", "minecraft:block/block");
                 obj.addProperty("loader", ClientXplatAbstractions.FLOATING_FLOWER_MODEL_LOADER_ID.toString());
                 JsonObject flower = new JsonObject();
-                flower.addProperty("parent", ResourcesLib.PREFIX_MOD + "block/" + nonFloat);
+                flower.addProperty("parent", resId("block/" + nonFloat).toString());
                 obj.add("flower", flower);
                 jsons.add(new Tuple<>(name, obj));
             }

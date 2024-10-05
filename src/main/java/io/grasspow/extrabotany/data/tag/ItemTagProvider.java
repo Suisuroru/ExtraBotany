@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.tag;
 
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibMisc;

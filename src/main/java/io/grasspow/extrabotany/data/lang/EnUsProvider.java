@@ -4,7 +4,7 @@ import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
-import static io.grasspow.extrabotany.data.LanguageHelper.en_us;
+import static io.grasspow.extrabotany.data.lang.LanguageHelper.en_us;
 
 public class EnUsProvider extends LanguageProvider {
     public EnUsProvider(PackOutput output) {

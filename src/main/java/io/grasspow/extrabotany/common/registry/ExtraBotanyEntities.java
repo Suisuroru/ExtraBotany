@@ -44,7 +44,7 @@ public class ExtraBotanyEntities {
             public static final RegistryObject<BlockEntityType<AnnoyingFlowerBlockEntity>> ANNOYING_FLOWER = BLOCK_ENTITY_TYPES.register(LibBlockNames.ANNOYING_FLOWER,
                     () -> BlockEntityType.Builder.of(AnnoyingFlowerBlockEntity::new,
                             ExtraBotanyBlocks.ANNOYING_FLOWER.get(),
-                            ExtraBotanyBlocks.ANNOYING_FLOWER_FLOAT.get()
+                            ExtraBotanyBlocks.FLOATING_ANNOYING_FLOWER.get()
                     ).build(DSL.remainderType()));
         }
     }

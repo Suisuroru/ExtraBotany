@@ -1,6 +1,5 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.loot;
 
-import io.grasspow.extrabotany.data.loot.BlockLootTableProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 

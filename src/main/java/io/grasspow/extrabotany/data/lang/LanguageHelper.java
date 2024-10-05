@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.data;
+package io.grasspow.extrabotany.data.lang;
 
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
