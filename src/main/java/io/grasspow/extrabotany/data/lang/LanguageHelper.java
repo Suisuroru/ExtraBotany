@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.data.lang;
 
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
+import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.resources.ResourceLocation;
@@ -94,9 +95,18 @@ public class LanguageHelper {
         addBlock(ExtraBotanyBlocks.DIMENSION_CATALYST, "Dimension Catalyst", "次元催化器");
         addBlock(ExtraBotanyBlocks.POWER_FRAME, "Power Frame", "力量框架");
 
-        //flower
+        //flower 1.16
         addFlower(ExtraBotanyBlocks.ANNOYING_FLOWER, "Annoying Flower", "神烦花", "Time to rest", "摸了");
         addFlower(ExtraBotanyBlocks.SERENITIAN, "Serenitian", "永寂龙胆", "Torn to oblivion", "无念，断绝");
+        addFlower(ExtraBotanyBlocks.BELL_FLOWER, "Bell Flower", "风铃草", "Lost wind", "迷失的风");
+        addFlower(LibBlockNames.EDELWEISS, "Edelweiss", "雪绒花", "Do you want to build a snowman?", "你想堆个雪人吗？");
+        addFlower(LibBlockNames.GEMINI_ORCHID, "Gemini Orchid", "双子兰", "Why is a raven like a writing desk?", "为什么乌鸦像写字台？");
+        addFlower(LibBlockNames.SUN_BLESS, "Sunshine Lily", "日曜百合", "May the light heal and enlighten you", "愿光芒能治愈并指引你");
+        addFlower(LibBlockNames.MOON_BLESS, "Moonlight Lily", "月光百合", "May you find all you have lost", "愿你能找到所有失去的东西");
+        addFlower(LibBlockNames.OMNIVIOLET, "Omniviolet", "全知瑾", "Need not to know", "我知万物");
+        addFlower(LibBlockNames.REIKAR_LILY, "Reikar Lily", "雷卡兰", "Game Crash", "游戏崩溃");
+        addFlower(LibBlockNames.TINKLE_FLOWER, "Tinkle Flower", "叮当舞花", "My turn", "接下来是我的回合了");
+//        addFlower(LibBlockNames.BLOODY_ENCHANTRESS, "Bloody Enchantress", "血腥妖姬", "My turn", "接下来是我的回合了");
     }
 
     private static void transEntity() {
@@ -149,5 +159,16 @@ public class LanguageHelper {
         zh_cn.put("block." + id.getNamespace() + ".floating_" + id.getPath(), "浮空" + zh);
         zh_cn.put(flower.get().getDescriptionId() + ".reference", refZh);
         zh_cn.put("block." + id.getNamespace() + ".floating_" + id.getPath() + ".reference", refZh);
+    }
+
+    private static void addFlower(String name, String en, String zh, String refEn, String refZh) {
+        en_us.put("block.extrabotany." + name, en);
+        en_us.put("block.extrabotany.floating_" + name, "Floating " + en);
+        en_us.put("block.extrabotany." + name + ".reference", refEn);
+        en_us.put("block.extrabotany.floating_" + name + ".reference", refEn);
+        zh_cn.put("block.extrabotany." + name, zh);
+        zh_cn.put("block.extrabotany.floating_" + name, "浮空" + zh);
+        zh_cn.put("block.extrabotany." + name + ".reference", refZh);
+        zh_cn.put("block.extrabotany.floating_" + name + ".reference", refZh);
     }
 }

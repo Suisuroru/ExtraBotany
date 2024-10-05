@@ -14,9 +14,17 @@ public class ExtraBotanyEntityRenderers {
         consumer.register(ExtraBotanyEntities.Blocks.LIVINGROCK_BARREL_BLOCK_ENTITY.get(), LivingrockBarrelBlockEntityRenderer::new);
         consumer.register(ExtraBotanyEntities.Blocks.POWER_FRAME_BLOCK_ENTITY.get(), PowerFrameBlockEntityRenderer::new);
 
-        //flower
+        //flower 1.16
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER.get(), SpecialFlowerBlockEntityRenderer::new);
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.EDELWEISS.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
+//        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
     }
 
     public static void registerEntityRenderers(EntityRenderers.EntityRendererConsumer consumer) {

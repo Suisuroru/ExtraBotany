@@ -51,6 +51,22 @@ public class ExtraBotanyBlocks {
     public static final RegistryObject<Block> FLOATING_ANNOYING_FLOWER = regDefFlowerFloat(LibBlockNames.ANNOYING_FLOWER, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
     public static final RegistryObject<Block> SERENITIAN = regDefFlower(LibBlockNames.SERENITIAN, MobEffects.HERO_OF_THE_VILLAGE, 360, ExtraBotanyEntities.Blocks.Flowers.SERENITIAN::get);
     public static final RegistryObject<Block> FLOATING_SERENITIAN = regDefFlowerFloat(LibBlockNames.SERENITIAN, ExtraBotanyEntities.Blocks.Flowers.SERENITIAN::get);
+    public static final RegistryObject<Block> BELL_FLOWER = regDefFlower(LibBlockNames.BELL_FLOWER, MobEffects.MOVEMENT_SPEED, 360, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_BELL_FLOWER = regDefFlowerFloat(LibBlockNames.BELL_FLOWER, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> EDELWEISS = regDefFlower(LibBlockNames.EDELWEISS, MobEffects.MOVEMENT_SLOWDOWN, 80, ExtraBotanyEntities.Blocks.Flowers.EDELWEISS::get);
+    public static final RegistryObject<Block> FLOATING_EDELWEISS = regDefFlowerFloat(LibBlockNames.EDELWEISS, ExtraBotanyEntities.Blocks.Flowers.EDELWEISS::get);
+    public static final RegistryObject<Block> GEMINI_ORCHID = regDefFlower(LibBlockNames.GEMINI_ORCHID, MobEffects.GLOWING, 1600, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_GEMINI_ORCHID = regDefFlowerFloat(LibBlockNames.GEMINI_ORCHID, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> SUN_BLESS = regDefFlower(LibBlockNames.SUN_BLESS, MobEffects.LUCK, 1600, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_SUN_BLESS = regDefFlowerFloat(LibBlockNames.SUN_BLESS, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> MOON_BLESS = regDefFlower(LibBlockNames.MOON_BLESS, MobEffects.UNLUCK, 1600, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_MOON_BLESS = regDefFlowerFloat(LibBlockNames.MOON_BLESS, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> OMNIVIOLET = regDefFlower(LibBlockNames.OMNIVIOLET, MobEffects.REGENERATION, 360, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_OMNIVIOLET = regDefFlowerFloat(LibBlockNames.OMNIVIOLET, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> REIKAR_LILY = regDefFlower(LibBlockNames.REIKAR_LILY, MobEffects.JUMP, 1600, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_REIKAR_LILY = regDefFlowerFloat(LibBlockNames.REIKAR_LILY, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> TINKLE_FLOWER = regDefFlower(LibBlockNames.TINKLE_FLOWER, MobEffects.DIG_SPEED, 360, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
+    public static final RegistryObject<Block> FLOATING_TINKLE_FLOWER = regDefFlowerFloat(LibBlockNames.TINKLE_FLOWER, ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER::get);
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));

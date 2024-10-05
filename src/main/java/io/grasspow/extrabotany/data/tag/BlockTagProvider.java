@@ -57,6 +57,19 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
         Stream.of(
                 ANNOYING_FLOWER, FLOATING_ANNOYING_FLOWER
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Blocks.FUNCTIONAL_SPECIAL_FLOWERS)::add);
+        Stream.of(
+                SERENITIAN, FLOATING_SERENITIAN
+        ).map(RegistryObject::get).forEach(tag(BotaniaTags.Blocks.MISC_SPECIAL_FLOWERS)::add);
+        Stream.of(
+                BELL_FLOWER, FLOATING_BELL_FLOWER,
+                EDELWEISS, FLOATING_EDELWEISS,
+                GEMINI_ORCHID, FLOATING_GEMINI_ORCHID,
+                SUN_BLESS, FLOATING_SUN_BLESS,
+                MOON_BLESS, FLOATING_MOON_BLESS,
+                OMNIVIOLET, FLOATING_OMNIVIOLET,
+                REIKAR_LILY, FLOATING_REIKAR_LILY,
+                TINKLE_FLOWER, FLOATING_TINKLE_FLOWER
+        ).map(RegistryObject::get).forEach(tag(BotaniaTags.Blocks.GENERATING_SPECIAL_FLOWERS)::add);
         tag(BotaniaTags.Blocks.SPECIAL_FLOATING_FLOWERS).add(
                 MOD_FLOWERS
                         .stream()

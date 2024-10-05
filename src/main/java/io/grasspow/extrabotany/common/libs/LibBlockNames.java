@@ -1,7 +1,5 @@
 package io.grasspow.extrabotany.common.libs;
 
-import net.minecraft.resources.ResourceLocation;
-
 public class LibBlockNames {
 
     public static final String PHOTONIUM_BLOCK = "photonium_block";
@@ -14,21 +12,21 @@ public class LibBlockNames {
     public static final String TROPHY = "trophy";
     public static final String LIVINGROCK_BARREL = "livingrock_barrel";
     public static final String POWER_FRAME = "power_frame";
-    public static final String TERRA_ALTAR = "terra_altar";
     public static final String DIMENSION_CATALYST = "dimension_catalyst";
 
+    //flowers 1.16
     public static final String ANNOYING_FLOWER = "annoying_flower";
     public static final String SERENITIAN = "serenitian";
+    public static final String BELL_FLOWER = "bell_flower";
+    public static final String EDELWEISS = "edelweiss";
+    public static final String GEMINI_ORCHID = "gemini_orchid";
+    public static final String SUN_BLESS = "sun_bless";
+    public static final String MOON_BLESS = "moon_bless";
+    public static final String OMNIVIOLET = "omniviolet";
+    public static final String REIKAR_LILY = "reikar_lily";
+    public static final String TINKLE_FLOWER = "tinkle_flower";
 
-    public static final ResourceLocation GENERATING_BELLFLOWER = new ResourceLocation(LibMisc.MOD_ID, "bellflower");
-    public static final ResourceLocation GENERATING_MOONBLESS = new ResourceLocation(LibMisc.MOD_ID,"moonbless");
-    public static final ResourceLocation GENERATING_SUNBLESS = new ResourceLocation(LibMisc.MOD_ID,"sunbless");
-    public static final ResourceLocation GENERATING_OMNIVIOLET = new ResourceLocation(LibMisc.MOD_ID,"omniviolet");
-    public static final ResourceLocation GENERATING_TINKLEFLOWER = new ResourceLocation(LibMisc.MOD_ID,"tinkleflower");
-    public static final ResourceLocation GENERATING_EDELWEISS = new ResourceLocation(LibMisc.MOD_ID,"edelweiss");
-    public static final ResourceLocation GENERATING_GEMINIORCHID = new ResourceLocation(LibMisc.MOD_ID,"geminiorchid");
-    public static final ResourceLocation GENERATING_REIKARLILY = new ResourceLocation(LibMisc.MOD_ID,"reikarlily");
-    public static final ResourceLocation GENERATING_BLOODYENCHANTRESS = new ResourceLocation(LibMisc.MOD_ID,"bloodyenchantress");
+    //flowers 1.12
+//    public static final ResourceLocation BLOODY_ENCHANTRESS = new ResourceLocation(LibMisc.MOD_ID, "bloodyenchantress");
 
-    public static final ResourceLocation FUNCTIONAL_ANNOYINGFLOWER = new ResourceLocation(LibMisc.MOD_ID, "annoyingflower");
 }

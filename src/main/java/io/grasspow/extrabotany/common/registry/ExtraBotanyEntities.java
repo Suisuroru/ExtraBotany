@@ -7,6 +7,8 @@ import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.flower.generating.BellFlowerBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.flower.generating.EdelweissBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
@@ -51,6 +53,16 @@ public class ExtraBotanyEntities {
                     () -> BlockEntityType.Builder.of(SerenitianBlockEntity::new,
                             ExtraBotanyBlocks.SERENITIAN.get(),
                             ExtraBotanyBlocks.FLOATING_SERENITIAN.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<BellFlowerBlockEntity>> BELL_FLOWER = BLOCK_ENTITY_TYPES.register(LibBlockNames.BELL_FLOWER,
+                    () -> BlockEntityType.Builder.of(BellFlowerBlockEntity::new,
+                            ExtraBotanyBlocks.BELL_FLOWER.get(),
+                            ExtraBotanyBlocks.FLOATING_BELL_FLOWER.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<EdelweissBlockEntity>> EDELWEISS = BLOCK_ENTITY_TYPES.register(LibBlockNames.EDELWEISS,
+                    () -> BlockEntityType.Builder.of(EdelweissBlockEntity::new,
+                            ExtraBotanyBlocks.EDELWEISS.get(),
+                            ExtraBotanyBlocks.FLOATING_EDELWEISS.get()
                     ).build(DSL.remainderType()));
         }
     }

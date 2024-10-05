@@ -1,14 +1,20 @@
 {
   "values": [
-    "extrabotany:floating_annoying_flower",
+    "extrabotany:bell_flower",
     "extrabotany:floating_bell_flower",
+    "extrabotany:edelweiss",
     "extrabotany:floating_edelweiss",
+    "extrabotany:gemini_orchid",
     "extrabotany:floating_gemini_orchid",
-    "extrabotany:floating_moon_bless",
-    "extrabotany:floating_omniviolet",
-    "extrabotany:floating_reikar_lily",
-    "extrabotany:floating_serenitian",
+    "extrabotany:sun_bless",
     "extrabotany:floating_sun_bless",
+    "extrabotany:moon_bless",
+    "extrabotany:floating_moon_bless",
+    "extrabotany:omniviolet",
+    "extrabotany:floating_omniviolet",
+    "extrabotany:reikar_lily",
+    "extrabotany:floating_reikar_lily",
+    "extrabotany:tinkle_flower",
     "extrabotany:floating_tinkle_flower"
   ]
 }
