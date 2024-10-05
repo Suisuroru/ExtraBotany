@@ -49,6 +49,8 @@ public class ExtraBotanyBlocks {
     //flowers
     public static final RegistryObject<Block> ANNOYING_FLOWER = regDefFlower(LibBlockNames.ANNOYING_FLOWER, MobEffects.HUNGER, 360, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
     public static final RegistryObject<Block> FLOATING_ANNOYING_FLOWER = regDefFlowerFloat(LibBlockNames.ANNOYING_FLOWER, ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER::get);
+    public static final RegistryObject<Block> SERENITIAN = regDefFlower(LibBlockNames.SERENITIAN, MobEffects.HERO_OF_THE_VILLAGE, 360, ExtraBotanyEntities.Blocks.Flowers.SERENITIAN::get);
+    public static final RegistryObject<Block> FLOATING_SERENITIAN = regDefFlowerFloat(LibBlockNames.SERENITIAN, ExtraBotanyEntities.Blocks.Flowers.SERENITIAN::get);
 
     private static RegistryObject<Block> regDefBlock(String name, BlockBehaviour.Properties props) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(props));

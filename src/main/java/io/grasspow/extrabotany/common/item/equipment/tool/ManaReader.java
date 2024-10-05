@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import vazkii.botania.api.mana.ManaPool;
+import vazkii.botania.api.mana.ManaReceiver;
 
 public class ManaReader extends Item {
     public ManaReader(Properties pProperties) {
@@ -18,8 +18,8 @@ public class ManaReader extends Item {
         Player player = context.getPlayer();
         if (player == null) return InteractionResult.PASS;
         BlockEntity blockEntity = context.getLevel().getBlockEntity(context.getClickedPos());
-        if (!(blockEntity instanceof ManaPool pool)) return InteractionResult.PASS;
-        int mana = pool.getCurrentMana();
+        if (!(blockEntity instanceof ManaReceiver receiver)) return InteractionResult.PASS;
+        int mana = receiver.getCurrentMana();
         if (context.getLevel().isClientSide()) {
             player.sendSystemMessage(Component.literal(String.format("Mana:%d", mana)));
         }

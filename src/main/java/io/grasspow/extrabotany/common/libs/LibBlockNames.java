@@ -18,6 +18,7 @@ public class LibBlockNames {
     public static final String DIMENSION_CATALYST = "dimension_catalyst";
 
     public static final String ANNOYING_FLOWER = "annoying_flower";
+    public static final String SERENITIAN = "serenitian";
 
     public static final ResourceLocation GENERATING_BELLFLOWER = new ResourceLocation(LibMisc.MOD_ID, "bellflower");
     public static final ResourceLocation GENERATING_MOONBLESS = new ResourceLocation(LibMisc.MOD_ID,"moonbless");
@@ -30,5 +31,4 @@ public class LibBlockNames {
     public static final ResourceLocation GENERATING_BLOODYENCHANTRESS = new ResourceLocation(LibMisc.MOD_ID,"bloodyenchantress");
 
     public static final ResourceLocation FUNCTIONAL_ANNOYINGFLOWER = new ResourceLocation(LibMisc.MOD_ID, "annoyingflower");
-    public static final ResourceLocation FUNCTIONAL_SERENITIAN = new ResourceLocation(LibMisc.MOD_ID, "serenitian");
 }

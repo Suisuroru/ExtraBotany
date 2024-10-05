@@ -93,7 +93,10 @@ public class LanguageHelper {
         addBlock(ExtraBotanyBlocks.LIVINGROCK_BARREL, "Livingrock Barrel", "活石桶");
         addBlock(ExtraBotanyBlocks.DIMENSION_CATALYST, "Dimension Catalyst", "次元催化器");
         addBlock(ExtraBotanyBlocks.POWER_FRAME, "Power Frame", "力量框架");
+
+        //flower
         addFlower(ExtraBotanyBlocks.ANNOYING_FLOWER, "Annoying Flower", "神烦花", "Time to rest", "摸了");
+        addFlower(ExtraBotanyBlocks.SERENITIAN, "Serenitian", "永寂龙胆", "Torn to oblivion", "无念，断绝");
     }
 
     private static void transEntity() {

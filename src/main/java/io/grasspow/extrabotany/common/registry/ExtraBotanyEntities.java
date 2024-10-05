@@ -6,6 +6,7 @@ import io.grasspow.extrabotany.common.entity.block.ManaBufferBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
+import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
 import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
@@ -45,6 +46,11 @@ public class ExtraBotanyEntities {
                     () -> BlockEntityType.Builder.of(AnnoyingFlowerBlockEntity::new,
                             ExtraBotanyBlocks.ANNOYING_FLOWER.get(),
                             ExtraBotanyBlocks.FLOATING_ANNOYING_FLOWER.get()
+                    ).build(DSL.remainderType()));
+            public static final RegistryObject<BlockEntityType<SerenitianBlockEntity>> SERENITIAN = BLOCK_ENTITY_TYPES.register(LibBlockNames.SERENITIAN,
+                    () -> BlockEntityType.Builder.of(SerenitianBlockEntity::new,
+                            ExtraBotanyBlocks.SERENITIAN.get(),
+                            ExtraBotanyBlocks.FLOATING_SERENITIAN.get()
                     ).build(DSL.remainderType()));
         }
     }

@@ -16,6 +16,7 @@ public class ExtraBotanyEntityRenderers {
 
         //flower
         consumer.register(ExtraBotanyEntities.Blocks.Flowers.ANNOYING_FLOWER.get(), SpecialFlowerBlockEntityRenderer::new);
+        consumer.register(ExtraBotanyEntities.Blocks.Flowers.SERENITIAN.get(), SpecialFlowerBlockEntityRenderer::new);
     }
 
     public static void registerEntityRenderers(EntityRenderers.EntityRendererConsumer consumer) {
