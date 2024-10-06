@@ -45,13 +45,13 @@ public class ForgeCommonInitializer {
     }
 
     public static void registryInit() {
+        ExtraBotanySounds.getSounds().register(modEventBus);
+
         ExtraBotanyBlocks.getBlocks().register(modEventBus);
         ExtraBotanyItems.getItems().register(modEventBus);
 
         ExtraBotanyEntities.Blocks.getBlockEntityTypes().register(modEventBus);
         ExtraBotanyEntities.getEntityTypes().register(modEventBus);
-
-        ExtraBotanySounds.getSounds().register(modEventBus);
 
         ExtraBotanyRecipeTypes.getRecipeTypes().register(modEventBus);
         ExtraBotanyRecipeTypes.getRecipeSerializers().register(modEventBus);

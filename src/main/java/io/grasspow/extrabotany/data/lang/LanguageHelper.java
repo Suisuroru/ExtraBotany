@@ -31,6 +31,8 @@ public class LanguageHelper {
         add("extrabotany.brew.shell", "Shell", "龟壳");
         add("extrabotany.brew.deadpool", "Deadpool", "死灵");
         add("extrabotany.brew.floating", "Floating", "漂浮");
+
+        //sound
     }
 
     private static void transItem() {

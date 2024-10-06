@@ -39,6 +39,7 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+        registerVanillaTag();
         registerCuriosTag();
         registerBotaniaTag();
         Stream.of(
@@ -61,6 +62,10 @@ public class ItemTagProvider extends ItemTagsProvider {
         tag(ExtraBotanyTags.Items.RUNES_WRATH).add(SIN_RUNE.get(), BotaniaItems.runeWrath);
         tag(ExtraBotanyTags.Items.RUNES_ENVY).add(SIN_RUNE.get(), BotaniaItems.runeEnvy);
         tag(ExtraBotanyTags.Items.RUNES_PRIDE).add(SIN_RUNE.get(), BotaniaItems.runePride);
+    }
+
+    private void registerVanillaTag() {
+//        tag(ItemTags.MUSIC_DISCS).add(RECORD_EGO.get(),RECORD_HERRSCHER.get());
     }
 
 

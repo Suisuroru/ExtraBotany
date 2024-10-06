@@ -26,6 +26,7 @@ import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.item.block.SpecialFlowerBlockItem;
 import vazkii.botania.common.item.lens.Lens;
 import vazkii.botania.common.item.lens.LensItem;
+import vazkii.botania.common.item.record.BotaniaRecordItem;
 
 import java.util.ArrayList;
 import java.util.function.BiFunction;
@@ -88,6 +89,12 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultBuilder());
     public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultBuilder());
 
+    //record
+//    public static final RegistryObject<Item> RECORD_EGO = regRecordItem(LibItemNames.RECORD_EGO,
+//            new BotaniaRecordItem(1,ExtraBotanySounds.SWORDLAND.get(),nonStackable().rarity(Rarity.RARE),47));
+//    public static final RegistryObject<Item> RECORD_HERRSCHER = regRecordItem(LibItemNames.RECORD_HERRSCHER,
+//            new BotaniaRecordItem(1,ExtraBotanySounds.SALVATION.get(),nonStackable().rarity(Rarity.RARE),197));
+
     //brew
     public static final RegistryObject<Item> COCKTAIL = regDefItem(LibItemNames.COCKTAIL, CocktailItem::new, stackTo32());
     public static final RegistryObject<Item> INFINITE_WINE = regDefItem(LibItemNames.INFINITE_WINE, InfiniteWineItem::new, nonStackable());
@@ -119,6 +126,12 @@ public class ExtraBotanyItems {
         RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(props));
         MOD_ITEMS.add(item);
         return item;
+    }
+
+    private static RegistryObject<Item> regRecordItem(String name, BotaniaRecordItem item) {
+        RegistryObject<Item> record = ITEMS.register(name, () -> item);
+        MOD_ITEMS.add(record);
+        return record;
     }
 
     private static <I extends Item> RegistryObject<Item> regComBaubleItem(String name, BiFunction<CosmeticBaubleItem.Variant, Item.Properties, ? extends I> func, CosmeticBaubleItem.Variant variant, Item.Properties props) {

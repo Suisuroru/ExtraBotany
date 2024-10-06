@@ -1,0 +1,48 @@
+{
+  "cyclone": {
+    "sounds": [
+      "extrabotany:cyclone"
+    ],
+    "subtitle": ""
+  },
+  "flamescionult": {
+    "sounds": [
+      "extrabotany:flamescionult"
+    ],
+    "subtitle": ""
+  },
+  "music.ego": {
+    "sounds": [
+      {
+        "name": "extrabotany:music/swordland",
+        "stream": true
+      }
+    ]
+  },
+  "music.herrscher": {
+    "sounds": [
+      {
+        "name": "extrabotany:music/salvation",
+        "stream": true
+      }
+    ]
+  },
+  "rideon": {
+    "sounds": [
+      "extrabotany:rideon"
+    ],
+    "subtitle": ""
+  },
+  "shoot": {
+    "sounds": [
+      "extrabotany:shoot"
+    ],
+    "subtitle": ""
+  },
+  "slash": {
+    "sounds": [
+      "extrabotany:slash"
+    ],
+    "subtitle": ""
+  }
+}

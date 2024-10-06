@@ -31,8 +31,8 @@ public class LibItemNames {
     public static final String MOONPENDANT = "moonpendant";
     public static final String POTATOCHIPS = "potatochips";
 
-    public static final String RECORDEGO = "recordego";
-    public static final String RECORDHERRSCHER = "recordherrscher";
+    public static final String RECORD_EGO = "record_ego";
+    public static final String RECORD_HERRSCHER = "record_herrscher";
 
     public static final String SHADOWKATANA = "shadowkatana";
     public static final String RODOFDISCORD = "rodofdiscord";
