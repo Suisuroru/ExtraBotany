@@ -11,9 +11,21 @@ import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = ExtraBotanyAPI.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ForgeClientInitializer {
+
+    @SubscribeEvent
+    public static void clientInit(FMLClientSetupEvent evt) {
+//    forge recommend to use json to define render_type, so abandon this implementation
+//        BlockRenderLayers.init(ItemBlockRenderTypes::setRenderLayer);
+    }
+
+    @SubscribeEvent
+    public static void onModelRegister(ModelEvent.RegisterAdditional evt) {
+        ExtraBotanyItemProperties.init((item, id, prop) -> ItemProperties.register(item.asItem(), id, prop));
+    }
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -24,10 +36,5 @@ public class ForgeClientInitializer {
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item evt) {
         ColorHandler.submitItems(evt::register);
-    }
-
-    @SubscribeEvent
-    public static void onModelRegister(ModelEvent.RegisterAdditional evt) {
-        ExtraBotanyItemProperties.init((item, id, prop) -> ItemProperties.register(item.asItem(), id, prop));
     }
 }
