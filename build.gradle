@@ -90,10 +90,12 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            jvmArgs("-Xmx1024M", "-Xms1024M")
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
+            jvmArgs("-Xmx1024M", "-Xms1024M")
             args '--nogui'
         }
 
