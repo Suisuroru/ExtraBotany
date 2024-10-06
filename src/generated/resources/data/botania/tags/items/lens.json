@@ -1,5 +1,10 @@
 {
   "values": [
-    "extrabotany:lens_mana"
+    "extrabotany:mana_lens",
+    "extrabotany:potion_lens",
+    "extrabotany:push_lens",
+    "extrabotany:smelt_lens",
+    "extrabotany:super_conductor_lens",
+    "extrabotany:trace_lens"
   ]
 }

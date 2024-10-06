@@ -84,12 +84,12 @@ public class LibItemNames {
     public static final String SIN_RUNE = "sin_rune";
     public static final String CHALLENGETICKET = "challengeticket";
 
-    public static final String LENS_SMELT = "lens_smelt";
-    public static final String LENS_MANA = "lens_mana";
-    public static final String LENS_PUSH = "lens_push";
-    public static final String LENS_TRACE = "lens_trace";
-    public static final String LENS_POTION = "lens_potion";
-    public static final String LENS_SUPERCONDUCTOR = "lens_superconductor";
+    public static final String SMELT_LENS = "smelt_lens";
+    public static final String MANA_LENS = "mana_lens";
+    public static final String PUSH_LENS = "push_lens";
+    public static final String TRACE_LENS = "trace_lens";
+    public static final String POTION_LENS = "potion_lens";
+    public static final String SUPER_CONDUCTOR_LENS = "super_conductor_lens";
 
     public static final String FOX_EAR = "foxear";
     public static final String FOX_MASK = "foxmask";

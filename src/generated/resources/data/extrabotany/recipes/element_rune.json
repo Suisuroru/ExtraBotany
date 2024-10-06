@@ -6,28 +6,28 @@
       "item": "botania:life_essence"
     },
     {
-      "item": "botania:rune_air"
+      "tag": "extrabotany:runes/air"
     },
     {
-      "item": "botania:rune_earth"
+      "tag": "extrabotany:runes/earth"
     },
     {
-      "item": "botania:rune_water"
+      "tag": "extrabotany:runes/water"
     },
     {
-      "item": "botania:rune_fire"
+      "tag": "extrabotany:runes/fire"
     },
     {
-      "item": "botania:rune_spring"
+      "tag": "extrabotany:runes/spring"
     },
     {
-      "item": "botania:rune_summer"
+      "tag": "extrabotany:runes/summer"
     },
     {
-      "item": "botania:rune_autumn"
+      "tag": "extrabotany:runes/autumn"
     },
     {
-      "item": "botania:rune_winter"
+      "tag": "extrabotany:runes/winter"
     }
   ],
   "result": {

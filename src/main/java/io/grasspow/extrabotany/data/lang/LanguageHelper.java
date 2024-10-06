@@ -61,8 +61,12 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
         //lens
-        addItemLens(ExtraBotanyItems.LENS_MANA, "Mana", "魔力");
-        addItem(ExtraBotanyItems.LENS_MANA, "Mana Lens: Mana", "魔力透镜:魔力");
+        addItemLens(ExtraBotanyItems.MANA_LENS, "Mana", "魔力");
+        addItemLens(ExtraBotanyItems.POTION_LENS, "Potion", "药水");
+        addItemLens(ExtraBotanyItems.PUSH_LENS, "Push", "冲击");
+        addItemLens(ExtraBotanyItems.SMELT_LENS, "Smelt", "冶炼");
+        addItemLens(ExtraBotanyItems.SUPER_CONDUCTOR_LENS, "Super Conductor", "超导");
+        addItemLens(ExtraBotanyItems.TRACE_LENS, "Mana", "追踪");
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium Ingot", "光子锭");
@@ -142,7 +146,7 @@ public class LanguageHelper {
     }
 
     private static void addItemLens(@NotNull RegistryObject<? extends Item> item, String en, String zh) {
-        addItem(item, "Mana Lens:" + en, "魔力透镜:" + zh);
+        addItem(item, "Mana Lens: " + en, "魔力透镜:" + zh);
         add(item.get().getDescriptionId() + ".short", en, zh);
     }
 

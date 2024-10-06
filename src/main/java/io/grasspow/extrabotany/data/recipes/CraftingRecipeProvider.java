@@ -1,9 +1,7 @@
 package io.grasspow.extrabotany.data.recipes;
 
-import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
-import io.grasspow.extrabotany.common.crafting.GoldClothWipeRelicRecipe;
-import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
-import io.grasspow.extrabotany.common.crafting.SplashGrenadeRecipe;
+import io.grasspow.extrabotany.common.crafting.*;
+import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
@@ -52,6 +50,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         specialCrafting(SplashGrenadeRecipe.SERIALIZER, LibRecipeNames.SPLASH_GRENADE_UPGRADE, consumer);
         specialCrafting(InfiniteWineUpgradeRecipe.SERIALIZER, LibRecipeNames.INFINITE_WINE_UPGRADE, consumer);
         specialCrafting(GoldClothWipeRelicRecipe.SERIALIZER, LibRecipeNames.GOLD_CLOTH_WIPE_RELIC, consumer);
+        specialCrafting(PotionLensBindBrewRecipe.SERIALIZER, LibRecipeNames.MANA_LENS_BIND_FLASK, consumer);
 
         ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
         ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
@@ -173,9 +172,35 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .save(consumer);
 
         //lens
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.LENS_MANA.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.MANA_LENS.get())
                 .requires(BotaniaItems.lensNormal)
-                .requires(BotaniaItems.runeMana)
+                .requires(ExtraBotanyTags.Items.RUNES_MANA)
+                .requires(BotaniaItems.manaPowder)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.POTION_LENS.get())
+                .requires(BotaniaItems.lensNormal)
+                .requires(ExtraBotanyTags.Items.RUNES_SPRING)
+                .requires(BotaniaItems.manaPowder)
+                .requires(BotaniaItems.dragonstone)
+                .requires(BotaniaItems.enderAirBottle)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.PUSH_LENS.get())
+                .requires(BotaniaItems.lensNormal)
+                .requires(ExtraBotanyTags.Items.RUNES_EARTH)
+                .requires(BotaniaItems.manaPowder)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.SMELT_LENS.get())
+                .requires(BotaniaItems.lensNormal)
+                .requires(ExtraBotanyTags.Items.RUNES_FIRE)
+                .requires(BotaniaItems.manaPowder)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.TRACE_LENS.get())
+                .requires(BotaniaItems.lensNormal)
+                .requires(ExtraBotanyTags.Items.RUNES_GREED)
                 .requires(BotaniaItems.manaPowder)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
                 .save(consumer);
@@ -187,26 +212,26 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.ELEMENT_RUNE.get(), 8)
                 .requires(BotaniaItems.lifeEssence)
-                .requires(BotaniaItems.runeAir)
-                .requires(BotaniaItems.runeEarth)
-                .requires(BotaniaItems.runeWater)
-                .requires(BotaniaItems.runeFire)
-                .requires(BotaniaItems.runeSpring)
-                .requires(BotaniaItems.runeSummer)
-                .requires(BotaniaItems.runeAutumn)
-                .requires(BotaniaItems.runeWinter)
+                .requires(ExtraBotanyTags.Items.RUNES_AIR)
+                .requires(ExtraBotanyTags.Items.RUNES_EARTH)
+                .requires(ExtraBotanyTags.Items.RUNES_WATER)
+                .requires(ExtraBotanyTags.Items.RUNES_FIRE)
+                .requires(ExtraBotanyTags.Items.RUNES_SPRING)
+                .requires(ExtraBotanyTags.Items.RUNES_SUMMER)
+                .requires(ExtraBotanyTags.Items.RUNES_AUTUMN)
+                .requires(ExtraBotanyTags.Items.RUNES_WINTER)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.SIN_RUNE.get(), 8)
                 .requires(BotaniaItems.lifeEssence)
-                .requires(BotaniaItems.runeMana)
-                .requires(BotaniaItems.runePride)
-                .requires(BotaniaItems.runeGluttony)
-                .requires(BotaniaItems.runeWrath)
-                .requires(BotaniaItems.runeGreed)
-                .requires(BotaniaItems.runeEnvy)
-                .requires(BotaniaItems.runeLust)
-                .requires(BotaniaItems.runeSloth)
+                .requires(ExtraBotanyTags.Items.RUNES_MANA)
+                .requires(ExtraBotanyTags.Items.RUNES_PRIDE)
+                .requires(ExtraBotanyTags.Items.RUNES_GLUTTONY)
+                .requires(ExtraBotanyTags.Items.RUNES_WRATH)
+                .requires(ExtraBotanyTags.Items.RUNES_GREED)
+                .requires(ExtraBotanyTags.Items.RUNES_ENVY)
+                .requires(ExtraBotanyTags.Items.RUNES_LUST)
+                .requires(ExtraBotanyTags.Items.RUNES_SLOTH)
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
 

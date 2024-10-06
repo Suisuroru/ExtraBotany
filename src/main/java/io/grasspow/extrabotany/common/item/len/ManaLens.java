@@ -16,7 +16,7 @@ import vazkii.botania.common.item.lens.Lens;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LensMana extends Lens {
+public class ManaLens extends Lens {
     @Override
     public void apply(ItemStack stack, BurstProperties props) {
         props.maxMana = 1000;

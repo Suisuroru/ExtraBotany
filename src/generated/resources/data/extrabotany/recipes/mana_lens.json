@@ -6,13 +6,13 @@
       "item": "botania:lens_normal"
     },
     {
-      "item": "botania:rune_mana"
+      "tag": "extrabotany:runes/mana"
     },
     {
       "item": "botania:mana_powder"
     }
   ],
   "result": {
-    "item": "extrabotany:lens_mana"
+    "item": "extrabotany:mana_lens"
   }
 }

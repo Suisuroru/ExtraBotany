@@ -14,7 +14,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
-import io.grasspow.extrabotany.common.item.len.LensMana;
+import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -60,7 +60,12 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MANA_DRINK = regDefItem(LibItemNames.MANA_DRINK, ManaDrinkItem::new, food(ModFoods.MANA_DRINK));
 
     //lens
-    public static final RegistryObject<Item> LENS_MANA = regDefLensItem(LibItemNames.LENS_MANA, stackTo16(), LensMana::new, LensItem.PROP_INTERACTION);
+    public static final RegistryObject<Item> MANA_LENS = regLensItem(LibItemNames.MANA_LENS, stackTo16(), ManaLens::new, LensItem.PROP_INTERACTION);
+    public static final RegistryObject<Item> POTION_LENS = regLensItem(LibItemNames.POTION_LENS, stackTo16(), PotionLens::new, LensItem.PROP_INTERACTION, true);
+    public static final RegistryObject<Item> PUSH_LENS = regLensItem(LibItemNames.PUSH_LENS, stackTo16(), PushLens::new, LensItem.PROP_INTERACTION);
+    public static final RegistryObject<Item> SMELT_LENS = regLensItem(LibItemNames.SMELT_LENS, stackTo16(), SmeltLens::new, LensItem.PROP_TOUCH);
+    public static final RegistryObject<Item> SUPER_CONDUCTOR_LENS = regLensItem(LibItemNames.SUPER_CONDUCTOR_LENS, stackTo16(), SuperConductorLens::new, LensItem.PROP_POWER);
+    public static final RegistryObject<Item> TRACE_LENS = regLensItem(LibItemNames.TRACE_LENS, stackTo16(), TraceLens::new, LensItem.PROP_CONTROL);
 
     //tool
     public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
@@ -110,8 +115,14 @@ public class ExtraBotanyItems {
         MOD_BLOCK_ITEMS.add(item);
     }
 
-    private static RegistryObject<Item> regDefLensItem(String name, Item.Properties props, Supplier<Lens> lens, int prop) {
-        RegistryObject<Item> item = ITEMS.register(name, () -> new LensItem(props, lens.get(), prop));
+    private static RegistryObject<Item> regLensItem(String name, Item.Properties props, Supplier<Lens> lens, int prop) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> new BrewLensItem(props, lens.get(), prop, false));
+        MOD_ITEMS.add(item);
+        return item;
+    }
+
+    private static RegistryObject<Item> regLensItem(String name, Item.Properties props, Supplier<Lens> lens, int prop, boolean isBrew) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> new BrewLensItem(props, lens.get(), prop, isBrew));
         MOD_ITEMS.add(item);
         return item;
     }
@@ -163,36 +174,4 @@ public class ExtraBotanyItems {
     public static DeferredRegister<Item> getItems() {
         return ITEMS;
     }
-
-    //    public static class DefaultStacks {
-//        public static ItemStack gilded_potato = new ItemStack(ExtraBotanyItems.GILDED_POTATO.get());
-//
-//        static {
-//            gilded_potato.addTagElement("Enchantments", get());
-//            gilded_potato.getOrCreateTag().putShort("pedestal_deny", (short) 1);
-//        }
-//
-//        private static ListTag get() {
-//            ListTag listTag = new ListTag();
-//            CompoundTag tag = new CompoundTag();
-//            tag.putString("id", "minecraft:protection");
-//            tag.putShort("lvl", (short) 4);
-//            listTag.add(tag);
-//            CompoundTag tag1 = new CompoundTag();
-//            tag.putString("id", "minecraft:blast_protection");
-//            tag.putShort("lvl", (short) 4);
-//            listTag.add(tag1);
-//            CompoundTag tag2 = new CompoundTag();
-//            tag.putString("id", "minecraft:fire_protection");
-//            tag.putShort("lvl", (short) 4);
-//            listTag.add(tag2);
-//            CompoundTag tag3 = new CompoundTag();
-//            tag.putString("id", "minecraft:projectile_protection");
-//            tag.putShort("lvl", (short) 4);
-//            listTag.add(tag3);
-//            return listTag;
-//        }
-//
-//
-//    }
 }

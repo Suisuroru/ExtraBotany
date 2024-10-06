@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "extrabotany:lens_mana"
+        "recipe": "extrabotany:push_lens"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "extrabotany:lens_mana"
+      "extrabotany:push_lens"
     ]
   },
   "sends_telemetry_event": false

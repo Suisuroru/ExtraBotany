@@ -8,7 +8,7 @@ import vazkii.botania.api.block_entity.RadiusDescriptor;
 
 public class SunBlessBlockEntity extends PassiveLimitedGeneratingFlowerBlockEntity {
 
-    private static final int RANGE = 2;
+    private static final int RANGE = 0;
 
     public SunBlessBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);

@@ -3,13 +3,13 @@
     "sounds": [
       "extrabotany:cyclone"
     ],
-    "subtitle": ""
+    "subtitle": "extrabotany.subtitle.cyclone"
   },
   "flamescionult": {
     "sounds": [
       "extrabotany:flamescionult"
     ],
-    "subtitle": ""
+    "subtitle": "extrabotany.subtitle.flamescionult"
   },
   "music.ego": {
     "sounds": [
@@ -31,18 +31,18 @@
     "sounds": [
       "extrabotany:rideon"
     ],
-    "subtitle": ""
+    "subtitle": "extrabotany.subtitle.rideon"
   },
   "shoot": {
     "sounds": [
       "extrabotany:shoot"
     ],
-    "subtitle": ""
+    "subtitle": "extrabotany.subtitle.shoot"
   },
   "slash": {
     "sounds": [
       "extrabotany:slash"
     ],
-    "subtitle": ""
+    "subtitle": "extrabotany.subtitle.slash"
   }
 }

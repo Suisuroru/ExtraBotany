@@ -6,28 +6,28 @@
       "item": "botania:life_essence"
     },
     {
-      "item": "botania:rune_mana"
+      "tag": "extrabotany:runes/mana"
     },
     {
-      "item": "botania:rune_pride"
+      "tag": "extrabotany:runes/pride"
     },
     {
-      "item": "botania:rune_gluttony"
+      "tag": "extrabotany:runes/gluttony"
     },
     {
-      "item": "botania:rune_wrath"
+      "tag": "extrabotany:runes/wrath"
     },
     {
-      "item": "botania:rune_greed"
+      "tag": "extrabotany:runes/greed"
     },
     {
-      "item": "botania:rune_envy"
+      "tag": "extrabotany:runes/envy"
     },
     {
-      "item": "botania:rune_lust"
+      "tag": "extrabotany:runes/lust"
     },
     {
-      "item": "botania:rune_sloth"
+      "tag": "extrabotany:runes/sloth"
     }
   ],
   "result": {

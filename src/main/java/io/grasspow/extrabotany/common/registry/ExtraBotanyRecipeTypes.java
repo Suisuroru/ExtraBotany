@@ -29,6 +29,9 @@ public class ExtraBotanyRecipeTypes {
     public static final RegistryObject<RecipeType<GoldClothWipeRelicRecipe>> GOLD_CLOTH_WIPE_RELIC = RECIPE_TYPES.register(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC, () -> registerRecipeType(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC));
     public static final RegistryObject<RecipeSerializer<GoldClothWipeRelicRecipe>> GOLD_CLOTH_WIPE_RELIC_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.GOLD_CLOTH_WIPE_RELIC, () -> GoldClothWipeRelicRecipe.SERIALIZER);
 
+    public static final RegistryObject<RecipeType<PotionLensBindBrewRecipe>> MANA_LENS_BIND_FLASK = RECIPE_TYPES.register(LibRecipeNames.MANA_LENS_BIND_FLASK, () -> registerRecipeType(LibRecipeNames.MANA_LENS_BIND_FLASK));
+    public static final RegistryObject<RecipeSerializer<PotionLensBindBrewRecipe>> MANA_LENS_BIND_FLASK_SERIALIZER = RECIPE_SERIALIZERS.register(LibRecipeNames.MANA_LENS_BIND_FLASK, () -> PotionLensBindBrewRecipe.SERIALIZER);
+
     private static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<>() {
             public String toString() {

@@ -6,4 +6,5 @@ public class LibRecipeNames {
     public static final String SPLASH_GRENADE_UPGRADE = "splash_grenade_upgrade";
     public static final String INFINITE_WINE_UPGRADE = "infinite_wine_upgrade";
     public static final String GOLD_CLOTH_WIPE_RELIC = "gold_cloth_wipe_relic";
+    public static final String MANA_LENS_BIND_FLASK = "mana_lens_bind_flask";
 }

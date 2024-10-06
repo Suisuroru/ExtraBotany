@@ -8,7 +8,7 @@ import vazkii.botania.api.block_entity.RadiusDescriptor;
 
 public class BellFlowerBlockEntity extends GeneratingFlowerBlockEntity {
 
-    private static final int RANGE = 2;
+    private static final int RANGE = 0;
 
     public BellFlowerBlockEntity(BlockPos pos, BlockState state) {
         super(ExtraBotanyEntities.Blocks.Flowers.BELL_FLOWER.get(), pos, state);

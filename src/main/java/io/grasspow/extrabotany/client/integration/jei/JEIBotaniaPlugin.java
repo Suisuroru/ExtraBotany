@@ -3,9 +3,11 @@ package io.grasspow.extrabotany.client.integration.jei;
 import io.grasspow.extrabotany.client.integration.jei.crafting.CocktailUpgradeRecipeWrapper;
 import io.grasspow.extrabotany.client.integration.jei.crafting.GoldClothWipeRelicRecipeWrapper;
 import io.grasspow.extrabotany.client.integration.jei.crafting.InfiniteWineUpgradeRecipeWrapper;
+import io.grasspow.extrabotany.client.integration.jei.crafting.PotionLensBindBrewRecipeWrapper;
 import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
 import io.grasspow.extrabotany.common.crafting.GoldClothWipeRelicRecipe;
 import io.grasspow.extrabotany.common.crafting.InfiniteWineUpgradeRecipe;
+import io.grasspow.extrabotany.common.crafting.PotionLensBindBrewRecipe;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -47,6 +49,7 @@ public class JEIBotaniaPlugin implements IModPlugin {
         registration.getCraftingCategory().addCategoryExtension(CocktailUpgradeRecipe.class, CocktailUpgradeRecipeWrapper::new);
         registration.getCraftingCategory().addCategoryExtension(InfiniteWineUpgradeRecipe.class, InfiniteWineUpgradeRecipeWrapper::new);
         registration.getCraftingCategory().addCategoryExtension(GoldClothWipeRelicRecipe.class, GoldClothWipeRelicRecipeWrapper::new);
+        registration.getCraftingCategory().addCategoryExtension(PotionLensBindBrewRecipe.class, PotionLensBindBrewRecipeWrapper::new);
     }
 
     @Override
