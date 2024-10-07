@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.crafting.BotaniaRecipeTypes;
 import vazkii.botania.common.helper.ItemNBTHelper;
@@ -46,6 +47,7 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         Ingredient lapis = ingr(Items.LAPIS_LAZULI);
         Ingredient manaDiamond = ingr(BotaniaItems.manaDiamond);
         Ingredient manaCloth = ingr(BotaniaItems.manaweaveCloth);
+        Ingredient manaSteel = ingr(BotaniaItems.manaSteel);
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()), 100000, gilded_mashed_potato, gilded_mashed_potato, gilded_mashed_potato, ingr(Items.GOLD_BLOCK), ingr(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, spirit, spirit, spirit));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, nightmareFuel, nightmareFuel, nightmareFuel));
@@ -58,6 +60,8 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.IGNIS_STONE), new ItemStack(ExtraBotanyItems.IGNIS_STONE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_FIRE), ingr(ExtraBotanyTags.Items.RUNES_FIRE), gaiaIngot, quartz, lapis, manaDiamond));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.THE_COMMUNITY), new ItemStack(ExtraBotanyItems.THE_COMMUNITY.get()), 10000, ingr(ExtraBotanyItems.AERO_STONE.get()), ingr(ExtraBotanyItems.AQUA_STONE.get()), gaiaIngot, ingr(ExtraBotanyItems.EARTH_STONE.get()), ingr(ExtraBotanyItems.IGNIS_STONE.get()), ingr(ExtraBotanyItems.THE_CHAOS.get())));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.POWER_GLOVE), new ItemStack(ExtraBotanyItems.POWER_GLOVE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_WRATH), manaCloth, manaCloth, manaCloth, manaDiamond));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.FROST_STAR), new ItemStack(ExtraBotanyItems.FROST_STAR.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_MANA), manaSteel, manaSteel, ingr(Blocks.ICE), ingr(Blocks.ICE)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.DEATH_RING), new ItemStack(ExtraBotanyItems.DEATH_RING.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_ENVY), manaSteel, manaSteel, ingr(Blocks.WITHER_SKELETON_SKULL), manaDiamond));
     }
 
     private Ingredient ingr(TagKey<Item> i) {

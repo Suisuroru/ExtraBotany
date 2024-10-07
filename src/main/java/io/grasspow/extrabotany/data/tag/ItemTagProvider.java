@@ -74,6 +74,9 @@ public class ItemTagProvider extends ItemTagsProvider {
                 PYLON
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING
+        ).map(RegistryObject::get).forEach(tag(accessory("ring"))::add);
+        Stream.of(
                 AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY,
                 PEACE_AMULET, POWER_GLOVE
         ).map(RegistryObject::get).forEach(tag(accessory("curio"))::add);
@@ -87,7 +90,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
         Stream.of(
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
-                INFINITE_WINE
+                INFINITE_WINE,
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

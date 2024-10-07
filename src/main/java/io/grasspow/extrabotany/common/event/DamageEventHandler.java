@@ -20,7 +20,7 @@ public class DamageEventHandler {
         }
     }
 
-    private static boolean checkPassable(LivingEntity target, DamageSource source) {
+    public static boolean checkPassable(LivingEntity target, DamageSource source) {
         if (target == source.getEntity()) {
             return false;
         }

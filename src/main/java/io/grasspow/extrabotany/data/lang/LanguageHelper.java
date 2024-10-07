@@ -46,6 +46,9 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.THE_COMMUNITY, "The Community", "四元归一石");
         addItem(ExtraBotanyItems.PEACE_AMULET, "Peace Amulet", "和平友好之证");
         addItem(ExtraBotanyItems.POWER_GLOVE, "Power Glove", "强力手套");
+        addItem(ExtraBotanyItems.FROST_STAR, "Frost Star", "霜冻之星");
+        addItem(ExtraBotanyItems.DEATH_RING, "Death Ring", "诅咒指环");
+        addItem(ExtraBotanyItems.MANA_DRIVE_RING, "Ring of Mana Drive", "驭魔之戒");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

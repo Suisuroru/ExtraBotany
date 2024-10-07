@@ -10,10 +10,10 @@ public class LibItemNames {
 
     public static final String WALKINGCANE = "walkingcane";
     public static final String MANA_READER = "mana_reader";
-    
-    public static final String MANADRIVERRING = "manadrivering";
-    public static final String FROSTSTAR = "froststar";
-    public static final String DEATHRING = "deathring";
+
+    public static final String MANA_DRIVE_RING = "mana_drive_ring";
+    public static final String FROST_STAR = "frost_star";
+    public static final String DEATH_RING = "death_ring";
     public static final String NATUREORB = "natureorb";
     public static final String JINGWEIFEATHER = "jingweifeather";
     public static final String SILVERBULLET = "silverbullet";

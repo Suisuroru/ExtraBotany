@@ -205,6 +205,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lensNormal))
                 .save(consumer);
 
+        //universal
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.UNIVERSAL_PETAL.get(), 8)
                 .requires(Ingredient.of(BotaniaTags.Items.PETALS), 8)
                 .requires(BotaniaItems.lifeEssence)
@@ -235,6 +236,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.lifeEssence))
                 .save(consumer);
 
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.THE_CHAOS.get())
                 .define('L', ExtraBotanyItems.PHOTONIUM.get())
                 .define('D', ExtraBotanyItems.SHADOWIUM.get())
@@ -262,6 +264,8 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.PEACE_AMULET.get())
                 .define('L', BotaniaTags.Items.LIVINGWOOD_LOGS)
                 .define('R', BotaniaBlocks.livingrock)
@@ -269,6 +273,11 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("LRL")
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(BotaniaBlocks.livingrock, BotaniaBlocks.livingwoodLog))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.MANA_DRIVE_RING.get())
+                .requires(BotaniaItems.manaRing)
+                .requires(ExtraBotanyTags.Items.RUNES_MANA)
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manaRing, BotaniaItems.runeMana))
                 .save(consumer);
     }
 

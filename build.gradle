@@ -150,10 +150,10 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-//    implementation fg.deobf("curse.maven:jade-324717:${jade_id}")
+//    implementation fg.deobf("curse.maven:jade-324717:5672013")
     runtimeOnly fg.deobf("curse.maven:jade-324717:5672013")
     runtimeOnly fg.deobf("curse.maven:nbtedit-678133:5646052")
-    runtimeOnly fg.deobf("curse.maven:in-game-account-switcher-232676:5457030")
+//    runtimeOnly fg.deobf("curse.maven:in-game-account-switcher-232676:5457030")
 }
 
 tasks.named('processResources', ProcessResources).configure {
