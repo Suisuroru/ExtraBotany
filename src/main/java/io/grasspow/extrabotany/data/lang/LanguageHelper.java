@@ -49,6 +49,11 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.FROST_STAR, "Frost Star", "霜冻之星");
         addItem(ExtraBotanyItems.DEATH_RING, "Death Ring", "诅咒指环");
         addItem(ExtraBotanyItems.MANA_DRIVE_RING, "Ring of Mana Drive", "驭魔之戒");
+        addItem(ExtraBotanyItems.NATURE_ORB, "Nature Orb", "自然蕴息宝珠");
+        add("extrabotany.nature_orb", "Natural Breath: %s / %s", "自然之息: %s / %s");
+        add("extrabotany.nature_orb_effect1", "Blessing of Mana", "魔力的加护");
+        add("extrabotany.nature_orb_effect2", "Blessing of Regeneration", "再生的加护");
+        add("extrabotany.nature_orb_effect3", "Blessing of Senro", "森罗的加护");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

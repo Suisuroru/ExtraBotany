@@ -21,10 +21,10 @@ public class EmptyBottleItem extends Item {
     public InteractionResult useOn(UseOnContext ctx) {
         ItemStack stack = ctx.getItemInHand();
         BlockPos pos = ctx.getClickedPos();
-        Level world = ctx.getLevel();
-        BlockState state = world.getBlockState(pos);
+        Level level = ctx.getLevel();
+        BlockState state = level.getBlockState(pos);
         Block block = state.getBlock();
-        if (block instanceof ManaPoolBlock && world.getBlockEntity(pos) instanceof ManaPoolBlockEntity entity) {
+        if (block instanceof ManaPoolBlock && level.getBlockEntity(pos) instanceof ManaPoolBlockEntity entity) {
             entity.receiveMana(-10000);
             stack.shrink(1);
             ctx.getPlayer().getInventory().placeItemBackInInventory(new ItemStack(ExtraBotanyItems.MANA_DRINK.get()));

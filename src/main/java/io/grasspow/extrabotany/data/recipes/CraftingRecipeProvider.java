@@ -279,6 +279,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .requires(ExtraBotanyTags.Items.RUNES_MANA)
                 .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manaRing, BotaniaItems.runeMana))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.NATURE_ORB.get())
+                .define('T', BotaniaTags.Items.INGOTS_TERRASTEEL)
+                .define('D', BotaniaTags.Items.GEMS_DRAGONSTONE)
+                .define('P', BotaniaItems.manaPearl)
+                .pattern("TDT")
+                .pattern("DPD")
+                .pattern("TDT")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
+                .save(consumer);
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {
