@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import vazkii.botania.common.handler.EquipmentHandler;
 
 @Mod.EventBusSubscriber
-public class EventHandler {
+public class DamageEventHandler {
 
     @SubscribeEvent
     public static void onLivingAttack(LivingAttackEvent event) {

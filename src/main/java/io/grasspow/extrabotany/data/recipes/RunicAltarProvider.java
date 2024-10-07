@@ -45,6 +45,7 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         Ingredient quartz = ingr(Items.QUARTZ);
         Ingredient lapis = ingr(Items.LAPIS_LAZULI);
         Ingredient manaDiamond = ingr(BotaniaItems.manaDiamond);
+        Ingredient manaCloth = ingr(BotaniaItems.manaweaveCloth);
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()), 100000, gilded_mashed_potato, gilded_mashed_potato, gilded_mashed_potato, ingr(Items.GOLD_BLOCK), ingr(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, spirit, spirit, spirit));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, nightmareFuel, nightmareFuel, nightmareFuel));
@@ -56,6 +57,7 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.EARTH_STONE), new ItemStack(ExtraBotanyItems.EARTH_STONE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_EARTH), ingr(ExtraBotanyTags.Items.RUNES_EARTH), gaiaIngot, quartz, lapis, manaDiamond));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.IGNIS_STONE), new ItemStack(ExtraBotanyItems.IGNIS_STONE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_FIRE), ingr(ExtraBotanyTags.Items.RUNES_FIRE), gaiaIngot, quartz, lapis, manaDiamond));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.THE_COMMUNITY), new ItemStack(ExtraBotanyItems.THE_COMMUNITY.get()), 10000, ingr(ExtraBotanyItems.AERO_STONE.get()), ingr(ExtraBotanyItems.AQUA_STONE.get()), gaiaIngot, ingr(ExtraBotanyItems.EARTH_STONE.get()), ingr(ExtraBotanyItems.IGNIS_STONE.get()), ingr(ExtraBotanyItems.THE_CHAOS.get())));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.POWER_GLOVE), new ItemStack(ExtraBotanyItems.POWER_GLOVE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_WRATH), manaCloth, manaCloth, manaCloth, manaDiamond));
     }
 
     private Ingredient ingr(TagKey<Item> i) {

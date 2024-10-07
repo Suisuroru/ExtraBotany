@@ -24,7 +24,7 @@ public class LibItemNames {
     public static final String EARTH_STONE = "earth_stone";
     public static final String IGNIS_STONE = "ignis_stone";
     public static final String THE_COMMUNITY = "the_community";
-    public static final String POWERGLOVE = "powerglove";
+    public static final String POWER_GLOVE = "power_glove";
     public static final String MOTORACCESSORY = "motoraccessory";
     public static final String COSMICCARKEYACCESSORY = "cosmiccarkeyaccessory";
     public static final String SUNRING = "sunring";

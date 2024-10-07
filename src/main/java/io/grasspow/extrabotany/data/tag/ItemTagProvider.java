@@ -75,7 +75,7 @@ public class ItemTagProvider extends ItemTagsProvider {
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
                 AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY,
-                PEACE_AMULET
+                PEACE_AMULET, POWER_GLOVE
         ).map(RegistryObject::get).forEach(tag(accessory("curio"))::add);
     }
 
