@@ -288,6 +288,12 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("TDT")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
                 .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.JINGWEI_FEATHER.get())
+                .requires(Tags.Items.FEATHERS)
+                .requires(Items.LAVA_BUCKET)
+                .requires(ExtraBotanyItems.HERO_MEDAL.get())
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.HERO_MEDAL.get()))
+                .save(consumer);
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {

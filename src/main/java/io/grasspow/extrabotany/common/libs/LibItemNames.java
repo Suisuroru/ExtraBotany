@@ -15,7 +15,7 @@ public class LibItemNames {
     public static final String FROST_STAR = "frost_star";
     public static final String DEATH_RING = "death_ring";
     public static final String NATURE_ORB = "nature_orb";
-    public static final String JINGWEIFEATHER = "jingweifeather";
+    public static final String JINGWEI_FEATHER = "jingwei_feather";
     public static final String SILVERBULLET = "silverbullet";
 
     public static final String PEACE_AMULET = "peace_amulet";

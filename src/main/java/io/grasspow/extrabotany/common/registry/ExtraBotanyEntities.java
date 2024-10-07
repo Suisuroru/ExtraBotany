@@ -8,7 +8,8 @@ import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.generating.*;
-import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
+import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
+import io.grasspow.extrabotany.common.entity.projectile.AuraFireProjectile;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -102,13 +103,21 @@ public class ExtraBotanyEntities {
         return ENTITY_TYPES;
     }
 
-    public static final RegistryObject<EntityType<EntitySplashGrenade>> SPLASH_GRENADE = ENTITY_TYPES.register(LibItemNames.SPLASH_GRENADE,
+    public static final RegistryObject<EntityType<SplashGrenadeEntity>> SPLASH_GRENADE = ENTITY_TYPES.register(LibItemNames.SPLASH_GRENADE,
             () -> EntityType.Builder
-                    .<EntitySplashGrenade>of(EntitySplashGrenade::new, MobCategory.MISC)
+                    .<SplashGrenadeEntity>of(SplashGrenadeEntity::new, MobCategory.MISC)
                     .sized(0.05F, 0.05F)
                     .setUpdateInterval(10)
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.SPLASH_GRENADE).toString()));
 
+    public static final RegistryObject<EntityType<AuraFireProjectile>> AURA_FILE = ENTITY_TYPES.register(LibEntityNames.AURA_FIRE,
+            () -> EntityType.Builder
+                    .<AuraFireProjectile>of(AuraFireProjectile::new, MobCategory.MISC)
+                    .sized(0.1F, 0.1F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.AURA_FIRE).toString()));
 }

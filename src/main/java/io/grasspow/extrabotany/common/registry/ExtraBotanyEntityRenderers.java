@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.registry;
 
+import io.grasspow.extrabotany.client.render.entity.DummyRender;
 import io.grasspow.extrabotany.client.render.entity.block.LivingrockBarrelBlockEntityRenderer;
 import io.grasspow.extrabotany.client.render.entity.block.PedestalBlockEntityRenderer;
 import io.grasspow.extrabotany.client.render.entity.block.PowerFrameBlockEntityRenderer;
@@ -29,5 +30,6 @@ public class ExtraBotanyEntityRenderers {
 
     public static void registerEntityRenderers(EntityRenderers.EntityRendererConsumer consumer) {
         consumer.accept(ExtraBotanyEntities.SPLASH_GRENADE.get(), ThrownItemRenderer::new);
+        consumer.accept(ExtraBotanyEntities.AURA_FILE.get(), DummyRender::new);
     }
 }

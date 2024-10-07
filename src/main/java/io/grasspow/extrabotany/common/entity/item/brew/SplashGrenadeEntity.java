@@ -16,13 +16,13 @@ import vazkii.botania.api.brew.BrewItem;
 
 import java.util.List;
 
-public class EntitySplashGrenade extends ThrownPotion {
+public class SplashGrenadeEntity extends ThrownPotion {
 
-    public EntitySplashGrenade(EntityType<? extends ThrownPotion> type, Level level) {
+    public SplashGrenadeEntity(EntityType<? extends ThrownPotion> type, Level level) {
         super(type, level);
     }
 
-    public EntitySplashGrenade(Level level, LivingEntity living) {
+    public SplashGrenadeEntity(Level level, LivingEntity living) {
         super(ExtraBotanyEntities.SPLASH_GRENADE.get(), level);
         setOwner(living);
     }

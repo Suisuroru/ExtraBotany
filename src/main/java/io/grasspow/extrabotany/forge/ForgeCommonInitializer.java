@@ -5,6 +5,7 @@ import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
+import io.grasspow.extrabotany.forge.network.ForgePacketHandler;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -41,6 +42,7 @@ public class ForgeCommonInitializer {
     }
 
     public void commonSetup(FMLCommonSetupEvent evt) {
+        ForgePacketHandler.init();
         registerEvents();
     }
 

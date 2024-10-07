@@ -2,7 +2,7 @@ package io.grasspow.extrabotany.common.item.brew;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
-import io.grasspow.extrabotany.common.entity.item.brew.EntitySplashGrenade;
+import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -54,7 +54,7 @@ public class SplashGrenadeItem extends Item implements BrewItem, CustomCreativeT
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide) {
-            EntitySplashGrenade sg = new EntitySplashGrenade(level, player);
+            SplashGrenadeEntity sg = new SplashGrenadeEntity(level, player);
             sg.setItem(stack);
             sg.setPos(player.getX(), player.getY() + 1.1D, player.getZ());
             sg.shootFromRotation(player, player.getXRot(), player.getYRot(), -5.0F, 0.8F, 1.0F);
