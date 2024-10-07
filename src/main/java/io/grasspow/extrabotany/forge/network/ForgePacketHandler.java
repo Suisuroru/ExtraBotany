@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.forge.network;
 
-import io.grasspow.extrabotany.common.network.LeftClickPack;
+import io.grasspow.extrabotany.common.network.client.PotatoChipsPack;
+import io.grasspow.extrabotany.common.network.server.LeftClickPack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -29,8 +30,8 @@ public class ForgePacketHandler {
                 makeServerBoundHandler(LeftClickPack::handle));
 
         // Clientbound
-//        CHANNEL.registerMessage(i++, LeftClickPack.class, LeftClickPack::encode, LeftClickPack::decode,
-//                makeClientBoundHandler(LeftClickPack.Handler::handle));
+        CHANNEL.registerMessage(i++, PotatoChipsPack.class, PotatoChipsPack::encode, PotatoChipsPack::decode,
+                makeClientBoundHandler(PotatoChipsPack.Handler::handle));
     }
 
     private static <T> BiConsumer<T, Supplier<NetworkEvent.Context>> makeServerBoundHandler(TriConsumer<T, MinecraftServer, ServerPlayer> handler) {

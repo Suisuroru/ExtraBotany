@@ -71,7 +71,7 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerCuriosTag() {
         Stream.of(
-                PYLON
+                PYLON, POTATO_CHIPS
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING
@@ -91,7 +91,7 @@ public class ItemTagProvider extends ItemTagsProvider {
         Stream.of(
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
                 INFINITE_WINE,
-                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

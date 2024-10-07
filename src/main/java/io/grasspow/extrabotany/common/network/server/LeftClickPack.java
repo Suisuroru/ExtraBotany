@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.network;
+package io.grasspow.extrabotany.common.network.server;
 
 import io.grasspow.extrabotany.common.item.equipment.bauble.JingweiFeatherItem;
 import net.minecraft.network.FriendlyByteBuf;

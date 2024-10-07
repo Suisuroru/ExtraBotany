@@ -2,7 +2,7 @@ package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import io.grasspow.extrabotany.api.item.IItemWithLeftClick;
 import io.grasspow.extrabotany.common.entity.projectile.AuraFireProjectile;
-import io.grasspow.extrabotany.common.network.LeftClickPack;
+import io.grasspow.extrabotany.common.network.server.LeftClickPack;
 import io.grasspow.extrabotany.xplat.client.ClientModXplatAbstractions;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;

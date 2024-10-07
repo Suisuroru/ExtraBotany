@@ -29,7 +29,7 @@ public class LibItemNames {
     public static final String COSMICCARKEYACCESSORY = "cosmiccarkeyaccessory";
     public static final String SUNRING = "sunring";
     public static final String MOONPENDANT = "moonpendant";
-    public static final String POTATOCHIPS = "potatochips";
+    public static final String POTATO_CHIPS = "potato_chips";
 
     public static final String RECORD_EGO = "record_ego";
     public static final String RECORD_HERRSCHER = "record_herrscher";

@@ -62,6 +62,7 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.POWER_GLOVE), new ItemStack(ExtraBotanyItems.POWER_GLOVE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_WRATH), manaCloth, manaCloth, manaCloth, manaDiamond));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.FROST_STAR), new ItemStack(ExtraBotanyItems.FROST_STAR.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_MANA), manaSteel, manaSteel, ingr(Blocks.ICE), ingr(Blocks.ICE)));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.DEATH_RING), new ItemStack(ExtraBotanyItems.DEATH_RING.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_ENVY), manaSteel, manaSteel, ingr(Blocks.WITHER_SKELETON_SKULL), manaDiamond));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.POTATO_CHIPS), new ItemStack(ExtraBotanyItems.POTATO_CHIPS.get()), 50000, ingr(BotaniaItems.tinyPotatoMask), ingr(ExtraBotanyItems.GILDED_POTATO.get()), ingr(Blocks.BLAST_FURNACE), ingr(Blocks.CAMPFIRE), ingr(Items.TOTEM_OF_UNDYING), ingr(Items.TOTEM_OF_UNDYING), ingr(Items.TOTEM_OF_UNDYING), ingr(ExtraBotanyTags.Items.RUNES_MANA)));
     }
 
     private Ingredient ingr(TagKey<Item> i) {
