@@ -262,6 +262,14 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.PEACE_AMULET.get())
+                .define('L', BotaniaTags.Items.LIVINGWOOD_LOGS)
+                .define('R', BotaniaBlocks.livingrock)
+                .pattern(" L ")
+                .pattern("LRL")
+                .pattern(" L ")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaBlocks.livingrock, BotaniaBlocks.livingwoodLog))
+                .save(consumer);
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {

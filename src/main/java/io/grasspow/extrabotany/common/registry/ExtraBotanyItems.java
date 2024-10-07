@@ -51,6 +51,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> EARTH_STONE = regDefItem(LibItemNames.EARTH_STONE, EarthStoneItem::new, nonStackable());
     public static final RegistryObject<Item> IGNIS_STONE = regDefItem(LibItemNames.IGNIS_STONE, IgnisStoneItem::new, nonStackable());
     public static final RegistryObject<Item> THE_COMMUNITY = regDefItem(LibItemNames.THE_COMMUNITY, TheCommunityItem::new, nonStackable());
+    public static final RegistryObject<Item> PEACE_AMULET = regDefItem(LibItemNames.PEACE_AMULET, BaubleItem::new, nonStackable());
 
     // food
     public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));

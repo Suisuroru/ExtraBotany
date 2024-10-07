@@ -74,7 +74,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 PYLON
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
-                AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY
+                AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY,
+                PEACE_AMULET
         ).map(RegistryObject::get).forEach(tag(accessory("curio"))::add);
     }
 

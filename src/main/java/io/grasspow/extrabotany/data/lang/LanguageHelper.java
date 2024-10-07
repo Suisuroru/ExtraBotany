@@ -44,6 +44,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.EARTH_STONE, "Earth Stone", "地之符石");
         addItem(ExtraBotanyItems.IGNIS_STONE, "Ignis Stone", "火之符石");
         addItem(ExtraBotanyItems.THE_COMMUNITY, "The Community", "四元归一石");
+        addItem(ExtraBotanyItems.PEACE_AMULET, "Peace Amulet", "和平友好之证");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

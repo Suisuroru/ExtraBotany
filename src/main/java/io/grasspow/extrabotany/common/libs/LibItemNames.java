@@ -18,7 +18,7 @@ public class LibItemNames {
     public static final String JINGWEIFEATHER = "jingweifeather";
     public static final String SILVERBULLET = "silverbullet";
 
-    public static final String PEACEAMULET = "peaceamulet";
+    public static final String PEACE_AMULET = "peace_amulet";
     public static final String AERO_STONE = "aero_stone";
     public static final String AQUA_STONE = "aqua_stone";
     public static final String EARTH_STONE = "earth_stone";
