@@ -10,51 +10,20 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import vazkii.botania.api.item.Relic;
-import vazkii.botania.common.helper.ItemNBTHelper;
 import vazkii.botania.common.item.equipment.CustomDamageItem;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.RelicImpl;
 import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.function.Consumer;
 
-public class InfiniteWineItem extends BaseBrewItemEX implements Relic, CustomDamageItem {
-    private static final String TAG_SOULBIND_UUID = "soulbindUUID";
+public class InfiniteWineItem extends BaseBrewItemEX implements CustomDamageItem {
     private static final int MANA_PER_DAMAGE = 12000;
 
     public InfiniteWineItem(Properties builder) {
         super(builder, 12, 18, 1.5f, 1, ExtraBotanyItems.EMPTY_BOTTLE);
-    }
-
-    @Override
-    public void bindToUUID(UUID uuid) {
-        ItemNBTHelper.setString(getBaseStack(), TAG_SOULBIND_UUID, uuid.toString());
-    }
-
-    @Override
-    public @Nullable UUID getSoulbindUUID() {
-        if (ItemNBTHelper.verifyExistance(getBaseStack(), TAG_SOULBIND_UUID)) {
-            try {
-                return UUID.fromString(ItemNBTHelper.getString(getBaseStack(), TAG_SOULBIND_UUID, ""));
-            } catch (IllegalArgumentException ex) { // Bad UUID in tag
-                ItemNBTHelper.removeEntry(getBaseStack(), TAG_SOULBIND_UUID);
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void tickBinding(Player player) {
-
-    }
-
-    @Override
-    public boolean isRightPlayer(Player player) {
-        return player.getUUID().equals(getSoulbindUUID());
     }
 
     @Override
@@ -69,8 +38,8 @@ public class InfiniteWineItem extends BaseBrewItemEX implements Relic, CustomDam
 
     //todo: infinite_wine consume mana to add use times
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!world.isClientSide && entity instanceof Player player) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        if (!level.isClientSide && entity instanceof Player player) {
             var relic = XplatAbstractions.INSTANCE.findRelic(stack);
             if (relic != null) {
                 relic.tickBinding(player);

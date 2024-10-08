@@ -59,6 +59,8 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> NATURE_ORB = regDefItem(LibItemNames.NATURE_ORB, NatureOrbItem::new, nonStackable());
     public static final RegistryObject<Item> JINGWEI_FEATHER = regDefItem(LibItemNames.JINGWEI_FEATHER, JingweiFeatherItem::new, nonStackable());
     public static final RegistryObject<Item> POTATO_CHIPS = regDefItem(LibItemNames.POTATO_CHIPS, PotatoChipsItem::new, nonStackable());
+    public static final RegistryObject<Item> SUN_RING = regDefItem(LibItemNames.SUN_RING, SunRingItem::new, nonStackable());
+    public static final RegistryObject<Item> MOON_PENDANT = regDefItem(LibItemNames.MOON_PENDANT, MoonPendantItem::new, nonStackable());
 
     // food
     public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));

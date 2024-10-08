@@ -56,6 +56,8 @@ public class LanguageHelper {
         add("extrabotany.nature_orb_effect3", "Blessing of Senro", "森罗的加护");
         addItem(ExtraBotanyItems.JINGWEI_FEATHER, "Feather of Jingwei", "精卫之羽");
         addItem(ExtraBotanyItems.POTATO_CHIPS, "Potato Chips", "薯片");
+        addItem(ExtraBotanyItems.SUN_RING, "Ring of Sacred Sun", "圣阳尊戒");
+        addItem(ExtraBotanyItems.MOON_PENDANT, "Heart of Corrupted Moon", "蚀月之心");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

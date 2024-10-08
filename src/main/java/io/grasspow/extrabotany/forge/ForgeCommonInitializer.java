@@ -3,6 +3,8 @@ package io.grasspow.extrabotany.forge;
 import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.MoonPendantItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import io.grasspow.extrabotany.forge.network.ForgePacketHandler;
@@ -67,7 +69,9 @@ public class ForgeCommonInitializer {
     }
 
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
-            ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic
+            ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic,
+            ExtraBotanyItems.SUN_RING.get(), SunRingItem::makeRelic,
+            ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic
     ));
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {

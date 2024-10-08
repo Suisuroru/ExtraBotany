@@ -74,7 +74,10 @@ public class ItemTagProvider extends ItemTagsProvider {
                 PYLON, POTATO_CHIPS
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
-                FROST_STAR, DEATH_RING, MANA_DRIVE_RING
+                MOON_PENDANT
+        ).map(RegistryObject::get).forEach(tag(accessory("necklace"))::add);
+        Stream.of(
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, SUN_RING
         ).map(RegistryObject::get).forEach(tag(accessory("ring"))::add);
         Stream.of(
                 AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY,
@@ -91,7 +94,8 @@ public class ItemTagProvider extends ItemTagsProvider {
         Stream.of(
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
                 INFINITE_WINE,
-                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
+                SUN_RING, MOON_PENDANT
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,
