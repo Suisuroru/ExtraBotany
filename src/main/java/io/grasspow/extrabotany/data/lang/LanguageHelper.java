@@ -73,6 +73,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.MANA_READER, "Mana Reader", "魔力读取器");
         addItem(ExtraBotanyItems.WALKING_CANE, "Walking Cane", "步行者手杖");
         addItem(ExtraBotanyItems.ROD_OF_DISCORD, "Rod of Discord", "不谐传送杖");
+        addItem(ExtraBotanyItems.SILVER_BULLET, "Silver Bullet", "银翼射手");
         //brew
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");

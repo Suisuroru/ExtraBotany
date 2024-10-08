@@ -15,6 +15,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHamme
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
+import io.grasspow.extrabotany.common.item.equipment.weapon.SilverBulletItem;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -88,6 +89,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MANA_READER = regDefItem(LibItemNames.MANA_READER, ManaReader::new, nonStackable());
     public static final RegistryObject<Item> WALKING_CANE = regDefItem(LibItemNames.WALKING_CANE, WalkingCaneItem::new, nonStackable());
     public static final RegistryObject<Item> ROD_OF_DISCORD = regDefItem(LibItemNames.ROD_OF_DISCORD, RodOfDiscordItem::new, nonStackable());
+    public static final RegistryObject<Item> SILVER_BULLET = regDefItem(LibItemNames.SILVER_BULLET, SilverBulletItem::new, nonStackable());
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());

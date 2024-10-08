@@ -16,7 +16,7 @@ public class LibItemNames {
     public static final String DEATH_RING = "death_ring";
     public static final String NATURE_ORB = "nature_orb";
     public static final String JINGWEI_FEATHER = "jingwei_feather";
-    public static final String SILVER_BULLET = "silverbullet";
+    public static final String SILVER_BULLET = "silver_bullet";
 
     public static final String PEACE_AMULET = "peace_amulet";
     public static final String AERO_STONE = "aero_stone";
@@ -25,8 +25,8 @@ public class LibItemNames {
     public static final String IGNIS_STONE = "ignis_stone";
     public static final String THE_COMMUNITY = "the_community";
     public static final String POWER_GLOVE = "power_glove";
-    public static final String MOTOR_ACCESSORY = "motoraccessory";
-    public static final String COSMIC_CAR_KEY_ACCESSORY = "cosmiccarkeyaccessory";
+    public static final String MOTOR_ACCESSORY = "motor_accessory";
+    public static final String COSMIC_CAR_KEY_ACCESSORY = "cosmic_car_key_accessory";
     public static final String SUN_RING = "sun_ring";
     public static final String MOON_PENDANT = "moon_pendant";
     public static final String POTATO_CHIPS = "potato_chips";
@@ -37,9 +37,9 @@ public class LibItemNames {
     public static final String SHADOW_KATANA = "shadow_katana";
     public static final String ROD_OF_DISCORD = "rod_of_discord";
 
-    public static final String JUDAHOATH = "judahoath";
-    public static final String JUDAHOATH_SAKURA = "judahoath_sakura";
-    public static final String JUDAHOATH_IDOL = "judahoath_idol";
+    public static final String JUDAH_OATH = "judah_oath";
+    public static final String JUDAH_OATH_SAKURA = "judah_oath_sakura";
+    public static final String JUDAH_OATH_IDOL = "judah_oath_idol";
 
     public static final String UUZ_FAN = "uuz_fan";
     public static final String TRUE_TERRABLADE = "true_terrablade";

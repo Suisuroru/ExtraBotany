@@ -12,6 +12,10 @@ public final class ExtraBotanyTags {
     public static class Items {
         public static final TagKey<Item> HAMMER = tag("hammer");
         public static final TagKey<Item> PEDESTAL_DENY = tag("pedestal_deny");
+        public static final TagKey<Item> INGOTS_PHOTONIUM = tag(LibItemNames.PHOTONIUM + "_ingots");
+        public static final TagKey<Item> INGOTS_SHADOWIUM = tag(LibItemNames.SHADOWIUM + "_ingots");
+        public static final TagKey<Item> INGOTS_AERIALITE = tag(LibItemNames.AERIALITE + "_ingots");
+        public static final TagKey<Item> INGOTS_ORICHALCOS = tag(LibItemNames.ORICHALCOS + "_ingots");
 
         //runes
         public static final TagKey<Item> RUNES_WATER = tag("runes/water");
@@ -37,10 +41,11 @@ public final class ExtraBotanyTags {
     }
 
     public static class Blocks {
-        public static final TagKey<Block> SHADOWIUM_BLOCK = tag(LibBlockNames.SHADOWIUM_BLOCK);
-        public static final TagKey<Block> PHOTONIUM_BLOCK = tag(LibBlockNames.PHOTONIUM_BLOCK);
-        public static final TagKey<Block> ORICHALCOS_BLOCK = tag(LibBlockNames.ORICHALCOS_BLOCK);
-        public static final TagKey<Block> AERIALITE_BLOCK = tag(LibBlockNames.AERIALITE_BLOCK);
+        public static final TagKey<Block> BLOCKS_SHADOWIUM = tag(LibBlockNames.SHADOWIUM_BLOCK + "s");
+        public static final TagKey<Block> BLOCKS_PHOTONIUM = tag(LibBlockNames.PHOTONIUM_BLOCK + "s");
+        public static final TagKey<Block> BLOCKS_ORICHALCOS = tag(LibBlockNames.ORICHALCOS_BLOCK + "s");
+        public static final TagKey<Block> BLOCKS_AERIALITE = tag(LibBlockNames.AERIALITE_BLOCK + "s");
+
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, resId(name));
         }

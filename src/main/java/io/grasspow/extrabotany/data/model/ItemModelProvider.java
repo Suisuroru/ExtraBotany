@@ -32,9 +32,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
-import static vazkii.botania.data.ItemModelProvider.takeAll;
 
-public class ItemModelProvider implements DataProvider {
+public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
     private static final TextureSlot LAYER1 = TextureSlotAccessor.make("layer1");
     private static final TextureSlot LAYER2 = TextureSlotAccessor.make("layer2");
     private static final TextureSlot LAYER3 = TextureSlotAccessor.make("layer3");
@@ -52,6 +51,7 @@ public class ItemModelProvider implements DataProvider {
     private final PackOutput packOutput;
 
     public ItemModelProvider(PackOutput packOutput) {
+        super(packOutput);
         this.packOutput = packOutput;
     }
 
@@ -127,6 +127,9 @@ public class ItemModelProvider implements DataProvider {
     }
 
     private void registerItems(Set<Item> items, BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
+        //skip
+        items.remove(ExtraBotanyItems.SILVER_BULLET.get());
+
         takeAll(items,
                 ExtraBotanyItems.SPLASH_GRENADE.get()
         ).forEach(i -> GENERATED_1.create(ModelLocationUtils.getModelLocation(i),

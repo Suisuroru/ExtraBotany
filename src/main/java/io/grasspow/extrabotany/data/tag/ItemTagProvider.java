@@ -45,6 +45,10 @@ public class ItemTagProvider extends ItemTagsProvider {
         Stream.of(
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER
         ).map(RegistryObject::get).forEach(tag(ExtraBotanyTags.Items.HAMMER)::add);
+        tag(ExtraBotanyTags.Items.INGOTS_SHADOWIUM).add(SHADOWIUM.get());
+        tag(ExtraBotanyTags.Items.INGOTS_PHOTONIUM).add(PHOTONIUM.get());
+        tag(ExtraBotanyTags.Items.INGOTS_AERIALITE).add(AERIALITE.get());
+        tag(ExtraBotanyTags.Items.INGOTS_ORICHALCOS).add(ORICHALCOS.get());
         tag(ExtraBotanyTags.Items.PEDESTAL_DENY).add(Items.SHIELD);
         tag(ExtraBotanyTags.Items.RUNES_WATER).add(ELEMENT_RUNE.get(), BotaniaItems.runeWater);
         tag(ExtraBotanyTags.Items.RUNES_FIRE).add(ELEMENT_RUNE.get(), BotaniaItems.runeFire);
@@ -96,7 +100,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
                 INFINITE_WINE,
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
-                SUN_RING, MOON_PENDANT, ROD_OF_DISCORD
+                SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

@@ -160,6 +160,16 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("W  ")
                 .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.SILVER_BULLET.get())
+                .define('P', ExtraBotanyTags.Items.INGOTS_PHOTONIUM)
+                .define('S', BotaniaTags.Items.INGOTS_MANASTEEL)
+                .define('C', ExtraBotanyItems.THE_CHAOS.get())
+                .define('G', BotaniaItems.manaGun)
+                .pattern("PPS")
+                .pattern(" GC")
+                .pattern("  P")
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
+                .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.DIMENSION_CATALYST.get())
                 .define('L', BotaniaBlocks.livingrock)
                 .define('E', Items.ENDER_EYE)

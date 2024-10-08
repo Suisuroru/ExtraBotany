@@ -36,10 +36,10 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
     protected void addTags(HolderLookup.Provider pProvider) {
         registerVanillaTag();
         registerBotaniaTag();
-        tag(ExtraBotanyTags.Blocks.PHOTONIUM_BLOCK).add(PHOTONIUM_BLOCK.get());
-        tag(ExtraBotanyTags.Blocks.SHADOWIUM_BLOCK).add(SHADOWIUM_BLOCK.get());
-        tag(ExtraBotanyTags.Blocks.AERIALITE_BLOCK).add(AERIALITE_BLOCK.get());
-        tag(ExtraBotanyTags.Blocks.ORICHALCOS_BLOCK).add(ORICHALCOS_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.BLOCKS_PHOTONIUM).add(PHOTONIUM_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.BLOCKS_SHADOWIUM).add(SHADOWIUM_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.BLOCKS_AERIALITE).add(AERIALITE_BLOCK.get());
+        tag(ExtraBotanyTags.Blocks.BLOCKS_ORICHALCOS).add(ORICHALCOS_BLOCK.get());
     }
 
     private void registerVanillaTag() {
