@@ -96,7 +96,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
                 INFINITE_WINE,
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
-                SUN_RING, MOON_PENDANT
+                SUN_RING, MOON_PENDANT, ROD_OF_DISCORD
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

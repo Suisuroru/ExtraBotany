@@ -100,6 +100,7 @@
   "item.extrabotany.push_lens": "Mana Lens: Push",
   "item.extrabotany.push_lens.short": "Push",
   "item.extrabotany.pylon": "Pylon",
+  "item.extrabotany.rod_of_discord": "Rod of Discord",
   "item.extrabotany.sages_mana_ring": "Sage's Ring of Mana",
   "item.extrabotany.shadowium": "Shadowium Ingot",
   "item.extrabotany.sin_rune": "Rune of Sin",
@@ -121,5 +122,6 @@
   "item.extrabotany.trace_lens.short": "Mana",
   "item.extrabotany.ultimate_hammer": "Ultimate Hammer",
   "item.extrabotany.universal_petal": "Universal Petal",
+  "item.extrabotany.walking_cane": "Walking Cane",
   "itemGroup.extrabotany": "ExtraBotany"
 }

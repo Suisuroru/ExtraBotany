@@ -9,6 +9,8 @@ import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
+import io.grasspow.extrabotany.common.item.equipment.tool.RodOfDiscordItem;
+import io.grasspow.extrabotany.common.item.equipment.tool.WalkingCaneItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
@@ -84,6 +86,8 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> TERRASTEEL_HAMMER = regDefItem(LibItemNames.TERRASTEEL_HAMMER, TerrasteelHammer::new, nonStackable());
     public static final RegistryObject<Item> ULTIMATE_HAMMER = regDefItem(LibItemNames.ULTIMATE_HAMMER, UltimateHammer::new, nonStackable());
     public static final RegistryObject<Item> MANA_READER = regDefItem(LibItemNames.MANA_READER, ManaReader::new, nonStackable());
+    public static final RegistryObject<Item> WALKING_CANE = regDefItem(LibItemNames.WALKING_CANE, WalkingCaneItem::new, nonStackable());
+    public static final RegistryObject<Item> ROD_OF_DISCORD = regDefItem(LibItemNames.ROD_OF_DISCORD, RodOfDiscordItem::new, nonStackable());
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());

@@ -139,7 +139,9 @@ public class ItemModelProvider implements DataProvider {
                 ExtraBotanyItems.MANASTEEL_HAMMER.get(),
                 ExtraBotanyItems.TERRASTEEL_HAMMER.get(),
                 ExtraBotanyItems.ULTIMATE_HAMMER.get(),
-                ExtraBotanyItems.MANA_READER.get()
+                ExtraBotanyItems.MANA_READER.get(),
+                ExtraBotanyItems.WALKING_CANE.get(),
+                ExtraBotanyItems.ROD_OF_DISCORD.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }

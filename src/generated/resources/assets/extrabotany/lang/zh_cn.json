@@ -100,6 +100,7 @@
   "item.extrabotany.push_lens": "魔力透镜:冲击",
   "item.extrabotany.push_lens.short": "冲击",
   "item.extrabotany.pylon": "模拟人生",
+  "item.extrabotany.rod_of_discord": "不谐传送杖",
   "item.extrabotany.sages_mana_ring": "贤者魔力指环",
   "item.extrabotany.shadowium": "暗影锭",
   "item.extrabotany.sin_rune": "大罪符文",
@@ -121,5 +122,6 @@
   "item.extrabotany.trace_lens.short": "追踪",
   "item.extrabotany.ultimate_hammer": "镀金究极锤",
   "item.extrabotany.universal_petal": "彩虹花瓣",
+  "item.extrabotany.walking_cane": "步行者手杖",
   "itemGroup.extrabotany": "额外植物学"
 }

@@ -8,7 +8,7 @@ public class LibItemNames {
     public static final String FIRST_FRACTAL = "first_fractal";
     public static final String FLAME_SCION_WEAPON = "flame_scion_weapon";
 
-    public static final String WALKINGCANE = "walkingcane";
+    public static final String WALKING_CANE = "walking_cane";
     public static final String MANA_READER = "mana_reader";
 
     public static final String MANA_DRIVE_RING = "mana_drive_ring";
