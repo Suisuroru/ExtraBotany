@@ -77,7 +77,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MOON_PENDANT
         ).map(RegistryObject::get).forEach(tag(accessory("necklace"))::add);
         Stream.of(
-                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, SUN_RING
+                FROST_STAR, DEATH_RING, MANA_DRIVE_RING, SUN_RING,
+                SAGES_MANA_RING
         ).map(RegistryObject::get).forEach(tag(accessory("ring"))::add);
         Stream.of(
                 AERO_STONE, AQUA_STONE, EARTH_STONE, IGNIS_STONE, THE_COMMUNITY,

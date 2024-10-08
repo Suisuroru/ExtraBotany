@@ -58,6 +58,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.POTATO_CHIPS, "Potato Chips", "薯片");
         addItem(ExtraBotanyItems.SUN_RING, "Ring of Sacred Sun", "圣阳尊戒");
         addItem(ExtraBotanyItems.MOON_PENDANT, "Heart of Corrupted Moon", "蚀月之心");
+        addItem(ExtraBotanyItems.SAGES_MANA_RING, "Sage's Ring of Mana", "贤者魔力指环");
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");

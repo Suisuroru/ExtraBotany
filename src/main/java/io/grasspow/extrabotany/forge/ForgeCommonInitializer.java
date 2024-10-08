@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.MoonPendantItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.SagesManaRingItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
@@ -23,6 +24,7 @@ import net.minecraftforge.registries.RegisterEvent;
 import vazkii.botania.api.BotaniaForgeCapabilities;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.api.item.Relic;
+import vazkii.botania.api.mana.ManaItem;
 import vazkii.botania.forge.CapabilityUtil;
 
 import java.util.Map;
@@ -68,15 +70,25 @@ public class ForgeCommonInitializer {
         bus.addGenericListener(ItemStack.class, this::attachItemCaps);
     }
 
+    private static final Supplier<Map<Item, Function<ItemStack, ManaItem>>> MANA_ITEM = Suppliers.memoize(() -> Map.of(
+            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem.SagesManaRingItemImpl::new
+    ));
+
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
             ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic,
             ExtraBotanyItems.SUN_RING.get(), SunRingItem::makeRelic,
-            ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic
+            ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic,
+            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic
     ));
+
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {
         var stack = e.getObject();
-
+        var makeManaItem = MANA_ITEM.get().get(stack.getItem());
+        if (makeManaItem != null) {
+            e.addCapability(prefix("mana_item"),
+                    CapabilityUtil.makeProvider(BotaniaForgeCapabilities.MANA_ITEM, makeManaItem.apply(stack)));
+        }
         var makeRelic = RELIC.get().get(stack.getItem());
         if (makeRelic != null) {
             e.addCapability(prefix("relic"),
