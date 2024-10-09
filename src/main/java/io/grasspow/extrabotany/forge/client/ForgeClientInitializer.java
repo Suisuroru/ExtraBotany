@@ -2,6 +2,7 @@ package io.grasspow.extrabotany.forge.client;
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.client.ExtraBotanyItemProperties;
+import io.grasspow.extrabotany.client.model.ExtraBotanyLayerDefinitions;
 import io.grasspow.extrabotany.client.render.ColorHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -25,6 +26,11 @@ public class ForgeClientInitializer {
     @SubscribeEvent
     public static void onModelRegister(ModelEvent.RegisterAdditional evt) {
         ExtraBotanyItemProperties.init((item, id, prop) -> ItemProperties.register(item.asItem(), id, prop));
+    }
+
+    @SubscribeEvent
+    public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions evt) {
+        ExtraBotanyLayerDefinitions.init(evt::registerLayerDefinition);
     }
 
     @SubscribeEvent

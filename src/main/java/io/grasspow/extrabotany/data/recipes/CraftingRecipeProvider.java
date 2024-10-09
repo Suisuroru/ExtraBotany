@@ -62,6 +62,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     private void buildCommonCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+        buildArmorRecipes(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.PEDESTAL.get())
                 .define('G', Tags.Items.NUGGETS_GOLD)
                 .define('L', BotaniaBlocks.livingrock)
@@ -331,6 +332,42 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("MDM")
                 .pattern("TMT")
                 .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.HERO_MEDAL.get()))
+                .save(consumer);
+    }
+
+    private void buildArmorRecipes(Consumer<FinishedRecipe> consumer) {
+        //miku
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MIKU_HELM.get())
+                .define('C', BotaniaItems.manaweaveCloth)
+                .define('A', BotaniaItems.manasteelHelm)
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manaweaveCloth))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MIKU_CHEST.get())
+                .define('C', BotaniaItems.manaweaveCloth)
+                .define('A', BotaniaItems.manasteelChest)
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manasteelChest))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MIKU_LEGS.get())
+                .define('C', BotaniaItems.manaweaveCloth)
+                .define('A', BotaniaItems.manasteelLegs)
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manasteelLegs))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MIKU_BOOTS.get())
+                .define('C', BotaniaItems.manaweaveCloth)
+                .define('A', BotaniaItems.manasteelBoots)
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manasteelBoots))
                 .save(consumer);
     }
 

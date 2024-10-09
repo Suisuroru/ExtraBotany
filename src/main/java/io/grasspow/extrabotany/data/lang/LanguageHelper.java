@@ -74,6 +74,14 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.WALKING_CANE, "Walking Cane", "步行者手杖");
         addItem(ExtraBotanyItems.ROD_OF_DISCORD, "Rod of Discord", "不谐传送杖");
         addItem(ExtraBotanyItems.SILVER_BULLET, "Silver Bullet", "银翼射手");
+        //armor
+        add("extrabotany.armorset.magic_protection.desc", "Totally %s less Magic Damage received", "全套提供对魔法伤害 %s 减免");
+        addItem(ExtraBotanyItems.MIKU_HELM, "Starry Idol Headgear", "星空歌姬头饰");
+        addItem(ExtraBotanyItems.MIKU_CHEST, "Starry Idol Suit", "星空歌姬服");
+        addItem(ExtraBotanyItems.MIKU_LEGS, "Starry Idol Skirt", "星空歌姬裙甲");
+        addItem(ExtraBotanyItems.MIKU_BOOTS, "Starry Idol Boots", "星空歌姬鞋子");
+        add("extrabotany.armorset.miku.name", "Starry Idol Suit", "星空歌姬套装");
+        add("extrabotany.armorset.mana.desc", "Super Mana Affinity.", "超强魔力亲和");
         //brew
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");

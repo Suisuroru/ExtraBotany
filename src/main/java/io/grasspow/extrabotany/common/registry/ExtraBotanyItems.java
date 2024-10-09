@@ -7,19 +7,22 @@ import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorHelmItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
 import io.grasspow.extrabotany.common.item.equipment.tool.RodOfDiscordItem;
+import io.grasspow.extrabotany.common.item.equipment.tool.SilverBulletItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.WalkingCaneItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
-import io.grasspow.extrabotany.common.item.equipment.weapon.SilverBulletItem;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -90,6 +93,12 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> WALKING_CANE = regDefItem(LibItemNames.WALKING_CANE, WalkingCaneItem::new, nonStackable());
     public static final RegistryObject<Item> ROD_OF_DISCORD = regDefItem(LibItemNames.ROD_OF_DISCORD, RodOfDiscordItem::new, nonStackable());
     public static final RegistryObject<Item> SILVER_BULLET = regDefItem(LibItemNames.SILVER_BULLET, SilverBulletItem::new, nonStackable());
+
+    //armor
+    public static final RegistryObject<Item> MIKU_HELM = regArmorItem(LibItemNames.MIKU_HELM, MikuArmorHelmItem::new, nonStackable());
+    public static final RegistryObject<Item> MIKU_CHEST = regArmorItem(LibItemNames.MIKU_CHEST, MikuArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> MIKU_LEGS = regArmorItem(LibItemNames.MIKU_LEGS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> MIKU_BOOTS = regArmorItem(LibItemNames.MIKU_BOOTS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());
@@ -166,6 +175,16 @@ public class ExtraBotanyItems {
         RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(variant, props));
         MOD_ITEMS.add(item);
         return item;
+    }
+
+    private static <I extends Item> RegistryObject<Item> regArmorItem(String name, BiFunction<Item.Properties, ArmorItem.Type, ? extends I> func, Item.Properties props, ArmorItem.Type type) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(props, type));
+        MOD_ITEMS.add(item);
+        return item;
+    }
+
+    private static <I extends Item> RegistryObject<Item> regArmorItem(String name, Function<Item.Properties, ? extends I> func, Item.Properties props) {
+        return regDefItem(name, func, props);
     }
 
     private static Item.Properties defaultBuilder() {

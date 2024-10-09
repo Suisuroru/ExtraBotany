@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.item.equipment.weapon;
+package io.grasspow.extrabotany.common.item.equipment.tool;
 
 
 import net.minecraft.nbt.CompoundTag;

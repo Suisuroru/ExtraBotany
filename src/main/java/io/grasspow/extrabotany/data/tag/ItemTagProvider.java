@@ -15,6 +15,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.item.BotaniaItems;
@@ -70,6 +71,10 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerVanillaTag() {
 //        tag(ItemTags.MUSIC_DISCS).add(RECORD_EGO.get(),RECORD_HERRSCHER.get());
+        this.tag(Tags.Items.ARMORS_HELMETS).add(MIKU_HELM.get());
+        this.tag(Tags.Items.ARMORS_CHESTPLATES).add(MIKU_CHEST.get());
+        this.tag(Tags.Items.ARMORS_LEGGINGS).add(MIKU_LEGS.get());
+        this.tag(Tags.Items.ARMORS_BOOTS).add(MIKU_BOOTS.get());
     }
 
 
@@ -100,7 +105,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
                 INFINITE_WINE,
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
-                SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET
+                SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET,
+                MIKU_HELM, MIKU_CHEST, MIKU_LEGS, MIKU_BOOTS
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,
