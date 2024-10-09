@@ -16,6 +16,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,11 +27,21 @@ import java.util.function.Supplier;
 public class ShootingGuardianArmorItem extends MikuArmorItem {
     public ShootingGuardianArmorItem(Properties props, Type type) {
         this(ExtraBotanyAPI.instance().getShootingGuardianArmorMaterial(), props, type);
+        MinecraftForge.EVENT_BUS.addListener(this::onPlayerHeal);
     }
 
     public ShootingGuardianArmorItem(ArmorMaterial mat, Properties props, Type type) {
         super(mat, props, type);
         setArmorTexture(LibMisc.MOD_ID + ":textures/model/shooting_guardian_armor.png");
+    }
+
+    @SubscribeEvent
+    private void onPlayerHeal(LivingHealEvent event) {
+        if (event.getEntity() instanceof Player player && hasArmorSet(player)) {
+            float originalHealAmount = event.getAmount();
+            float newHealAmount = originalHealAmount * 0.1f; // 恢复速度降低
+            event.setAmount(newHealAmount);
+        }
     }
 
     @Override
