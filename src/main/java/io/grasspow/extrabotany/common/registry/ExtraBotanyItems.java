@@ -19,6 +19,8 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHamme
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
+import io.grasspow.extrabotany.common.item.equipment.weapon.FlamescionWeaponItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.ShadowKatanaItem;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -104,6 +106,10 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_CHEST = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_CHEST, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_LEGS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_LEGS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_BOOTS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_BOOTS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
+
+    //weapon
+    public static final RegistryObject<Item> SHADOW_KATANA = regDefItem(LibItemNames.SHADOW_KATANA, ShadowKatanaItem::new, nonStackable());
+    public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, null);
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());

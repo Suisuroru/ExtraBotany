@@ -71,10 +71,16 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerVanillaTag() {
 //        tag(ItemTags.MUSIC_DISCS).add(RECORD_EGO.get(),RECORD_HERRSCHER.get());
+
+        //armor
         this.tag(Tags.Items.ARMORS_HELMETS).add(MIKU_HELM.get());
         this.tag(Tags.Items.ARMORS_CHESTPLATES).add(MIKU_CHEST.get());
         this.tag(Tags.Items.ARMORS_LEGGINGS).add(MIKU_LEGS.get());
         this.tag(Tags.Items.ARMORS_BOOTS).add(MIKU_BOOTS.get());
+
+        //weapon
+        this.tag(ItemTags.SWORDS).add(SHADOW_KATANA.get());
+        this.tag(ItemTags.SWORDS).add(FLAMESCION_WEAPON.get());
     }
 
 

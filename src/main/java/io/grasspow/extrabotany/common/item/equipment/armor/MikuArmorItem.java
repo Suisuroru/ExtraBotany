@@ -68,7 +68,7 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)
-    private void onPlayerAttacked(LivingHurtEvent event) {
+    public void onPlayerAttacked(LivingHurtEvent event) {
         Entity target = event.getEntity();
         if (target instanceof Player player) {
             if (hasArmorSet(player) && getEquipmentSlot() == EquipmentSlot.HEAD) {

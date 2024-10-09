@@ -36,7 +36,7 @@ public class ShootingGuardianArmorItem extends MikuArmorItem {
     }
 
     @SubscribeEvent
-    private void onPlayerHeal(LivingHealEvent event) {
+    public void onPlayerHeal(LivingHealEvent event) {
         if (event.getEntity() instanceof Player player && hasArmorSet(player)) {
             float originalHealAmount = event.getAmount();
             float newHealAmount = originalHealAmount * 0.1f; // 恢复速度降低

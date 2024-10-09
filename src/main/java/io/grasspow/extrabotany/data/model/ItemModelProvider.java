@@ -129,6 +129,7 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
     private void registerItems(Set<Item> items, BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
         //skip
         items.remove(ExtraBotanyItems.SILVER_BULLET.get());
+        items.remove(ExtraBotanyItems.FLAMESCION_WEAPON.get());
 
         takeAll(items,
                 ExtraBotanyItems.SPLASH_GRENADE.get()
@@ -138,13 +139,19 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                         .put(LAYER1, TextureMapping.getItemTexture(i, "_1")),
                 consumer));
         takeAll(items,
+                //hammer
                 ExtraBotanyItems.ELEMENTIUM_HAMMER.get(),
                 ExtraBotanyItems.MANASTEEL_HAMMER.get(),
                 ExtraBotanyItems.TERRASTEEL_HAMMER.get(),
                 ExtraBotanyItems.ULTIMATE_HAMMER.get(),
+
+                //tool
                 ExtraBotanyItems.MANA_READER.get(),
                 ExtraBotanyItems.WALKING_CANE.get(),
-                ExtraBotanyItems.ROD_OF_DISCORD.get()
+                ExtraBotanyItems.ROD_OF_DISCORD.get(),
+
+                //weapon
+                ExtraBotanyItems.SHADOW_KATANA.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }

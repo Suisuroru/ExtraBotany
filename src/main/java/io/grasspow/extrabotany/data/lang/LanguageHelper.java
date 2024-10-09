@@ -38,6 +38,7 @@ public class LanguageHelper {
     private static void transItem() {
         // cosmetic bauble
         addItem(ExtraBotanyItems.PYLON, "Pylon", "模拟人生");
+
         //bauble
         addItem(ExtraBotanyItems.AERO_STONE, "Aero Stone", "风之符石");
         addItem(ExtraBotanyItems.AQUA_STONE, "Aqua stone", "水之符石");
@@ -59,12 +60,14 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.SUN_RING, "Ring of Sacred Sun", "圣阳尊戒");
         addItem(ExtraBotanyItems.MOON_PENDANT, "Heart of Corrupted Moon", "蚀月之心");
         addItem(ExtraBotanyItems.SAGES_MANA_RING, "Sage's Ring of Mana", "贤者魔力指环");
+
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
         addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");
         addItem(ExtraBotanyItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "镀金土豆泥");
         addItem(ExtraBotanyItems.FRIED_CHICKEN, "Fried Chicken", "香香鸡");
         addItem(ExtraBotanyItems.MANA_DRINK, "Mana Drink", "魔力鸡尾酒");
+
         //tool
         addItem(ExtraBotanyItems.MANASTEEL_HAMMER, "Manasteel Hammer", "魔力钢锤");
         addItem(ExtraBotanyItems.ELEMENTIUM_HAMMER, "Elementium Hammer", "源质钢锤");
@@ -74,6 +77,11 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.WALKING_CANE, "Walking Cane", "步行者手杖");
         addItem(ExtraBotanyItems.ROD_OF_DISCORD, "Rod of Discord", "不谐传送杖");
         addItem(ExtraBotanyItems.SILVER_BULLET, "Silver Bullet", "银翼射手");
+
+        //weapon
+        addItem(ExtraBotanyItems.SHADOW_KATANA, "Shadow Catana", "影刃");
+        addItem(ExtraBotanyItems.FLAMESCION_WEAPON, "Key of Flamescion", "焢煌之境:劫炎永燎");
+
         //armor
         add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");
         addItem(ExtraBotanyItems.MIKU_HELM, "Starry Idol Headgear", "星空歌姬头饰");
@@ -96,6 +104,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");
         addItem(ExtraBotanyItems.SPLASH_GRENADE, "Holy Grenade of %s", "装有%s的圣水手雷");
+
         //lens
         addItemLens(ExtraBotanyItems.MANA_LENS, "Mana", "魔力");
         addItemLens(ExtraBotanyItems.POTION_LENS, "Potion", "药水");
@@ -103,6 +112,7 @@ public class LanguageHelper {
         addItemLens(ExtraBotanyItems.SMELT_LENS, "Smelt", "冶炼");
         addItemLens(ExtraBotanyItems.SUPER_CONDUCTOR_LENS, "Super Conductor", "超导");
         addItemLens(ExtraBotanyItems.TRACE_LENS, "Mana", "追踪");
+
         //misc
         addItem(ExtraBotanyItems.GILDED_POTATO, "Gilded Potato", "镀金服务器");
         addItem(ExtraBotanyItems.PHOTONIUM, "Phontonium Ingot", "光子锭");
