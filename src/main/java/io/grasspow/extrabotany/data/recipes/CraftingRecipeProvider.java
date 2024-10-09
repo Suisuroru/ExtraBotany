@@ -369,6 +369,47 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("CCC")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manasteelBoots))
                 .save(consumer);
+        //shooting_guardian
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.SHOOTING_GUARDIAN_HELM.get())
+                .define('T', BotaniaItems.dreamwoodTwig)
+                .define('R', ExtraBotanyTags.Items.RUNES_SPRING)
+                .define('A', ExtraBotanyTags.Items.INGOTS_AERIALITE)
+                .define('S', BotaniaItems.manasteelHelm)
+                .pattern("TRT")
+                .pattern("ASA")
+                .pattern(" A ")
+                .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_AERIALITE))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.SHOOTING_GUARDIAN_CHEST.get())
+                .define('T', BotaniaItems.dreamwoodTwig)
+                .define('R', ExtraBotanyTags.Items.RUNES_SPRING)
+                .define('A', ExtraBotanyTags.Items.INGOTS_AERIALITE)
+                .define('S', BotaniaItems.manasteelChest)
+                .pattern("TRT")
+                .pattern("ASA")
+                .pattern(" A ")
+                .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_AERIALITE))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.SHOOTING_GUARDIAN_LEGS.get())
+                .define('T', BotaniaItems.dreamwoodTwig)
+                .define('R', ExtraBotanyTags.Items.RUNES_SPRING)
+                .define('A', ExtraBotanyTags.Items.INGOTS_AERIALITE)
+                .define('S', BotaniaItems.manasteelLegs)
+                .pattern("TRT")
+                .pattern("ASA")
+                .pattern(" A ")
+                .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_AERIALITE))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.SHOOTING_GUARDIAN_BOOTS.get())
+                .define('T', BotaniaItems.dreamwoodTwig)
+                .define('R', ExtraBotanyTags.Items.RUNES_SPRING)
+                .define('A', ExtraBotanyTags.Items.INGOTS_AERIALITE)
+                .define('S', BotaniaItems.manasteelBoots)
+                .pattern("TRT")
+                .pattern("ASA")
+                .pattern(" A ")
+                .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_AERIALITE))
+                .save(consumer);
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {

@@ -75,13 +75,23 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.ROD_OF_DISCORD, "Rod of Discord", "不谐传送杖");
         addItem(ExtraBotanyItems.SILVER_BULLET, "Silver Bullet", "银翼射手");
         //armor
-        add("extrabotany.armorset.magic_protection.desc", "Totally %s less Magic Damage received", "全套提供对魔法伤害 %s 减免");
+        add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");
         addItem(ExtraBotanyItems.MIKU_HELM, "Starry Idol Headgear", "星空歌姬头饰");
         addItem(ExtraBotanyItems.MIKU_CHEST, "Starry Idol Suit", "星空歌姬服");
         addItem(ExtraBotanyItems.MIKU_LEGS, "Starry Idol Skirt", "星空歌姬裙甲");
         addItem(ExtraBotanyItems.MIKU_BOOTS, "Starry Idol Boots", "星空歌姬鞋子");
-        add("extrabotany.armorset.miku.name", "Starry Idol Suit", "星空歌姬套装");
         add("extrabotany.armorset.mana.desc", "Super Mana Affinity.", "超强魔力亲和");
+
+        add("extrabotany.armorset.shooting_guardian.name", "Shooting Guardian", "银翼护卫");
+        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_HELM, "Shooting Guardian Headgear", "银翼护卫头盔");
+        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_CHEST, "Shooting Guardian Chestplate", "银翼护卫胸甲");
+        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_LEGS, "Shooting Guardian Leggings", "银翼护卫护腿");
+        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_BOOTS, "Shooting Guardian Boots", "银翼护卫靴子");
+        add("extrabotany.armorset.shooting_guardian.desc0", "Faster Bow Drawing.", "快速拉弓");
+        add("extrabotany.armorset.shooting_guardian.desc1", "Grant Armor-Piercing and Life Stealing.", "攻击附带穿甲和吸血");
+        add("extrabotany.armorset.shooting_guardian.desc2", "Faster Speed.", "移动速度增加");
+        add("extrabotany.armorset.shooting_guardian.desc3", "Greatly decrease natural life regeneration.", "生命恢复大幅减弱");
+
         //brew
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");
         addItem(ExtraBotanyItems.INFINITE_WINE, "Infinite Wine of %s(%s)", "装有%s(%s)的无限之酒");

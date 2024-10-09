@@ -50,7 +50,11 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
     private static final String TAG_PHANTOM_INK = "phantomInk";
 
     public final Type type;
-    private final String armorTexture;
+    private String armorTexture;
+
+    public void setArmorTexture(String armorTexture) {
+        this.armorTexture = armorTexture;
+    }
 
     public MikuArmorItem(Properties props, Type type) {
         this(ExtraBotanyAPI.instance().getMikuArmorMaterial(), props, type);
@@ -59,7 +63,7 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
 
     public MikuArmorItem(ArmorMaterial mat, Properties props, Type type) {
         super(mat, type, props);
-        this.armorTexture = LibMisc.MOD_ID + ":textures/model/miku_armor.png";
+        setArmorTexture(LibMisc.MOD_ID + ":textures/model/miku_armor.png");
         this.type = type;
     }
 
@@ -161,8 +165,9 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
         return pieces;
     }
 
-    public MutableComponent getArmorSetName() {
-        return Component.translatable("extrabotany.armorset.miku.name");
+    @Override
+    public void appendHoverText(ItemStack stack, Level world, List<Component> list, TooltipFlag flags) {
+        TooltipHandler.addOnShift(list, () -> addInformationAfterShift(stack, world, list, flags));
     }
 
     private Component getArmorSetTitle(Player player) {
@@ -174,16 +179,10 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
                 .append(end);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> list, TooltipFlag flags) {
-        TooltipHandler.addOnShift(list, () -> addInformationAfterShift(stack, world, list, flags));
-    }
-
     public void addInformationAfterShift(ItemStack stack, Level world, List<Component> list, TooltipFlag flags) {
         Player player = Proxy.INSTANCE.getClientPlayer();
         list.add(getArmorSetTitle(player));
-        float discount = ManaItemHandler.instance().getFullDiscountForTools(player, stack);
-        list.add(Component.translatable("extrabotany.armorset.mana.desc", (int) (discount * 100) + "%").withStyle(discount > 0 ? ChatFormatting.AQUA : ChatFormatting.GRAY));
+        addArmorSetDescription(stack, list, player);
         ItemStack[] stacks = getArmorSetStacks();
         for (ItemStack armor : stacks) {
             MutableComponent cmp = Component.literal(" - ").append(armor.getHoverName());
@@ -191,17 +190,17 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
             cmp.withStyle(hasArmorSetItem(player, slot) ? ChatFormatting.GREEN : ChatFormatting.GRAY);
             list.add(cmp);
         }
-        addArmorSetDescription(stack, list, player);
         if (hasPhantomInk(stack)) {
             list.add(Component.translatable("botaniamisc.hasPhantomInk").withStyle(ChatFormatting.GRAY));
         }
     }
 
+    public MutableComponent getArmorSetName() {
+        return Component.translatable("extrabotany.armorset.miku.name");
+    }
+
     public void addArmorSetDescription(ItemStack stack, List<Component> list, Player player) {
-        if (hasArmorSet(player))
-            list.add(Component.translatable("extrabotany.armorset.magic_protection.desc", "75%").withStyle(ChatFormatting.AQUA));
-        else
-            list.add(Component.translatable("extrabotany.armorset.magic_protection.desc", "0%").withStyle(ChatFormatting.GRAY));
+        list.add(Component.translatable("extrabotany.armorset.mana.desc").withStyle(ChatFormatting.GRAY));
     }
 
     @Override

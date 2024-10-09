@@ -7,8 +7,9 @@ import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorHelmItem;
 import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorHelmItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
 import io.grasspow.extrabotany.common.item.equipment.tool.RodOfDiscordItem;
@@ -95,10 +96,14 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SILVER_BULLET = regDefItem(LibItemNames.SILVER_BULLET, SilverBulletItem::new, nonStackable());
 
     //armor
-    public static final RegistryObject<Item> MIKU_HELM = regArmorItem(LibItemNames.MIKU_HELM, MikuArmorHelmItem::new, nonStackable());
+    public static final RegistryObject<Item> MIKU_HELM = regArmorItem(LibItemNames.MIKU_HELM, MikuArmorItem::new, nonStackable(), ArmorItem.Type.HELMET);
     public static final RegistryObject<Item> MIKU_CHEST = regArmorItem(LibItemNames.MIKU_CHEST, MikuArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> MIKU_LEGS = regArmorItem(LibItemNames.MIKU_LEGS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> MIKU_BOOTS = regArmorItem(LibItemNames.MIKU_BOOTS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
+    public static final RegistryObject<Item> SHOOTING_GUARDIAN_HELM = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_HELM, ShootingGuardianArmorHelmItem::new, nonStackable());
+    public static final RegistryObject<Item> SHOOTING_GUARDIAN_CHEST = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_CHEST, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> SHOOTING_GUARDIAN_LEGS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_LEGS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> SHOOTING_GUARDIAN_BOOTS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_BOOTS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());
