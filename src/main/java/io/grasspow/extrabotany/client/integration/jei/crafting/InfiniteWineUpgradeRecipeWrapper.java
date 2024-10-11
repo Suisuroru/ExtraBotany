@@ -11,7 +11,6 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.extensions.vanilla.crafting.ICraftingCategoryExtension;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import vazkii.botania.common.item.brew.BaseBrewItem;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class InfiniteWineUpgradeRecipeWrapper implements ICraftingCategoryExtens
         }
 
         helper.createAndSetInputs(builder, VanillaTypes.ITEM_STACK,
-                List.of(Collections.singletonList(new ItemStack(Items.POPPED_CHORUS_FRUIT)), willStacks), 0, 0);
+                List.of(Collections.singletonList(new ItemStack(ExtraBotanyItems.HERO_MEDAL.get())), willStacks), 0, 0);
         helper.createAndSetOutputs(builder, VanillaTypes.ITEM_STACK, outputStacks);
     }
 }

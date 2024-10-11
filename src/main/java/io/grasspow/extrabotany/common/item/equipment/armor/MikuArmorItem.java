@@ -80,15 +80,6 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
         }
     }
 
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        if (entity instanceof Player player) {
-            if (!level.isClientSide && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExact(stack, player, getManaPerDamage() * 2, true)) {
-                stack.setDamageValue(stack.getDamageValue() - 1);
-            }
-        }
-    }
-
     @SoftImplement("IForgeItem")
     public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
         if (!level.isClientSide && stack.getDamageValue() > 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {

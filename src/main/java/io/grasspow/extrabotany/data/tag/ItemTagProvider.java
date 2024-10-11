@@ -94,11 +94,15 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerCuriosTag() {
         Stream.of(
-                PYLON, POTATO_CHIPS
+                POTATO_CHIPS,
+                FOX_EAR, FOX_MASK, PYLON, BLACK_GLASSES, SUPER_CROWN, THUG_LIFE, MASK
         ).map(RegistryObject::get).forEach(tag(accessory("head"))::add);
         Stream.of(
                 MOON_PENDANT
         ).map(RegistryObject::get).forEach(tag(accessory("necklace"))::add);
+        Stream.of(
+                RED_SCARF
+        ).map(RegistryObject::get).forEach(tag(accessory("body"))::add);
         Stream.of(
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, SUN_RING,
                 SAGES_MANA_RING
@@ -111,7 +115,9 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerBotaniaTag() {
         TagsProvider.TagAppender<Item> builder = this.tag(BotaniaTags.Items.LENS);
-        ForgeRegistries.ITEMS.getValues().stream().filter(i -> i instanceof LensItem && ForgeRegistries.ITEMS.getKey(i).getNamespace().equals(LibMisc.MOD_ID))
+        MOD_ITEMS.stream()
+                .map(RegistryObject::get)
+                .filter(i -> i instanceof LensItem)
                 .map(ForgeRegistries.ITEMS::getKey)
                 .sorted()
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
@@ -121,10 +127,10 @@ public class ItemTagProvider extends ItemTagsProvider {
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
                 SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET,
                 MIKU_HELM, MIKU_CHEST, MIKU_LEGS, MIKU_BOOTS,
-                SHOOTING_GUARDIAN_HELM, SHOOTING_GUARDIAN_CHEST, SHOOTING_GUARDIAN_LEGS, SHOOTING_GUARDIAN_BOOTS,
                 GOBLINS_LAYER_HELM, GOBLINS_LAYER_CHEST, GOBLINS_LAYER_LEGS, GOBLINS_LAYER_BOOTS,
-                MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
-                SHADOW_WARRIOR_HELM, SHADOW_WARRIOR_CHEST, SHADOW_WARRIOR_LEGS, SHADOW_WARRIOR_BOOTS
+                SHADOW_WARRIOR_HELM, SHADOW_WARRIOR_CHEST, SHADOW_WARRIOR_LEGS, SHADOW_WARRIOR_BOOTS,
+                SHOOTING_GUARDIAN_HELM, SHOOTING_GUARDIAN_CHEST, SHOOTING_GUARDIAN_LEGS, SHOOTING_GUARDIAN_BOOTS,
+                MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

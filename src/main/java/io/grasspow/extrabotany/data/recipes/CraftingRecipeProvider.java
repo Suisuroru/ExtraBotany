@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.data.recipes;
 import io.grasspow.extrabotany.common.crafting.*;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
+import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
@@ -59,6 +60,14 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         ingotStorage(ExtraBotanyBlocks.AERIALITE_BLOCK, ExtraBotanyItems.AERIALITE, consumer);
         ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
 
+        cosmeticBauble(consumer, ExtraBotanyItems.FOX_EAR.get(), BotaniaItems.pinkPetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.FOX_MASK.get(), BotaniaItems.whitePetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.PYLON.get(), BotaniaItems.greenPetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.BLACK_GLASSES.get(), BotaniaItems.blackPetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.RED_SCARF.get(), BotaniaItems.redPetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.MASK.get(), BotaniaItems.grayPetal);
+        cosmeticBauble(consumer, ExtraBotanyItems.SUPER_CROWN.get(), BotaniaItems.yellowPetal);
+
         buildCommonCraftingRecipes(consumer);
         buildingFloatingFlowerRecipes(consumer);
     }
@@ -97,14 +106,6 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("MMM")
                 .pattern(" W ")
                 .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.PYLON.get())
-                .define('G', BotaniaTags.Items.PETALS_GREEN)
-                .define('S', ExtraBotanyItems.SPIRIT.get())
-                .pattern("GGG")
-                .pattern("GSG")
-                .pattern("GGG")
-                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.EMPTY_BOTTLE.get())
                 .define('G', BotaniaBlocks.manaGlass)
@@ -430,36 +431,36 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_HELM.get())
                 .define('G', BotaniaItems.gaiaIngot)
                 .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
-                .define('T', BotaniaItems.manasteelHelm)
+                .define('T', BotaniaItems.terrasteelHelm)
                 .pattern("GGG")
                 .pattern("CTC")
-                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelHelm, BotaniaItems.gaiaIngot))
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.terrasteelHelm, BotaniaItems.gaiaIngot))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_CHEST.get())
                 .define('G', BotaniaItems.gaiaIngot)
                 .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
-                .define('T', BotaniaItems.manasteelChest)
+                .define('T', BotaniaItems.terrasteelChest)
                 .pattern("C C")
                 .pattern("CTC")
                 .pattern("GGG")
-                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelChest, BotaniaItems.gaiaIngot))
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.terrasteelChest, BotaniaItems.gaiaIngot))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_LEGS.get())
                 .define('G', BotaniaItems.gaiaIngot)
                 .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
-                .define('T', BotaniaItems.manasteelLegs)
+                .define('T', BotaniaItems.terrasteelLegs)
                 .pattern("GGG")
                 .pattern("CTC")
                 .pattern("C C")
-                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelLegs, BotaniaItems.gaiaIngot))
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.terrasteelLegs, BotaniaItems.gaiaIngot))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_BOOTS.get())
                 .define('G', BotaniaItems.gaiaIngot)
                 .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
-                .define('T', BotaniaItems.manasteelBoots)
+                .define('T', BotaniaItems.terrasteelBoots)
                 .pattern("CTC")
                 .pattern("GGG")
-                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelBoots, BotaniaItems.gaiaIngot))
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.terrasteelBoots, BotaniaItems.gaiaIngot))
                 .save(consumer);
     }
 
@@ -482,7 +483,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     private void specialCrafting(RecipeSerializer<? extends CraftingRecipe> serializer, String name, Consumer<FinishedRecipe> consumer) {
-        SpecialRecipeBuilder.special(serializer).save(consumer, "dynamic/" + name);
+        SpecialRecipeBuilder.special(serializer).save(consumer, LibMisc.MOD_ID + ":dynamic/" + name);
     }
 
     private static InventoryChangeTrigger.TriggerInstance conditionsFromItems(ItemLike... items) {
@@ -492,6 +493,18 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         }
 
         return RecipeProviderAccessor.botania_condition(preds);
+    }
+
+    protected void cosmeticBauble(Consumer<FinishedRecipe> consumer, ItemLike output, ItemLike input) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output)
+                .define('P', input)
+                .define('S', ExtraBotanyItems.SPIRIT.get())
+                .pattern("PPP")
+                .pattern("PSP")
+                .pattern("PPP")
+                .group("extrabotany:cosmetic_bauble")
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manaString))
+                .save(consumer);
     }
 
     protected void registerSimpleArmorSet(Consumer<FinishedRecipe> consumer, Ingredient item, String variant,

@@ -47,11 +47,6 @@ public class ExtraBotanyItems {
     public static final ArrayList<RegistryObject<Item>> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<RegistryObject<BlockItem>> MOD_BLOCK_ITEMS = new ArrayList<>();
 
-    // cosmetic bauble
-    public static final RegistryObject<Item> PYLON = regComBaubleItem(LibItemNames.PYLON,
-            CosmeticBaubleItem::new, CosmeticBaubleItem.Variant.PYLON, new Item.Properties()
-    );
-
     //bauble
     public static final RegistryObject<Item> AERO_STONE = regDefItem(LibItemNames.AERO_STONE, AeroStoneItem::new, nonStackable());
     public static final RegistryObject<Item> AQUA_STONE = regDefItem(LibItemNames.AQUA_STONE, AquaStoneItem::new, nonStackable());
@@ -120,6 +115,16 @@ public class ExtraBotanyItems {
     //weapon
     public static final RegistryObject<Item> SHADOW_KATANA = regDefItem(LibItemNames.SHADOW_KATANA, ShadowKatanaItem::new, nonStackable());
     public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, null);
+
+    // cosmetic bauble
+    public static final RegistryObject<Item> FOX_EAR = regComBaubleItem(LibItemNames.FOX_EAR, CosmeticBaubleItem.Variant.FOX_EAR, new Item.Properties());
+    public static final RegistryObject<Item> FOX_MASK = regComBaubleItem(LibItemNames.FOX_MASK, CosmeticBaubleItem.Variant.FOX_MASK, new Item.Properties());
+    public static final RegistryObject<Item> PYLON = regComBaubleItem(LibItemNames.PYLON, CosmeticBaubleItem.Variant.PYLON, new Item.Properties());
+    public static final RegistryObject<Item> BLACK_GLASSES = regComBaubleItem(LibItemNames.BLACK_GLASSES, CosmeticBaubleItem.Variant.BLACK_GLASSES, new Item.Properties());
+    public static final RegistryObject<Item> THUG_LIFE = regComBaubleItem(LibItemNames.THUG_LIFE, CosmeticBaubleItem.Variant.THUG_LIFE, new Item.Properties());
+    public static final RegistryObject<Item> RED_SCARF = regComBaubleItem(LibItemNames.RED_SCARF, CosmeticBaubleItem.Variant.RED_SCARF, new Item.Properties());
+    public static final RegistryObject<Item> MASK = regComBaubleItem(LibItemNames.MASK, CosmeticBaubleItem.Variant.MASK, new Item.Properties());
+    public static final RegistryObject<Item> SUPER_CROWN = regComBaubleItem(LibItemNames.SUPER_CROWN, CosmeticBaubleItem.Variant.SUPER_CROWN, new Item.Properties());
 
     //misc
     public static final RegistryObject<Item> GILDED_POTATO = regDefItem(LibItemNames.GILDED_POTATO, defaultBuilder());
@@ -192,8 +197,8 @@ public class ExtraBotanyItems {
         return record;
     }
 
-    private static <I extends Item> RegistryObject<Item> regComBaubleItem(String name, BiFunction<CosmeticBaubleItem.Variant, Item.Properties, ? extends I> func, CosmeticBaubleItem.Variant variant, Item.Properties props) {
-        RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(variant, props));
+    private static <I extends Item> RegistryObject<Item> regComBaubleItem(String name, CosmeticBaubleItem.Variant variant, Item.Properties props) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> new CosmeticBaubleItem(variant, props));
         MOD_ITEMS.add(item);
         return item;
     }

@@ -1,7 +1,6 @@
 package io.grasspow.extrabotany.common.crafting;
 
 
-import io.grasspow.extrabotany.common.item.GoldClothItem;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -33,7 +32,7 @@ public class GoldClothWipeRelicRecipe extends CustomRecipe {
             if (!stack.isEmpty()) {
                 if (stack.getItem() == ExtraBotanyItems.GOLD_CLOTH.get() && !foundCloth) {
                     foundCloth = true;
-                } else if (XplatAbstractions.INSTANCE.findRelic(stack) != null && !foundRelic) {
+                } else if (XplatAbstractions.INSTANCE.findRelic(stack) != null && ItemNBTHelper.verifyExistance(stack, "soulbindUUID") && !foundRelic) {
                     foundRelic = true;
                 } else {
                     return false;
@@ -55,19 +54,9 @@ public class GoldClothWipeRelicRecipe extends CustomRecipe {
                 break;
             }
         }
-        ItemStack goldCloth = ItemStack.EMPTY;
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack stack = inv.getItem(i);
-            if (!stack.isEmpty() && stack.getItem() instanceof GoldClothItem) {
-                goldCloth = stack;
-                break;
-            }
-        }
         ItemStack stack = relicStack.copy();
-        String uuid = ItemNBTHelper.getString(goldCloth, "soulbindUUID", "soulbindUUID");
-        if (!uuid.equals("soulbindUUID")) {
-            ItemNBTHelper.setString(stack, "soulbindUUID", uuid);
-        } else {
+        boolean soulbindUUID = ItemNBTHelper.verifyExistance(relicStack, "soulbindUUID");
+        if (soulbindUUID) {
             ItemNBTHelper.removeEntry(stack, "soulbindUUID");
         }
         return stack;

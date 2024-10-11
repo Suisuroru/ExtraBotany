@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "extrabotany:cosmetic_bauble",
   "key": {
-    "G": {
-      "tag": "botania:petals/green"
+    "P": {
+      "item": "botania:green_petal"
     },
     "S": {
       "item": "extrabotany:spirit"
     }
   },
   "pattern": [
-    "GGG",
-    "GSG",
-    "GGG"
+    "PPP",
+    "PSP",
+    "PPP"
   ],
   "result": {
     "item": "extrabotany:pylon"

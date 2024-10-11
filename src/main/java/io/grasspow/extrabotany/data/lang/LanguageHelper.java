@@ -37,7 +37,14 @@ public class LanguageHelper {
 
     private static void transItem() {
         // cosmetic bauble
-        addItem(ExtraBotanyItems.PYLON, "Pylon", "模拟人生");
+        addItem(ExtraBotanyItems.FOX_EAR, "Fox Ear", "樱樱耳");
+        addItem(ExtraBotanyItems.FOX_MASK, "Mask with Memory", "附有记忆的面具");
+        addItem(ExtraBotanyItems.PYLON, "Sims", "模拟人生");
+        addItem(ExtraBotanyItems.BLACK_GLASSES, "Black Glasses", "黑框眼镜");
+        addItem(ExtraBotanyItems.THUG_LIFE, "THUG LIFE", "THUG LIFE");
+        addItem(ExtraBotanyItems.RED_SCARF, "Red Scarf", "红领巾");
+        addItem(ExtraBotanyItems.MASK, "Mask", "石鬼面");
+        addItem(ExtraBotanyItems.SUPER_CROWN, "Super Crown", "超级王冠");
 
         //bauble
         addItem(ExtraBotanyItems.AERO_STONE, "Aero Stone", "风之符石");

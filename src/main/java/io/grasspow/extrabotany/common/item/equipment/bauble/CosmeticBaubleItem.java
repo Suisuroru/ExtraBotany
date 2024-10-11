@@ -22,7 +22,14 @@ import java.util.List;
 public class CosmeticBaubleItem extends BaubleItem implements CosmeticBauble {
 
     public enum Variant {
-        PYLON(true);
+        FOX_EAR(true),
+        FOX_MASK(true),
+        PYLON(true),
+        BLACK_GLASSES(true),
+        RED_SCARF,
+        SUPER_CROWN(true),
+        THUG_LIFE(true),
+        MASK(true);
 
         private final boolean isHead;
 
@@ -56,18 +63,51 @@ public class CosmeticBaubleItem extends BaubleItem implements CosmeticBauble {
             if (variant.isHead) {
                 bipedModel.head.translateAndRotate(ms);
                 switch (variant) {
-                    case PYLON -> {
-                        ms.translate(0, -0.9, 0);
+                    case FOX_EAR:
+                        ms.translate(0, -0.8, -0.1F);
+                        ms.scale(0.8F, -0.8F, -0.8F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    case FOX_MASK:
+                        ms.translate(0.02F, -0.3, -0.3);
+                        ms.scale(0.66F, -0.65F, -0.65F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    case MASK:
+                        ms.translate(0F, -0.3, -0.3);
+                        ms.scale(0.65F, -0.65F, -0.65F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    case BLACK_GLASSES:
+                        ms.translate(0, -0.2, -0.3);
+                        ms.scale(0.55F, 0.55F, -0.55F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    case SUPER_CROWN:
+                        ms.translate(0, -0.7, -0.1F);
+                        ms.scale(0.65F, -0.65F, -0.65F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    case PYLON:
+                        ms.translate(0, -0.8, -0.1F);
                         ms.scale(0.5F, -0.5F, -0.5F);
                         renderItem(stack, ms, buffers, light);
-                    }
-                    default -> {
-                    }
+                        break;
+                    case THUG_LIFE:
+                        ms.translate(0, -0.2, -0.3);
+                        ms.scale(0.7F, -0.7F, -0.7F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
                 }
             } else { // body cosmetics
                 bipedModel.body.translateAndRotate(ms);
                 switch (variant) {
-                    default -> {
+                    case RED_SCARF:
+                        ms.translate(0, 0.16, -0.15);
+                        ms.scale(0.55F, -0.55F, -0.55F);
+                        renderItem(stack, ms, buffers, light);
+                        break;
+                    default: {
                     }
                 }
             }
