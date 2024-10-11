@@ -26,7 +26,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 @JeiPlugin
 public class JEIBotaniaPlugin implements IModPlugin {

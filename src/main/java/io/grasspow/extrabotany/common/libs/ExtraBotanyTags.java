@@ -5,7 +5,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 
 public final class ExtraBotanyTags {

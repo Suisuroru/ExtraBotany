@@ -28,7 +28,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static net.minecraft.data.models.model.ModelLocationUtils.getModelLocation;
 
 public class BlockstateProvider extends vazkii.botania.data.BlockstateProvider {

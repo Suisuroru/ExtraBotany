@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class AdvancementProvider extends ForgeAdvancementProvider {
     public AdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {

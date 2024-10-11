@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import vazkii.botania.common.handler.EquipmentHandler;
 import vazkii.botania.network.BotaniaPacket;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class LeftClickPack implements BotaniaPacket {
     public static final LeftClickPack INSTANCE = new LeftClickPack();

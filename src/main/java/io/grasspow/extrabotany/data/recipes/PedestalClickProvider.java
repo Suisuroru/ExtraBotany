@@ -20,7 +20,7 @@ import vazkii.botania.data.recipes.BotaniaRecipeProvider;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class PedestalClickProvider extends BotaniaRecipeProvider {
     public PedestalClickProvider(PackOutput packOutput) {

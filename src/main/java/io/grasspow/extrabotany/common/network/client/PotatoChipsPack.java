@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import vazkii.botania.network.BotaniaPacket;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public record PotatoChipsPack() implements BotaniaPacket {
     public static final ResourceLocation ID = resId("pc");

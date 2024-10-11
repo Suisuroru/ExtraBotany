@@ -5,7 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanySounds.*;
 
 public class SoundDefinitionsProvider extends net.minecraftforge.common.data.SoundDefinitionsProvider {

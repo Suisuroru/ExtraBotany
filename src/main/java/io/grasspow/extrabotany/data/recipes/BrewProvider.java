@@ -16,7 +16,7 @@ import vazkii.botania.common.crafting.BotaniaRecipeTypes;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 
 public class BrewProvider extends vazkii.botania.data.recipes.BrewProvider {

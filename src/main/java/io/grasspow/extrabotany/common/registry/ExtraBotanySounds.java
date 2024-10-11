@@ -8,8 +8,8 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static io.grasspow.extrabotany.common.libs.LibMisc.MOD_ID;
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
 
 public final class ExtraBotanySounds {
     public static final List<RegistryObject<SoundEvent>> SOUND_EVENTS = new ArrayList<>();

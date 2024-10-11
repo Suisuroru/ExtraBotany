@@ -2,7 +2,7 @@ package io.grasspow.extrabotany.client.model;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class ExtraBotanyModelLayers {
 

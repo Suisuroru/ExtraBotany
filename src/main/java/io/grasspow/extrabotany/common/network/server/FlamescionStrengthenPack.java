@@ -8,7 +8,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import vazkii.botania.network.BotaniaPacket;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class FlamescionStrengthenPack implements BotaniaPacket {
     public static final FlamescionStrengthenPack INSTANCE = new FlamescionStrengthenPack();

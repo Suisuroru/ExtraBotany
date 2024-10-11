@@ -1,5 +1,9 @@
 {
   "values": [
-    "extrabotany:miku_chest"
+    "extrabotany:miku_chestplate",
+    "extrabotany:shooting_guardian_chestplate",
+    "extrabotany:goblins_layer_chestplate",
+    "extrabotany:maid_chestplate",
+    "extrabotany:shadow_warrior_chestplate"
   ]
 }

@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class BlockModelProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
     public BlockModelProvider(PackOutput output, ExistingFileHelper exFileHelper) {

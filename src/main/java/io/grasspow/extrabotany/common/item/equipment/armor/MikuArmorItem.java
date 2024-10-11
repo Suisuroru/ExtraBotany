@@ -15,6 +15,7 @@ import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -72,7 +73,7 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
         Entity target = event.getEntity();
         if (target instanceof Player player) {
             if (hasArmorSet(player) && getEquipmentSlot() == EquipmentSlot.HEAD) {
-                if (event.getSource().equals(player.damageSources().magic())) {
+                if (event.getSource().is(DamageTypes.MAGIC)) {
                     event.setAmount(event.getAmount() * 0.25F);
                 }
             }

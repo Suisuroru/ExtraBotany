@@ -7,7 +7,7 @@ import net.minecraft.world.level.ItemLike;
 import vazkii.botania.common.item.brew.BaseBrewItem;
 import vazkii.botania.network.TriConsumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class ExtraBotanyItemProperties {
     public static void init(TriConsumer<ItemLike, ResourceLocation, ClampedItemPropertyFunction> consumer) {

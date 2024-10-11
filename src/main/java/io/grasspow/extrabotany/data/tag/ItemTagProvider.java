@@ -3,7 +3,6 @@ package io.grasspow.extrabotany.data.tag;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -17,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.lens.LensItem;
@@ -73,10 +73,18 @@ public class ItemTagProvider extends ItemTagsProvider {
 //        tag(ItemTags.MUSIC_DISCS).add(RECORD_EGO.get(),RECORD_HERRSCHER.get());
 
         //armor
-        this.tag(Tags.Items.ARMORS_HELMETS).add(MIKU_HELM.get());
-        this.tag(Tags.Items.ARMORS_CHESTPLATES).add(MIKU_CHEST.get());
-        this.tag(Tags.Items.ARMORS_LEGGINGS).add(MIKU_LEGS.get());
-        this.tag(Tags.Items.ARMORS_BOOTS).add(MIKU_BOOTS.get());
+        this.tag(Tags.Items.ARMORS_HELMETS).add(
+                MIKU_HELM.get(), SHOOTING_GUARDIAN_HELM.get(), GOBLINS_LAYER_HELM.get(), MAID_HELM.get(), SHADOW_WARRIOR_HELM.get()
+        );
+        this.tag(Tags.Items.ARMORS_CHESTPLATES).add(
+                MIKU_CHEST.get(), SHOOTING_GUARDIAN_CHEST.get(), GOBLINS_LAYER_CHEST.get(), MAID_CHEST.get(), SHADOW_WARRIOR_CHEST.get()
+        );
+        this.tag(Tags.Items.ARMORS_LEGGINGS).add(
+                MIKU_LEGS.get(), SHOOTING_GUARDIAN_LEGS.get(), GOBLINS_LAYER_LEGS.get(), MAID_LEGS.get(), SHADOW_WARRIOR_LEGS.get()
+        );
+        this.tag(Tags.Items.ARMORS_BOOTS).add(
+                MIKU_BOOTS.get(), SHOOTING_GUARDIAN_BOOTS.get(), GOBLINS_LAYER_BOOTS.get(), MAID_BOOTS.get(), SHADOW_WARRIOR_BOOTS.get()
+        );
 
         //weapon
         this.tag(ItemTags.SWORDS).add(SHADOW_KATANA.get());
@@ -103,8 +111,8 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void registerBotaniaTag() {
         TagsProvider.TagAppender<Item> builder = this.tag(BotaniaTags.Items.LENS);
-        BuiltInRegistries.ITEM.stream().filter(i -> i instanceof LensItem && BuiltInRegistries.ITEM.getKey(i).getNamespace().equals(LibMisc.MOD_ID))
-                .map(BuiltInRegistries.ITEM::getKey)
+        ForgeRegistries.ITEMS.getValues().stream().filter(i -> i instanceof LensItem && ForgeRegistries.ITEMS.getKey(i).getNamespace().equals(LibMisc.MOD_ID))
+                .map(ForgeRegistries.ITEMS::getKey)
                 .sorted()
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
         Stream.of(
@@ -112,7 +120,11 @@ public class ItemTagProvider extends ItemTagsProvider {
                 INFINITE_WINE,
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
                 SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET,
-                MIKU_HELM, MIKU_CHEST, MIKU_LEGS, MIKU_BOOTS
+                MIKU_HELM, MIKU_CHEST, MIKU_LEGS, MIKU_BOOTS,
+                SHOOTING_GUARDIAN_HELM, SHOOTING_GUARDIAN_CHEST, SHOOTING_GUARDIAN_LEGS, SHOOTING_GUARDIAN_BOOTS,
+                GOBLINS_LAYER_HELM, GOBLINS_LAYER_CHEST, GOBLINS_LAYER_LEGS, GOBLINS_LAYER_BOOTS,
+                MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
+                SHADOW_WARRIOR_HELM, SHADOW_WARRIOR_CHEST, SHADOW_WARRIOR_LEGS, SHADOW_WARRIOR_BOOTS
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

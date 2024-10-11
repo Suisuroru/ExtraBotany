@@ -100,34 +100,36 @@ public class LibItemNames {
     public static final String BLACK_GLASSES = "black_glasses";
     public static final String MASK = "mask";
 
-    public static final String MAID_HELM = "maid_helm";
-    public static final String MAID_CHEST = "maid_chest";
-    public static final String MAID_LEGS = "maid_legs";
+    public static final String MAID_HELM = "maid_helmet";
+    public static final String MAID_CHEST = "maid_chestplate";
+    public static final String MAID_LEGS = "maid_leggings";
     public static final String MAID_BOOTS = "maid_boots";
 
-    public static final String MIKU_HELM = "miku_helm";
-    public static final String MIKU_CHEST = "miku_chest";
-    public static final String MIKU_LEGS = "miku_legs";
+    public static final String MIKU_HELM = "miku_helmet";
+    public static final String MIKU_CHEST = "miku_chestplate";
+    public static final String MIKU_LEGS = "miku_leggings";
     public static final String MIKU_BOOTS = "miku_boots";
 
-    public static final String GOBLINS_LAYER_HELM = "goblins_layer_helm";
-    public static final String GOBLINS_LAYER_CHEST = "goblins_layer_chest";
-    public static final String GOBLINS_LAYER_LEGS = "goblins_layer_legs";
+    public static final String GOBLINS_LAYER = "goblins_layer";
+    public static final String GOBLINS_LAYER_HELM = "goblins_layer_helmet";
+    public static final String GOBLINS_LAYER_CHEST = "goblins_layer_chestplate";
+    public static final String GOBLINS_LAYER_LEGS = "goblins_layer_leggings";
     public static final String GOBLINS_LAYER_BOOTS = "goblins_layer_boots";
 
-    public static final String SHADOW_WARRIOR_HELM = "shadow_warrior_helm";
-    public static final String SHADOW_WARRIOR_CHEST = "shadow_warrior_chest";
-    public static final String SHADOW_WARRIOR_LEGS = "shadow_warrior_legs";
+    public static final String SHADOW_WARRIOR = "shadow_warrior";
+    public static final String SHADOW_WARRIOR_HELM = "shadow_warrior_helmet";
+    public static final String SHADOW_WARRIOR_CHEST = "shadow_warrior_chestplate";
+    public static final String SHADOW_WARRIOR_LEGS = "shadow_warrior_leggings";
     public static final String SHADOW_WARRIOR_BOOTS = "shadow_warrior_boots";
 
-    public static final String SHOOTING_GUARDIAN_HELM = "shooting_guardian_helm";
-    public static final String SHOOTING_GUARDIAN_CHEST = "shooting_guardian_chest";
-    public static final String SHOOTING_GUARDIAN_LEGS = "shooting_guardian_legs";
+    public static final String SHOOTING_GUARDIAN_HELM = "shooting_guardian_helmet";
+    public static final String SHOOTING_GUARDIAN_CHEST = "shooting_guardian_chestplate";
+    public static final String SHOOTING_GUARDIAN_LEGS = "shooting_guardian_leggings";
     public static final String SHOOTING_GUARDIAN_BOOTS = "shooting_guardian_boots";
 
-    public static final String SILENTS_AGES_HELM = "silents_ages_helm";
-    public static final String SILENTS_AGES_CHEST = "silents_ages_chest";
-    public static final String SILENTS_AGES_LEGS = "silents_ages_legs";
+    public static final String SILENTS_AGES_HELM = "silents_ages_helmet";
+    public static final String SILENTS_AGES_CHEST = "silents_ages_chestplate";
+    public static final String SILENTS_AGES_LEGS = "silents_ages_leggings";
     public static final String SILENTS_AGES_BOOTS = "silents_ages_boots";
 
     public static final String REWARD_BAG_A = "reward_bag_a";

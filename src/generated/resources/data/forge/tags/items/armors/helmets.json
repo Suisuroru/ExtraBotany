@@ -1,5 +1,9 @@
 {
   "values": [
-    "extrabotany:miku_helm"
+    "extrabotany:miku_helmet",
+    "extrabotany:shooting_guardian_helmet",
+    "extrabotany:goblins_layer_helmet",
+    "extrabotany:maid_helmet",
+    "extrabotany:shadow_warrior_helmet"
   ]
 }

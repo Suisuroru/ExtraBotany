@@ -7,9 +7,7 @@ import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorHelmItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.*;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
 import io.grasspow.extrabotany.common.item.equipment.tool.RodOfDiscordItem;
@@ -102,10 +100,22 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> MIKU_CHEST = regArmorItem(LibItemNames.MIKU_CHEST, MikuArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> MIKU_LEGS = regArmorItem(LibItemNames.MIKU_LEGS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> MIKU_BOOTS = regArmorItem(LibItemNames.MIKU_BOOTS, MikuArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
+    public static final RegistryObject<Item> GOBLINS_LAYER_HELM = regArmorItem(LibItemNames.GOBLINS_LAYER_HELM, GoblinsLayerArmorItem::new, nonStackable(), ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> GOBLINS_LAYER_CHEST = regArmorItem(LibItemNames.GOBLINS_LAYER_CHEST, GoblinsLayerArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> GOBLINS_LAYER_LEGS = regArmorItem(LibItemNames.GOBLINS_LAYER_LEGS, GoblinsLayerArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> GOBLINS_LAYER_BOOTS = regArmorItem(LibItemNames.GOBLINS_LAYER_BOOTS, GoblinsLayerArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
+    public static final RegistryObject<Item> SHADOW_WARRIOR_HELM = regArmorItem(LibItemNames.SHADOW_WARRIOR_HELM, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> SHADOW_WARRIOR_CHEST = regArmorItem(LibItemNames.SHADOW_WARRIOR_CHEST, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> SHADOW_WARRIOR_LEGS = regArmorItem(LibItemNames.SHADOW_WARRIOR_LEGS, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> SHADOW_WARRIOR_BOOTS = regArmorItem(LibItemNames.SHADOW_WARRIOR_BOOTS, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_HELM = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_HELM, ShootingGuardianArmorHelmItem::new, nonStackable());
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_CHEST = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_CHEST, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_LEGS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_LEGS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_BOOTS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_BOOTS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
+    public static final RegistryObject<Item> MAID_HELM = regArmorItem(LibItemNames.MAID_HELM, MaidArmorHelmetItem::new, nonStackable());
+    public static final RegistryObject<Item> MAID_CHEST = regArmorItem(LibItemNames.MAID_CHEST, MaidArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> MAID_LEGS = regArmorItem(LibItemNames.MAID_LEGS, MaidArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> MAID_BOOTS = regArmorItem(LibItemNames.MAID_BOOTS, MaidArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
 
     //weapon
     public static final RegistryObject<Item> SHADOW_KATANA = regDefItem(LibItemNames.SHADOW_KATANA, ShadowKatanaItem::new, nonStackable());

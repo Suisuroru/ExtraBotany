@@ -10,7 +10,7 @@ import vazkii.botania.api.brew.Brew;
 import java.util.Arrays;
 import java.util.function.BiConsumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class ExtraBotanyBrews {
     public static final Brew revolution = make(10000, new MobEffectInstance(MobEffects.UNLUCK, 1800, 2),

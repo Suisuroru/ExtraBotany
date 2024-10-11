@@ -14,7 +14,7 @@ import vazkii.botania.common.crafting.StateIngredientHelper;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class ManaInfusionProvider extends vazkii.botania.data.recipes.ManaInfusionProvider {
     public ManaInfusionProvider(PackOutput packOutput) {

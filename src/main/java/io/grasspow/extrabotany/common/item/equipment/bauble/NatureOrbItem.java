@@ -1,17 +1,15 @@
 package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
@@ -22,7 +20,8 @@ import vazkii.botania.common.item.CustomCreativeTabContents;
 
 import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.Map;
+
+import static io.grasspow.extrabotany.common.libs.CommonHelper.clearPotions;
 
 public class NatureOrbItem extends BaubleItem implements CustomCreativeTabContents {
 
@@ -111,21 +110,5 @@ public class NatureOrbItem extends BaubleItem implements CustomCreativeTabConten
 
     public static int getMaxXP(ItemStack stack) {
         return MAX_XP;
-    }
-
-    public void clearPotions(ItemStack stack, Player player) {
-        List<MobEffect> potionsToRemove = player.getActiveEffectsMap().entrySet().stream()
-                .filter(effect -> effect.getKey().getCategory() == MobEffectCategory.HARMFUL
-                        && effect.getValue().isCurativeItem(new ItemStack(Items.MILK_BUCKET)))
-                .map(Map.Entry::getKey)
-                .distinct()
-                .toList();
-
-        potionsToRemove.forEach(potion -> {
-            player.removeEffect(potion);
-            NatureOrbItem.addXP(stack, -50);
-            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, stack);
-            player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
-        });
     }
 }

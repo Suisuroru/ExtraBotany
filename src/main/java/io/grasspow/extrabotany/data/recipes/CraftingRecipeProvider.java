@@ -2,9 +2,11 @@ package io.grasspow.extrabotany.data.recipes;
 
 import io.grasspow.extrabotany.common.crafting.*;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
+import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
@@ -27,7 +29,7 @@ import vazkii.botania.mixin.RecipeProviderAccessor;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks.MOD_FLOWERS;
 
 public class CraftingRecipeProvider extends vazkii.botania.data.recipes.CraftingRecipeProvider {
@@ -381,6 +383,8 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("CCC")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaItems.manasteelBoots))
                 .save(consumer);
+        registerSimpleArmorSet(consumer, Ingredient.of(ExtraBotanyTags.Items.INGOTS_PHOTONIUM), LibItemNames.GOBLINS_LAYER, conditionsFromTag(ExtraBotanyTags.Items.INGOTS_PHOTONIUM));
+        registerSimpleArmorSet(consumer, Ingredient.of(ExtraBotanyTags.Items.INGOTS_SHADOWIUM), LibItemNames.SHADOW_WARRIOR, conditionsFromTag(ExtraBotanyTags.Items.INGOTS_SHADOWIUM));
         //shooting_guardian
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.SHOOTING_GUARDIAN_HELM.get())
                 .define('T', BotaniaItems.dreamwoodTwig)
@@ -422,6 +426,41 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" A ")
                 .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_AERIALITE))
                 .save(consumer);
+        //maid
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_HELM.get())
+                .define('G', BotaniaItems.gaiaIngot)
+                .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
+                .define('T', BotaniaItems.manasteelHelm)
+                .pattern("GGG")
+                .pattern("CTC")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelHelm, BotaniaItems.gaiaIngot))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_CHEST.get())
+                .define('G', BotaniaItems.gaiaIngot)
+                .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
+                .define('T', BotaniaItems.manasteelChest)
+                .pattern("C C")
+                .pattern("CTC")
+                .pattern("GGG")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelChest, BotaniaItems.gaiaIngot))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_LEGS.get())
+                .define('G', BotaniaItems.gaiaIngot)
+                .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
+                .define('T', BotaniaItems.manasteelLegs)
+                .pattern("GGG")
+                .pattern("CTC")
+                .pattern("C C")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelLegs, BotaniaItems.gaiaIngot))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.MAID_BOOTS.get())
+                .define('G', BotaniaItems.gaiaIngot)
+                .define('C', ExtraBotanyItems.GOLD_CLOTH.get())
+                .define('T', BotaniaItems.manasteelBoots)
+                .pattern("CTC")
+                .pattern("GGG")
+                .unlockedBy("has_item", conditionsFromItems(BotaniaItems.manasteelBoots, BotaniaItems.gaiaIngot))
+                .save(consumer);
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {
@@ -453,6 +492,40 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
         }
 
         return RecipeProviderAccessor.botania_condition(preds);
+    }
+
+    protected void registerSimpleArmorSet(Consumer<FinishedRecipe> consumer, Ingredient item, String variant,
+                                          CriterionTriggerInstance criterion) {
+        Item helmet = getItemOrThrow(prefix(variant + "_helmet"));
+        Item chestplate = getItemOrThrow(prefix(variant + "_chestplate"));
+        Item leggings = getItemOrThrow(prefix(variant + "_leggings"));
+        Item boots = getItemOrThrow(prefix(variant + "_boots"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, helmet)
+                .define('S', item)
+                .pattern("SSS")
+                .pattern("S S")
+                .unlockedBy("has_item", criterion)
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, chestplate)
+                .define('S', item)
+                .pattern("S S")
+                .pattern("SSS")
+                .pattern("SSS")
+                .unlockedBy("has_item", criterion)
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, leggings)
+                .define('S', item)
+                .pattern("SSS")
+                .pattern("S S")
+                .pattern("S S")
+                .unlockedBy("has_item", criterion)
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, boots)
+                .define('S', item)
+                .pattern("S S")
+                .pattern("S S")
+                .unlockedBy("has_item", criterion)
+                .save(consumer);
     }
 
     @Override

@@ -31,7 +31,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
     private static final TextureSlot LAYER1 = TextureSlotAccessor.make("layer1");

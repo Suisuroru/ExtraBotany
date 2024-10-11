@@ -18,7 +18,7 @@ import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public class TerrestrialAgglomerationProvider extends vazkii.botania.data.recipes.TerrestrialAgglomerationProvider {
     public TerrestrialAgglomerationProvider(PackOutput packOutput) {

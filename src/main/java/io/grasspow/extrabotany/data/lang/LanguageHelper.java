@@ -90,8 +90,24 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.MIKU_BOOTS, "Starry Idol Boots", "星空歌姬鞋子");
         add("extrabotany.armorset.mana.desc", "Super Mana Affinity.", "超强魔力亲和");
 
+        add("extrabotany.armorset.goblins_layer.name", "Goblin Slayer", "哥布林杀手");
+        addItem(ExtraBotanyItems.GOBLINS_LAYER_HELM, "Goblin Slayer Helmet", "哥布林杀手头盔");
+        addItem(ExtraBotanyItems.GOBLINS_LAYER_CHEST, "Goblin Slayer Chestplate", "哥布林杀手胸甲");
+        addItem(ExtraBotanyItems.GOBLINS_LAYER_LEGS, "Goblin Slayer Leggings", "哥布林杀手护腿");
+        addItem(ExtraBotanyItems.GOBLINS_LAYER_BOOTS, "Goblin Slayer Boots", "哥布林杀手靴子");
+        add("extrabotany.armorset.goblins_layer.desc0", "Praise the Sun.", "我不拯救世界，只管杀哥布林。");
+        add("extrabotany.armorset.goblins_layer.desc1", "May the sun enlighten you.", "想象力也是武器，没有想象力的人会先死。");
+
+        add("extrabotany.armorset.shadow_warrior.name", "Shadow Warrior", "暗影武士");
+        addItem(ExtraBotanyItems.SHADOW_WARRIOR_HELM, "Shadow Warrior Helmet", "暗影武士头盔");
+        addItem(ExtraBotanyItems.SHADOW_WARRIOR_CHEST, "Shadow Warrior Chestplate", "暗影武士胸甲");
+        addItem(ExtraBotanyItems.SHADOW_WARRIOR_LEGS, "Shadow Warrior Leggings", "暗影武士护腿");
+        addItem(ExtraBotanyItems.SHADOW_WARRIOR_BOOTS, "Shadow Warrior Boots", "暗影武士靴子");
+        add("extrabotany.armorset.shadow_warrior.desc0", "This night is so frightful and boundless. That my eyes come down with gloomy darkness.", "黑夜给了我黑色的眼睛，");
+        add("extrabotany.armorset.shadow_warrior.desc1", "But just by them both. I am seeking my rosiness.", "我却用它寻找光明。");
+
         add("extrabotany.armorset.shooting_guardian.name", "Shooting Guardian", "银翼护卫");
-        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_HELM, "Shooting Guardian Headgear", "银翼护卫头盔");
+        addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_HELM, "Shooting Guardian Helmet", "银翼护卫头盔");
         addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_CHEST, "Shooting Guardian Chestplate", "银翼护卫胸甲");
         addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_LEGS, "Shooting Guardian Leggings", "银翼护卫护腿");
         addItem(ExtraBotanyItems.SHOOTING_GUARDIAN_BOOTS, "Shooting Guardian Boots", "银翼护卫靴子");
@@ -99,6 +115,15 @@ public class LanguageHelper {
         add("extrabotany.armorset.shooting_guardian.desc1", "Grant Armor-Piercing and Life Stealing.", "攻击附带穿甲和吸血");
         add("extrabotany.armorset.shooting_guardian.desc2", "Faster Speed.", "移动速度增加");
         add("extrabotany.armorset.shooting_guardian.desc3", "Greatly decrease natural life regeneration.", "生命恢复大幅减弱");
+
+        add("extrabotany.armorset.maid.name", "Pleiades Combat Maid", "昴星团战斗女仆");
+        addItem(ExtraBotanyItems.MAID_HELM, "Pleiades Combat Maid Headgear", "昴星团战斗女仆头饰");
+        addItem(ExtraBotanyItems.MAID_CHEST, "Pleiades Combat Maid Suit", "昴星团战斗女仆服");
+        addItem(ExtraBotanyItems.MAID_LEGS, "Pleiades Combat Maid Skirt", "昴星团战斗女仆裙甲");
+        addItem(ExtraBotanyItems.MAID_BOOTS, "Pleiades Combat Maid Boots", "昴星团战斗女仆鞋子");
+        add("extrabotany.armorset.maid.desc0", "Super Empty-handed Power.", "空手怪力");
+        add("extrabotany.armorset.maid.desc1", "Greater Regeneration.", "再生增强");
+        add("extrabotany.armorset.maid.desc2", "Mana Affinity.", "魔力亲和");
 
         //brew
         addItem(ExtraBotanyItems.COCKTAIL, "Special-made CocktailItem of %s(%s)", "装有%s(%s)的秘制鸡尾酒");

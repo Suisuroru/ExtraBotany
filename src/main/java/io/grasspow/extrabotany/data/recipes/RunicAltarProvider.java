@@ -22,7 +22,7 @@ import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.function.Consumer;
 
-import static io.grasspow.extrabotany.common.libs.ResourceLocationHelper.resId;
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 
 public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarProvider {
