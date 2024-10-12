@@ -91,6 +91,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.INFLUX_WAVER, "Influx Waver", "波涌之刃");
         addItem(ExtraBotanyItems.STAR_WRATH, "Star Wrath", "狂星之怒");
         addItem(ExtraBotanyItems.TRUE_SHADOW_KATANA, "True Shadow Catana", "真影刃");
+        addItem(ExtraBotanyItems.TRUE_TERRA_BLADE, "True Terra Blade", "真泰拉之刃");
 
         //armor
         add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");

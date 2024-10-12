@@ -118,6 +118,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> INFLUX_WAVER = regDefItem(LibItemNames.INFLUX_WAVER, InfluxWaverItem::new, relic());
     public static final RegistryObject<Item> STAR_WRATH = regDefItem(LibItemNames.STAR_WRATH, StarWrathItem::new, relic());
     public static final RegistryObject<Item> TRUE_SHADOW_KATANA = regDefItem(LibItemNames.TRUE_SHADOW_KATANA, TrueShadowKatanaItem::new, relic());
+    public static final RegistryObject<Item> TRUE_TERRA_BLADE = regDefItem(LibItemNames.TRUE_TERRA_BLADE, TrueTerraBladeItem::new, relic());
 
     // cosmetic bauble
     public static final RegistryObject<Item> FOX_EAR = regComBaubleItem(LibItemNames.FOX_EAR, CosmeticBaubleItem.Variant.FOX_EAR, new Item.Properties());

@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import io.grasspow.extrabotany.common.entity.projectile.BaseSwordProjectile;
 import io.grasspow.extrabotany.common.entity.projectile.InfluxWaverProjectile;
+import io.grasspow.extrabotany.common.entity.projectile.TrueTerraBladeProjectile;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -41,6 +42,8 @@ public class BaseProjectileRender extends EntityRenderer<BaseSwordProjectile> {
         var item = ExtraBotanyItems.TRUE_SHADOW_KATANA.get();//default
         if (weapon instanceof InfluxWaverProjectile) {
             item = ExtraBotanyItems.INFLUX_WAVER.get();
+        } else if (weapon instanceof TrueTerraBladeProjectile) {
+            item = ExtraBotanyItems.TRUE_TERRA_BLADE.get();
         }
         RenderHelper.renderItemCustomColor(mc.player, new ItemStack(item), color, matrixStack, bufferIn, 0xF000F0, OverlayTexture.NO_OVERLAY, model);
 

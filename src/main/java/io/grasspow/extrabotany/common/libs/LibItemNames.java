@@ -42,7 +42,7 @@ public class LibItemNames {
     public static final String JUDAH_OATH_IDOL = "judah_oath_idol";
 
     public static final String UUZ_FAN = "uuz_fan";
-    public static final String TRUE_TERRABLADE = "true_terrablade";
+    public static final String TRUE_TERRA_BLADE = "true_terra_blade";
     public static final String TRUE_SHADOW_KATANA = "true_shadow_katana";
     public static final String INFLUX_WAVER = "influx_waver";
     public static final String STAR_WRATH = "star_wrath";

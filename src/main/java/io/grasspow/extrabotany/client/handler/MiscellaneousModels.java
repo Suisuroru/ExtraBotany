@@ -15,12 +15,14 @@ public class MiscellaneousModels {
 
     public static final MiscellaneousModels INSTANCE = new MiscellaneousModels();
     public boolean registeredModels = false;
-    public BakedModel influxWaverProjectileModel,
-            trueShadowKatanaProjectileModel;
+    public BakedModel influxWaverProjectileModel;
+    public BakedModel trueShadowKatanaProjectileModel;
+    public BakedModel trueTerraBladeProjectile;
 
     public void onModelRegister(ResourceManager rm, Consumer<ResourceLocation> consumer) {
         consumer.accept(resId("icon/influx_waver_projectile"));
         consumer.accept(resId("icon/true_shadow_katana_projectile"));
+        consumer.accept(resId("icon/true_terra_blade_projectile"));
         if (!registeredModels) {
             registeredModels = true;
         }
@@ -33,6 +35,7 @@ public class MiscellaneousModels {
         }
         influxWaverProjectileModel = map.get(resId("icon/influx_waver_projectile"));
         trueShadowKatanaProjectileModel = map.get(resId("icon/true_shadow_katana_projectile"));
+        trueTerraBladeProjectile = map.get(resId("icon/true_terra_blade_projectile"));
     }
 
     private MiscellaneousModels() {

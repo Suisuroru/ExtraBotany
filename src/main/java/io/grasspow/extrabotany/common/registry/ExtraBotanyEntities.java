@@ -12,6 +12,7 @@ import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
 import io.grasspow.extrabotany.common.entity.projectile.AuraFireProjectile;
 import io.grasspow.extrabotany.common.entity.projectile.InfluxWaverProjectile;
 import io.grasspow.extrabotany.common.entity.projectile.TrueShadowKatanaProjectile;
+import io.grasspow.extrabotany.common.entity.projectile.TrueTerraBladeProjectile;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -126,17 +127,27 @@ public class ExtraBotanyEntities {
     public static final RegistryObject<EntityType<InfluxWaverProjectile>> INFLUX_WAVER_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.INFLUX_WAVER_PROJECTILE,
             () -> EntityType.Builder
                     .<InfluxWaverProjectile>of(InfluxWaverProjectile::new, MobCategory.MISC)
-                    .sized(0.1F, 0.1F)
+                    .sized(0.05F, 0.05F)
                     .setUpdateInterval(10)
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.INFLUX_WAVER_PROJECTILE).toString()));
+
     public static final RegistryObject<EntityType<TrueShadowKatanaProjectile>> TRUE_SHADOW_KATANA_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.TRUE_SHADOW_KATANA_PROJECTILE,
             () -> EntityType.Builder
                     .<TrueShadowKatanaProjectile>of(TrueShadowKatanaProjectile::new, MobCategory.MISC)
-                    .sized(0.1F, 0.1F)
+                    .sized(0.05F, 0.05F)
                     .setUpdateInterval(10)
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.TRUE_SHADOW_KATANA_PROJECTILE).toString()));
+
+    public static final RegistryObject<EntityType<TrueTerraBladeProjectile>> TRUE_TERRA_BLADE_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.TRUE_TERRA_BLADE_PROJECTILE,
+            () -> EntityType.Builder
+                    .<TrueTerraBladeProjectile>of(TrueTerraBladeProjectile::new, MobCategory.MISC)
+                    .sized(0.05F, 0.05F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.TRUE_TERRA_BLADE_PROJECTILE).toString()));
 }

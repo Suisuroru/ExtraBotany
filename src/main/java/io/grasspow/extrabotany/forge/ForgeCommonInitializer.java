@@ -10,6 +10,7 @@ import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.InfluxWaverItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.StarWrathItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.TrueShadowKatanaItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.TrueTerraBladeItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import io.grasspow.extrabotany.forge.network.ForgePacketHandler;
@@ -85,7 +86,8 @@ public class ForgeCommonInitializer {
             ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic,
             ExtraBotanyItems.INFLUX_WAVER.get(), InfluxWaverItem::makeRelic,
             ExtraBotanyItems.STAR_WRATH.get(), StarWrathItem::makeRelic,
-            ExtraBotanyItems.TRUE_SHADOW_KATANA.get(), TrueShadowKatanaItem::makeRelic
+            ExtraBotanyItems.TRUE_SHADOW_KATANA.get(), TrueShadowKatanaItem::makeRelic,
+            ExtraBotanyItems.TRUE_TERRA_BLADE.get(), TrueTerraBladeItem::makeRelic
     ));
 
 

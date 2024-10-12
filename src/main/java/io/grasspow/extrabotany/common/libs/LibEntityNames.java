@@ -20,7 +20,7 @@ public class LibEntityNames {
     public static final String EGOLANDMINE = "egolandmine";
 
     public static final String AURA_FIRE = "aura_fire";
-    public static final String TRUETERRABLADE_PROJECTILE = "trueterrablade_projectile";
+    public static final String TRUE_TERRA_BLADE_PROJECTILE = "true_terra_blade_projectile";
     public static final String TRUE_SHADOW_KATANA_PROJECTILE = "true_shadow_katana_projectile";
     public static final String INFLUX_WAVER_PROJECTILE = "influx_waver_projectile";
     public static final String BUTTERFLY_PROJECTILE = "butterfly_projectile";
