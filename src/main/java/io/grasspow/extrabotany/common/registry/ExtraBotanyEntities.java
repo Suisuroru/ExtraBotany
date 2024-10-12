@@ -9,10 +9,7 @@ import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEnt
 import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.generating.*;
 import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
-import io.grasspow.extrabotany.common.entity.projectile.AuraFireProjectile;
-import io.grasspow.extrabotany.common.entity.projectile.InfluxWaverProjectile;
-import io.grasspow.extrabotany.common.entity.projectile.TrueShadowKatanaProjectile;
-import io.grasspow.extrabotany.common.entity.projectile.TrueTerraBladeProjectile;
+import io.grasspow.extrabotany.common.entity.projectile.*;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -150,4 +147,13 @@ public class ExtraBotanyEntities {
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.TRUE_TERRA_BLADE_PROJECTILE).toString()));
+
+    public static final RegistryObject<EntityType<PhantomSwordProjectile>> PHANTOM_SWORD_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.PHANTOM_SWORD_PROJECTILE,
+            () -> EntityType.Builder
+                    .<PhantomSwordProjectile>of(PhantomSwordProjectile::new, MobCategory.MISC)
+                    .sized(0.05F, 0.05F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.PHANTOM_SWORD_PROJECTILE).toString()));
 }

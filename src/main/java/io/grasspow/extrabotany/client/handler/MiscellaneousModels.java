@@ -17,12 +17,17 @@ public class MiscellaneousModels {
     public boolean registeredModels = false;
     public BakedModel influxWaverProjectileModel;
     public BakedModel trueShadowKatanaProjectileModel;
-    public BakedModel trueTerraBladeProjectile;
+    public BakedModel trueTerraBladeProjectileModel;
+    public BakedModel[] firstFractalWeaponModels = new BakedModel[10];
+    ;
 
     public void onModelRegister(ResourceManager rm, Consumer<ResourceLocation> consumer) {
         consumer.accept(resId("icon/influx_waver_projectile"));
         consumer.accept(resId("icon/true_shadow_katana_projectile"));
         consumer.accept(resId("icon/true_terra_blade_projectile"));
+        for (int i = 0; i < 10; i++) {
+            consumer.accept(resId("icon/sword_domain_" + i));
+        }
         if (!registeredModels) {
             registeredModels = true;
         }
@@ -35,7 +40,10 @@ public class MiscellaneousModels {
         }
         influxWaverProjectileModel = map.get(resId("icon/influx_waver_projectile"));
         trueShadowKatanaProjectileModel = map.get(resId("icon/true_shadow_katana_projectile"));
-        trueTerraBladeProjectile = map.get(resId("icon/true_terra_blade_projectile"));
+        trueTerraBladeProjectileModel = map.get(resId("icon/true_terra_blade_projectile"));
+        for (int i = 0; i < firstFractalWeaponModels.length; i++) {
+            firstFractalWeaponModels[i] = map.get(resId("icon/sword_domain_" + i));
+        }
     }
 
     private MiscellaneousModels() {

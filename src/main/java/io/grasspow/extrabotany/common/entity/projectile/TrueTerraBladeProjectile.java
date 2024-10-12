@@ -76,6 +76,6 @@ public class TrueTerraBladeProjectile extends BaseSwordProjectile {
     @OnlyIn(Dist.CLIENT)
     @Override
     public BakedModel getIcon() {
-        return MiscellaneousModels.INSTANCE.trueTerraBladeProjectile;
+        return MiscellaneousModels.INSTANCE.trueTerraBladeProjectileModel;
     }
 }

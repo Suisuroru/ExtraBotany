@@ -65,6 +65,12 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.POTATO_CHIPS), new ItemStack(ExtraBotanyItems.POTATO_CHIPS.get()), 50000, ingr(BotaniaItems.tinyPotatoMask), ingr(ExtraBotanyItems.GILDED_POTATO.get()), ingr(Blocks.BLAST_FURNACE), ingr(Blocks.CAMPFIRE), ingr(Items.TOTEM_OF_UNDYING), ingr(Items.TOTEM_OF_UNDYING), ingr(Items.TOTEM_OF_UNDYING), ingr(ExtraBotanyTags.Items.RUNES_MANA)));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.SUN_RING), new ItemStack(ExtraBotanyItems.SUN_RING.get()), 500000, ingr(ExtraBotanyItems.THE_END.get()), ingr(BotaniaItems.reachRing), ingr(ExtraBotanyItems.MANA_DRIVE_RING.get()), ingr(BotaniaItems.waterRing), ingr(BotaniaItems.swapRing), ingr(BotaniaItems.pixieRing), ingr(BotaniaItems.miningRing), ingr(BotaniaItems.auraRingGreater), ingr(ExtraBotanyItems.DEATH_RING.get()), ingr(ExtraBotanyItems.FROST_STAR.get())));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.MOON_PENDANT), new ItemStack(ExtraBotanyItems.MOON_PENDANT.get()), 500000, ingr(ExtraBotanyItems.THE_ORIGIN.get()), ingr(BotaniaItems.itemFinder), ingr(BotaniaItems.icePendant), ingr(BotaniaItems.superLavaPendant), ingr(BotaniaItems.superCloudPendant), ingr(BotaniaItems.knockbackBelt)));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.FIRST_FRACTAL), new ItemStack(ExtraBotanyItems.FIRST_FRACTAL.get()), 500000,
+                ingr(ExtraBotanyItems.TRUE_SHADOW_KATANA.get()), ingr(ExtraBotanyItems.TRUE_TERRA_BLADE.get()), ingr(ExtraBotanyItems.INFLUX_WAVER.get()), ingr(ExtraBotanyItems.STAR_WRATH.get()), ingr(ExtraBotanyItems.EXCALIBER.get()),
+                ingr(Items.WOODEN_SWORD), ingr(Items.DIAMOND_SWORD), ingr(Items.NETHERITE_SWORD),
+                ingr(BotaniaItems.manasteelSword), ingr(BotaniaItems.elementiumSword),
+                ingr(ExtraBotanyItems.GILDED_MASHED_POTATO.get()), ingr(ExtraBotanyItems.THE_UNIVERSE.get())
+        ));
     }
 
     private Ingredient ingr(TagKey<Item> i) {

@@ -6,7 +6,6 @@ public class LibEntityNames {
     public static final String SLASH = "slash";
     public static final String MOTOR = "motor";
     public static final String UFO = "ufo";
-    public static final String PHANTONSWORD = "phantonsword";
     public static final String MAGICARROW = "magicarrow";
     public static final String FLAMESCIONSLASH = "flamescionslash";
     public static final String STRENGTHENSLASH = "strengthenslash";
@@ -23,6 +22,7 @@ public class LibEntityNames {
     public static final String TRUE_TERRA_BLADE_PROJECTILE = "true_terra_blade_projectile";
     public static final String TRUE_SHADOW_KATANA_PROJECTILE = "true_shadow_katana_projectile";
     public static final String INFLUX_WAVER_PROJECTILE = "influx_waver_projectile";
+    public static final String PHANTOM_SWORD_PROJECTILE = "phantom_sword_projectile";
     public static final String BUTTERFLY_PROJECTILE = "butterfly_projectile";
 
 }

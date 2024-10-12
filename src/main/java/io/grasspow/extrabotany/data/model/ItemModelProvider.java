@@ -161,6 +161,10 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                 ExtraBotanyItems.TRUE_TERRA_BLADE.get(),
                 ExtraBotanyItems.EXCALIBER.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
+        GENERATED_0.create(resId("item/first_fractal"),
+                TextureMapping.layer0(resId("item/sword_domain_9")),
+                consumer);
+        items.remove(ExtraBotanyItems.FIRST_FRACTAL.get());
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }
 
@@ -168,6 +172,11 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
         simpleWithIcon(consumer, LibEntityNames.INFLUX_WAVER_PROJECTILE);
         simpleIcon(consumer, LibItemNames.TRUE_SHADOW_KATANA);
         simpleIcon(consumer, LibItemNames.TRUE_TERRA_BLADE);
+        for (int i = 0; i < 10; i++) {
+            GENERATED_0.create(resId("icon/sword_domain_" + i),
+                    TextureMapping.layer0(resId("item/sword_domain_" + i)),
+                    consumer);
+        }
     }
 
     private void simpleIcon(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer, String name) {

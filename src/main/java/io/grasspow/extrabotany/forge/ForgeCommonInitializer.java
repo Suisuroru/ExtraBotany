@@ -85,7 +85,8 @@ public class ForgeCommonInitializer {
             ExtraBotanyItems.STAR_WRATH.get(), StarWrathItem::makeRelic,
             ExtraBotanyItems.TRUE_SHADOW_KATANA.get(), TrueShadowKatanaItem::makeRelic,
             ExtraBotanyItems.TRUE_TERRA_BLADE.get(), TrueTerraBladeItem::makeRelic,
-            ExtraBotanyItems.EXCALIBER.get(), ExcaliberItem::makeRelic
+            ExtraBotanyItems.EXCALIBER.get(), ExcaliberItem::makeRelic,
+            ExtraBotanyItems.FIRST_FRACTAL.get(), FirstFractalItem::makeRelic
     ));
 
 
