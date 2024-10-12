@@ -155,17 +155,25 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
 
                 //weapon
                 ExtraBotanyItems.SHADOW_KATANA.get(),
+                ExtraBotanyItems.STAR_WRATH.get(),
                 ExtraBotanyItems.INFLUX_WAVER.get(),
-                ExtraBotanyItems.STAR_WRATH.get()
+                ExtraBotanyItems.TRUE_SHADOW_KATANA.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }
 
     private void registerIcons(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
-        simpleIcon(consumer, LibEntityNames.INFLUX_WAVER_PROJECTILE);
+        simpleWithIcon(consumer, LibEntityNames.INFLUX_WAVER_PROJECTILE);
+        simpleIcon(consumer, LibItemNames.TRUE_SHADOW_KATANA);
     }
 
     private void simpleIcon(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer, String name) {
+        GENERATED_0.create(resId("icon/" + name + "_projectile"),
+                TextureMapping.layer0(resId("item/" + name)),
+                consumer);
+    }
+
+    private void simpleWithIcon(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer, String name) {
         GENERATED_0.create(resId("icon/" + name),
                 TextureMapping.layer0(resId("item/" + name)),
                 consumer);

@@ -13,10 +13,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHamme
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
-import io.grasspow.extrabotany.common.item.equipment.weapon.FlamescionWeaponItem;
-import io.grasspow.extrabotany.common.item.equipment.weapon.InfluxWaverItem;
-import io.grasspow.extrabotany.common.item.equipment.weapon.ShadowKatanaItem;
-import io.grasspow.extrabotany.common.item.equipment.weapon.StarWrathItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.*;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.item.misc.EmptyBottleItem;
@@ -120,6 +117,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, relic());
     public static final RegistryObject<Item> INFLUX_WAVER = regDefItem(LibItemNames.INFLUX_WAVER, InfluxWaverItem::new, relic());
     public static final RegistryObject<Item> STAR_WRATH = regDefItem(LibItemNames.STAR_WRATH, StarWrathItem::new, relic());
+    public static final RegistryObject<Item> TRUE_SHADOW_KATANA = regDefItem(LibItemNames.TRUE_SHADOW_KATANA, TrueShadowKatanaItem::new, relic());
 
     // cosmetic bauble
     public static final RegistryObject<Item> FOX_EAR = regComBaubleItem(LibItemNames.FOX_EAR, CosmeticBaubleItem.Variant.FOX_EAR, new Item.Properties());

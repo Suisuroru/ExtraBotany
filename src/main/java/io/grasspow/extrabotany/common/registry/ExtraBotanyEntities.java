@@ -11,6 +11,7 @@ import io.grasspow.extrabotany.common.entity.block.flower.generating.*;
 import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
 import io.grasspow.extrabotany.common.entity.projectile.AuraFireProjectile;
 import io.grasspow.extrabotany.common.entity.projectile.InfluxWaverProjectile;
+import io.grasspow.extrabotany.common.entity.projectile.TrueShadowKatanaProjectile;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
@@ -130,4 +131,12 @@ public class ExtraBotanyEntities {
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.INFLUX_WAVER_PROJECTILE).toString()));
+    public static final RegistryObject<EntityType<TrueShadowKatanaProjectile>> TRUE_SHADOW_KATANA_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.TRUE_SHADOW_KATANA_PROJECTILE,
+            () -> EntityType.Builder
+                    .<TrueShadowKatanaProjectile>of(TrueShadowKatanaProjectile::new, MobCategory.MISC)
+                    .sized(0.1F, 0.1F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.TRUE_SHADOW_KATANA_PROJECTILE).toString()));
 }

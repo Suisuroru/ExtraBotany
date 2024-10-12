@@ -90,6 +90,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.FLAMESCION_WEAPON, "Key of Flamescion", "焢煌之境:劫炎永燎");
         addItem(ExtraBotanyItems.INFLUX_WAVER, "Influx Waver", "波涌之刃");
         addItem(ExtraBotanyItems.STAR_WRATH, "Star Wrath", "狂星之怒");
+        addItem(ExtraBotanyItems.TRUE_SHADOW_KATANA, "True Shadow Catana", "真影刃");
 
         //armor
         add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");

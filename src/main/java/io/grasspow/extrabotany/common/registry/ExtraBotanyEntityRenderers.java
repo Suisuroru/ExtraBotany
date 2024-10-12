@@ -33,5 +33,6 @@ public class ExtraBotanyEntityRenderers {
         consumer.accept(ExtraBotanyEntities.SPLASH_GRENADE.get(), ThrownItemRenderer::new);
         consumer.accept(ExtraBotanyEntities.AURA_FILE.get(), DummyRender::new);
         consumer.accept(ExtraBotanyEntities.INFLUX_WAVER_PROJECTILE.get(), BaseProjectileRender::new);
+        consumer.accept(ExtraBotanyEntities.TRUE_SHADOW_KATANA_PROJECTILE.get(), BaseProjectileRender::new);
     }
 }

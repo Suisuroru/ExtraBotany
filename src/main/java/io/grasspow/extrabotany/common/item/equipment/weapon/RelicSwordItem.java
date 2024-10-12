@@ -20,6 +20,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.RelicImpl;
+import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -78,6 +79,16 @@ public abstract class RelicSwordItem extends SwordItem implements IItemWithLeftC
                 && ManaItemHandler.instance().requestManaExactForTool(player.getMainHandItem(), player, getManaPerDamage(), true)) {
             attack(player, target);
             player.awardStat(Stats.ITEM_USED.get(this));
+        }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        if (!level.isClientSide && entity instanceof Player player) {
+            var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+            if (relic != null) {
+                relic.tickBinding(player);
+            }
         }
     }
 

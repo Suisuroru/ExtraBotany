@@ -34,7 +34,6 @@ public class InfluxWaverItem extends RelicSwordItem {
     }
 
     public static Relic makeRelic(ItemStack stack) {
-        return new RelicImpl(stack, null) {
-        };
+        return new RelicImpl(stack, null);
     }
 }
