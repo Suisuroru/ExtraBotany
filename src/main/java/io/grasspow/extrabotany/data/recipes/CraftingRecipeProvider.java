@@ -388,6 +388,15 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("TL ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.THE_ORIGIN.get(), BotaniaItems.terraSword, BotaniaItems.terrasteel, BotaniaItems.lifeEssence))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.EXCALIBER.get())
+                .define('H', ExtraBotanyItems.HERO_MEDAL.get())
+                .define('T', BotaniaItems.terraSword)
+                .define('D', BotaniaItems.dreamwoodTwig)
+                .pattern("H")
+                .pattern("T")
+                .pattern("D")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.HERO_MEDAL.get(), BotaniaItems.terraSword, BotaniaItems.dreamwoodTwig))
+                .save(consumer);
     }
 
     private void buildArmorRecipes(Consumer<FinishedRecipe> consumer) {

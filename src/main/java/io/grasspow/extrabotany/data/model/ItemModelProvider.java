@@ -158,7 +158,8 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                 ExtraBotanyItems.STAR_WRATH.get(),
                 ExtraBotanyItems.INFLUX_WAVER.get(),
                 ExtraBotanyItems.TRUE_SHADOW_KATANA.get(),
-                ExtraBotanyItems.TRUE_TERRA_BLADE.get()
+                ExtraBotanyItems.TRUE_TERRA_BLADE.get(),
+                ExtraBotanyItems.EXCALIBER.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }
