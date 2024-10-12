@@ -33,13 +33,13 @@ public class JingweiFeatherItem extends BaubleItem implements IItemWithLeftClick
 
     public void leftClick(PlayerInteractEvent.LeftClickEmpty evt) {
         if (!EquipmentHandler.findOrEmpty(this, evt.getEntity()).isEmpty())
-            ClientModXplatAbstractions.INSTANCE.sendToServer(LeftClickPack.INSTANCE);
+            ClientModXplatAbstractions.INSTANCE.sendToServer(new LeftClickPack(evt.getItemStack()));
 
     }
 
     public void leftClickBlock(PlayerInteractEvent.LeftClickBlock evt) {
         if (evt.getEntity().level().isClientSide() && !EquipmentHandler.findOrEmpty(this, evt.getEntity()).isEmpty())
-            ClientModXplatAbstractions.INSTANCE.sendToServer(LeftClickPack.INSTANCE);
+            ClientModXplatAbstractions.INSTANCE.sendToServer(new LeftClickPack(evt.getItemStack()));
     }
 
     @Override

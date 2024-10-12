@@ -33,7 +33,7 @@ public class FrostStarItem extends BaubleItem {
                 for (LivingEntity living : player.level().getEntitiesOfClass(LivingEntity.class, new AABB(player.getOnPos().offset(-RANGE, -RANGE, -RANGE), player.getOnPos().offset(RANGE + 1, RANGE + 1, RANGE + 1)))) {
                     if (((ServerPlayer) player).getCamera() != living
                             && living != player
-                            && DamageEventHandler.checkPassable(living, player.damageSources().magic())
+                            && DamageEventHandler.checkPassable(living, player)
                             && player.tickCount % 20 == 0
                             && ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_DAMAGE, true)) {
                         living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 4));

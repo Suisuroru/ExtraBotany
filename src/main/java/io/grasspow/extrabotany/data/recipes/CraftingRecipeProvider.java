@@ -348,6 +348,16 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("W")
                 .unlockedBy("has_item", conditionsFromTag(ExtraBotanyTags.Items.INGOTS_SHADOWIUM))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.INFLUX_WAVER.get())
+                .define('T', BotaniaItems.thunderSword)
+                .define('L', BotaniaItems.lifeEssence)
+                .define('O', ExtraBotanyItems.THE_ORIGIN.get())
+                .define('A', ExtraBotanyItems.AERIALITE.get())
+                .pattern("  A")
+                .pattern("LO ")
+                .pattern("TL ")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.THE_ORIGIN.get(), ExtraBotanyItems.AERIALITE.get(), BotaniaItems.thunderSword, BotaniaItems.lifeEssence))
+                .save(consumer);
     }
 
     private void buildArmorRecipes(Consumer<FinishedRecipe> consumer) {

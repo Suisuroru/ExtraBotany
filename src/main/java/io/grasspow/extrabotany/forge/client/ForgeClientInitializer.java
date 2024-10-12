@@ -2,9 +2,11 @@ package io.grasspow.extrabotany.forge.client;
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.client.ExtraBotanyItemProperties;
+import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
 import io.grasspow.extrabotany.client.model.ExtraBotanyLayerDefinitions;
 import io.grasspow.extrabotany.client.render.ColorHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntityRenderers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -25,6 +27,8 @@ public class ForgeClientInitializer {
 
     @SubscribeEvent
     public static void onModelRegister(ModelEvent.RegisterAdditional evt) {
+        var resourceManager = Minecraft.getInstance().getResourceManager();
+        MiscellaneousModels.INSTANCE.onModelRegister(resourceManager, evt::register);
         ExtraBotanyItemProperties.init((item, id, prop) -> ItemProperties.register(item.asItem(), id, prop));
     }
 
@@ -42,5 +46,10 @@ public class ForgeClientInitializer {
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item evt) {
         ColorHandler.submitItems(evt::register);
+    }
+
+    @SubscribeEvent
+    public static void onModelBake(ModelEvent.ModifyBakingResult evt) {
+        MiscellaneousModels.INSTANCE.onModelBake(evt.getModelBakery(), evt.getModels());
     }
 }

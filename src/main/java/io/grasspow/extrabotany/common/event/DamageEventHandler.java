@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.common.event;
 
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -15,16 +15,16 @@ public class DamageEventHandler {
 
     @SubscribeEvent
     public static void onLivingAttack(LivingAttackEvent event) {
-        if (!checkPassable(event.getEntity(), event.getSource()) && !event.isCanceled()) {
+        if (!checkPassable(event.getEntity(), event.getSource().getEntity()) && !event.isCanceled()) {
             event.setCanceled(true);
         }
     }
 
-    public static boolean checkPassable(LivingEntity target, DamageSource source) {
-        if (target == source.getEntity()) {
+    public static boolean checkPassable(LivingEntity target, Entity attacker) {
+        if (target == attacker) {
             return false;
         }
-        if (source.getEntity() instanceof Player player) {
+        if (attacker instanceof Player player) {
             boolean sourceEquipped = !EquipmentHandler.findOrEmpty(ExtraBotanyItems.PEACE_AMULET.get(), player).isEmpty();
             if (target instanceof Player targetPlayer) {
                 return !sourceEquipped && EquipmentHandler.findOrEmpty(ExtraBotanyItems.PEACE_AMULET.get(), targetPlayer).isEmpty();

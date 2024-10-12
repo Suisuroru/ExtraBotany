@@ -2,6 +2,7 @@ package io.grasspow.extrabotany.data.model;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
+import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
@@ -37,6 +38,7 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
     private static final TextureSlot LAYER1 = TextureSlotAccessor.make("layer1");
     private static final TextureSlot LAYER2 = TextureSlotAccessor.make("layer2");
     private static final TextureSlot LAYER3 = TextureSlotAccessor.make("layer3");
+    private static final ModelTemplate GENERATED_0 = new ModelTemplate(Optional.of(new ResourceLocation("item/generated")), Optional.empty(), TextureSlot.LAYER0);
     private static final ModelTemplate GENERATED_1 = new ModelTemplate(Optional.of(new ResourceLocation("item/generated")), Optional.empty(), TextureSlot.LAYER0, LAYER1);
     private static final ModelTemplate GENERATED_2 = new ModelTemplate(Optional.of(new ResourceLocation("item/generated")), Optional.empty(), TextureSlot.LAYER0, LAYER1, LAYER2);
     private static final ModelTemplate HANDHELD_1 = new ModelTemplate(Optional.of(new ResourceLocation("item/handheld")), Optional.empty(), TextureSlot.LAYER0, LAYER1);
@@ -68,6 +70,7 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
         registerItemBlocks(takeAll(items, i -> i instanceof BlockItem).stream().map(i -> (BlockItem) i).collect(Collectors.toSet()), map::put);
         registerItemOverrides(items, map::put);
         registerItems(items, map::put);
+        registerIcons(map::put);
         PackOutput.PathProvider modelPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models");
         List<CompletableFuture<?>> output = new ArrayList<>();
         for (Map.Entry<ResourceLocation, Supplier<JsonElement>> e : map.entrySet()) {
@@ -151,10 +154,20 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                 ExtraBotanyItems.ROD_OF_DISCORD.get(),
 
                 //weapon
-                ExtraBotanyItems.SHADOW_KATANA.get()
+                ExtraBotanyItems.SHADOW_KATANA.get(),
+                ExtraBotanyItems.INFLUX_WAVER.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }
 
+    private void registerIcons(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer) {
+        simpleIcon(consumer, LibEntityNames.INFLUX_WAVER_PROJECTILE);
+    }
+
+    private void simpleIcon(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer, String name) {
+        GENERATED_0.create(resId("icon/" + name),
+                TextureMapping.layer0(resId("item/" + name)),
+                consumer);
+    }
 
 }

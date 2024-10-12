@@ -18,6 +18,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.equipment.weapon.FlamescionWeaponItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.InfluxWaverItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.ShadowKatanaItem;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
@@ -26,6 +27,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -114,7 +116,8 @@ public class ExtraBotanyItems {
 
     //weapon
     public static final RegistryObject<Item> SHADOW_KATANA = regDefItem(LibItemNames.SHADOW_KATANA, ShadowKatanaItem::new, nonStackable());
-    public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, null);
+    public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, relic());
+    public static final RegistryObject<Item> INFLUX_WAVER = regDefItem(LibItemNames.INFLUX_WAVER, InfluxWaverItem::new, relic());
 
     // cosmetic bauble
     public static final RegistryObject<Item> FOX_EAR = regComBaubleItem(LibItemNames.FOX_EAR, CosmeticBaubleItem.Variant.FOX_EAR, new Item.Properties());
@@ -232,6 +235,12 @@ public class ExtraBotanyItems {
     private static Item.Properties stackTo32() {
         return defaultBuilder().stacksTo(32);
     }
+
+    private static Item.Properties relic() {
+        return nonStackable().rarity(Rarity.EPIC).setNoRepair();
+    }
+
+    ;
 
     public static DeferredRegister<Item> getItems() {
         return ITEMS;

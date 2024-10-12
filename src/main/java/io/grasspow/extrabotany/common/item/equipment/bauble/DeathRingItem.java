@@ -27,7 +27,7 @@ public class DeathRingItem extends BaubleItem {
                 for (LivingEntity living : entity.level().getEntitiesOfClass(LivingEntity.class, new AABB(player.getOnPos().offset(-RANGE, -RANGE, -RANGE), entity.getOnPos().offset(RANGE + 1, RANGE + 1, RANGE + 1)))) {
                     if (((ServerPlayer) player).getCamera() != living
                             && living != player
-                            && DamageEventHandler.checkPassable(living, player.damageSources().magic())
+                            && DamageEventHandler.checkPassable(living, player)
                             && ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_DAMAGE, true)
                             && player.tickCount % 30 == 0) {
                         living.addEffect(new MobEffectInstance(MobEffects.WITHER, 60, 1));

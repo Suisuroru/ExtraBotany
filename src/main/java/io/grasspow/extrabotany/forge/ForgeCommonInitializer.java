@@ -6,6 +6,7 @@ import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.MoonPendantItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SagesManaRingItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.InfluxWaverItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import io.grasspow.extrabotany.forge.network.ForgePacketHandler;
@@ -78,7 +79,8 @@ public class ForgeCommonInitializer {
             ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic,
             ExtraBotanyItems.SUN_RING.get(), SunRingItem::makeRelic,
             ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic,
-            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic
+            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic,
+            ExtraBotanyItems.INFLUX_WAVER.get(), InfluxWaverItem::makeRelic
     ));
 
 

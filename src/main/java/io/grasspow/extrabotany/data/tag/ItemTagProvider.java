@@ -87,8 +87,9 @@ public class ItemTagProvider extends ItemTagsProvider {
         );
 
         //weapon
-        this.tag(ItemTags.SWORDS).add(SHADOW_KATANA.get());
-        this.tag(ItemTags.SWORDS).add(FLAMESCION_WEAPON.get());
+        this.tag(ItemTags.SWORDS).add(
+                SHADOW_KATANA.get(), FLAMESCION_WEAPON.get(), INFLUX_WAVER.get()
+        );
     }
 
 
@@ -130,7 +131,8 @@ public class ItemTagProvider extends ItemTagsProvider {
                 GOBLINS_LAYER_HELM, GOBLINS_LAYER_CHEST, GOBLINS_LAYER_LEGS, GOBLINS_LAYER_BOOTS,
                 SHADOW_WARRIOR_HELM, SHADOW_WARRIOR_CHEST, SHADOW_WARRIOR_LEGS, SHADOW_WARRIOR_BOOTS,
                 SHOOTING_GUARDIAN_HELM, SHOOTING_GUARDIAN_CHEST, SHOOTING_GUARDIAN_LEGS, SHOOTING_GUARDIAN_BOOTS,
-                MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS
+                MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
+                INFLUX_WAVER
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

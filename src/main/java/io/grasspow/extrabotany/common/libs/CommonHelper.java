@@ -7,12 +7,17 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import static io.grasspow.extrabotany.common.event.DamageEventHandler.checkPassable;
 
 public class CommonHelper {
 
@@ -34,5 +39,10 @@ public class CommonHelper {
             CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, stack);
             player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
         });
+    }
+
+    public static List<LivingEntity> getFilteredEntities(List<LivingEntity> entities, Entity source) {
+        List<LivingEntity> list = entities.stream().filter((living) -> checkPassable(living, source) && !living.isRemoved()).collect(Collectors.toList());
+        return list;
     }
 }

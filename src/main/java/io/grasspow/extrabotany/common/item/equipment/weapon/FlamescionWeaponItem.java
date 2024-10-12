@@ -3,7 +3,6 @@ package io.grasspow.extrabotany.common.item.equipment.weapon;
 import io.grasspow.extrabotany.common.network.server.FlamescionStrengthenPack;
 import io.grasspow.extrabotany.xplat.client.ClientModXplatAbstractions;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class FlamescionWeaponItem extends SwordItem {
 
     public FlamescionWeaponItem(Properties properties) {
-        super(Tiers.NETHERITE, 5, -1.6F, new Properties().rarity(Rarity.EPIC).stacksTo(1).setNoRepair());
+        super(Tiers.NETHERITE, 5, -1.6F, properties);
         MinecraftForge.EVENT_BUS.addListener(this::leftClick);
         MinecraftForge.EVENT_BUS.addListener(this::leftClickBlock);
         MinecraftForge.EVENT_BUS.addListener(this::attackEntity);
