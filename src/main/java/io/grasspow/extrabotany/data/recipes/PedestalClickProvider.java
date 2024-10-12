@@ -2,10 +2,10 @@ package io.grasspow.extrabotany.data.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.data.PackOutput;

@@ -1,6 +1,6 @@
-package io.grasspow.extrabotany.common.item;
+package io.grasspow.extrabotany.common.item.misc;
 
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;

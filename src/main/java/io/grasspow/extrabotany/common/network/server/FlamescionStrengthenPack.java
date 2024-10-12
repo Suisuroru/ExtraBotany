@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.common.network.server;
 
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.equipment.weapon.FlamescionWeaponItem;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;

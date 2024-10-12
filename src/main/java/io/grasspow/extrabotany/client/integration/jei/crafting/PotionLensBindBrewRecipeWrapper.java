@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.client.integration.jei.crafting;
 
 import io.grasspow.extrabotany.common.crafting.PotionLensBindBrewRecipe;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.ICraftingGridHelper;

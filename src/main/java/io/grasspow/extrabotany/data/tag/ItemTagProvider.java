@@ -25,7 +25,7 @@ import vazkii.botania.common.lib.BotaniaTags;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-import static io.grasspow.extrabotany.common.registry.ExtraBotanyItems.*;
+import static io.grasspow.extrabotany.common.item.ExtraBotanyItems.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
     public ItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,
@@ -88,7 +88,7 @@ public class ItemTagProvider extends ItemTagsProvider {
 
         //weapon
         this.tag(ItemTags.SWORDS).add(
-                SHADOW_KATANA.get(), FLAMESCION_WEAPON.get(), INFLUX_WAVER.get()
+                SHADOW_KATANA.get(), FLAMESCION_WEAPON.get(), INFLUX_WAVER.get(), STAR_WRATH.get()
         );
     }
 
@@ -132,7 +132,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 SHADOW_WARRIOR_HELM, SHADOW_WARRIOR_CHEST, SHADOW_WARRIOR_LEGS, SHADOW_WARRIOR_BOOTS,
                 SHOOTING_GUARDIAN_HELM, SHOOTING_GUARDIAN_CHEST, SHOOTING_GUARDIAN_LEGS, SHOOTING_GUARDIAN_BOOTS,
                 MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
-                INFLUX_WAVER
+                INFLUX_WAVER, STAR_WRATH
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

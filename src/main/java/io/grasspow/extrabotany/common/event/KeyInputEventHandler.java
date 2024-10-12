@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.event;
 
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.EntityHitResult;

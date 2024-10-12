@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.data;
 
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.DisplayInfo;
 import net.minecraft.advancements.FrameType;

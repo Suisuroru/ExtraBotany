@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.client.render;
 
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.util.Mth;

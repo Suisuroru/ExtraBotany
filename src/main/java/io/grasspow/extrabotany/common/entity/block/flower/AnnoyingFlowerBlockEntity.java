@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.common.entity.block.flower;
 
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;

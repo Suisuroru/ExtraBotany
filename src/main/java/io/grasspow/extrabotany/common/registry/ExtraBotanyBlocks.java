@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.registry;
 
 import io.grasspow.extrabotany.common.block.*;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;

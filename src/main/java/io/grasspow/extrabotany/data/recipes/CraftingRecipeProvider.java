@@ -1,12 +1,12 @@
 package io.grasspow.extrabotany.data.recipes;
 
 import io.grasspow.extrabotany.common.crafting.*;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -357,6 +357,16 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("LO ")
                 .pattern("TL ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.THE_ORIGIN.get(), ExtraBotanyItems.AERIALITE.get(), BotaniaItems.thunderSword, BotaniaItems.lifeEssence))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ExtraBotanyItems.STAR_WRATH.get())
+                .define('T', BotaniaItems.starSword)
+                .define('L', BotaniaItems.lifeEssence)
+                .define('O', ExtraBotanyItems.THE_ORIGIN.get())
+                .define('A', ExtraBotanyItems.AERIALITE.get())
+                .pattern("  A")
+                .pattern("LO ")
+                .pattern("TL ")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.THE_ORIGIN.get(), ExtraBotanyItems.AERIALITE.get(), BotaniaItems.starSword, BotaniaItems.lifeEssence))
                 .save(consumer);
     }
 

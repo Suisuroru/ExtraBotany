@@ -10,7 +10,7 @@ package io.grasspow.extrabotany.common.item.brew;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

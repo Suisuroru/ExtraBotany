@@ -10,8 +10,8 @@ package io.grasspow.extrabotany.common.item.equipment.armor;
 
 import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

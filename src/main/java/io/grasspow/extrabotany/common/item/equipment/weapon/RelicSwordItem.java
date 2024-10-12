@@ -17,7 +17,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import vazkii.botania.api.item.Relic;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.RelicImpl;
@@ -54,11 +53,6 @@ public abstract class RelicSwordItem extends SwordItem implements IItemWithLeftC
     @Override
     public int getEntityLifespan(ItemStack itemStack, Level level) {
         return Integer.MAX_VALUE;
-    }
-
-    public static Relic makeRelic(ItemStack stack) {
-        return new RelicImpl(stack, null) {
-        };
     }
 
     @Override

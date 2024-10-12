@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.common.entity.block;
 
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

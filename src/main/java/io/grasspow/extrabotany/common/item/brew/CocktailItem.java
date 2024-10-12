@@ -1,6 +1,6 @@
 package io.grasspow.extrabotany.common.item.brew;
 
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 
 public class CocktailItem extends BaseBrewItemEX {
     public CocktailItem(Properties builder) {

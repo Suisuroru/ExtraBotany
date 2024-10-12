@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.data.recipes;
 
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;

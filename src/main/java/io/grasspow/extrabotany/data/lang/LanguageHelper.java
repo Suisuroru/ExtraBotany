@@ -1,9 +1,9 @@
 package io.grasspow.extrabotany.data.lang;
 
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -89,6 +89,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.SHADOW_KATANA, "Shadow Catana", "影刃");
         addItem(ExtraBotanyItems.FLAMESCION_WEAPON, "Key of Flamescion", "焢煌之境:劫炎永燎");
         addItem(ExtraBotanyItems.INFLUX_WAVER, "Influx Waver", "波涌之刃");
+        addItem(ExtraBotanyItems.STAR_WRATH, "Star Wrath", "狂星之怒");
 
         //armor
         add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");

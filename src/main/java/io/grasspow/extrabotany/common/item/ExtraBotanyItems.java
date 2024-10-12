@@ -1,9 +1,5 @@
-package io.grasspow.extrabotany.common.registry;
+package io.grasspow.extrabotany.common.item;
 
-import io.grasspow.extrabotany.common.item.EmptyBottleItem;
-import io.grasspow.extrabotany.common.item.GoldClothItem;
-import io.grasspow.extrabotany.common.item.ManaDrinkItem;
-import io.grasspow.extrabotany.common.item.NightmareFuelItem;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
@@ -20,8 +16,13 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.equipment.weapon.FlamescionWeaponItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.InfluxWaverItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.ShadowKatanaItem;
+import io.grasspow.extrabotany.common.item.equipment.weapon.StarWrathItem;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
+import io.grasspow.extrabotany.common.item.misc.EmptyBottleItem;
+import io.grasspow.extrabotany.common.item.misc.GoldClothItem;
+import io.grasspow.extrabotany.common.item.misc.ManaDrinkItem;
+import io.grasspow.extrabotany.common.item.misc.NightmareFuelItem;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorItem;
@@ -118,6 +119,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SHADOW_KATANA = regDefItem(LibItemNames.SHADOW_KATANA, ShadowKatanaItem::new, nonStackable());
     public static final RegistryObject<Item> FLAMESCION_WEAPON = regDefItem(LibItemNames.FLAMESCION_WEAPON, FlamescionWeaponItem::new, relic());
     public static final RegistryObject<Item> INFLUX_WAVER = regDefItem(LibItemNames.INFLUX_WAVER, InfluxWaverItem::new, relic());
+    public static final RegistryObject<Item> STAR_WRATH = regDefItem(LibItemNames.STAR_WRATH, StarWrathItem::new, relic());
 
     // cosmetic bauble
     public static final RegistryObject<Item> FOX_EAR = regComBaubleItem(LibItemNames.FOX_EAR, CosmeticBaubleItem.Variant.FOX_EAR, new Item.Properties());

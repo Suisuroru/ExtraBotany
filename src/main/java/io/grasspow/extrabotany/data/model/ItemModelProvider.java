@@ -2,10 +2,10 @@ package io.grasspow.extrabotany.data.model;
 
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
@@ -155,7 +155,8 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
 
                 //weapon
                 ExtraBotanyItems.SHADOW_KATANA.get(),
-                ExtraBotanyItems.INFLUX_WAVER.get()
+                ExtraBotanyItems.INFLUX_WAVER.get(),
+                ExtraBotanyItems.STAR_WRATH.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         takeAll(items, i -> true).forEach(i -> ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
     }

@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.common.item.equipment.tool;
 
 
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorHelmItem;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;

@@ -1,8 +1,8 @@
 package io.grasspow.extrabotany.client.integration.jei.crafting;
 
 import io.grasspow.extrabotany.common.crafting.CocktailUpgradeRecipe;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyItems;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.ICraftingGridHelper;
