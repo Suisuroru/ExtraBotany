@@ -2,6 +2,7 @@ package io.grasspow.extrabotany.forge;
 
 import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
+import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.CoreGodItem;
@@ -10,6 +11,7 @@ import io.grasspow.extrabotany.common.item.equipment.bauble.SagesManaRingItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
 import io.grasspow.extrabotany.common.item.equipment.tool.CameraItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
+import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
 import io.grasspow.extrabotany.forge.network.ForgePacketHandler;
@@ -30,6 +32,7 @@ import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.api.mana.ManaItem;
 import vazkii.botania.forge.CapabilityUtil;
+import vazkii.patchouli.api.PatchouliAPI;
 
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -37,6 +40,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static vazkii.botania.common.lib.ResourceLocationHelper.prefix;
 
 
@@ -46,13 +50,16 @@ public class ForgeCommonInitializer {
 
     public ForgeCommonInitializer(FMLJavaModLoadingContext context) {
         modEventBus = context.getModEventBus();
-        modEventBus.addListener(this::commonSetup);
         registryInit();
+        modEventBus.addListener(this::commonSetup);
     }
 
     public void commonSetup(FMLCommonSetupEvent evt) {
         ForgePacketHandler.init();
         registerEvents();
+
+        PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block"), PedestalBlockEntity.MULTIBLOCK.get());
+        PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block_2"), PedestalBlockEntity.MULTIBLOCK2.get());
     }
 
     public static void registryInit() {

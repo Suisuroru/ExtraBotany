@@ -9,6 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.FloatingSpecialFlowerBlock;
@@ -36,10 +37,17 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
     protected void addTags(HolderLookup.Provider pProvider) {
         registerVanillaTag();
         registerBotaniaTag();
+        registerForgeTag();
         tag(ExtraBotanyTags.Blocks.BLOCKS_PHOTONIUM).add(PHOTONIUM_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.BLOCKS_SHADOWIUM).add(SHADOWIUM_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.BLOCKS_AERIALITE).add(AERIALITE_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.BLOCKS_ORICHALCOS).add(ORICHALCOS_BLOCK.get());
+    }
+
+    private void registerForgeTag() {
+        Stream.of(
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK, AERIALITE_BLOCK
+        ).map(RegistryObject::get).forEach(tag(Tags.Blocks.STORAGE_BLOCKS)::add);
     }
 
     private void registerVanillaTag() {
