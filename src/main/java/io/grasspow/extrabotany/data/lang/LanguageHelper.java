@@ -94,6 +94,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.TRUE_TERRA_BLADE, "True Terra Blade", "真泰拉之刃");
         addItem(ExtraBotanyItems.EXCALIBER, "Excaliber", "王者圣剑");
         addItem(ExtraBotanyItems.FIRST_FRACTAL, "First Fractal", "最初分型");
+        addItem(ExtraBotanyItems.FAILNAUGHT, "Failnaught", "百中弓");
 
         //armor
         add("extrabotany.armorset.miku.name", "Starry Idol", "星空歌姬");

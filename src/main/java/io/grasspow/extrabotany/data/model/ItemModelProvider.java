@@ -159,7 +159,8 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                 ExtraBotanyItems.INFLUX_WAVER.get(),
                 ExtraBotanyItems.TRUE_SHADOW_KATANA.get(),
                 ExtraBotanyItems.TRUE_TERRA_BLADE.get(),
-                ExtraBotanyItems.EXCALIBER.get()
+                ExtraBotanyItems.EXCALIBER.get(),
+                ExtraBotanyItems.FAILNAUGHT.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         GENERATED_0.create(resId("item/first_fractal"),
                 TextureMapping.layer0(resId("item/sword_domain_9")),

@@ -41,6 +41,7 @@ import static vazkii.botania.common.lib.ResourceLocationHelper.prefix;
 @Mod(LibMisc.MOD_ID)
 public class ForgeCommonInitializer {
     private static IEventBus modEventBus;
+
     public ForgeCommonInitializer(FMLJavaModLoadingContext context) {
         modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
@@ -76,19 +77,19 @@ public class ForgeCommonInitializer {
             ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem.SagesManaRingItemImpl::new
     ));
 
-    private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
-            ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic,
-            ExtraBotanyItems.SUN_RING.get(), SunRingItem::makeRelic,
-            ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic,
-            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic,
-            ExtraBotanyItems.INFLUX_WAVER.get(), InfluxWaverItem::makeRelic,
-            ExtraBotanyItems.STAR_WRATH.get(), StarWrathItem::makeRelic,
-            ExtraBotanyItems.TRUE_SHADOW_KATANA.get(), TrueShadowKatanaItem::makeRelic,
-            ExtraBotanyItems.TRUE_TERRA_BLADE.get(), TrueTerraBladeItem::makeRelic,
-            ExtraBotanyItems.EXCALIBER.get(), ExcaliberItem::makeRelic,
-            ExtraBotanyItems.FIRST_FRACTAL.get(), FirstFractalItem::makeRelic
+    private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.ofEntries(
+            Map.entry(ExtraBotanyItems.INFINITE_WINE.get(), InfiniteWineItem::makeRelic),
+            Map.entry(ExtraBotanyItems.SUN_RING.get(), SunRingItem::makeRelic),
+            Map.entry(ExtraBotanyItems.MOON_PENDANT.get(), MoonPendantItem::makeRelic),
+            Map.entry(ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem::makeRelic),
+            Map.entry(ExtraBotanyItems.INFLUX_WAVER.get(), InfluxWaverItem::makeRelic),
+            Map.entry(ExtraBotanyItems.STAR_WRATH.get(), StarWrathItem::makeRelic),
+            Map.entry(ExtraBotanyItems.TRUE_SHADOW_KATANA.get(), TrueShadowKatanaItem::makeRelic),
+            Map.entry(ExtraBotanyItems.TRUE_TERRA_BLADE.get(), TrueTerraBladeItem::makeRelic),
+            Map.entry(ExtraBotanyItems.EXCALIBER.get(), ExcaliberItem::makeRelic),
+            Map.entry(ExtraBotanyItems.FIRST_FRACTAL.get(), FirstFractalItem::makeRelic),
+            Map.entry(ExtraBotanyItems.FAILNAUGHT.get(), FailnaughtItem::makeRelic)
     ));
-
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {
         var stack = e.getObject();

@@ -89,7 +89,8 @@ public class ItemTagProvider extends ItemTagsProvider {
         //weapon
         this.tag(ItemTags.SWORDS).add(
                 SHADOW_KATANA.get(), FLAMESCION_WEAPON.get(), INFLUX_WAVER.get(), STAR_WRATH.get(),
-                TRUE_SHADOW_KATANA.get(), TRUE_TERRA_BLADE.get(), EXCALIBER.get(), FIRST_FRACTAL.get()
+                TRUE_SHADOW_KATANA.get(), TRUE_TERRA_BLADE.get(), EXCALIBER.get(), FIRST_FRACTAL.get(),
+                FAILNAUGHT.get()
         );
     }
 
@@ -135,7 +136,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
                 INFLUX_WAVER, STAR_WRATH,
                 TRUE_SHADOW_KATANA, TRUE_TERRA_BLADE,
-                EXCALIBER, FIRST_FRACTAL
+                EXCALIBER, FIRST_FRACTAL, FAILNAUGHT
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

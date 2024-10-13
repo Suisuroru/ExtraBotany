@@ -6,7 +6,7 @@ public class LibEntityNames {
     public static final String SLASH = "slash";
     public static final String MOTOR = "motor";
     public static final String UFO = "ufo";
-    public static final String MAGICARROW = "magicarrow";
+    public static final String MAGIC_ARROW_PROJECTILE = "magic_arrow_projectile";
     public static final String FLAMESCIONSLASH = "flamescionslash";
     public static final String STRENGTHENSLASH = "strengthenslash";
     public static final String VOID = "void";

@@ -156,4 +156,13 @@ public class ExtraBotanyEntities {
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.PHANTOM_SWORD_PROJECTILE).toString()));
+
+    public static final RegistryObject<EntityType<MagicArrowProjectile>> MAGIC_ARROW_PROJECTILE = ENTITY_TYPES.register(LibEntityNames.MAGIC_ARROW_PROJECTILE,
+            () -> EntityType.Builder
+                    .<MagicArrowProjectile>of(MagicArrowProjectile::new, MobCategory.MISC)
+                    .sized(0.05F, 0.05F)
+                    .setUpdateInterval(10)
+                    .setTrackingRange(64)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.PHANTOM_SWORD_PROJECTILE).toString()));
 }

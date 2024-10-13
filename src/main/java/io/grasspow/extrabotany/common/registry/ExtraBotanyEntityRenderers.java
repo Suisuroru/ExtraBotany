@@ -36,5 +36,6 @@ public class ExtraBotanyEntityRenderers {
         consumer.accept(ExtraBotanyEntities.TRUE_SHADOW_KATANA_PROJECTILE.get(), BaseProjectileRender::new);
         consumer.accept(ExtraBotanyEntities.TRUE_TERRA_BLADE_PROJECTILE.get(), BaseProjectileRender::new);
         consumer.accept(ExtraBotanyEntities.PHANTOM_SWORD_PROJECTILE.get(), BaseProjectileRender::new);
+        consumer.accept(ExtraBotanyEntities.MAGIC_ARROW_PROJECTILE.get(), DummyRender::new);
     }
 }
