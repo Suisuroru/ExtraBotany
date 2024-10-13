@@ -126,7 +126,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 .forEach(item -> builder.add(ResourceKey.create(Registries.ITEM, item)));
         Stream.of(
                 MANASTEEL_HAMMER, ELEMENTIUM_HAMMER, TERRASTEEL_HAMMER, ULTIMATE_HAMMER,
-                INFINITE_WINE,
+                INFINITE_WINE, CAMERA,
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, JINGWEI_FEATHER, POTATO_CHIPS,
                 SUN_RING, MOON_PENDANT, ROD_OF_DISCORD, SILVER_BULLET,
                 MIKU_HELM, MIKU_CHEST, MIKU_LEGS, MIKU_BOOTS,

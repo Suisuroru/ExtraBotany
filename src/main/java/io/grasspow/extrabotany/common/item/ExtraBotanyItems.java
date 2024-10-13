@@ -5,10 +5,7 @@ import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
 import io.grasspow.extrabotany.common.item.equipment.armor.*;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
-import io.grasspow.extrabotany.common.item.equipment.tool.ManaReader;
-import io.grasspow.extrabotany.common.item.equipment.tool.RodOfDiscordItem;
-import io.grasspow.extrabotany.common.item.equipment.tool.SilverBulletItem;
-import io.grasspow.extrabotany.common.item.equipment.tool.WalkingCaneItem;
+import io.grasspow.extrabotany.common.item.equipment.tool.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
 import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
@@ -89,6 +86,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> WALKING_CANE = regDefItem(LibItemNames.WALKING_CANE, WalkingCaneItem::new, nonStackable());
     public static final RegistryObject<Item> ROD_OF_DISCORD = regDefItem(LibItemNames.ROD_OF_DISCORD, RodOfDiscordItem::new, nonStackable());
     public static final RegistryObject<Item> SILVER_BULLET = regDefItem(LibItemNames.SILVER_BULLET, SilverBulletItem::new, nonStackable());
+    public static final RegistryObject<Item> CAMERA = regDefItem(LibItemNames.CAMERA, CameraItem::new, nonStackable());
 
     //armor
     public static final RegistryObject<Item> MIKU_HELM = regArmorItem(LibItemNames.MIKU_HELM, MikuArmorItem::new, nonStackable(), ArmorItem.Type.HELMET);

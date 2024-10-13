@@ -75,6 +75,8 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     private void buildCommonCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         buildArmorRecipes(consumer);
         buildWeaponRecipes(consumer);
+        buildBaubleRecipes(consumer);
+        buildToolRecipes(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.PEDESTAL.get())
                 .define('G', Tags.Items.NUGGETS_GOLD)
                 .define('L', BotaniaBlocks.livingrock)
@@ -82,30 +84,6 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" L ")
                 .pattern("LLL")
                 .unlockedBy("has_item", conditionsFromItem(BotaniaBlocks.livingrock))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
-                .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
-                .define('W', BotaniaItems.livingwoodTwig)
-                .pattern("MMM")
-                .pattern("MMM")
-                .pattern(" W ")
-                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_MANASTEEL))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ELEMENTIUM_HAMMER.get())
-                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
-                .define('W', BotaniaItems.livingwoodTwig)
-                .pattern("MMM")
-                .pattern("MMM")
-                .pattern(" W ")
-                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_ELEMENTIUM))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.TERRASTEEL_HAMMER.get())
-                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
-                .define('W', BotaniaItems.livingwoodTwig)
-                .pattern("MMM")
-                .pattern("MMM")
-                .pattern(" W ")
-                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.EMPTY_BOTTLE.get())
                 .define('G', BotaniaBlocks.manaGlass)
@@ -137,43 +115,6 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern("BOB")
                 .pattern("BBB")
                 .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.ORICHALCOS.get()))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANA_READER.get())
-                .define('D', BotaniaTags.Items.GEMS_MANA_DIAMOND)
-                .define('T', BotaniaTags.Items.DUSTS_MANA)
-                .define('S', BotaniaItems.livingwoodTwig)
-                .pattern(" TD")
-                .pattern(" ST")
-                .pattern("S  ")
-                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.GEMS_MANA_DIAMOND))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.WALKING_CANE.get())
-                .define('G', Tags.Items.INGOTS_GOLD)
-                .define('R', BotaniaBlocks.livingrock)
-                .define('W', BotaniaItems.livingwoodTwig)
-                .pattern(" RG")
-                .pattern(" WR")
-                .pattern("W  ")
-                .unlockedBy("has_item", conditionsFromTag(Tags.Items.INGOTS_GOLD))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ROD_OF_DISCORD.get())
-                .define('C', ExtraBotanyItems.THE_CHAOS.get())
-                .define('D', BotaniaItems.pixieDust)
-                .define('W', BotaniaItems.livingwoodTwig)
-                .pattern(" DC")
-                .pattern(" WD")
-                .pattern("W  ")
-                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.SILVER_BULLET.get())
-                .define('P', ExtraBotanyTags.Items.INGOTS_PHOTONIUM)
-                .define('S', BotaniaTags.Items.INGOTS_MANASTEEL)
-                .define('C', ExtraBotanyItems.THE_CHAOS.get())
-                .define('G', BotaniaItems.manaGun)
-                .pattern("PPS")
-                .pattern(" GC")
-                .pattern("  P")
-                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ExtraBotanyBlocks.DIMENSION_CATALYST.get())
                 .define('L', BotaniaBlocks.livingrock)
@@ -297,8 +238,82 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
+    }
 
+    private void buildToolRecipes(Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANASTEEL_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_MANASTEEL)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_MANASTEEL))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ELEMENTIUM_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_ELEMENTIUM))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.TERRASTEEL_HAMMER.get())
+                .define('M', BotaniaTags.Items.INGOTS_ELEMENTIUM)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern(" W ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.INGOTS_TERRASTEEL))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.MANA_READER.get())
+                .define('D', BotaniaTags.Items.GEMS_MANA_DIAMOND)
+                .define('T', BotaniaTags.Items.DUSTS_MANA)
+                .define('S', BotaniaItems.livingwoodTwig)
+                .pattern(" TD")
+                .pattern(" ST")
+                .pattern("S  ")
+                .unlockedBy("has_item", conditionsFromTag(BotaniaTags.Items.GEMS_MANA_DIAMOND))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.WALKING_CANE.get())
+                .define('G', Tags.Items.INGOTS_GOLD)
+                .define('R', BotaniaBlocks.livingrock)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern(" RG")
+                .pattern(" WR")
+                .pattern("W  ")
+                .unlockedBy("has_item", conditionsFromTag(Tags.Items.INGOTS_GOLD))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.ROD_OF_DISCORD.get())
+                .define('C', ExtraBotanyItems.THE_CHAOS.get())
+                .define('D', BotaniaItems.pixieDust)
+                .define('W', BotaniaItems.livingwoodTwig)
+                .pattern(" DC")
+                .pattern(" WD")
+                .pattern("W  ")
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.SILVER_BULLET.get())
+                .define('P', ExtraBotanyTags.Items.INGOTS_PHOTONIUM)
+                .define('S', BotaniaTags.Items.INGOTS_MANASTEEL)
+                .define('C', ExtraBotanyItems.THE_CHAOS.get())
+                .define('G', BotaniaItems.manaGun)
+                .pattern("PPS")
+                .pattern(" GC")
+                .pattern("  P")
+                .unlockedBy("has_item", conditionsFromItem(ExtraBotanyItems.THE_CHAOS.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ExtraBotanyItems.CAMERA.get())
+                .define('B', BotaniaBlocks.darkQuartz)
+                .define('H', ExtraBotanyItems.HERO_MEDAL.get())
+                .define('T', BotaniaTags.Items.INGOTS_TERRASTEEL)
+                .pattern("BBB")
+                .pattern("BHB")
+                .pattern("TTT")
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.HERO_MEDAL.get(), BotaniaBlocks.darkQuartz, BotaniaItems.terrasteel))
+                .save(consumer);
+    }
 
+    private void buildBaubleRecipes(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ExtraBotanyItems.PEACE_AMULET.get())
                 .define('L', BotaniaTags.Items.LIVINGWOOD_LOGS)
                 .define('R', BotaniaBlocks.livingrock)

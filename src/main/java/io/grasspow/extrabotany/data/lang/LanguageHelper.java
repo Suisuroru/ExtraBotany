@@ -84,6 +84,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.WALKING_CANE, "Walking Cane", "步行者手杖");
         addItem(ExtraBotanyItems.ROD_OF_DISCORD, "Rod of Discord", "不谐传送杖");
         addItem(ExtraBotanyItems.SILVER_BULLET, "Silver Bullet", "银翼射手");
+        addItem(ExtraBotanyItems.CAMERA, "Shameimaru's Camera", "文文的相机");
 
         //weapon
         addItem(ExtraBotanyItems.SHADOW_KATANA, "Shadow Catana", "影刃");
