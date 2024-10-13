@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "botania:quartz_sunny"
+    },
+    "H": {
+      "item": "extrabotany:hero_medal"
+    },
+    "F": {
+      "item": "botania:flight_tiara"
+    }
+  },
+  "pattern": [
+    "SHS",
+    "SFS",
+    "SSS"
+  ],
+  "result": {
+    "item": "extrabotany:core_god",
+    "nbt": {
+      "variant": 0
+    }
+  },
+  "show_notification": true
+}

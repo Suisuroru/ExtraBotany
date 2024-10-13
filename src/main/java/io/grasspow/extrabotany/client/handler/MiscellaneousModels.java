@@ -19,6 +19,8 @@ public class MiscellaneousModels {
     public BakedModel trueShadowKatanaProjectileModel;
     public BakedModel trueTerraBladeProjectileModel;
     public BakedModel[] firstFractalWeaponModels = new BakedModel[10];
+    public BakedModel[] coreGodWingsModel = new BakedModel[4];
+    public BakedModel coreGodModel;
     ;
 
     public void onModelRegister(ResourceManager rm, Consumer<ResourceLocation> consumer) {
@@ -28,6 +30,10 @@ public class MiscellaneousModels {
         for (int i = 0; i < 10; i++) {
             consumer.accept(resId("icon/sword_domain_" + i));
         }
+        for (int i = 0; i < 4; i++) {
+            consumer.accept(resId("icon/wing_" + i));
+        }
+        consumer.accept(resId("icon/wing_core_god"));
         if (!registeredModels) {
             registeredModels = true;
         }
@@ -44,6 +50,10 @@ public class MiscellaneousModels {
         for (int i = 0; i < firstFractalWeaponModels.length; i++) {
             firstFractalWeaponModels[i] = map.get(resId("icon/sword_domain_" + i));
         }
+        for (int i = 0; i < coreGodWingsModel.length; i++) {
+            coreGodWingsModel[i] = map.get(resId("icon/wing_" + i));
+        }
+        coreGodModel = map.get(resId("icon/wing_core_god"));
     }
 
     private MiscellaneousModels() {

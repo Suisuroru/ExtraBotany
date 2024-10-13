@@ -61,6 +61,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SUN_RING = regDefItem(LibItemNames.SUN_RING, SunRingItem::new, nonStackable());
     public static final RegistryObject<Item> MOON_PENDANT = regDefItem(LibItemNames.MOON_PENDANT, MoonPendantItem::new, nonStackable());
     public static final RegistryObject<Item> SAGES_MANA_RING = regDefItem(LibItemNames.SAGES_MANA_RING, SagesManaRingItem::new, nonStackable());
+    public static final RegistryObject<Item> CORE_GOD = regDefItem(LibItemNames.CORE_GOD, CoreGodItem::new, nonStackable());
 
     // food
     public static final RegistryObject<Item> SPIRIT_FUEL = regDefItem(LibItemNames.SPIRIT_FUEL, food(ModFoods.SPIRIT_FUEL));

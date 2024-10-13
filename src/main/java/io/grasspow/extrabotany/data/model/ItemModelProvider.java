@@ -178,6 +178,29 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                     TextureMapping.layer0(resId("item/sword_domain_" + i)),
                     consumer);
         }
+        for (int i = 0; i < 4; i++) {
+            var wing = "";
+            switch (i) {
+                case 0:
+                    wing = "coregod";
+                    break;
+                case 1:
+                    wing = "volantoro";
+                    break;
+                case 2:
+                    wing = "jim";
+                    break;
+                case 3:
+                    wing = "mechanical";
+                    break;
+            }
+            GENERATED_0.create(resId("icon/wing_" + i),
+                    TextureMapping.layer0(resId("item/wing_" + wing)),
+                    consumer);
+        }
+        GENERATED_0.create(resId("icon/wing_core_god"),
+                TextureMapping.layer0(resId("item/wing_coregod_")),
+                consumer);
     }
 
     private void simpleIcon(BiConsumer<ResourceLocation, Supplier<JsonElement>> consumer, String name) {

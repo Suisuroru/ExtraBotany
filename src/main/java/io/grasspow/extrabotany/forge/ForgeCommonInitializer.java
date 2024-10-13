@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.CoreGodItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.MoonPendantItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SagesManaRingItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
@@ -90,7 +91,8 @@ public class ForgeCommonInitializer {
             Map.entry(ExtraBotanyItems.EXCALIBER.get(), ExcaliberItem::makeRelic),
             Map.entry(ExtraBotanyItems.FIRST_FRACTAL.get(), FirstFractalItem::makeRelic),
             Map.entry(ExtraBotanyItems.FAILNAUGHT.get(), FailnaughtItem::makeRelic),
-            Map.entry(ExtraBotanyItems.CAMERA.get(), CameraItem::makeRelic)
+            Map.entry(ExtraBotanyItems.CAMERA.get(), CameraItem::makeRelic),
+            Map.entry(ExtraBotanyItems.CORE_GOD.get(), CoreGodItem::makeRelic)
     ));
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {

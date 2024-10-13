@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "extrabotany:core_god"
+    },
+    {
+      "item": "botania:quartz_blaze"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:core_god",
+    "nbt": {
+      "variant": 3
+    }
+  },
+  "show_notification": true
+}

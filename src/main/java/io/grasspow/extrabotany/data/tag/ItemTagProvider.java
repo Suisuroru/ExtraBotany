@@ -104,7 +104,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MOON_PENDANT
         ).map(RegistryObject::get).forEach(tag(accessory("necklace"))::add);
         Stream.of(
-                RED_SCARF
+                RED_SCARF, CORE_GOD
         ).map(RegistryObject::get).forEach(tag(accessory("body"))::add);
         Stream.of(
                 FROST_STAR, DEATH_RING, MANA_DRIVE_RING, SUN_RING,
@@ -136,7 +136,7 @@ public class ItemTagProvider extends ItemTagsProvider {
                 MAID_HELM, MAID_CHEST, MAID_LEGS, MAID_BOOTS,
                 INFLUX_WAVER, STAR_WRATH,
                 TRUE_SHADOW_KATANA, TRUE_TERRA_BLADE,
-                EXCALIBER, FIRST_FRACTAL, FAILNAUGHT
+                EXCALIBER, FIRST_FRACTAL, FAILNAUGHT, CORE_GOD
         ).map(RegistryObject::get).forEach(tag(BotaniaTags.Items.MANA_USING_ITEMS)::add);
         Stream.of(
                         BotaniaTags.Items.PETALS,

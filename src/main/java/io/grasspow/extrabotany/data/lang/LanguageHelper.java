@@ -67,6 +67,11 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.SUN_RING, "Ring of Sacred Sun", "圣阳尊戒");
         addItem(ExtraBotanyItems.MOON_PENDANT, "Heart of Corrupted Moon", "蚀月之心");
         addItem(ExtraBotanyItems.SAGES_MANA_RING, "Sage's Ring of Mana", "贤者魔力指环");
+        addItem(ExtraBotanyItems.CORE_GOD, "Core of God", "律者核心");
+        add("extrabotany.wings0", "Wings: Herrscher", "翅膀：律者");
+        add("extrabotany.wings1", "Wings: Flandre", "翅膀：芙兰朵露");
+        add("extrabotany.wings2", "Wings: Jim", "翅膀：吉米");
+        add("extrabotany.wings3", "Wings: Steampunk", "翅膀：蒸汽朋克");
 
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
