@@ -88,7 +88,7 @@ public class MaidArmorHelmetItem extends MaidArmorItem {
             if (player.isHurt() && player.tickCount % 40 == 0
                     && ManaItemHandler.instance().requestManaExactForTool(stack, player, 20, true))
                 player.heal(1F);
-            if (player.tickCount % 40 == 0)
+            if (player.tickCount % 40 == 0 && ManaItemHandler.instance().requestManaExactForTool(stack, player, 20, true))
                 clearPotions(stack, player);
         }
     }

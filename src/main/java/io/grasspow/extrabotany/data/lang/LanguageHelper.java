@@ -3,8 +3,12 @@ package io.grasspow.extrabotany.data.lang;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
+import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -177,6 +181,14 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.THE_ORIGIN, "The Origin", "起源物质");
         addItem(ExtraBotanyItems.THE_END, "The End", "终末物质");
         addItem(ExtraBotanyItems.THE_UNIVERSE, "The Universe", "宇宙之心");
+
+        addItem(ExtraBotanyItems.CHALLENGE_TICKET, "Challenge Ticket", "寄给自己的邀请函");
+        addItem(ExtraBotanyItems.TREASURE_BOX, "Pandora's Box", "潘多拉魔盒");
+        addItem(ExtraBotanyItems.REWARD_BAG_A, "Reward Bag Eins", "奖励袋Eins");
+        addItem(ExtraBotanyItems.REWARD_BAG_B, "Reward Bag Zwei", "奖励袋Zwei");
+        addItem(ExtraBotanyItems.REWARD_BAG_C, "Reward Bag Drei", "奖励袋Drei");
+        addItem(ExtraBotanyItems.REWARD_BAG_D, "Reward Bag Vier", "奖励袋Vier");
+        addItem(ExtraBotanyItems.REWARD_BAG_943, "Reward Bag 9-3/4", "九又四分之三奖励袋");
     }
 
     private static void transBlock() {
@@ -207,7 +219,29 @@ public class LanguageHelper {
     }
 
     private static void transEntity() {
+        addEntity(ExtraBotanyEntities.SPLASH_GRENADE.get(), "Splash Grenade", "圣水手雷");
+        addEntity(ExtraBotanyEntities.MAGIC_ARROW_PROJECTILE.get(), "Magic Arrow Projectile", "百中弓射弹");
+        addEntity(ExtraBotanyEntities.TRUE_TERRA_BLADE_PROJECTILE.get(), "True TerraBlade Projectile", "真泰拉之刃射弹");
+        addEntity(ExtraBotanyEntities.TRUE_SHADOW_KATANA_PROJECTILE.get(), "True ShadowKatana Projectile", "真影刃射弹");
+        addEntity(ExtraBotanyEntities.INFLUX_WAVER_PROJECTILE.get(), "Influx Waver Projectile", "波涌之刃射弹");
+        addEntity(ExtraBotanyEntities.PHANTOM_SWORD_PROJECTILE.get(), "First Fractal Projectile", "最初分型射弹");
+        addEntity(LibEntityNames.EGO, "EGO", "本我");
+        addEntity(LibEntityNames.EGO_MINION, "EGO's Minion", "本我的仆从");
+        addEntity(LibEntityNames.EGO_LANDMINE, "EGO's Landmine", "本我的地雷");
+        add("extrabotanymisc.inventoryUnfeasible",
+                "You have something that isn't allowed in this boss fight. Check your inventory and tips in the lexicon again!",
+                "你的背包里包含违禁物品，请再次检查你的背包！"
+        );
+        add("extrabotanymisc.unlegalPlayercount",
+                "There are more people than there were when the boss is summoned. That's illegal!",
+                "在场玩家数大于召唤时的玩家数，这是不符合规则的！"
+        );
+        add("extrabotanymisc.description",
+                "You can not use it until you complete corresponding advancement <%s>.",
+                "你无法使用该物品直到你完成进度 <%s>。"
+        );
     }
+
 
     private static void transAdvancement() {
         add("advancement.extrabotany.root.title", "Welcome to the World", "欢迎来到世界");
@@ -267,5 +301,15 @@ public class LanguageHelper {
         zh_cn.put("block.extrabotany.floating_" + name, "浮空" + zh);
         zh_cn.put("block.extrabotany." + name + ".reference", refZh);
         zh_cn.put("block.extrabotany.floating_" + name + ".reference", refZh);
+    }
+
+    private static void addEntity(EntityType<? extends Entity> type, String en, String zh) {
+        en_us.put(type.getDescriptionId(), en);
+        zh_cn.put(type.getDescriptionId(), zh);
+    }
+
+    private static void addEntity(String name, String en, String zh) {
+        en_us.put("entity.extrabotany." + name, en);
+        zh_cn.put("entity.extrabotany." + name, zh);
     }
 }

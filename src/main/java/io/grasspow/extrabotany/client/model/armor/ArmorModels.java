@@ -1,6 +1,10 @@
 package io.grasspow.extrabotany.client.model.armor;
 
 import io.grasspow.extrabotany.client.model.ExtraBotanyModelLayers;
+import io.grasspow.extrabotany.common.item.equipment.armor.GoblinsLayerArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.MaidArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.ShadowWarriorArmorItem;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -8,9 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.client.model.armor.ArmorModel;
-import vazkii.botania.common.item.equipment.armor.elementium.ElementiumArmorItem;
-import vazkii.botania.common.item.equipment.armor.manasteel.ManasteelArmorItem;
-import vazkii.botania.common.item.equipment.armor.terrasteel.TerrasteelArmorItem;
 
 import java.util.Collections;
 import java.util.EnumMap;
@@ -45,18 +46,13 @@ public class ArmorModels {
     @Nullable
     public static ArmorModel get(ItemStack stack) {
         Item item = stack.getItem();
-//		if (item instanceof MikuArmorItem armor) {
-//			return silent_sages.get(armor.getEquipmentSlot());
-//		}else if (item instanceof ElementiumArmorItem armor) {
-//			return shooting_guardian.get(armor.getEquipmentSlot());
-//		} else
-        if (item instanceof ElementiumArmorItem armor) {
+        if (item instanceof ShadowWarriorArmorItem armor) {
             return shadow_warrior.get(armor.getEquipmentSlot());
-        } else if (item instanceof ElementiumArmorItem armor) {
+        } else if (item instanceof GoblinsLayerArmorItem armor) {
             return goblins_layer.get(armor.getEquipmentSlot());
-        } else if (item instanceof TerrasteelArmorItem armor) {
+        } else if (item instanceof MaidArmorItem armor) {
             return maid.get(armor.getEquipmentSlot());
-        } else if (item instanceof ManasteelArmorItem armor) {
+        } else if (item instanceof MikuArmorItem armor) {
             return miku.get(armor.getEquipmentSlot());
         }
 

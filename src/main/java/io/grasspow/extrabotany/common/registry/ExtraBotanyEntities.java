@@ -8,6 +8,9 @@ import io.grasspow.extrabotany.common.entity.block.PowerFrameBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.AnnoyingFlowerBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.SerenitianBlockEntity;
 import io.grasspow.extrabotany.common.entity.block.flower.generating.*;
+import io.grasspow.extrabotany.common.entity.ego.EGO;
+import io.grasspow.extrabotany.common.entity.ego.EGOLandmine;
+import io.grasspow.extrabotany.common.entity.ego.EGOMinion;
 import io.grasspow.extrabotany.common.entity.item.brew.SplashGrenadeEntity;
 import io.grasspow.extrabotany.common.entity.projectile.*;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
@@ -15,11 +18,17 @@ import io.grasspow.extrabotany.common.libs.LibEntityNames;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.BiConsumer;
 
 import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
@@ -165,4 +174,54 @@ public class ExtraBotanyEntities {
                     .setTrackingRange(64)
                     .setShouldReceiveVelocityUpdates(true)
                     .build(resId(LibEntityNames.PHANTOM_SWORD_PROJECTILE).toString()));
+
+    //ego
+    public static final RegistryObject<EntityType<EGO>> EGO = ENTITY_TYPES.register(LibEntityNames.EGO,
+            () -> EntityType.Builder
+                    .<EGO>of(EGO::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .fireImmune()
+                    .clientTrackingRange(10)
+                    .updateInterval(10)
+                    .build(resId(LibEntityNames.PHANTOM_SWORD_PROJECTILE).toString()));
+    public static final RegistryObject<EntityType<EGOMinion>> EGO_MINION = ENTITY_TYPES.register(LibEntityNames.EGO_MINION,
+            () -> EntityType.Builder
+                    .<EGOMinion>of(EGOMinion::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .fireImmune()
+                    .clientTrackingRange(10)
+                    .updateInterval(10)
+                    .setUpdateInterval(2)
+                    .setTrackingRange(128)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.EGO_MINION).toString()));
+    public static final RegistryObject<EntityType<EGOLandmine>> EGO_LANDMINE = ENTITY_TYPES.register(LibEntityNames.EGO_LANDMINE,
+            () -> EntityType.Builder
+                    .<EGOLandmine>of(EGOLandmine::new, MobCategory.MISC)
+                    .sized(3F, 0.1F)
+                    .setUpdateInterval(2)
+                    .setTrackingRange(128)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .build(resId(LibEntityNames.EGO_LANDMINE).toString()));
+
+    public static void registerAttributes(BiConsumer<EntityType<? extends LivingEntity>, AttributeSupplier.Builder> consumer) {
+        consumer.accept(ExtraBotanyEntities.EGO.get(), Mob.createMobAttributes()
+                .add(Attributes.MOVEMENT_SPEED, 0.55)
+                .add(Attributes.MAX_HEALTH, io.grasspow.extrabotany.common.entity.ego.EGO.MAX_HP)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
+                .add(Attributes.ARMOR, 20)
+                .add(Attributes.FOLLOW_RANGE, 35)
+                .add(Attributes.ATTACK_DAMAGE, 8)
+        );
+
+        consumer.accept(ExtraBotanyEntities.EGO_MINION.get(), Mob.createMobAttributes()
+                .add(Attributes.MOVEMENT_SPEED, 0.5)
+                .add(Attributes.MAX_HEALTH, 60)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
+                .add(Attributes.ARMOR, 15)
+                .add(Attributes.FOLLOW_RANGE, 35)
+                .add(Attributes.ATTACK_DAMAGE, 7)
+        );
+
+    }
 }

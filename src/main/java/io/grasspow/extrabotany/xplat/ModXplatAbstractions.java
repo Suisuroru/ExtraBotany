@@ -1,5 +1,8 @@
 package io.grasspow.extrabotany.xplat;
 
+import io.grasspow.extrabotany.api.capability.INatureOrb;
+import io.grasspow.extrabotany.forge.xplat.ForgeModXplatImpl;
+import net.minecraft.world.item.ItemStack;
 import vazkii.botania.api.ServiceUtil;
 
 public interface ModXplatAbstractions {
@@ -20,5 +23,7 @@ public interface ModXplatAbstractions {
 
     String getExtraBotanyVersion();
 
-    ModXplatAbstractions INSTANCE = ServiceUtil.findService(ModXplatAbstractions.class, null);
+    INatureOrb findNatureOrbItem(ItemStack stack);
+
+    ModXplatAbstractions INSTANCE = ServiceUtil.findService(ModXplatAbstractions.class, ForgeModXplatImpl::new);
 }

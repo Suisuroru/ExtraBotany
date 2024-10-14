@@ -13,10 +13,7 @@ import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
-import io.grasspow.extrabotany.common.item.misc.EmptyBottleItem;
-import io.grasspow.extrabotany.common.item.misc.GoldClothItem;
-import io.grasspow.extrabotany.common.item.misc.ManaDrinkItem;
-import io.grasspow.extrabotany.common.item.misc.NightmareFuelItem;
+import io.grasspow.extrabotany.common.item.misc.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorItem;
@@ -152,6 +149,15 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> THE_END = regDefItem(LibItemNames.THE_END, defaultBuilder());
     public static final RegistryObject<Item> THE_UNIVERSE = regDefItem(LibItemNames.THE_UNIVERSE, defaultBuilder());
 
+
+    public static final RegistryObject<Item> CHALLENGE_TICKET = regDefItem(LibItemNames.CHALLENGE_TICKET, ChallengeTicketItem::new, defaultBuilder().fireResistant());
+    public static final RegistryObject<Item> TREASURE_BOX = regDefItem(LibItemNames.TREASURE_BOX, TreasureBoxItem::new, defaultBuilder());
+    public static final RegistryObject<Item> REWARD_BAG_A = regDefItem(LibItemNames.REWARD_BAG_A, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Eins));
+    public static final RegistryObject<Item> REWARD_BAG_B = regDefItem(LibItemNames.REWARD_BAG_B, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Zwei));
+    public static final RegistryObject<Item> REWARD_BAG_C = regDefItem(LibItemNames.REWARD_BAG_C, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Drei));
+    public static final RegistryObject<Item> REWARD_BAG_D = regDefItem(LibItemNames.REWARD_BAG_D, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Vier));
+    public static final RegistryObject<Item> REWARD_BAG_943 = regDefItem(LibItemNames.REWARD_BAG_943, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant._943));
+
     //record
 //    public static final RegistryObject<Item> RECORD_EGO = regRecordItem(LibItemNames.RECORD_EGO,
 //            new BotaniaRecordItem(1,ExtraBotanySounds.SWORDLAND.get(),nonStackable().rarity(Rarity.RARE),47));
@@ -183,6 +189,12 @@ public class ExtraBotanyItems {
         RegistryObject<Item> item = ITEMS.register(name, () -> new BrewLensItem(props, lens.get(), prop, isBrew));
         MOD_ITEMS.add(item);
         return item;
+    }
+
+    private static RegistryObject<Item> regDefItem(String name, Supplier<Item> item) {
+        RegistryObject<Item> o = ITEMS.register(name, item);
+        MOD_ITEMS.add(o);
+        return o;
     }
 
     private static RegistryObject<Item> regDefItem(String name, Item.Properties props) {

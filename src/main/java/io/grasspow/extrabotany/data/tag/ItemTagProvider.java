@@ -92,6 +92,10 @@ public class ItemTagProvider extends ItemTagsProvider {
                 TRUE_SHADOW_KATANA.get(), TRUE_TERRA_BLADE.get(), EXCALIBER.get(), FIRST_FRACTAL.get(),
                 FAILNAUGHT.get()
         );
+
+        this.tag(Tags.Items.INGOTS).add(
+                PHOTONIUM.get(), SHADOWIUM.get(), AERIALITE.get(), ORICHALCOS.get()
+        );
     }
 
 

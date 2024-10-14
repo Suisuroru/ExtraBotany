@@ -5,6 +5,8 @@ import io.grasspow.extrabotany.client.render.entity.DummyRender;
 import io.grasspow.extrabotany.client.render.entity.block.LivingrockBarrelBlockEntityRenderer;
 import io.grasspow.extrabotany.client.render.entity.block.PedestalBlockEntityRenderer;
 import io.grasspow.extrabotany.client.render.entity.block.PowerFrameBlockEntityRenderer;
+import io.grasspow.extrabotany.client.render.entity.ego.EGOLandmineRender;
+import io.grasspow.extrabotany.client.render.entity.ego.EGORender;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import vazkii.botania.client.render.block_entity.SpecialFlowerBlockEntityRenderer;
 import vazkii.botania.client.render.entity.EntityRenderers;
@@ -37,5 +39,10 @@ public class ExtraBotanyEntityRenderers {
         consumer.accept(ExtraBotanyEntities.TRUE_TERRA_BLADE_PROJECTILE.get(), BaseProjectileRender::new);
         consumer.accept(ExtraBotanyEntities.PHANTOM_SWORD_PROJECTILE.get(), BaseProjectileRender::new);
         consumer.accept(ExtraBotanyEntities.MAGIC_ARROW_PROJECTILE.get(), DummyRender::new);
+
+        //ego
+        consumer.accept(ExtraBotanyEntities.EGO.get(), EGORender::new);
+        consumer.accept(ExtraBotanyEntities.EGO_MINION.get(), EGORender::new);
+        consumer.accept(ExtraBotanyEntities.EGO_LANDMINE.get(), EGOLandmineRender::new);
     }
 }

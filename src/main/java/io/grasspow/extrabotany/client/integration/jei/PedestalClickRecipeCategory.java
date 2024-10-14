@@ -2,6 +2,7 @@ package io.grasspow.extrabotany.client.integration.jei;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
+import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.libs.LibRecipeNames;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import mezz.jei.api.constants.VanillaTypes;
@@ -20,7 +21,6 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.helper.ItemNBTHelper;
-import vazkii.botania.common.lib.LibMisc;
 
 import static vazkii.botania.common.lib.ResourceLocationHelper.prefix;
 

@@ -238,6 +238,17 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
                 .pattern(" L ")
                 .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.ORICHALCOS.get(), BotaniaItems.gaiaIngot, ExtraBotanyItems.SPIRIT.get()))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.CHALLENGE_TICKET.get())
+                .requires(ExtraBotanyItems.THE_CHAOS.get())
+                .requires(BotaniaItems.gaiaIngot)
+                .unlockedBy("has_item", conditionsFromItems(ExtraBotanyItems.THE_CHAOS.get(), BotaniaItems.gaiaIngot))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ExtraBotanyItems.REWARD_BAG_943.get(), 3)
+                .requires(BotaniaItems.dice)
+                .unlockedBy("has_item", conditionsFromItem(BotaniaItems.dice))
+                .save(consumer);
     }
 
     private void buildToolRecipes(Consumer<FinishedRecipe> consumer) {

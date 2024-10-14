@@ -136,6 +136,7 @@ public class LibItemNames {
     public static final String REWARD_BAG_B = "reward_bag_b";
     public static final String REWARD_BAG_C = "reward_bag_c";
     public static final String REWARD_BAG_D = "reward_bag_d";
+    public static final String REWARD_BAG_943 = "reward_bag_943";
 
     public static final String MANASTEEL_HAMMER = "manasteel_hammer";
     public static final String ELEMENTIUM_HAMMER = "elementium_hammer";

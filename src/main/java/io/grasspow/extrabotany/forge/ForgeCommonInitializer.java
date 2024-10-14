@@ -1,16 +1,16 @@
 package io.grasspow.extrabotany.forge;
 
 import com.google.common.base.Suppliers;
+import io.grasspow.extrabotany.api.capability.ExtraBotanyCapabilities;
+import io.grasspow.extrabotany.api.capability.INatureOrb;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
-import io.grasspow.extrabotany.common.item.equipment.bauble.CoreGodItem;
-import io.grasspow.extrabotany.common.item.equipment.bauble.MoonPendantItem;
-import io.grasspow.extrabotany.common.item.equipment.bauble.SagesManaRingItem;
-import io.grasspow.extrabotany.common.item.equipment.bauble.SunRingItem;
+import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.CameraItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
+import io.grasspow.extrabotany.common.item.misc.RewardBagItem;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import io.grasspow.extrabotany.common.registry.*;
@@ -22,6 +22,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -60,6 +61,7 @@ public class ForgeCommonInitializer {
 
         PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block"), PedestalBlockEntity.MULTIBLOCK.get());
         PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block_2"), PedestalBlockEntity.MULTIBLOCK2.get());
+        RewardBagItem.initCategoryMap();
     }
 
     public static void registryInit() {
@@ -70,6 +72,7 @@ public class ForgeCommonInitializer {
 
         ExtraBotanyEntities.Blocks.getBlockEntityTypes().register(modEventBus);
         ExtraBotanyEntities.getEntityTypes().register(modEventBus);
+        modEventBus.addListener((EntityAttributeCreationEvent e) -> ExtraBotanyEntities.registerAttributes((type, builder) -> e.put(type, builder.build())));
 
         ExtraBotanyRecipeTypes.getRecipeTypes().register(modEventBus);
         ExtraBotanyRecipeTypes.getRecipeSerializers().register(modEventBus);
@@ -84,6 +87,10 @@ public class ForgeCommonInitializer {
 
     private static final Supplier<Map<Item, Function<ItemStack, ManaItem>>> MANA_ITEM = Suppliers.memoize(() -> Map.of(
             ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem.SagesManaRingItemImpl::new
+    ));
+
+    private static final Supplier<Map<Item, Function<ItemStack, INatureOrb>>> NATURE_ORB = Suppliers.memoize(() -> Map.of(
+            ExtraBotanyItems.NATURE_ORB.get(), NatureOrbItem.NatureOrb::new
     ));
 
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.ofEntries(
@@ -108,6 +115,11 @@ public class ForgeCommonInitializer {
         if (makeManaItem != null) {
             e.addCapability(prefix("mana_item"),
                     CapabilityUtil.makeProvider(BotaniaForgeCapabilities.MANA_ITEM, makeManaItem.apply(stack)));
+        }
+        var makeNatureOrb = NATURE_ORB.get().get(stack.getItem());
+        if (makeNatureOrb != null) {
+            e.addCapability(resId("nature_orb"),
+                    CapabilityUtil.makeProvider(ExtraBotanyCapabilities.NATURE_ORB, makeNatureOrb.apply(stack)));
         }
         var makeRelic = RELIC.get().get(stack.getItem());
         if (makeRelic != null) {

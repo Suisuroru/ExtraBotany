@@ -15,8 +15,8 @@ public class LibEntityNames {
     public static final String SPLASH_GRENADE = "splash_grenade";
 
     public static final String EGO = "ego";
-    public static final String EGOMINION = "egominion";
-    public static final String EGOLANDMINE = "egolandmine";
+    public static final String EGO_MINION = "ego_minion";
+    public static final String EGO_LANDMINE = "ego_landmine";
 
     public static final String AURA_FIRE = "aura_fire";
     public static final String TRUE_TERRA_BLADE_PROJECTILE = "true_terra_blade_projectile";

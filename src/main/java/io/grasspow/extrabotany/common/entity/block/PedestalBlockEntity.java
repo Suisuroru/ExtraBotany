@@ -7,6 +7,7 @@ import io.grasspow.extrabotany.common.item.equipment.bauble.NatureOrbItem;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
+import io.grasspow.extrabotany.xplat.ModXplatAbstractions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
@@ -166,7 +167,8 @@ public class PedestalBlockEntity extends ModBlockEntity {
         ItemStack stack = self.getItem();
         if (stack.getItem() instanceof NatureOrbItem) {
             self.freshSpeed();
-            NatureOrbItem.addXP(stack, self.speed);
+            var orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(self.getItem());
+            orb.addNature(self.speed);
         } else if (stack.getItem() == ExtraBotanyItems.NIGHTMARE_FUEL.get()) {
             if (level.isDay()) {
                 self.setEnergy(self.getEnergy() + 1);

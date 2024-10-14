@@ -1,0 +1,25 @@
+{
+  "pools": [
+    {
+      "name": "treasure_box",
+      "conditions": [
+        {
+          "condition": "botania:killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "extrabotany:treasure_box",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package io.grasspow.extrabotany.common.libs;
 
-import io.grasspow.extrabotany.common.item.equipment.bauble.NatureOrbItem;
+import io.grasspow.extrabotany.api.capability.INatureOrb;
+import io.grasspow.extrabotany.common.item.equipment.armor.MaidArmorHelmetItem;
+import io.grasspow.extrabotany.xplat.ModXplatAbstractions;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,12 +34,15 @@ public class CommonHelper {
                 .map(Map.Entry::getKey)
                 .distinct()
                 .toList();
-
+        INatureOrb orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(stack);
+        if (orb == null) {
+        }
         potionsToRemove.forEach(potion -> {
-            player.removeEffect(potion);
-            NatureOrbItem.addXP(stack, -50);
-            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, stack);
-            player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+            if (stack.getItem() instanceof MaidArmorHelmetItem || orb != null && orb.addNature(-50)) {
+                player.removeEffect(potion);
+                CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, stack);
+                player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+            }
         });
     }
 
@@ -45,4 +50,6 @@ public class CommonHelper {
         List<LivingEntity> list = entities.stream().filter((living) -> checkPassable(living, source) && !living.isRemoved()).collect(Collectors.toList());
         return list;
     }
+
+
 }

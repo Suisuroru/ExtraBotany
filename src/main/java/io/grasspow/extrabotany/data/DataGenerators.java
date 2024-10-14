@@ -11,6 +11,7 @@ import io.grasspow.extrabotany.data.model.FloatingFlowerModelProvider;
 import io.grasspow.extrabotany.data.model.ItemModelProvider;
 import io.grasspow.extrabotany.data.recipes.*;
 import io.grasspow.extrabotany.data.tag.BlockTagProvider;
+import io.grasspow.extrabotany.data.tag.EntityTagProvider;
 import io.grasspow.extrabotany.data.tag.ItemTagProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -40,6 +41,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, fileHelper));
 
+        generator.addProvider(event.includeServer(), new EntityTagProvider(output, lookupProvider));
         var blockTagProvider = new BlockTagProvider(output, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), blockTagProvider);
         generator.addProvider(event.includeServer(),
