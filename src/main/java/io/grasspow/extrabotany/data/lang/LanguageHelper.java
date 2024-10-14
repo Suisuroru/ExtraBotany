@@ -189,6 +189,7 @@ public class LanguageHelper {
         addItem(ExtraBotanyItems.REWARD_BAG_C, "Reward Bag Drei", "奖励袋Drei");
         addItem(ExtraBotanyItems.REWARD_BAG_D, "Reward Bag Vier", "奖励袋Vier");
         addItem(ExtraBotanyItems.REWARD_BAG_943, "Reward Bag 9-3/4", "九又四分之三奖励袋");
+        addItem(ExtraBotanyItems.BUDDHIST_RELICS, "Origin Creation - Omniscience", "源初造物丨虚空万藏");
     }
 
     private static void transBlock() {

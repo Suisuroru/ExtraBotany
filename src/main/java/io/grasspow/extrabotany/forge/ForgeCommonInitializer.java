@@ -7,6 +7,7 @@ import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
+import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.CameraItem;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
@@ -106,7 +107,8 @@ public class ForgeCommonInitializer {
             Map.entry(ExtraBotanyItems.FIRST_FRACTAL.get(), FirstFractalItem::makeRelic),
             Map.entry(ExtraBotanyItems.FAILNAUGHT.get(), FailnaughtItem::makeRelic),
             Map.entry(ExtraBotanyItems.CAMERA.get(), CameraItem::makeRelic),
-            Map.entry(ExtraBotanyItems.CORE_GOD.get(), CoreGodItem::makeRelic)
+            Map.entry(ExtraBotanyItems.CORE_GOD.get(), CoreGodItem::makeRelic),
+            Map.entry(ExtraBotanyItems.BUDDHIST_RELICS.get(), BuddhistRelicsItem::makeRelic)
     ));
 
     private void attachItemCaps(AttachCapabilitiesEvent<ItemStack> e) {

@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.common.item;
 import io.grasspow.extrabotany.common.item.brew.CocktailItem;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.brew.SplashGrenadeItem;
+import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
 import io.grasspow.extrabotany.common.item.equipment.armor.*;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.*;
@@ -157,6 +158,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> REWARD_BAG_C = regDefItem(LibItemNames.REWARD_BAG_C, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Drei));
     public static final RegistryObject<Item> REWARD_BAG_D = regDefItem(LibItemNames.REWARD_BAG_D, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant.Vier));
     public static final RegistryObject<Item> REWARD_BAG_943 = regDefItem(LibItemNames.REWARD_BAG_943, () -> new RewardBagItem(defaultBuilder(), RewardBagItem.Variant._943));
+    public static final RegistryObject<Item> BUDDHIST_RELICS = regDefItem(LibItemNames.BUDDHIST_RELICS, BuddhistRelicsItem::new, relic());
 
     //record
 //    public static final RegistryObject<Item> RECORD_EGO = regRecordItem(LibItemNames.RECORD_EGO,

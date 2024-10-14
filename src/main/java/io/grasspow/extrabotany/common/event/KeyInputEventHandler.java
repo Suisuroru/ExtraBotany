@@ -1,15 +1,21 @@
 package io.grasspow.extrabotany.common.event;
 
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
+import io.grasspow.extrabotany.common.network.server.BuddhistChangePack;
+import io.grasspow.extrabotany.xplat.client.ClientModXplatAbstractions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.lwjgl.glfw.GLFW;
 import vazkii.botania.common.handler.EquipmentHandler;
 
 import java.lang.reflect.InvocationTargetException;
@@ -49,6 +55,18 @@ public class KeyInputEventHandler {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
+    public static void onKeyInput(InputEvent.Key event) {
+        Player player = Minecraft.getInstance().player;
+        if (player == null)
+            return;
+        if (event.getAction() == GLFW.GLFW_PRESS && event.getKey() == GLFW.GLFW_KEY_LEFT_CONTROL) {
+            if (!BuddhistRelicsItem.relicShift(player.getMainHandItem()).isEmpty()) {
+                ClientModXplatAbstractions.INSTANCE.sendToServer(BuddhistChangePack.INSTANCE);
+            }
+        }
+    }
 
 }
 

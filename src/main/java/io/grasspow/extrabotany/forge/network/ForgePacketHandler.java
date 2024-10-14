@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.forge.network;
 
 import io.grasspow.extrabotany.common.network.client.PotatoChipsPack;
+import io.grasspow.extrabotany.common.network.server.BuddhistChangePack;
 import io.grasspow.extrabotany.common.network.server.FlamescionStrengthenPack;
 import io.grasspow.extrabotany.common.network.server.LeftClickPack;
 import net.minecraft.server.MinecraftServer;
@@ -27,10 +28,9 @@ public class ForgePacketHandler {
     public static void init() {
         int i = 0;
         // Serverbound
-        CHANNEL.registerMessage(i++, LeftClickPack.class, LeftClickPack::encode, LeftClickPack::decode,
-                makeServerBoundHandler(LeftClickPack::handle));
-        CHANNEL.registerMessage(i++, FlamescionStrengthenPack.class, FlamescionStrengthenPack::encode, FlamescionStrengthenPack::decode,
-                makeServerBoundHandler(FlamescionStrengthenPack::handle));
+        CHANNEL.registerMessage(i++, LeftClickPack.class, LeftClickPack::encode, LeftClickPack::decode, makeServerBoundHandler(LeftClickPack::handle));
+        CHANNEL.registerMessage(i++, BuddhistChangePack.class, BuddhistChangePack::encode, BuddhistChangePack::decode, makeServerBoundHandler(BuddhistChangePack::handle));
+        CHANNEL.registerMessage(i++, FlamescionStrengthenPack.class, FlamescionStrengthenPack::encode, FlamescionStrengthenPack::decode, makeServerBoundHandler(FlamescionStrengthenPack::handle));
 
         // Clientbound
         CHANNEL.registerMessage(i++, PotatoChipsPack.class, PotatoChipsPack::encode, PotatoChipsPack::decode,

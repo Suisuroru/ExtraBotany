@@ -105,7 +105,7 @@ public class RewardBagItem extends Item {
         categoryListD.add(new WeightCategory(new ItemStack(Items.DIAMOND, 1), 18));
         categoryListD.add(new WeightCategory(new ItemStack(BotaniaItems.blackerLotus, 2), 16));
         categoryListD.add(new WeightCategory(new ItemStack(BotaniaItems.overgrowthSeed, 1), 12));
-//        categoryListD.add(new WeightCategory(new ItemStack(buddhistrelics), 1));
+        categoryListD.add(new WeightCategory(new ItemStack(ExtraBotanyItems.BUDDHIST_RELICS.get()), 1));
 
         categoryList943.add(new WeightCategory(new ItemStack(ExtraBotanyItems.CHALLENGE_TICKET.get(), 1), 45));
         categoryList943.add(new WeightCategory(new ItemStack(ExtraBotanyItems.REWARD_BAG_A.get(), 16), 30));
