@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.entity.ego;
 
 import com.google.common.collect.ImmutableList;
+import io.grasspow.extrabotany.common.handler.ConfigHandler;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
@@ -564,13 +565,13 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
     }
 
     public static boolean checkInventory(Player player) {
-//        if (!ConfigHandler.COMMON.disableDisarm.get()) {
-        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-            final ItemStack stack = player.getInventory().getItem(i);
-            if (!checkFeasibility(stack))
-                return false;
+        if (!ConfigHandler.COMMON.disableDisarm.get()) {
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                final ItemStack stack = player.getInventory().getItem(i);
+                if (!checkFeasibility(stack))
+                    return false;
+            }
         }
-//        }
         return true;
     }
 
@@ -578,22 +579,22 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
      * drop item
      */
     public static void disarm(Player player) {
-//        if (!ConfigHandler.COMMON.disableDisarm.get() && !player.isCreative()) {
-        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-            final ItemStack stack = player.getInventory().getItem(i);
-            if (!checkFeasibility(stack)) {
-                player.drop(stack, false);
-                player.getInventory().setItem(i, ItemStack.EMPTY);
+        if (!ConfigHandler.COMMON.disableDisarm.get() && !player.isCreative()) {
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                final ItemStack stack = player.getInventory().getItem(i);
+                if (!checkFeasibility(stack)) {
+                    player.drop(stack, false);
+                    player.getInventory().setItem(i, ItemStack.EMPTY);
+                }
+            }
+            for (int i = 0; i < EquipmentHandler.getAllWorn(player).getContainerSize(); i++) {
+                final ItemStack stack = EquipmentHandler.getAllWorn(player).getItem(i);
+                if (!checkFeasibility(stack)) {
+                    player.drop(stack, false);
+                    EquipmentHandler.getAllWorn(player).setItem(i, ItemStack.EMPTY);
+                }
             }
         }
-        for (int i = 0; i < EquipmentHandler.getAllWorn(player).getContainerSize(); i++) {
-            final ItemStack stack = EquipmentHandler.getAllWorn(player).getItem(i);
-            if (!checkFeasibility(stack)) {
-                player.drop(stack, false);
-                EquipmentHandler.getAllWorn(player).setItem(i, ItemStack.EMPTY);
-            }
-        }
-//        }
     }
 
     /**

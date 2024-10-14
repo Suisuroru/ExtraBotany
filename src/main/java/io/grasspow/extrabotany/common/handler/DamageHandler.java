@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.core;
+package io.grasspow.extrabotany.common.handler;
 
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;

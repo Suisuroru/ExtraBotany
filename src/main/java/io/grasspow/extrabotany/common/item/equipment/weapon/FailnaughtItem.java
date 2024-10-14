@@ -1,7 +1,7 @@
 package io.grasspow.extrabotany.common.item.equipment.weapon;
 
-import io.grasspow.extrabotany.common.core.DamageHandler;
 import io.grasspow.extrabotany.common.entity.projectile.MagicArrowProjectile;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

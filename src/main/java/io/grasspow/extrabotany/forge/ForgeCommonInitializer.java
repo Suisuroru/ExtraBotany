@@ -5,6 +5,9 @@ import io.grasspow.extrabotany.api.capability.ExtraBotanyCapabilities;
 import io.grasspow.extrabotany.api.capability.INatureOrb;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.handler.ConfigHandler;
+import io.grasspow.extrabotany.common.handler.ContributorListHandler;
+import io.grasspow.extrabotany.common.handler.MemeHandler;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
@@ -26,7 +29,9 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import vazkii.botania.api.BotaniaForgeCapabilities;
@@ -54,15 +59,26 @@ public class ForgeCommonInitializer {
         modEventBus = context.getModEventBus();
         registryInit();
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::loadComplete);
+
+        context.registerConfig(ModConfig.Type.CLIENT, ConfigHandler.CLIENT_SPEC);
+        context.registerConfig(ModConfig.Type.COMMON, ConfigHandler.COMMON_SPEC);
     }
 
     public void commonSetup(FMLCommonSetupEvent evt) {
         ForgePacketHandler.init();
         registerEvents();
 
-        PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block"), PedestalBlockEntity.MULTIBLOCK.get());
-        PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block_2"), PedestalBlockEntity.MULTIBLOCK2.get());
-        RewardBagItem.initCategoryMap();
+        evt.enqueueWork(() -> {
+            ContributorListHandler.firstStart();
+            PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block"), PedestalBlockEntity.MULTIBLOCK.get());
+            PatchouliAPI.get().registerMultiblock(resId(LibBlockNames.PEDESTAL + "_multi_block_2"), PedestalBlockEntity.MULTIBLOCK2.get());
+            RewardBagItem.initCategoryMap();
+        });
+    }
+
+    private void loadComplete(FMLLoadCompleteEvent event) {
+        MemeHandler.spam();
     }
 
     public static void registryInit() {

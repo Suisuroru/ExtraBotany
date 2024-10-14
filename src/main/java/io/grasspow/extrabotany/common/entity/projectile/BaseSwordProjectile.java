@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
+import io.grasspow.extrabotany.common.handler.ConfigHandler;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -172,8 +173,7 @@ public abstract class BaseSwordProjectile extends ThrowableProjectile {
         float factor = (getOwner() instanceof Player) ? 1.0F : 3.0F;
 
         if (!level().isClientSide) {
-//            if (ConfigHandler.COMMON.doProjectileBreakBlock.get() && hardness >= 0F && hardness < 5.0F && !(state.getBlock() instanceof BeaconBlock) && getLifeTicks() * factor - tickCount >= getTickBreakBlockCap())
-            if (false && hardness >= 0F && hardness < 5.0F && !(state.getBlock() instanceof BeaconBlock) && getLifeTicks() * factor - tickCount >= getTickBreakBlockCap()) {
+            if (ConfigHandler.COMMON.doProjectileBreakBlock.get() && hardness >= 0F && hardness < 5.0F && !(state.getBlock() instanceof BeaconBlock) && getLifeTicks() * factor - tickCount >= getTickBreakBlockCap()) {
                 level().removeBlock(hitResult.getBlockPos(), false);
                 level().levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, hitResult.getBlockPos(), Block.getId(state));
                 tickCount += getTickPerBlock();

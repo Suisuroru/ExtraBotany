@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
+import io.grasspow.extrabotany.common.handler.ConfigHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -47,8 +48,7 @@ public class MagicArrowProjectile extends BaseProjectile {
         var hardness = state.getDestroySpeed(level(), hitResult.getBlockPos());
         var vec3 = getDeltaMovement();
         setDeltaMovement(Vec3.ZERO);
-//        if (ConfigHandler.COMMON.doProjectileBreakBlock.get() && hardness > 0 && !(state.getBlock() instanceof BeaconBlock))
-        if (false && hardness > 0 && !(state.getBlock() instanceof BeaconBlock)) {
+        if (ConfigHandler.COMMON.doProjectileBreakBlock.get() && hardness > 0 && !(state.getBlock() instanceof BeaconBlock)) {
             level().removeBlock(hitResult.getBlockPos(), false);
             level().levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, hitResult.getBlockPos(), Block.getId(state));
             tickCount += 2;
