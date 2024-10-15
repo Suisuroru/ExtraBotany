@@ -11,6 +11,7 @@ import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -183,10 +184,13 @@ public class AdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion(LibAdvancementNames.SAGES_MANA_RING_CRAFT, hasItems(ExtraBotanyItems.SAGES_MANA_RING.get()))
                     .save(consumer, mainId(LibAdvancementNames.SAGES_MANA_RING_CRAFT));
 
+            CompoundTag tag = new CompoundTag();
+            tag.putInt("mana", Integer.MAX_VALUE - 1);
+
             Advancement.Builder.advancement()
                     .display(hidden(ExtraBotanyItems.SAGES_MANA_RING.get(), LibAdvancementNames.SAGES_MANA_RING_FILL, FrameType.CHALLENGE))
                     .parent(SAGES_MANA_RING_CRAFT)
-                    .addCriterion(LibAdvancementNames.SAGES_MANA_RING_FILL, hasItems(ExtraBotanyItems.SAGES_MANA_RING.get()))
+                    .addCriterion(LibAdvancementNames.SAGES_MANA_RING_FILL, hasNbtItem(ExtraBotanyItems.SAGES_MANA_RING.get(), tag))
                     .save(consumer, mainId(LibAdvancementNames.SAGES_MANA_RING_FILL));
         }
     }
@@ -206,6 +210,11 @@ public class AdvancementProvider extends ForgeAdvancementProvider {
 
     protected static InventoryChangeTrigger.TriggerInstance hasItems(ItemLike... items) {
         return InventoryChangeTrigger.TriggerInstance.hasItems(items);
+    }
+
+    protected static InventoryChangeTrigger.TriggerInstance hasNbtItem(ItemLike item, CompoundTag nbt) {
+        ItemPredicate itemPredicate = ItemPredicate.Builder.item().of(item).hasNbt(nbt).build();
+        return InventoryChangeTrigger.TriggerInstance.hasItems(itemPredicate);
     }
 
     protected static ItemPredicate matchItems(ItemLike... items) {

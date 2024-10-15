@@ -7,7 +7,8 @@
           {
             "items": [
               "extrabotany:sages_mana_ring"
-            ]
+            ],
+            "nbt": "{mana:2147483646}"
           }
         ]
       },

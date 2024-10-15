@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,12 +44,10 @@ public class AdvancementHandler {
 
     @SubscribeEvent
     public static void onLivingUpdate(LivingEvent.LivingTickEvent event) {
-
         if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
             if (player.isCreative()) {
                 return;
             }
-
             CuriosApi.getCuriosInventory(player).ifPresent((c) -> {
                 for (int i = 0; i < c.getSlots(); i++) {
                     final ItemStack stack = c.getEquippedCurios().getStackInSlot(i);
@@ -61,7 +60,6 @@ public class AdvancementHandler {
                     }
                 }
             });
-
             if (ConfigHandler.COMMON.doStrictAdvancementChecking.get()) {
                 for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                     final ItemStack stack = player.getInventory().getItem(i);
@@ -74,7 +72,6 @@ public class AdvancementHandler {
                     }
                 }
             }
-
             for (final EquipmentSlot slot : EquipmentSlot.values()) {
                 final ItemStack stack = player.getItemBySlot(slot);
                 if (stack.getItem() instanceof IAdvancementRequirement) {
@@ -87,6 +84,22 @@ public class AdvancementHandler {
             }
         }
 
+    }
+
+    @SubscribeEvent
+    public static void onLivingPickUpItem(EntityItemPickupEvent event) {
+        Player player = event.getEntity();
+        if (!player.level().isClientSide()) {
+            if (player.isCreative()) {
+                return;
+            }
+            if (event.getItem().getItem().getItem() instanceof IAdvancementRequirement) {
+                IAdvancementRequirement r = (IAdvancementRequirement) event.getItem().getItem().getItem();
+                if (!event.isCanceled() && !checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
+                    event.setCanceled(true);
+                }
+            }
+        }
     }
 
     public static boolean checkAdvancement(Player player, String mod_id, String advancement) {
