@@ -27,14 +27,14 @@ public class LivingrockBarrelBlockEntityRenderer implements BlockEntityRenderer<
     }
 
     @Override
-    public void render(@Nullable LivingrockBarrelBlockEntity barrel, float f, PoseStack matrixStack, MultiBufferSource buffers, int light, int overlay) {
+    public void render(@Nullable LivingrockBarrelBlockEntity barrel, float f, PoseStack ms, MultiBufferSource buffers, int light, int overlay) {
         if (barrel.getFluidAmount() > 0) {
             BlockState state = Fluids.WATER.defaultFluidState().createLegacyBlock();
-            matrixStack.pushPose();
+            ms.pushPose();
             float fillAmount = barrel.getFluidProportion();
 
-            matrixStack.translate(0.06F, 0.1875F, 0.06F);
-            matrixStack.scale(0.88F, fillAmount * 0.9F, 0.88F);
+            ms.translate(0.06F, 0.1875F, 0.06F);
+            ms.scale(0.88F, fillAmount * 0.9F, 0.88F);
 
             BlockRenderDispatcher blockRenderer = Minecraft.getInstance().getBlockRenderer();
             blockRenderer.renderLiquid(
@@ -43,11 +43,11 @@ public class LivingrockBarrelBlockEntityRenderer implements BlockEntityRenderer<
                     new LiquidBlockVertexConsumer(
                             buffers.getBuffer(
                                     ItemBlockRenderTypes.getRenderLayer(Fluids.WATER.defaultFluidState())),
-                            matrixStack,
+                            ms,
                             barrel.getBlockPos()),
                     state,
                     Fluids.WATER.defaultFluidState());
-            matrixStack.popPose();
+            ms.popPose();
         }
     }
 

@@ -29,16 +29,13 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
     private static final BlockPos[] OUTPUTS = {new BlockPos(1, 0, 0), new BlockPos(0, 0, 1),
             new BlockPos(-1, 0, 0), new BlockPos(0, 0, -1)};
     public static final int MAX_FLUID_AMOUNT = 16000;
-    private static final String FLUID_TAG = "fluid";
-    private static final String FLUID_AMOUNT_TAG = "fluidAmount";
+    private static final String FLUID_TAG = "tank";
     protected LivingrockBarrelBlockState lastSyncedState = null;
-    protected int fluidAmount;
     protected int ticksSinceLast = 0;
 
     public LivingrockBarrelBlockEntity(BlockPos pos, BlockState state) {
         super(ExtraBotanyEntities.Blocks.LIVINGROCK_BARREL_BLOCK_ENTITY.get(), pos, state);
         ticksSinceLast = 0;
-        fluidAmount = 0;
     }
 
     public int getFluidAmount() {
@@ -58,9 +55,8 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
 
     @Override
     public void readPacketNBT(CompoundTag cmp) {
-        FluidHandler.getHandler(this).readFromNBT(cmp.getCompound("tank"));
+        FluidHandler.getHandler(this).readFromNBT(cmp.getCompound(FLUID_TAG));
         ticksSinceLast = cmp.getInt("ticksSinceLast");
-        fluidAmount = cmp.getInt(FLUID_AMOUNT_TAG);
         super.readPacketNBT(cmp);
     }
 
@@ -72,9 +68,8 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
                     FluidHandler.getHandler(this).writeToNBT(new CompoundTag());
             cmp.put(FLUID_TAG, fluidNbt);
         }
-        cmp.put("tank", FluidHandler.getHandler(this).writeToNBT(new CompoundTag()));
+        cmp.put(FLUID_TAG, FluidHandler.getHandler(this).writeToNBT(new CompoundTag()));
         cmp.putInt("ticksSinceLast", ticksSinceLast);
-        cmp.putInt(FLUID_AMOUNT_TAG, fluidAmount);
     }
 
     @Override
@@ -85,7 +80,6 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
         } else {
             FluidHandler.getHandler(this).setFluid(FluidStack.EMPTY);
         }
-        fluidAmount = nbt.getInt(FLUID_AMOUNT_TAG);
     }
 
     public void tick(Level level, LivingrockBarrelBlockEntity barrel) {
@@ -97,15 +91,15 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
         if (ticksSinceLast >= 60) {
             ticksSinceLast = 0;
             if ((level.getBlockState(pos.below()).getFluidState().is(Fluids.WATER) || level.getBlockState(pos.below()).is(Blocks.WATER))) {
-                fluidAmount += 1000;
                 FluidHandler.getHandler(barrel).fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
             }
         }
         BlockPos o = OUTPUTS[barrel.ticksSinceLast % 4];
         if (level.getBlockEntity(pos.offset(o)) instanceof PetalApothecaryBlockEntity a && a.getFluid() != PetalApothecary.State.WATER) {
-            a.setFluid(PetalApothecary.State.WATER);
-            fluidAmount -= 1000;
-            FluidHandler.getHandler(barrel).drain(1000, IFluidHandler.FluidAction.EXECUTE);
+            FluidStack drain = FluidHandler.getHandler(barrel).drain(1000, IFluidHandler.FluidAction.EXECUTE);
+            if (drain.getAmount() == 1000) {
+                a.setFluid(PetalApothecary.State.WATER);
+            }
         }
         final LivingrockBarrelBlockState currentState = new LivingrockBarrelBlockState(this);
         if (!currentState.equals(lastSyncedState)) {
@@ -115,7 +109,7 @@ public class LivingrockBarrelBlockEntity extends BotaniaBlockEntity {
     }
 
     private boolean canAddWater(FluidStack fluidStack) {
-        return MAX_FLUID_AMOUNT - fluidAmount > 1000;
+        return MAX_FLUID_AMOUNT - fluidStack.getAmount() > 1000;
     }
 
     protected static class FluidHandler extends FluidTank {
