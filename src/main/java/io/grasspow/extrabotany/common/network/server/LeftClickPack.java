@@ -1,6 +1,8 @@
 package io.grasspow.extrabotany.common.network.server;
 
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.api.item.IItemWithLeftClick;
+import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -8,6 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import vazkii.botania.network.BotaniaPacket;
 
+import static io.grasspow.extrabotany.common.handler.AdvancementHandler.checkAdvancement;
 import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
 public record LeftClickPack(ItemStack stack) implements BotaniaPacket {
@@ -16,6 +19,10 @@ public record LeftClickPack(ItemStack stack) implements BotaniaPacket {
     public void handle(MinecraftServer server, ServerPlayer player) {
         server.execute(() -> {
             if (!stack.isEmpty()) {
+                if (stack.getItem() instanceof IAdvancementRequirement) {
+                    IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                    if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) return;
+                }
                 ((IItemWithLeftClick) (stack.getItem())).onLeftClick(player, null);
             }
         });
