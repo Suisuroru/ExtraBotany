@@ -370,6 +370,7 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
     @Override
     public void die(@Nonnull DamageSource source) {
         super.die(source);
+        setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         LivingEntity lastAttacker = getKillCredit();
 
         if (!level().isClientSide) {

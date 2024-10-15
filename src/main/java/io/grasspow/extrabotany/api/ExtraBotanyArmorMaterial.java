@@ -14,41 +14,41 @@ import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ExtraBotanyArmorMaterial implements ArmorMaterial {
-    MIKU("miku", 5, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 2);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 4);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 5);
-        p_266652_.put(ArmorItem.Type.HELMET, 1);
+    MIKU("miku", 5, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 4);
+        map.put(ArmorItem.Type.LEGGINGS, 5);
+        map.put(ArmorItem.Type.HELMET, 1);
     }), 22, () -> SoundEvents.ARMOR_EQUIP_LEATHER, ExtraBotanyItems.MANA_DRINK::get, 0),
-    MAID("maid", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 4);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 7);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 9);
-        p_266652_.put(ArmorItem.Type.HELMET, 4);
+    MAID("maid", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 4);
+        map.put(ArmorItem.Type.CHESTPLATE, 7);
+        map.put(ArmorItem.Type.LEGGINGS, 9);
+        map.put(ArmorItem.Type.HELMET, 4);
     }), 32, () -> SoundEvents.ARMOR_EQUIP_DIAMOND, ExtraBotanyItems.GOLD_CLOTH::get, 3),
-    GOBLINS_LAYER("goblins_layer", 27, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 3);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 5);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 7);
-        p_266652_.put(ArmorItem.Type.HELMET, 2);
+    GOBLINS_LAYER("goblins_layer", 27, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.CHESTPLATE, 5);
+        map.put(ArmorItem.Type.LEGGINGS, 7);
+        map.put(ArmorItem.Type.HELMET, 2);
     }), 30, () -> SoundEvents.ARMOR_EQUIP_IRON, ExtraBotanyItems.PHOTONIUM::get, 1),
-    SHADOW_WARRIOR("shadow_warrior", 24, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 2);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 5);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 6);
-        p_266652_.put(ArmorItem.Type.HELMET, 2);
+    SHADOW_WARRIOR("shadow_warrior", 24, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 5);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.HELMET, 2);
     }), 26, () -> SoundEvents.ARMOR_EQUIP_IRON, ExtraBotanyItems.SHADOWIUM::get, 1),
-    SHOOTING_GUARDIAN("shooting_guardian", 34, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 3);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 7);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 8);
-        p_266652_.put(ArmorItem.Type.HELMET, 9);
+    SHOOTING_GUARDIAN("shooting_guardian", 34, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.CHESTPLATE, 7);
+        map.put(ArmorItem.Type.LEGGINGS, 8);
+        map.put(ArmorItem.Type.HELMET, 9);
     }), 34, () -> SoundEvents.ARMOR_EQUIP_IRON, ExtraBotanyItems.ORICHALCOS::get, 2),
-    SILENT_SAGES("silent_sages", 50, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266652_) -> {
-        p_266652_.put(ArmorItem.Type.BOOTS, 4);
-        p_266652_.put(ArmorItem.Type.CHESTPLATE, 8);
-        p_266652_.put(ArmorItem.Type.LEGGINGS, 9);
-        p_266652_.put(ArmorItem.Type.HELMET, 5);
+    SILENT_SAGES("silent_sages", 50, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 4);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.LEGGINGS, 9);
+        map.put(ArmorItem.Type.HELMET, 5);
     }), 40, () -> SoundEvents.ARMOR_EQUIP_IRON, ExtraBotanyItems.ORICHALCOS::get, 3);
 
     private final String name;

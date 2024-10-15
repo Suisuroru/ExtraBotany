@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.forge;
 import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.api.capability.ExtraBotanyCapabilities;
 import io.grasspow.extrabotany.api.capability.INatureOrb;
+import io.grasspow.extrabotany.common.advancements.ExtraBotanyCriteriaTriggers;
 import io.grasspow.extrabotany.common.effect.brew.ExtraBotanyBrews;
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
 import io.grasspow.extrabotany.common.handler.ConfigHandler;
@@ -95,6 +96,7 @@ public class ForgeCommonInitializer {
         ExtraBotanyRecipeTypes.getRecipeSerializers().register(modEventBus);
         bind(BotaniaRegistries.BREWS, ExtraBotanyBrews::submitRegistrations);
         ExtraBotanyTabs.getTabs().register(modEventBus);
+        ExtraBotanyCriteriaTriggers.init();
     }
 
     private void registerEvents() {

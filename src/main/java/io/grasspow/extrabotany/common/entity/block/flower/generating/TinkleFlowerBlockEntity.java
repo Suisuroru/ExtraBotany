@@ -1,8 +1,11 @@
 package io.grasspow.extrabotany.common.entity.block.flower.generating;
 
+import io.grasspow.extrabotany.common.advancements.TinkleUseTrigger;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -43,7 +46,9 @@ public class TinkleFlowerBlockEntity extends GeneratingFlowerBlockEntity {
                     if (getMana() < getMaxMana())
                         addMana(30);
                     player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 0, 1));
-//                    AdvancementHandler.INSTANCE.grantAdvancement((ServerPlayerEntity) player, LibAdvancementNames.TINKLE_USE);
+                    if (player instanceof ServerPlayer serverPlayer && getLevel() instanceof ServerLevel serverLevel) {
+                        TinkleUseTrigger.INSTANCE.trigger(serverPlayer, serverLevel, getBlockPos());
+                    }
                     time %= limit;
                 }
             }

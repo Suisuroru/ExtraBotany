@@ -79,7 +79,7 @@ public class LanguageHelper {
 
         // food
         addItem(ExtraBotanyItems.SPIRIT_FUEL, "Spirit Fuel", "精神燃料");
-        addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇染料");
+        addItem(ExtraBotanyItems.NIGHTMARE_FUEL, "Nightmare Fuel", "梦魇燃料");
         addItem(ExtraBotanyItems.GILDED_MASHED_POTATO, "Gilded Mashed Potato", "镀金土豆泥");
         addItem(ExtraBotanyItems.FRIED_CHICKEN, "Fried Chicken", "香香鸡");
         addItem(ExtraBotanyItems.MANA_DRINK, "Mana Drink", "魔力鸡尾酒");
@@ -251,6 +251,30 @@ public class LanguageHelper {
                 "Deep Dark Fantasy", "Deep Dark Fantasy",
                 "Eat a Nightmare Fuel (Unbelievable)", "食用一个梦魇燃料(这真的能吃吗)"
         );
+        makeAdv(LibAdvancementNames.POWER_FRAME_CRAFT, "Letter Song", "Letter Song", "Craft a Position Reader", "合成一个力量框架");
+        makeAdv(LibAdvancementNames.ARMORSET_MIKU, "Cat's Dance", "Cat's Dance", "Equip Starry Idol Armor Set", "装备一套星空歌姬");
+        makeAdv(LibAdvancementNames.TINKLE_USE, "Project Diva Desu", "Project Diva Desu", "Dance around a Tinkle Flower", "在叮当舞花旁跳舞");
+        makeAdv(LibAdvancementNames.MANA_BUFFER_CRAFT, "ロストワンの号哭", "ロストワンの号哭", "Craft a Mana Buffer", "合成一个魔力缓存器");
+        makeAdv(LibAdvancementNames.MANA_READER_CRAFT, "Satisfaction", "Satisfaction", "Craft a Mana Reader", "合成一个魔力读取器");
+        makeAdv(LibAdvancementNames.SPIRIT_CRAFT, "PONPONPON", "PONPONPON", "Craft a Spirit Fragment", "获得精神碎片");
+        makeAdv(LibAdvancementNames.ARMORSET_GOBLINS_LAYER, "Befall", "Befall", "Equip Goblin Slayer Armor Set", "装备一套哥布林杀手");
+        makeAdv(LibAdvancementNames.ARMORSET_SHADOW_WARRIOR, "Crazy ∞ nighT", "Crazy ∞ nighT", "Equip Shadow Warrior Armor Set", "装备一套暗影武士");
+        makeAdv(LibAdvancementNames.ARMORSET_SHOOTING_GUARDIAN, "CONNECT", "CONNECT", "Equip Shooting Guardian Armor Set", "装备一套银翼护卫");
+        makeAdv(LibAdvancementNames.ARMORSET_MAID, "Drug Of Gold", "Drug Of Gold", "Equip Pleiades Combat Maid Armor Set", "装备一套昂星团战斗女仆");
+        makeAdv(LibAdvancementNames.NATURE_ORB_CRAFT, "Single floor", "雨夢楼", "Craft a Nature Orb", "合成一个自然蕴息宝珠");
+        makeAdv(LibAdvancementNames.EGO_DEFEAT, "KiLLER LADY", "KiLLER LADY", "Defeat Ego", "击败本我");
+        makeAdv(LibAdvancementNames.SUN_RING_CRAFT, "Promise", "Promise", "Obtain Ring of Sacred Sun", "获得圣阳尊戒");
+        makeAdv(LibAdvancementNames.MOON_PENDANT_CRAFT, "Crystalline", "Crystalline", "Obtain Heart of Corrupted Moon", "获得蚀月之心");
+        makeAdv(LibAdvancementNames.FAILNAUGHT_CRAFT, "From Y to Y", "From Y to Y", "Obtain Failnaught", "获得百中弓");
+        makeAdv(LibAdvancementNames.CAMERA_CRAFT, "lukaluka night fever", "lukaluka night fever", "Obtain Shameimaru's Camera", "获得文文的相机");
+        makeAdv(LibAdvancementNames.THE_UNIVERSE_CRAFT, "Gears of Love", "Gears of Love", "Obtain The Universe", "获得宇宙之心");
+        makeAdv(LibAdvancementNames.FIRST_FRACTAL_CRAFT, "Infinity +1 Sword", "Infinity +1 Sword", "Obtain First Fractal", "获得最初分型");
+        makeAdv(LibAdvancementNames.CORE_GOD_CRAFT, "All Hail The Queen", "All Hail The Queen", "Obtain Core of Herrscher", "获得律者核心");
+        makeAdv(LibAdvancementNames.INFINITE_WINE_CRAFT, "Shake it", "Shake it", "Obtain Infinite Wine", "获得无限之酒");
+        makeAdv(LibAdvancementNames.BUDDHIST_RELICS_OBTAIN, "SPiCa", "SPiCa", "Obtain Origin Creation|Omniscience", "获得源初造物丨虚空万藏");
+        makeAdv(LibAdvancementNames.EXCALIBER_CRAFT, "ReAct", "ReAct", "Obtain Excaliber", "获得王者圣剑");
+        makeAdv(LibAdvancementNames.SAGES_MANA_RING_CRAFT, "COLOR", "COLOR", "Obtain Sages Mana Ring", "获得贤者魔力指环");
+        makeAdv(LibAdvancementNames.SAGES_MANA_RING_FILL, "Fairytale", "Fairytale", "Fill it to WIN the game", "将一个贤者魔力指环充满以获得游戏胜利");
     }
 
     private static void makeAdv(String key, String titleEn, String titleZh, String descEn, String descZh) {
