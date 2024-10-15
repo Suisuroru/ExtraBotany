@@ -2,6 +2,8 @@ package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +25,7 @@ import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.List;
 
-public class MoonPendantItem extends CirrusAmuletItem {
+public class MoonPendantItem extends CirrusAmuletItem implements IAdvancementRequirement {
 
     public MoonPendantItem(Properties props) {
         super(props);
@@ -74,5 +76,10 @@ public class MoonPendantItem extends CirrusAmuletItem {
     @Override
     public @NotNull Rarity getRarity(ItemStack stack) {
         return Rarity.EPIC;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

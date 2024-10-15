@@ -51,6 +51,7 @@
   "advancement.extrabotany.the_universe_craft.title": "Gears of Love",
   "advancement.extrabotany.tinkle_use.desc": "在叮当舞花旁跳舞",
   "advancement.extrabotany.tinkle_use.title": "Project Diva Desu",
+  "advancement.item_disabled.desc": "你无法使用该物品直到你完成进度 <%s>",
   "block.extrabotany.aerialite_block": "天空块",
   "block.extrabotany.annoying_flower": "神烦花",
   "block.extrabotany.annoying_flower.reference": "摸了",

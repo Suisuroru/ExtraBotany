@@ -2,7 +2,9 @@ package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -34,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CoreGodItem extends RelicBaubleItem implements CustomCreativeTabContents {
+public class CoreGodItem extends RelicBaubleItem implements CustomCreativeTabContents, IAdvancementRequirement {
     private static final String TAG_VARIANT = "variant";
 
     private static final List<String> playersWithFlight = Collections.synchronizedList(new ArrayList<>());
@@ -148,6 +150,11 @@ public class CoreGodItem extends RelicBaubleItem implements CustomCreativeTabCon
     @Override
     public boolean hasRender(ItemStack stack, LivingEntity living) {
         return super.hasRender(stack, living) && living instanceof Player;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 
     public static class Renderer implements AccessoryRenderer {

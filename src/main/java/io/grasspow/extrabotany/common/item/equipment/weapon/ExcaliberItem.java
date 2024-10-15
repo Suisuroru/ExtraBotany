@@ -2,6 +2,8 @@ package io.grasspow.extrabotany.common.item.equipment.weapon;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -37,7 +39,7 @@ import java.util.List;
 
 import static vazkii.botania.common.item.equipment.bauble.BaubleItem.getBaubleUUID;
 
-public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, CustomDamageItem {
+public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, CustomDamageItem, IAdvancementRequirement {
     private static final String TAG_ATTACKER_USERNAME = "attackerUsername";
     private static final String TAG_HOME_ID = "homeID";
 
@@ -180,5 +182,10 @@ public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, Cust
     @Override
     public ItemStack setCompositeLens(ItemStack sourceLens, ItemStack compositeLens) {
         return null;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

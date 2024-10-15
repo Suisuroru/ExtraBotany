@@ -1,7 +1,9 @@
 package io.grasspow.extrabotany.common.item.equipment.weapon;
 
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.common.entity.projectile.MagicArrowProjectile;
 import io.grasspow.extrabotany.common.handler.DamageHandler;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -31,7 +33,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class FailnaughtItem extends LivingwoodBowItem implements CustomDamageItem {
+public class FailnaughtItem extends LivingwoodBowItem implements CustomDamageItem, IAdvancementRequirement {
     private static final int MANA_PER_DAMAGE = 320;
 
     public FailnaughtItem(Item.Properties prop) {
@@ -128,4 +130,8 @@ public class FailnaughtItem extends LivingwoodBowItem implements CustomDamageIte
         return false;
     }
 
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
+    }
 }

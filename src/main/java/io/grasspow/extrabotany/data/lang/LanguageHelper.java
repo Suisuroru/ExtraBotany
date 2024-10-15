@@ -27,6 +27,7 @@ public class LanguageHelper {
         transItem();
         transBlock();
         transEntity();
+        add("advancement.item_disabled.desc", "You can' use it until you complete corresponding advancement <%s>.", "你无法使用该物品直到你完成进度 <%s>");
         transAdvancement();
 
         //brew

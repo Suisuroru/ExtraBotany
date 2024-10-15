@@ -2,7 +2,9 @@ package io.grasspow.extrabotany.common.item.equipment.weapon;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.common.entity.projectile.PhantomSwordProjectile;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,7 +24,7 @@ import vazkii.botania.common.item.relic.RelicImpl;
 import static vazkii.botania.common.item.equipment.bauble.BaubleItem.getBaubleUUID;
 
 
-public class FirstFractalItem extends RelicSwordItem {
+public class FirstFractalItem extends RelicSwordItem implements IAdvancementRequirement {
     public FirstFractalItem(Item.Properties prop) {
         super(Tiers.NETHERITE, 10, -1.6F, prop);
     }
@@ -101,5 +103,10 @@ public class FirstFractalItem extends RelicSwordItem {
 
     public static Relic makeRelic(ItemStack stack) {
         return new RelicImpl(stack, null);
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

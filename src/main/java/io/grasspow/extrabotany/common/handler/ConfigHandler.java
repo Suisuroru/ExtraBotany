@@ -31,6 +31,7 @@ public class ConfigHandler {
         public final ForgeConfigSpec.BooleanValue doCompatTConstruct;
         public final ForgeConfigSpec.BooleanValue disableDisarm;
         public final ForgeConfigSpec.BooleanValue doProjectileBreakBlock;
+        public final ForgeConfigSpec.BooleanValue doStrictAdvancementChecking;
 
         public Common(ForgeConfigSpec.Builder builder) {
 
@@ -45,6 +46,10 @@ public class ConfigHandler {
             doProjectileBreakBlock = builder
                     .comment("Whether Relic projectiles break blocks. Default is false.")
                     .define("doProjectileBreakBlock", false);
+
+            doStrictAdvancementChecking = builder
+                    .comment("Whether advancement-checker drop items from players' inventory (not curio's slot and equipment slot) that are not grant specific advancement. Default is false.")
+                    .define("doStrictAdvancementChecking", false);
 
             builder.pop();
         }

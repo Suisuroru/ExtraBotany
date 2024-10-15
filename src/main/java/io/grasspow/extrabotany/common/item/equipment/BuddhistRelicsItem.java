@@ -1,6 +1,8 @@
 package io.grasspow.extrabotany.common.item.equipment;
 
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -15,7 +17,7 @@ import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.relic.RelicImpl;
 import vazkii.botania.common.item.relic.RelicItem;
 
-public class BuddhistRelicsItem extends RelicItem {
+public class BuddhistRelicsItem extends RelicItem implements IAdvancementRequirement {
 
     public static final String TAG_MORPHING = "buddhist:morphing";
     public static final String TAG_DATA = "buddhist:data";
@@ -132,5 +134,10 @@ public class BuddhistRelicsItem extends RelicItem {
 
     public static Relic makeRelic(ItemStack stack) {
         return new RelicImpl(stack, null);
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

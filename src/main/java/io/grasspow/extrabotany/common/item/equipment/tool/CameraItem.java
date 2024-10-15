@@ -1,5 +1,7 @@
 package io.grasspow.extrabotany.common.item.equipment.tool;
 
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -29,7 +31,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class CameraItem extends RelicItem {
+public class CameraItem extends RelicItem implements IAdvancementRequirement {
 
     public static final int MANA_PER_DAMAGE = 1500;
     public static final int RANGE = 20;
@@ -109,5 +111,10 @@ public class CameraItem extends RelicItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         RelicImpl.addDefaultTooltip(stack, list);
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

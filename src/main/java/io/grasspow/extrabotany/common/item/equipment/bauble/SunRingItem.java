@@ -2,7 +2,9 @@ package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -22,7 +24,7 @@ import vazkii.botania.common.item.equipment.bauble.RingOfCorrectionItem;
 import vazkii.botania.common.item.equipment.bauble.RingOfTheMantleItem;
 import vazkii.botania.common.item.relic.RelicImpl;
 
-public class SunRingItem extends RelicBaubleItem {
+public class SunRingItem extends RelicBaubleItem implements IAdvancementRequirement {
 
     private static final int WATER_RING_COST = 3;
 
@@ -81,5 +83,10 @@ public class SunRingItem extends RelicBaubleItem {
     public static Relic makeRelic(ItemStack stack) {
         return new RelicImpl(stack, null) {
         };
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 }

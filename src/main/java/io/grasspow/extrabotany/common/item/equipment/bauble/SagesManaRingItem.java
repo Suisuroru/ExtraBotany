@@ -1,5 +1,7 @@
 package io.grasspow.extrabotany.common.item.equipment.bauble;
 
+import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
+import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -14,7 +16,7 @@ import vazkii.botania.xplat.XplatAbstractions;
 import java.util.List;
 
 
-public class SagesManaRingItem extends GreaterBandOfManaItem {
+public class SagesManaRingItem extends GreaterBandOfManaItem implements IAdvancementRequirement {
 
     protected static final int MAX_MANA = Integer.MAX_VALUE - 1;
 
@@ -55,6 +57,11 @@ public class SagesManaRingItem extends GreaterBandOfManaItem {
     @Override
     public @NotNull Rarity getRarity(ItemStack stack) {
         return Rarity.EPIC;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGO_DEFEAT;
     }
 
     public static class SagesManaRingItemImpl extends GreaterManaItemImpl {
