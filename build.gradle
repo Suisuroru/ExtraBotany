@@ -181,7 +181,7 @@ dependencies {
 //    implementation fg.deobf("curse.maven:jade-324717:5672013")
     runtimeOnly fg.deobf("curse.maven:jade-324717:5672013")
     runtimeOnly fg.deobf("curse.maven:nbtedit-678133:5646052")
-    runtimeOnly fg.deobf("curse.maven:in-game-account-switcher-232676:5457030")
+//    runtimeOnly fg.deobf("curse.maven:in-game-account-switcher-232676:5457030")
     runtimeOnly fg.deobf("curse.maven:moonlightLib-499980:5798366")
     runtimeOnly fg.deobf("curse.maven:dummmmmmy-225738:5737040")
     runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
