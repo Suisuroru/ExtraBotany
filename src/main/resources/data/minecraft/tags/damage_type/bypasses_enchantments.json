@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "extrabotany:general_armor_piercing",
+    "extrabotany:magic_armor_piercing",
+    "extrabotany:critical"
+  ]
+}

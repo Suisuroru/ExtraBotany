@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.item.equipment.bauble;
 
 import io.grasspow.extrabotany.common.event.DamageEventHandler;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -33,7 +34,7 @@ public class FrostStarItem extends BaubleItem {
                 for (LivingEntity living : player.level().getEntitiesOfClass(LivingEntity.class, new AABB(player.getOnPos().offset(-RANGE, -RANGE, -RANGE), player.getOnPos().offset(RANGE + 1, RANGE + 1, RANGE + 1)))) {
                     if (((ServerPlayer) player).getCamera() != living
                             && living != player
-                            && DamageEventHandler.checkPassable(living, player)
+                            && DamageHandler.checkPassable(living, player)
                             && player.tickCount % 20 == 0
                             && ManaItemHandler.instance().requestManaExactForTool(stack, player, MANA_PER_DAMAGE, true)) {
                         living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 4));

@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.data;
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyDamageTypes;
 import io.grasspow.extrabotany.data.lang.EnUsProvider;
 import io.grasspow.extrabotany.data.lang.LanguageHelper;
 import io.grasspow.extrabotany.data.lang.ZhCnProvider;
@@ -11,13 +12,25 @@ import io.grasspow.extrabotany.data.model.FloatingFlowerModelProvider;
 import io.grasspow.extrabotany.data.model.ItemModelProvider;
 import io.grasspow.extrabotany.data.recipes.*;
 import io.grasspow.extrabotany.data.tag.BlockTagProvider;
+import io.grasspow.extrabotany.data.tag.DamageTypeTagProvider;
 import io.grasspow.extrabotany.data.tag.EntityTagProvider;
 import io.grasspow.extrabotany.data.tag.ItemTagProvider;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.damagesource.DamageEffects;
+import net.minecraft.world.damagesource.DamageScaling;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DeathMessageType;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = ExtraBotanyAPI.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+import java.util.Set;
+
+import static io.grasspow.extrabotany.api.ExtraBotanyAPI.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent
@@ -38,6 +51,12 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new ZhCnProvider(output));
 
         generator.addProvider(event.includeClient(), new SoundDefinitionsProvider(output, fileHelper));
+
+        generator.addProvider(event.includeServer(),
+                new DatapackBuiltinEntriesProvider(output, lookupProvider, new RegistrySetBuilder()
+                        .add(Registries.DAMAGE_TYPE, ExtraBotanyDamageTypes::bootstrap), Set.of(MOD_ID))
+        );
+//        generator.addProvider(event.includeServer(), new DamageTypeTagProvider(output, lookupProvider));
 
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, fileHelper));
 

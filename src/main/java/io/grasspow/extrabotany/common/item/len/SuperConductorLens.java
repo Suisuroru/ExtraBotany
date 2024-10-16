@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.item.len;
 
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -31,7 +32,7 @@ public class SuperConductorLens extends Lens {
         List<LivingEntity> entities = entity.level().getEntitiesOfClass(LivingEntity.class, axis);
         for (LivingEntity living : entities) {
             if (!burst.isFake()) {
-                living.hurt(living.damageSources().magic(), living instanceof Player ? 25F : 8F);
+                DamageHandler.INSTANCE.dmg(living, null, living instanceof Player ? 25F : 8F, DamageHandler.INSTANCE.MAGIC_PIERCING);
             }
         }
     }

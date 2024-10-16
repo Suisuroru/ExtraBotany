@@ -5,7 +5,7 @@ import io.grasspow.extrabotany.client.ExtraBotanyItemProperties;
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
 import io.grasspow.extrabotany.client.model.ExtraBotanyLayerDefinitions;
 import io.grasspow.extrabotany.client.render.ColorHandler;
-import io.grasspow.extrabotany.common.registry.ExtraBotanyEntityRenderers;
+import io.grasspow.extrabotany.forge.client.render.ExtraBotanyEntityRenderers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraftforge.api.distmarker.Dist;

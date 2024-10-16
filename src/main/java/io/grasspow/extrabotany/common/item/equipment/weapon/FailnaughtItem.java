@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.item.equipment.weapon;
 
+import io.grasspow.extrabotany.api.ExtraBotanyAPI;
 import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.common.entity.projectile.MagicArrowProjectile;
 import io.grasspow.extrabotany.common.handler.DamageHandler;
@@ -75,7 +76,7 @@ public class FailnaughtItem extends LivingwoodBowItem implements CustomDamageIte
                 MagicArrowProjectile arrow = new MagicArrowProjectile(worldIn, player);
                 arrow.setPos(player.getX(), player.getY() + 1.1D, player.getZ());
                 arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 1.0F);
-                arrow.setDamage((int) Math.min(50, DamageHandler.calcDamage(7 + rank * 2F, player)));
+                arrow.setDamage((int) Math.min(50, ExtraBotanyAPI.INSTANCE.calcDamage(7 + rank * 2F, player)));
                 arrow.setYRot(player.getYRot());
                 int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER_ARROWS, living);
                 if (j > 0) {

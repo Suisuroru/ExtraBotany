@@ -2,12 +2,15 @@ package io.grasspow.extrabotany.common.network.server;
 
 import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
 import io.grasspow.extrabotany.api.item.IItemWithLeftClick;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.equipment.bauble.JingweiFeatherItem;
 import io.grasspow.extrabotany.common.libs.LibMisc;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import vazkii.botania.common.handler.EquipmentHandler;
 import vazkii.botania.network.BotaniaPacket;
 
 import static io.grasspow.extrabotany.common.handler.AdvancementHandler.checkAdvancement;
@@ -24,6 +27,9 @@ public record LeftClickPack(ItemStack stack) implements BotaniaPacket {
                     if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) return;
                 }
                 ((IItemWithLeftClick) (stack.getItem())).onLeftClick(player, null);
+            }
+            if (!EquipmentHandler.findOrEmpty(ExtraBotanyItems.JINGWEI_FEATHER.get(), player).isEmpty()) {
+                ((JingweiFeatherItem) ExtraBotanyItems.JINGWEI_FEATHER.get()).onLeftClick(player, null);
             }
         });
     }

@@ -1,5 +1,6 @@
 package io.grasspow.extrabotany.common.entity.ego;
 
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -236,24 +237,24 @@ public class EGOLandmine extends Entity {
             if (!level().isClientSide) {
                 List<Player> players = level().getEntitiesOfClass(Player.class, getBoundingBox().inflate(0, 12, 0));
                 for (Player player : players) {
-                    player.hurt(this.damageSources().indirectMagic(this, summoner), 5F);
+                    DamageHandler.INSTANCE.dmg(player, summoner, 5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                    player.hurt(this.damageSources().indirectMagic(this, summoner), 10F);
+                    player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 25, 0));
+                    MobEffectInstance wither = new MobEffectInstance(MobEffects.WITHER, 120, 2);
+                    wither.getCurativeItems().clear();
+                    player.addEffect(wither);
                     switch (getLandmineType()) {
-                        default -> {
-                            player.hurt(this.damageSources().indirectMagic(this, summoner), 10F);
-                            player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 25, 0));
-                            MobEffectInstance wither = new MobEffectInstance(MobEffects.WITHER, 120, 2);
-                            wither.getCurativeItems().clear();
-                            player.addEffect(wither);
-                        }
-                        case 1 -> {
+                        case 1:
                             if (!player.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty())
                                 player.drop(player.getItemBySlot(EquipmentSlot.MAINHAND), true);
                             if (!player.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty())
                                 player.drop(player.getItemBySlot(EquipmentSlot.OFFHAND), true);
                             player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
                             player.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
-                        }
-                        case 2 -> player.hurt(this.damageSources().indirectMagic(this, summoner), 20F);
+                            break;
+                        case 2:
+                            DamageHandler.INSTANCE.dmg(player, summoner, 10F, DamageHandler.INSTANCE.LIFE_LOSING);
+                            break;
                     }
                 }
             }

@@ -1,10 +1,12 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -29,9 +31,17 @@ public class TrueTerraBladeProjectile extends BaseSwordProjectile {
 
     @Override
     public void tick() {
-        super.tick();
-        if (getDeltaMovement().equals(Vec3.ZERO))
+
+        if (this.tickCount >= getLifeTicks())
+            discard();
+
+        if (!level().isClientSide && (getOwner() == null || getOwner().isRemoved())) {
+            discard();
             return;
+        }
+
+        super.tick();
+
         if (level().isClientSide && tickCount % 2 == 0) {
             WispParticleData data = WispParticleData.wisp(0.3F, 0.1F, 0.95F, 0.1F, 1F);
             ClientProxy.INSTANCE.addParticleForceNear(level(), data, getX(), getY(), getZ(), 0, 0, 0);
@@ -41,18 +51,12 @@ public class TrueTerraBladeProjectile extends BaseSwordProjectile {
             List<LivingEntity> entities = level().getEntitiesOfClass(LivingEntity.class, axis);
             List<LivingEntity> list = getFilteredEntities(entities, getOwner());
             for (LivingEntity living : list) {
-                if (getOwner() != null) {
-                    living.hurt(getOwner().damageSources().mobProjectile(this, (LivingEntity) getOwner()), 9F * damageTime);
-                    if (attackedEntities != null && !attackedEntities.contains(living)) {
-                        living.hurt(getOwner().damageSources().magic(), 2 * damageTime);
-                        attackedEntities.add(living);
-                        tickCount += 20;
-                    }
-                }
-
-                if (tickCount > getLifeTicks()) {
-                    discard();
-                    break;
+                if (getOwner() instanceof Player) {
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 11F, DamageHandler.INSTANCE.GENERAL);
+                } else {
+                    if (living.invulnerableTime == 0)
+                        DamageHandler.INSTANCE.dmg(living, getOwner(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 7F, DamageHandler.INSTANCE.MAGIC);
                 }
             }
         }

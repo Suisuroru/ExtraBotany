@@ -2,6 +2,7 @@ package io.grasspow.extrabotany.common.entity.projectile;
 
 
 import io.grasspow.extrabotany.api.ExtraBotanyAPI;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
@@ -35,7 +36,7 @@ public class AuraFireProjectile extends BaseProjectile {
         if (getOwner() instanceof Player player) {
             if (result.getEntity() != player) {
                 float dmg = ExtraBotanyAPI.instance().calcDamage(5F, player);
-                result.getEntity().hurt(player.damageSources().generic(), dmg);
+                DamageHandler.INSTANCE.dmg(result.getEntity(), player, dmg, DamageHandler.INSTANCE.GENERAL_PIERCING);
                 player.setAbsorptionAmount(Math.min(10, player.getAbsorptionAmount() + 1F));
                 this.kill();
             }

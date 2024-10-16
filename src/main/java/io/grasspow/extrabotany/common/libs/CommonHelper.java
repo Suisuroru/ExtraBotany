@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static io.grasspow.extrabotany.common.event.DamageEventHandler.checkPassable;
+import static io.grasspow.extrabotany.common.handler.DamageHandler.checkPassable;
 
 public class CommonHelper {
 

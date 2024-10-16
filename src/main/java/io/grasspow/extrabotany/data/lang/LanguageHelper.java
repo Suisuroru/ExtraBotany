@@ -37,7 +37,12 @@ public class LanguageHelper {
         add("extrabotany.brew.deadpool", "Deadpool", "死灵");
         add("extrabotany.brew.floating", "Floating", "漂浮");
 
-        //sound
+        add("death.attack.general_armor_piercing", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
+        add("death.attack.general_armor_piercing.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
+        add("death.attack.magic_armor_piercing", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
+        add("death.attack.magic_armor_piercing.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
+        add("death.attack.critical", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
+        add("death.attack.critical.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
     }
 
     private static void transItem() {

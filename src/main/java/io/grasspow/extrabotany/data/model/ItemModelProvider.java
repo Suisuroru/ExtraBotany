@@ -133,6 +133,7 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
         //skip
         items.remove(ExtraBotanyItems.SILVER_BULLET.get());
         items.remove(ExtraBotanyItems.FLAMESCION_WEAPON.get());
+        items.remove(ExtraBotanyItems.FAILNAUGHT.get());
 
         takeAll(items,
                 ExtraBotanyItems.SPLASH_GRENADE.get()
@@ -160,7 +161,7 @@ public class ItemModelProvider extends vazkii.botania.data.ItemModelProvider {
                 ExtraBotanyItems.TRUE_SHADOW_KATANA.get(),
                 ExtraBotanyItems.TRUE_TERRA_BLADE.get(),
                 ExtraBotanyItems.EXCALIBER.get(),
-                ExtraBotanyItems.FAILNAUGHT.get()
+                ExtraBotanyItems.FIRST_FRACTAL.get()
         ).forEach(i -> ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(i), TextureMapping.layer0(i), consumer));
         GENERATED_0.create(resId("item/first_fractal"),
                 TextureMapping.layer0(resId("item/sword_domain_9")),

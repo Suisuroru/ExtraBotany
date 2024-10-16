@@ -213,6 +213,7 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
             e.setTpDelay(160);
             float healthMultiplier = 0.4F + playerCount * 0.6F;
             e.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MAX_HP * healthMultiplier);
+            e.setHealth(MAX_HP * healthMultiplier);
 
             e.getAttribute(Attributes.ARMOR).setBaseValue(20);
             e.playSound(BotaniaSounds.gaiaSummon, 1F, 1F);
@@ -369,8 +370,8 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
 
     @Override
     public void die(@Nonnull DamageSource source) {
-        super.die(source);
         setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        super.die(source);
         LivingEntity lastAttacker = getKillCredit();
 
         if (!level().isClientSide) {
@@ -710,7 +711,7 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
                     setDeltaMovement(getDeltaMovement().x, 0, getDeltaMovement().z);
                     if (invul % 60 == 0)
                         if (wave < MAX_WAVE) {
-                            EGOLandmine.spawnLandmine(wave, level(), source, this);
+                            EGOLandmine.spawnLandmine(wave, level(), source.below(), this);
                             wave++;
                         }
                     return;
@@ -786,7 +787,7 @@ public class EGO extends Monster implements IEntityAdditionalSpawnData {
         }
         //--change phase--
         if (getStage() >= 1 && tpTimes % 7 == 0) {
-            EGOLandmine.spawnLandmine(level().random.nextInt(8), level(), source, this);
+            EGOLandmine.spawnLandmine(level().random.nextInt(8), level(), source.below(), this);
             tpTimes++;
         }
 

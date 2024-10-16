@@ -3,6 +3,7 @@ package io.grasspow.extrabotany.common.item.equipment.weapon;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import io.grasspow.extrabotany.api.capability.IAdvancementRequirement;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -27,6 +28,7 @@ import vazkii.botania.api.internal.ManaBurst;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.api.mana.BasicLensItem;
 import vazkii.botania.api.mana.BurstProperties;
+import vazkii.botania.api.mana.LensEffectItem;
 import vazkii.botania.common.entity.ManaBurstEntity;
 import vazkii.botania.common.handler.BotaniaSounds;
 import vazkii.botania.common.helper.ItemNBTHelper;
@@ -34,12 +36,13 @@ import vazkii.botania.common.helper.VecHelper;
 import vazkii.botania.common.item.equipment.CustomDamageItem;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.RelicImpl;
+import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.List;
 
 import static vazkii.botania.common.item.equipment.bauble.BaubleItem.getBaubleUUID;
 
-public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, CustomDamageItem, IAdvancementRequirement {
+public class ExcaliberItem extends RelicSwordItem implements LensEffectItem, CustomDamageItem, IAdvancementRequirement {
     private static final String TAG_ATTACKER_USERNAME = "attackerUsername";
     private static final String TAG_HOME_ID = "homeID";
 
@@ -146,7 +149,8 @@ public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, Cust
                     burst.setMana(mana - cost);
                     float damage = BotaniaAPI.instance().getTerrasteelItemTier().getAttackDamageBonus() + 3F;
                     if (!burst.isFake() && !entity.level().isClientSide) {
-                        living.hurt(thrower.damageSources().magic(), damage);
+                        Player player = living.level().getPlayerByUUID(XplatAbstractions.INSTANCE.findRelic(stack).getSoulbindUUID());
+                        DamageHandler.INSTANCE.dmg(living, player, damage, DamageHandler.INSTANCE.GENERAL_PIERCING);
                         entity.discard();
                         break;
                     }
@@ -162,26 +166,6 @@ public class ExcaliberItem extends RelicSwordItem implements BasicLensItem, Cust
     @Override
     public boolean doParticles(ManaBurst burst, ItemStack stack) {
         return true;
-    }
-
-    @Override
-    public int getLensColor(ItemStack stack, Level level) {
-        return 0;
-    }
-
-    @Override
-    public boolean canCombineLenses(ItemStack sourceLens, ItemStack compositeLens) {
-        return false;
-    }
-
-    @Override
-    public ItemStack getCompositeLens(ItemStack stack) {
-        return null;
-    }
-
-    @Override
-    public ItemStack setCompositeLens(ItemStack sourceLens, ItemStack compositeLens) {
-        return null;
     }
 
     @Override

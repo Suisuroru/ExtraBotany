@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
 import io.grasspow.extrabotany.common.handler.ConfigHandler;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -43,21 +44,6 @@ public class MagicArrowProjectile extends BaseProjectile {
     }
 
     @Override
-    protected void onHitBlock(BlockHitResult hitResult) {
-        var state = level().getBlockState(hitResult.getBlockPos());
-        var hardness = state.getDestroySpeed(level(), hitResult.getBlockPos());
-        var vec3 = getDeltaMovement();
-        setDeltaMovement(Vec3.ZERO);
-        if (ConfigHandler.COMMON.doProjectileBreakBlock.get() && hardness > 0 && !(state.getBlock() instanceof BeaconBlock)) {
-            level().removeBlock(hitResult.getBlockPos(), false);
-            level().levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, hitResult.getBlockPos(), Block.getId(state));
-            tickCount += 2;
-            setDeltaMovement(vec3);
-        }
-        super.onHitBlock(hitResult);
-    }
-
-    @Override
     protected void defineSynchedData() {
         entityData.define(DAMAGE, 0);
         entityData.define(LIFE, 0);
@@ -84,7 +70,7 @@ public class MagicArrowProjectile extends BaseProjectile {
             var entities = level().getEntitiesOfClass(LivingEntity.class, axis);
             var livings = getFilteredEntities(entities, player);
             for (LivingEntity living : livings) {
-                living.hurt(player.damageSources().magic(), getDamage());
+                DamageHandler.INSTANCE.dmg(living, player, getDamage(), DamageHandler.INSTANCE.GENERAL_PIERCING);
             }
         }
 

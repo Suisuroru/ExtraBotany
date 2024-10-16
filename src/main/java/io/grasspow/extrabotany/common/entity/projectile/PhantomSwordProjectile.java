@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
@@ -89,11 +90,13 @@ public class PhantomSwordProjectile extends BaseSwordProjectile {
             List<LivingEntity> entities = level().getEntitiesOfClass(LivingEntity.class, axis);
             List<LivingEntity> list = getFilteredEntities(entities, getOwner());
             for (LivingEntity living : list) {
-//                DamageHandler.INSTANCE.doDamage(living, this, getOwner(), 2F * damageTime, DamageHandler.INSTANCE.BYPASS_INVUL + DamageHandler.INSTANCE.BYPASS_MAGIC + DamageHandler.INSTANCE.PROJECTILE + DamageHandler.INSTANCE.BYPASS_ARMOR);
                 if (getOwner() != null) {
-                    living.hurt(getOwner().damageSources().magic(), 2F * damageTime);
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 7F, DamageHandler.INSTANCE.MAGIC_PIERCING);
                 } else {
-                    living.hurt(level().damageSources().magic(), 2F * damageTime);
+                    if (living.invulnerableTime == 0)
+                        DamageHandler.INSTANCE.dmg(living, getOwner(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                    ;
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 7.5F, DamageHandler.INSTANCE.MAGIC);
                 }
             }
         }

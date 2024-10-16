@@ -10,6 +10,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import vazkii.botania.common.handler.EquipmentHandler;
 
+import static io.grasspow.extrabotany.common.handler.DamageHandler.checkPassable;
+
 @Mod.EventBusSubscriber
 public class DamageEventHandler {
 
@@ -18,19 +20,5 @@ public class DamageEventHandler {
         if (!checkPassable(event.getEntity(), event.getSource().getEntity()) && !event.isCanceled()) {
             event.setCanceled(true);
         }
-    }
-
-    public static boolean checkPassable(LivingEntity target, Entity attacker) {
-        if (target == attacker) {
-            return false;
-        }
-        if (attacker instanceof Player player) {
-            boolean sourceEquipped = !EquipmentHandler.findOrEmpty(ExtraBotanyItems.PEACE_AMULET.get(), player).isEmpty();
-            if (target instanceof Player targetPlayer) {
-                return !sourceEquipped && EquipmentHandler.findOrEmpty(ExtraBotanyItems.PEACE_AMULET.get(), targetPlayer).isEmpty();
-            }
-            return !sourceEquipped || target instanceof Monster;
-        }
-        return true;
     }
 }

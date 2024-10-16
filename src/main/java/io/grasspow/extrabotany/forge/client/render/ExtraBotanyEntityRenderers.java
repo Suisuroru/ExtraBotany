@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.registry;
+package io.grasspow.extrabotany.forge.client.render;
 
 import io.grasspow.extrabotany.client.render.entity.BaseProjectileRender;
 import io.grasspow.extrabotany.client.render.entity.DummyRender;
@@ -7,6 +7,7 @@ import io.grasspow.extrabotany.client.render.entity.block.PedestalBlockEntityRen
 import io.grasspow.extrabotany.client.render.entity.block.PowerFrameBlockEntityRenderer;
 import io.grasspow.extrabotany.client.render.entity.ego.EGOLandmineRender;
 import io.grasspow.extrabotany.client.render.entity.ego.EGORender;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import vazkii.botania.client.render.block_entity.SpecialFlowerBlockEntityRenderer;
 import vazkii.botania.client.render.entity.EntityRenderers;

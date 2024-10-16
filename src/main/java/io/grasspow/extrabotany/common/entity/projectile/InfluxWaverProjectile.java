@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
@@ -76,11 +77,11 @@ public class InfluxWaverProjectile extends BaseSwordProjectile {
                 if (!living.isRemoved()) {
                     living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
                     if (getOwner() instanceof Player) {
-                        living.hurt(getOwner().damageSources().generic(), 7F * damageTime);
+                        DamageHandler.INSTANCE.dmg(living, getOwner(), 12F, DamageHandler.INSTANCE.GENERAL_PIERCING);
                     } else {
-                        if (living.hurtDuration == 0)
-                            living.hurt(level().damageSources().generic(), 2.5F * damageTime);
-                        living.hurt(level().damageSources().magic(), 7F * damageTime);
+                        if (living.invulnerableTime == 0)
+                            DamageHandler.INSTANCE.dmg(living, getOwner(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                        DamageHandler.INSTANCE.dmg(living, getOwner(), 7F, DamageHandler.INSTANCE.MAGIC);
                     }
                     flag = living.isRemoved();
                     if (getStrikeTimes() > 0 && !flag) {

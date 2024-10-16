@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.entity.projectile;
 
 import io.grasspow.extrabotany.client.handler.MiscellaneousModels;
+import io.grasspow.extrabotany.common.handler.DamageHandler;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.particles.ParticleTypes;
@@ -56,11 +57,12 @@ public class TrueShadowKatanaProjectile extends BaseSwordProjectile {
             List<LivingEntity> list = getFilteredEntities(entities, getOwner());
             for (LivingEntity living : list) {
                 if (getOwner() != null) {
-                    living.hurt(getOwner().damageSources().mobProjectile(this, (LivingEntity) getOwner()), 6F * damageTime);
-                    if (attackedEntities != null && !attackedEntities.contains(living)) {
-                        living.hurt(getOwner().damageSources().mobProjectile(this, (LivingEntity) getOwner()), damageTime);
-                        attackedEntities.add(living);
-                    }
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 5F, DamageHandler.INSTANCE.GENERAL);
+                } else {
+                    if (living.invulnerableTime == 0)
+                        DamageHandler.INSTANCE.dmg(living, getOwner(), 2F, DamageHandler.INSTANCE.LIFE_LOSING);
+                    ;
+                    DamageHandler.INSTANCE.dmg(living, getOwner(), 5.5F, DamageHandler.INSTANCE.MAGIC);
                 }
                 discard();
                 break;

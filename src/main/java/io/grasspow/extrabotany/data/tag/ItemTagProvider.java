@@ -89,8 +89,7 @@ public class ItemTagProvider extends ItemTagsProvider {
         //weapon
         this.tag(ItemTags.SWORDS).add(
                 SHADOW_KATANA.get(), FLAMESCION_WEAPON.get(), INFLUX_WAVER.get(), STAR_WRATH.get(),
-                TRUE_SHADOW_KATANA.get(), TRUE_TERRA_BLADE.get(), EXCALIBER.get(), FIRST_FRACTAL.get(),
-                FAILNAUGHT.get()
+                TRUE_SHADOW_KATANA.get(), TRUE_TERRA_BLADE.get(), EXCALIBER.get(), FIRST_FRACTAL.get()
         );
 
         this.tag(Tags.Items.INGOTS).add(
