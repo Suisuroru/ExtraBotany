@@ -16,8 +16,6 @@ need drop off sth that maybe unnecessary.
 
 - complete the unfinished items in 1.16.5.
 - pedestal's fast process.
-- infinite_wine consume mana to add use times.
-- excaliber's projectile disappear when it has found target and wants to attack it.
 
 ### textures needed repaint maybe
 

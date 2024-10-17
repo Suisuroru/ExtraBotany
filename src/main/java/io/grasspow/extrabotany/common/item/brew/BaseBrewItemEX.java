@@ -27,6 +27,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import vazkii.botania.common.item.brew.BaseBrewItem;
@@ -36,13 +37,13 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class BaseBrewItemEX extends BaseBrewItem {
-    private static float multiplier;
-    private static int amplifier;
+    private final float multiplier;
+    private final int amplifier;
 
     public BaseBrewItemEX(Properties builder, int swigs, int drinkSpeed, float multiplier, int amplifier, Supplier<Item> baseItem) {
         super(builder, swigs, drinkSpeed, baseItem);
-        BaseBrewItemEX.multiplier = multiplier;
-        BaseBrewItemEX.amplifier = amplifier;
+        this.multiplier = multiplier;
+        this.amplifier = amplifier;
     }
 
     @Override
@@ -59,7 +60,7 @@ public class BaseBrewItemEX extends BaseBrewItem {
     public ItemStack finishUsingItem(@NotNull ItemStack stack, Level world, LivingEntity living) {
         if (!world.isClientSide) {
             for (MobEffectInstance effect : getBrew(stack).getPotionEffects(stack)) {
-                MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), (int) (effect.getDuration() * multiplier), effect.getAmplifier() * amplifier, true, true);
+                MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), (int) (effect.getDuration() * multiplier), effect.getAmplifier() + amplifier, true, true);
                 if (effect.getEffect().isInstantenous()) {
                     effect.getEffect().applyInstantenousEffect(living, living, living, newEffect.getAmplifier(), 1F);
                 } else {
@@ -89,8 +90,13 @@ public class BaseBrewItemEX extends BaseBrewItem {
         return stack;
     }
 
+    @Override
+    public void appendHoverText(ItemStack stack, Level world, List<Component> list, TooltipFlag flags) {
+        addPotionTooltip(getBrew(stack).getPotionEffects(stack), list, multiplier, amplifier);
+    }
+
     // [VanillaCopy] PotionUtils.addPotionTooltip, with custom effect list
-    public static void addPotionTooltip(List<MobEffectInstance> list, List<Component> lores, float durationFactor) {
+    public static void addPotionTooltip(List<MobEffectInstance> list, List<Component> lores, float multiplier, int amplifier) {
         List<Pair<Attribute, AttributeModifier>> list1 = Lists.newArrayList();
         if (list.isEmpty()) {
             lores.add((Component.translatable("effect.none")).withStyle(ChatFormatting.GRAY));
@@ -108,11 +114,11 @@ public class BaseBrewItemEX extends BaseBrewItem {
                 }
 
                 if (effectinstance.getAmplifier() > 0) {
-                    iformattabletextcomponent = Component.translatable("potion.withAmplifier", iformattabletextcomponent, Component.translatable("potion.potency." + effectinstance.getAmplifier()));
+                    iformattabletextcomponent = Component.translatable("potion.withAmplifier", iformattabletextcomponent, Component.translatable("potion.potency." + (effectinstance.getAmplifier() + amplifier)));
                 }
 
                 if (effectinstance.getDuration() > 20) {
-                    iformattabletextcomponent = Component.translatable("potion.withDuration", iformattabletextcomponent, MobEffectUtil.formatDuration(effectinstance, durationFactor * multiplier));
+                    iformattabletextcomponent = Component.translatable("potion.withDuration", iformattabletextcomponent, MobEffectUtil.formatDuration(effectinstance, multiplier));
                 }
 
                 lores.add(iformattabletextcomponent.withStyle(effect.getCategory().getTooltipFormatting()));

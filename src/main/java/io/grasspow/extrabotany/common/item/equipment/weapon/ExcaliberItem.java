@@ -26,7 +26,6 @@ import net.minecraft.world.phys.Vec3;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.internal.ManaBurst;
 import vazkii.botania.api.item.Relic;
-import vazkii.botania.api.mana.BasicLensItem;
 import vazkii.botania.api.mana.BurstProperties;
 import vazkii.botania.api.mana.LensEffectItem;
 import vazkii.botania.common.entity.ManaBurstEntity;
@@ -108,7 +107,7 @@ public class ExcaliberItem extends RelicSwordItem implements LensEffectItem, Cus
     public void updateBurst(ManaBurst burst, ItemStack stack) {
         ThrowableProjectile entity = burst.entity();
         AABB axis = new AABB(entity.getX(), entity.getY(), entity.getZ(), entity.xOld, entity.yOld, entity.zOld).inflate(1);
-        Entity thrower = entity.getOwner();
+        Entity attacker = entity.getOwner();
 
         int homeID = ItemNBTHelper.getInt(stack, TAG_HOME_ID, -1);
         if (homeID == -1) {
@@ -116,7 +115,7 @@ public class ExcaliberItem extends RelicSwordItem implements LensEffectItem, Cus
                     entity.xOld + 5F, entity.yOld + 5F, entity.zOld + 5F);
             List<LivingEntity> entities = entity.level().getEntitiesOfClass(LivingEntity.class, axis1);
             for (LivingEntity living : entities) {
-                if (!(living instanceof Mob) || living.hurtTime != 0)
+                if (living instanceof Player || !(living instanceof Mob) || living.hurtTime != 0)
                     continue;
                 homeID = living.getId();
                 ItemNBTHelper.setInt(stack, TAG_HOME_ID, homeID);
@@ -139,7 +138,7 @@ public class ExcaliberItem extends RelicSwordItem implements LensEffectItem, Cus
         }
 
         for (LivingEntity living : entities) {
-            if (living instanceof Player && (living.getName().getString().equals(ItemNBTHelper.getString(burst.getSourceLens(), TAG_ATTACKER_USERNAME, ""))))
+            if (attacker != null && living instanceof Player && (living.getId() == attacker.getId()))
                 continue;
 
             if (!living.isRemoved()) {
