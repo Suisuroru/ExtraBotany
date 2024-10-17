@@ -1,10 +1,7 @@
 package io.grasspow.extrabotany.client.model.armor;
 
 import io.grasspow.extrabotany.client.model.ExtraBotanyModelLayers;
-import io.grasspow.extrabotany.common.item.equipment.armor.GoblinsLayerArmorItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.MaidArmorItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.MikuArmorItem;
-import io.grasspow.extrabotany.common.item.equipment.armor.ShadowWarriorArmorItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.*;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,8 +19,7 @@ public class ArmorModels {
     private static Map<EquipmentSlot, ArmorModel> maid = Collections.emptyMap();
     private static Map<EquipmentSlot, ArmorModel> goblins_layer = Collections.emptyMap();
     private static Map<EquipmentSlot, ArmorModel> shadow_warrior = Collections.emptyMap();
-//	private static Map<EquipmentSlot, ArmorModel> shooting_guardian = Collections.emptyMap();
-//	private static Map<EquipmentSlot, ArmorModel> silent_sages = Collections.emptyMap();
+    private static Map<EquipmentSlot, ArmorModel> shooting_guardian = Collections.emptyMap();
 
     private static Map<EquipmentSlot, ArmorModel> make(EntityRendererProvider.Context ctx, ModelLayerLocation inner, ModelLayerLocation outer) {
         Map<EquipmentSlot, ArmorModel> ret = new EnumMap<>(EquipmentSlot.class);
@@ -39,8 +35,7 @@ public class ArmorModels {
         maid = make(ctx, ExtraBotanyModelLayers.MAID_INNER, ExtraBotanyModelLayers.MAID_OUTER);
         goblins_layer = make(ctx, ExtraBotanyModelLayers.GOBLIN_SLAYER_INNER, ExtraBotanyModelLayers.GOBLIN_SLAYER_OUTER);
         shadow_warrior = make(ctx, ExtraBotanyModelLayers.SHADOW_INNER_ARMOR, ExtraBotanyModelLayers.SHADOW_OUTER_ARMOR);
-//		shooting_guardian = make(ctx, BotaniaModelLayers.TERRASTEEL_INNER_ARMOR, BotaniaModelLayers.TERRASTEEL_OUTER_ARMOR);
-//		silent_sages = make(ctx, BotaniaModelLayers.TERRASTEEL_INNER_ARMOR, BotaniaModelLayers.TERRASTEEL_OUTER_ARMOR);
+        shooting_guardian = make(ctx, ExtraBotanyModelLayers.SHOOTING_GUARDIAN_INNER, ExtraBotanyModelLayers.SHOOTING_GUARDIAN_OUTER);
     }
 
     @Nullable
@@ -52,10 +47,10 @@ public class ArmorModels {
             return goblins_layer.get(armor.getEquipmentSlot());
         } else if (item instanceof MaidArmorItem armor) {
             return maid.get(armor.getEquipmentSlot());
-        } else if (item instanceof MikuArmorItem armor) {
-            return miku.get(armor.getEquipmentSlot());
+        } else if (item instanceof ShootingGuardianArmorItem armor) {
+            return shooting_guardian.get(armor.getEquipmentSlot());
         }
-
-        return null;
+        // must place on the last
+        return miku.get(((MikuArmorItem) item).getEquipmentSlot());
     }
 }

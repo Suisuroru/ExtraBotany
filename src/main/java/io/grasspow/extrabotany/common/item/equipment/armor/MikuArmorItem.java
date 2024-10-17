@@ -104,7 +104,7 @@ public class MikuArmorItem extends ArmorItem implements CustomDamageItem, Phanto
     @SoftImplement("IForgeItem")
     @NotNull
     public final String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return hasPhantomInk(stack) ? armorTexture : getArmorTextureAfterInk(stack, slot);
+        return !hasPhantomInk(stack) ? armorTexture : getArmorTextureAfterInk(stack, slot);
     }
 
     public String getArmorTextureAfterInk(ItemStack stack, EquipmentSlot slot) {

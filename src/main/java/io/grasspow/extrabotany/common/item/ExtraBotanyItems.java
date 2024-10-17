@@ -100,7 +100,7 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> SHADOW_WARRIOR_CHEST = regArmorItem(LibItemNames.SHADOW_WARRIOR_CHEST, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> SHADOW_WARRIOR_LEGS = regArmorItem(LibItemNames.SHADOW_WARRIOR_LEGS, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> SHADOW_WARRIOR_BOOTS = regArmorItem(LibItemNames.SHADOW_WARRIOR_BOOTS, ShadowWarriorArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);
-    public static final RegistryObject<Item> SHOOTING_GUARDIAN_HELM = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_HELM, ShootingGuardianArmorHelmItem::new, nonStackable());
+    public static final RegistryObject<Item> SHOOTING_GUARDIAN_HELM = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_HELM, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.HELMET);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_CHEST = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_CHEST, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.CHESTPLATE);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_LEGS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_LEGS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> SHOOTING_GUARDIAN_BOOTS = regArmorItem(LibItemNames.SHOOTING_GUARDIAN_BOOTS, ShootingGuardianArmorItem::new, nonStackable(), ArmorItem.Type.BOOTS);

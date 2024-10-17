@@ -1,9 +1,6 @@
 package io.grasspow.extrabotany.client.model;
 
-import io.grasspow.extrabotany.client.model.armor.GoblinArmorModel;
-import io.grasspow.extrabotany.client.model.armor.MaidArmorModel;
-import io.grasspow.extrabotany.client.model.armor.MikuArmorModel;
-import io.grasspow.extrabotany.client.model.armor.ShadowArmorModel;
+import io.grasspow.extrabotany.client.model.armor.*;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
@@ -20,6 +17,7 @@ public class ExtraBotanyLayerDefinitions {
         consumer.accept(ExtraBotanyModelLayers.MIKU_OUTER, () -> LayerDefinition.create(MikuArmorModel.createOutsideMesh(), 128, 128));
         consumer.accept(ExtraBotanyModelLayers.MAID_INNER, () -> LayerDefinition.create(MaidArmorModel.createInsideMesh(), 128, 128));
         consumer.accept(ExtraBotanyModelLayers.MAID_OUTER, () -> LayerDefinition.create(MaidArmorModel.createOutsideMesh(), 128, 128));
-
+        consumer.accept(ExtraBotanyModelLayers.SHOOTING_GUARDIAN_INNER, () -> LayerDefinition.create(ShootingGuardianModel.createInsideMesh(), 128, 128));
+        consumer.accept(ExtraBotanyModelLayers.SHOOTING_GUARDIAN_OUTER, () -> LayerDefinition.create(ShootingGuardianModel.createOutsideMesh(), 128, 128));
     }
 }

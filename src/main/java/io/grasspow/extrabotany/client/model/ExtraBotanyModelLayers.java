@@ -14,6 +14,8 @@ public class ExtraBotanyModelLayers {
     public static final ModelLayerLocation MIKU_OUTER = make("miku_armor", "outer_armor");
     public static final ModelLayerLocation MAID_INNER = make("maid_armor", "inner_armor");
     public static final ModelLayerLocation MAID_OUTER = make("maid_armor", "outer_armor");
+    public static final ModelLayerLocation SHOOTING_GUARDIAN_INNER = make("shooting_guardian_armor", "inner_armor");
+    public static final ModelLayerLocation SHOOTING_GUARDIAN_OUTER = make("shooting_guardian_armor", "outer_armor");
 
     private static ModelLayerLocation make(String name) {
         return make(name, "main");

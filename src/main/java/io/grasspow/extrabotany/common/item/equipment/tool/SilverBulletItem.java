@@ -2,7 +2,7 @@ package io.grasspow.extrabotany.common.item.equipment.tool;
 
 
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
-import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorHelmItem;
+import io.grasspow.extrabotany.common.item.equipment.armor.ShootingGuardianArmorItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -51,7 +51,7 @@ public class SilverBulletItem extends ManaBlasterItem {
             return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
         } else if (getCooldown(stack) <= 0) {
             ManaBurstEntity burst = getBurst(player, stack, true, hand);
-            if (burst != null && (((ShootingGuardianArmorHelmItem) ExtraBotanyItems.SHOOTING_GUARDIAN_HELM.get()).hasArmorSet(player) || ManaItemHandler.instance().requestManaExact(stack, player, burst.getMana(), true))) {
+            if (burst != null && (((ShootingGuardianArmorItem) ExtraBotanyItems.SHOOTING_GUARDIAN_HELM.get()).hasArmorSet(player) || ManaItemHandler.instance().requestManaExact(stack, player, burst.getMana(), true))) {
                 if (!world.isClientSide) {
                     world.playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.manaBlaster, SoundSource.PLAYERS, 1F, 1);
                     world.addFreshEntity(burst);

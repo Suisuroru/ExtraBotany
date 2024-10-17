@@ -26,7 +26,9 @@ public record LeftClickPack(ItemStack stack) implements BotaniaPacket {
                     IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
                     if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) return;
                 }
-                ((IItemWithLeftClick) (stack.getItem())).onLeftClick(player, null);
+                if (stack.getItem() instanceof IItemWithLeftClick click) {
+                    click.onLeftClick(player, null);
+                }
             }
             if (!EquipmentHandler.findOrEmpty(ExtraBotanyItems.JINGWEI_FEATHER.get(), player).isEmpty()) {
                 ((JingweiFeatherItem) ExtraBotanyItems.JINGWEI_FEATHER.get()).onLeftClick(player, null);
