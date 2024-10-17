@@ -5,7 +5,22 @@
       "item": "botania:elementium_ingot"
     },
     {
+      "item": "botania:elementium_ingot"
+    },
+    {
+      "item": "botania:elementium_ingot"
+    },
+    {
       "item": "extrabotany:gilded_mashed_potato"
+    },
+    {
+      "item": "extrabotany:spirit"
+    },
+    {
+      "item": "extrabotany:spirit"
+    },
+    {
+      "item": "extrabotany:spirit"
     },
     {
       "item": "extrabotany:spirit"
@@ -14,8 +29,9 @@
       "item": "extrabotany:spirit"
     }
   ],
-  "mana": 4200,
+  "mana": 12600,
   "output": {
+    "count": 3,
     "item": "extrabotany:photonium"
   }
 }

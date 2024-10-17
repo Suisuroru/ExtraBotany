@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "extrabotany:core_god"
+      "item": "extrabotany:core_god"
     },
     {
       "item": "botania:quartz_lavender"

@@ -9,7 +9,7 @@ import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 import static io.grasspow.extrabotany.common.registry.ExtraBotanySounds.*;
 
 public class SoundDefinitionsProvider extends net.minecraftforge.common.data.SoundDefinitionsProvider {
-    protected SoundDefinitionsProvider(PackOutput output, ExistingFileHelper helper) {
+    public SoundDefinitionsProvider(PackOutput output, ExistingFileHelper helper) {
         super(output, LibMisc.MOD_ID, helper);
     }
 

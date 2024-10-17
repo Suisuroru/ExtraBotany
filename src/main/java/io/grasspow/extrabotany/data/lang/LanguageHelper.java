@@ -37,6 +37,7 @@ public class LanguageHelper {
         add("extrabotany.brew.deadpool", "Deadpool", "死灵");
         add("extrabotany.brew.floating", "Floating", "漂浮");
 
+        //damage_type
         add("death.attack.general_armor_piercing", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
         add("death.attack.general_armor_piercing.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
         add("death.attack.magic_armor_piercing", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
@@ -214,7 +215,7 @@ public class LanguageHelper {
         //flower 1.16
         addFlower(ExtraBotanyBlocks.ANNOYING_FLOWER, "Annoying Flower", "神烦花", "Time to rest", "摸了");
         addFlower(ExtraBotanyBlocks.SERENITIAN, "Serenitian", "永寂龙胆", "Torn to oblivion", "无念，断绝");
-        addFlower(ExtraBotanyBlocks.BELL_FLOWER, "Bell Flower", "风铃草", "Lost wind", "迷失的风");
+        addFlower(ExtraBotanyBlocks.BELL_FLOWER, "Bell Flower", "风铃花", "Lost wind", "迷失的风");
         addFlower(LibBlockNames.EDELWEISS, "Edelweiss", "雪绒花", "Do you want to build a snowman?", "你想堆个雪人吗？");
         addFlower(LibBlockNames.GEMINI_ORCHID, "Gemini Orchid", "双子兰", "Why is a raven like a writing desk?", "为什么乌鸦像写字台？");
         addFlower(LibBlockNames.SUN_BLESS, "Sunshine Lily", "日曜百合", "May the light heal and enlighten you", "愿光芒能治愈并指引你");

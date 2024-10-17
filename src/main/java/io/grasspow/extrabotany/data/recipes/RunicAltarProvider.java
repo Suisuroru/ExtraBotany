@@ -49,10 +49,11 @@ public class RunicAltarProvider extends vazkii.botania.data.recipes.RunicAltarPr
         Ingredient manaCloth = ingr(BotaniaItems.manaweaveCloth);
         Ingredient manaSteel = ingr(BotaniaItems.manaSteel);
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.ULTIMATE_HAMMER), new ItemStack(ExtraBotanyItems.ULTIMATE_HAMMER.get()), 100000, gilded_mashed_potato, gilded_mashed_potato, gilded_mashed_potato, ingr(Items.GOLD_BLOCK), ingr(ExtraBotanyItems.TERRASTEEL_HAMMER.get())));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, spirit, spirit, spirit));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, nightmareFuel, nightmareFuel, nightmareFuel));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM), new ItemStack(ExtraBotanyItems.PHOTONIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, spirit, spirit));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.PHOTONIUM + "_"), new ItemStack(ExtraBotanyItems.PHOTONIUM.get(), 3), 12600, ingr(BotaniaItems.elementium), ingr(BotaniaItems.elementium), ingr(BotaniaItems.elementium), gilded_mashed_potato, spirit, spirit, spirit, spirit, spirit));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM), new ItemStack(ExtraBotanyItems.SHADOWIUM.get()), 4200, ingr(BotaniaItems.elementium), gilded_mashed_potato, nightmareFuel, nightmareFuel));
+        consumer.accept(new FinishedRecipe(idFor(LibItemNames.SHADOWIUM + "_"), new ItemStack(ExtraBotanyItems.SHADOWIUM.get(), 3), 12600, ingr(BotaniaItems.elementium), ingr(BotaniaItems.elementium), ingr(BotaniaItems.elementium), gilded_mashed_potato, nightmareFuel, nightmareFuel, nightmareFuel, nightmareFuel, nightmareFuel));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.GILDED_POTATO), new ItemStack(ExtraBotanyItems.GILDED_POTATO.get()), 800, ingr(Items.POTATO), ingr(Items.GOLD_NUGGET)));
-        consumer.accept(new FinishedRecipe(idFor(LibItemNames.ORICHALCOS), new ItemStack(ExtraBotanyItems.ORICHALCOS.get()), 1000000, gaiaIngot, gaiaIngot, gaiaIngot, gaiaIngot, lifeEssence, lifeEssence, gilded_mashed_potato, heroMedal));
 
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.AERO_STONE), new ItemStack(ExtraBotanyItems.AERO_STONE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_AIR), ingr(ExtraBotanyTags.Items.RUNES_AIR), gaiaIngot, quartz, lapis, manaDiamond));
         consumer.accept(new FinishedRecipe(idFor(LibItemNames.AQUA_STONE), new ItemStack(ExtraBotanyItems.AQUA_STONE.get()), 2000, ingr(ExtraBotanyTags.Items.RUNES_WATER), ingr(ExtraBotanyTags.Items.RUNES_WATER), gaiaIngot, quartz, lapis, manaDiamond));
