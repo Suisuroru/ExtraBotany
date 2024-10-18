@@ -197,44 +197,10 @@ public class PedestalBlockEntity extends ModBlockEntity {
                         continue;
                     }
                     if (MULTIBLOCK.get().validate(level, self.getBlockPos()) != null && i < 4) {
-                        double worldTime = ClientTickHandler.ticksInGame;
-                        worldTime /= 5;
-
-                        float rad = 0.75F + (float) Math.random() * 0.05F;
-                        double xp = pylonPos.getX() + 0.5 + Math.cos(worldTime) * rad;
-                        double zp = pylonPos.getZ() + 0.5 + Math.sin(worldTime) * rad;
-
-                        Vec3 partPos = new Vec3(xp, pylonPos.getY(), zp);
-                        Vec3 mot = loc.subtract(partPos).multiply(0.04, 0.04, 0.04);
-
-                        float r = (float) Math.random() * 0.3F;
-                        float g = 0.75F + (float) Math.random() * 0.2F;
-                        float b = (float) Math.random() * 0.3F;
-
-                        WispParticleData data = WispParticleData.wisp(0.25F + (float) Math.random() * 0.1F, r, g, b, 1);
-                        level.addParticle(data, partPos.x, partPos.y, partPos.z, 0, -(-0.075F - (float) Math.random() * 0.015F), 0);
-                        WispParticleData data1 = WispParticleData.wisp(0.4F, r, g, b);
-                        level.addParticle(data1, partPos.x, partPos.y, partPos.z, (float) mot.x, (float) mot.y, (float) mot.z);
+                        renderWisp(level, loc, pylonPos);
                     }
                     if (MULTIBLOCK2.get().validate(level, self.getBlockPos()) != null && i >= 4) {
-                        double worldTime = ClientTickHandler.ticksInGame;
-                        worldTime /= 5;
-
-                        float rad = 0.75F + (float) Math.random() * 0.05F;
-                        double xp = pylonPos.getX() + 0.5 + Math.cos(worldTime) * rad;
-                        double zp = pylonPos.getZ() + 0.5 + Math.sin(worldTime) * rad;
-
-                        Vec3 partPos = new Vec3(xp, pylonPos.getY(), zp);
-                        Vec3 mot = loc.subtract(partPos).multiply(0.04, 0.04, 0.04);
-
-                        float r = (float) Math.random() * 0.3F;
-                        float g = 0.75F + (float) Math.random() * 0.2F;
-                        float b = (float) Math.random() * 0.3F;
-
-                        WispParticleData data = WispParticleData.wisp(0.25F + (float) Math.random() * 0.1F, r, g, b, 1);
-                        level.addParticle(data, partPos.x, partPos.y, partPos.z, 0, -(-0.075F - (float) Math.random() * 0.015F), 0);
-                        WispParticleData data1 = WispParticleData.wisp(0.4F, r, g, b);
-                        level.addParticle(data1, partPos.x, partPos.y, partPos.z, (float) mot.x, (float) mot.y, (float) mot.z);
+                        renderWisp(level, loc, pylonPos);
                     }
                 }
             }
@@ -249,6 +215,27 @@ public class PedestalBlockEntity extends ModBlockEntity {
             }
         }
 
+    }
+
+    private static void renderWisp(Level level, Vec3 loc, BlockPos pylonPos) {
+        double worldTime = ClientTickHandler.ticksInGame;
+        worldTime /= 5;
+
+        float rad = 0.75F + (float) Math.random() * 0.05F;
+        double xp = pylonPos.getX() + 0.5 + Math.cos(worldTime) * rad;
+        double zp = pylonPos.getZ() + 0.5 + Math.sin(worldTime) * rad;
+
+        Vec3 partPos = new Vec3(xp, pylonPos.getY(), zp);
+        Vec3 mot = loc.subtract(partPos).multiply(0.04, 0.04, 0.04);
+
+        float r = (float) Math.random() * 0.3F;
+        float g = 0.75F + (float) Math.random() * 0.2F;
+        float b = (float) Math.random() * 0.3F;
+
+        WispParticleData data = WispParticleData.wisp(0.25F + (float) Math.random() * 0.1F, r, g, b, 1);
+        level.addParticle(data, partPos.x, partPos.y, partPos.z, 0, -(-0.075F - (float) Math.random() * 0.015F), 0);
+        WispParticleData data1 = WispParticleData.wisp(0.4F, r, g, b);
+        level.addParticle(data1, partPos.x, partPos.y, partPos.z, (float) mot.x, (float) mot.y, (float) mot.z);
     }
 
     public int getEnergy() {

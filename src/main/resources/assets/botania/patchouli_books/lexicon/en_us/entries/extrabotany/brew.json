@@ -48,8 +48,8 @@
     }
   ],
   "extra_recipe_mappings": {
-    "extrabotany:manadrink": 0,
+    "extrabotany:mana_drink": 0,
     "extrabotany:cocktail": 2,
-    "extrabotany:splashgrenade": 3
+    "extrabotany:splash_grenade": 3
   }
 }
