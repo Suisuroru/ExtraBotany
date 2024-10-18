@@ -18,8 +18,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import vazkii.botania.api.mana.ManaPool;
+import vazkii.botania.client.core.handler.ClientTickHandler;
+import vazkii.botania.client.fx.WispParticleData;
 import vazkii.botania.common.block.BotaniaBlocks;
+import vazkii.botania.common.block.block_entity.PylonBlockEntity;
 import vazkii.botania.common.block.mana.ManaPoolBlock;
 import vazkii.patchouli.api.IMultiblock;
 import vazkii.patchouli.api.IStateMatcher;
@@ -36,6 +40,10 @@ public class PedestalBlockEntity extends ModBlockEntity {
     private int energy = 0;
     public static final BlockPos[] POOL_LOCATIONS = {
             new BlockPos(3, 0, 3), new BlockPos(-3, 0, 3), new BlockPos(3, 0, -3), new BlockPos(-3, 0, -3)
+    };
+    public static final BlockPos[] PYLON_LOCATIONS = {
+            new BlockPos(2, 0, 2), new BlockPos(-2, 0, 2), new BlockPos(2, 0, -2), new BlockPos(-2, 0, -2),
+            new BlockPos(3, 1, 3), new BlockPos(-3, 1, 3), new BlockPos(3, 1, -3), new BlockPos(-3, 1, -3)
     };
     public static final Supplier<IMultiblock> MULTIBLOCK = Suppliers.memoize(() -> PatchouliAPI.get().makeMultiblock(
             new String[][]{
@@ -73,10 +81,20 @@ public class PedestalBlockEntity extends ModBlockEntity {
                             "_______",
                             "_N___N_",
                             "M_____M"
+                    },
+                    {
+                            "_______",
+                            "_BBBBB_",
+                            "_B___B_",
+                            "_B___B_",
+                            "_B___B_",
+                            "_BBBBB_",
+                            "_______",
                     }
             },
             '0', ExtraBotanyBlocks.PEDESTAL.get(),
             'M', MANAPOOL_MATCHER.get(),
+            'B', BotaniaBlocks.shimmerrock,
             'N', BotaniaBlocks.naturaPylon
     ));
 
@@ -163,14 +181,65 @@ public class PedestalBlockEntity extends ModBlockEntity {
         return matchingRecipe.isPresent();
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, PedestalBlockEntity self) {
+    public static void commonTick(Level level, BlockPos pos, BlockState state, PedestalBlockEntity self) {
         ItemStack stack = self.getItem();
         if (stack.getItem() instanceof NatureOrbItem) {
-            self.freshSpeed();
-            var orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(self.getItem());
-            orb.addNature(self.speed);
+            if (!level.isClientSide) {
+                self.freshSpeed();
+                var orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(self.getItem());
+                orb.addNature(self.speed);
+            } else {
+                Vec3 loc = self.getBlockPos().getCenter();
+                for (int i = 0, pylonLocationsLength = PYLON_LOCATIONS.length; i < pylonLocationsLength; i++) {
+                    BlockPos arr = PYLON_LOCATIONS[i];
+                    BlockPos pylonPos = self.getBlockPos().offset(arr);
+                    if (!(level.getBlockEntity(pylonPos) instanceof PylonBlockEntity)) {
+                        continue;
+                    }
+                    if (MULTIBLOCK.get().validate(level, self.getBlockPos()) != null && i < 4) {
+                        double worldTime = ClientTickHandler.ticksInGame;
+                        worldTime /= 5;
+
+                        float rad = 0.75F + (float) Math.random() * 0.05F;
+                        double xp = pylonPos.getX() + 0.5 + Math.cos(worldTime) * rad;
+                        double zp = pylonPos.getZ() + 0.5 + Math.sin(worldTime) * rad;
+
+                        Vec3 partPos = new Vec3(xp, pylonPos.getY(), zp);
+                        Vec3 mot = loc.subtract(partPos).multiply(0.04, 0.04, 0.04);
+
+                        float r = (float) Math.random() * 0.3F;
+                        float g = 0.75F + (float) Math.random() * 0.2F;
+                        float b = (float) Math.random() * 0.3F;
+
+                        WispParticleData data = WispParticleData.wisp(0.25F + (float) Math.random() * 0.1F, r, g, b, 1);
+                        level.addParticle(data, partPos.x, partPos.y, partPos.z, 0, -(-0.075F - (float) Math.random() * 0.015F), 0);
+                        WispParticleData data1 = WispParticleData.wisp(0.4F, r, g, b);
+                        level.addParticle(data1, partPos.x, partPos.y, partPos.z, (float) mot.x, (float) mot.y, (float) mot.z);
+                    }
+                    if (MULTIBLOCK2.get().validate(level, self.getBlockPos()) != null && i >= 4) {
+                        double worldTime = ClientTickHandler.ticksInGame;
+                        worldTime /= 5;
+
+                        float rad = 0.75F + (float) Math.random() * 0.05F;
+                        double xp = pylonPos.getX() + 0.5 + Math.cos(worldTime) * rad;
+                        double zp = pylonPos.getZ() + 0.5 + Math.sin(worldTime) * rad;
+
+                        Vec3 partPos = new Vec3(xp, pylonPos.getY(), zp);
+                        Vec3 mot = loc.subtract(partPos).multiply(0.04, 0.04, 0.04);
+
+                        float r = (float) Math.random() * 0.3F;
+                        float g = 0.75F + (float) Math.random() * 0.2F;
+                        float b = (float) Math.random() * 0.3F;
+
+                        WispParticleData data = WispParticleData.wisp(0.25F + (float) Math.random() * 0.1F, r, g, b, 1);
+                        level.addParticle(data, partPos.x, partPos.y, partPos.z, 0, -(-0.075F - (float) Math.random() * 0.015F), 0);
+                        WispParticleData data1 = WispParticleData.wisp(0.4F, r, g, b);
+                        level.addParticle(data1, partPos.x, partPos.y, partPos.z, (float) mot.x, (float) mot.y, (float) mot.z);
+                    }
+                }
+            }
         } else if (stack.getItem() == ExtraBotanyItems.NIGHTMARE_FUEL.get()) {
-            if (level.isDay()) {
+            if (!level.isClientSide && level.isDay()) {
                 self.setEnergy(self.getEnergy() + 1);
                 if (self.getEnergy() >= 6000) {
                     self.removeItem();

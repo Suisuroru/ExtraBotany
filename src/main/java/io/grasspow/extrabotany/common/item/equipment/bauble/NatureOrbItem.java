@@ -30,9 +30,7 @@ import static io.grasspow.extrabotany.common.libs.CommonHelper.clearPotions;
 
 public class NatureOrbItem extends BaubleItem implements CustomCreativeTabContents {
 
-    public static final String TAG_XP = "xp";
-    public static final int MAX_XP = 500000;
-    protected static final String TAG_NATURE = "tag_nature";
+    protected static final String TAG_NATURE = "nature";
     protected static final int MAX_NATURE = 500000;
 
     public NatureOrbItem(Properties props) {

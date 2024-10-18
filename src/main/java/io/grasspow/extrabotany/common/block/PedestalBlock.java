@@ -93,9 +93,6 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        if (!level.isClientSide) {
-            return createTickerHelper(type, ExtraBotanyEntities.Blocks.PEDESTAL_BLOCK_ENTITY.get(), PedestalBlockEntity::serverTick);
-        }
-        return null;
+        return createTickerHelper(type, ExtraBotanyEntities.Blocks.PEDESTAL_BLOCK_ENTITY.get(), PedestalBlockEntity::commonTick);
     }
 }
