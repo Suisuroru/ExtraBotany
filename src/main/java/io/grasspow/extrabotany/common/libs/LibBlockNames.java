@@ -5,7 +5,6 @@ public class LibBlockNames {
     public static final String PHOTONIUM_BLOCK = "photonium_block";
     public static final String SHADOWIUM_BLOCK = "shadowium_block";
     public static final String ORICHALCOS_BLOCK = "orichalcos_block";
-    public static final String AERIALITE_BLOCK = "aerialite_block";
     public static final String PEDESTAL = "pedestal";
     public static final String MANA_BUFFER = "mana_buffer";
     public static final String QUANTUM_MANA_BUFFER = "quantum_mana_buffer";

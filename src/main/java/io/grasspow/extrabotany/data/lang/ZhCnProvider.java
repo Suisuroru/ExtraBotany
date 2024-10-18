@@ -106,7 +106,7 @@ public class ZhCnProvider extends LanguageProvider {
         add("extrabotany.page.photonium6", "哥布林杀手护腿");
         add("extrabotany.page.photonium7", "哥布林杀手靴子");
         add("extrabotany.entry.header", "欢迎来到世界");
-        add("extrabotany.page.header0", "欢迎来到魔力至上主义的世界。您是一位具有极大潜力的人，我在您的身上看到了未来。我相信您正渴求着更多的知识，而我正是来改变您，向您传授知识的人。<br>欢迎加群799481464讨论。");
+        add("extrabotany.page.header0", "欢迎来到魔力至上主义的世界。您是一位具有极大潜力的人，我在您的身上看到了未来。我相信您正渴求着更多的知识，而我正是来改变您，向您传授知识的人。");
         add("extrabotany.page.header1", "每当您解锁新的进度时，书中的知识都会增加。我在此可以给您一个提示，食用梦魇燃料可以获得精神燃料。");
         add("extrabotany.entry.advanced_material", "高等形式");
         add("extrabotany.page.advanced_material0", "借助$(item)精神碎片$(0)的力量将两种材料结合构成的高等形式，这类材料拥有着更强的属性与潜力。");

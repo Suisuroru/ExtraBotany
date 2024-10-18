@@ -9,7 +9,7 @@ import io.grasspow.extrabotany.data.lang.EnUsProvider;
 import io.grasspow.extrabotany.data.lang.LanguageHelper;
 import io.grasspow.extrabotany.data.lang.ZhCnProvider;
 import io.grasspow.extrabotany.data.loot.LootTableProvider;
-import io.grasspow.extrabotany.data.model.BlockModelProvider;
+import io.grasspow.extrabotany.data.model.BlockstateForgeProvider;
 import io.grasspow.extrabotany.data.model.BlockstateProvider;
 import io.grasspow.extrabotany.data.model.FloatingFlowerModelProvider;
 import io.grasspow.extrabotany.data.model.ItemModelProvider;
@@ -39,7 +39,7 @@ public class ForgeDataGenerators {
         var fileHelper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeClient(), new BlockstateProvider(output));
-        generator.addProvider(event.includeClient(), new BlockModelProvider(output, fileHelper));
+        generator.addProvider(event.includeClient(), new BlockstateForgeProvider(output, fileHelper));
         generator.addProvider(event.includeClient(), new ItemModelProvider(output));
         generator.addProvider(event.includeClient(), new FloatingFlowerModelProvider(output));
 

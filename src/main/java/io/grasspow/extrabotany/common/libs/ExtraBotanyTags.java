@@ -44,7 +44,6 @@ public final class ExtraBotanyTags {
         public static final TagKey<Block> BLOCKS_SHADOWIUM = tag(LibBlockNames.SHADOWIUM_BLOCK + "s");
         public static final TagKey<Block> BLOCKS_PHOTONIUM = tag(LibBlockNames.PHOTONIUM_BLOCK + "s");
         public static final TagKey<Block> BLOCKS_ORICHALCOS = tag(LibBlockNames.ORICHALCOS_BLOCK + "s");
-        public static final TagKey<Block> BLOCKS_AERIALITE = tag(LibBlockNames.AERIALITE_BLOCK + "s");
 
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, resId(name));

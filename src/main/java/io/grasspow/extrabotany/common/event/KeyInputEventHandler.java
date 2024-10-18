@@ -18,22 +18,8 @@ import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
 import vazkii.botania.common.handler.EquipmentHandler;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 @Mod.EventBusSubscriber
 public class KeyInputEventHandler {
-    private static final Method method;
-
-    static {
-        try {
-            method = Minecraft.class.getDeclaredMethod("startAttack");//m_202354_
-            method.setAccessible(true);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void tick(TickEvent.ClientTickEvent event) {
@@ -45,11 +31,7 @@ public class KeyInputEventHandler {
                 EntityHitResult entityhitresult = (EntityHitResult) hitResult;
                 Entity entity = entityhitresult.getEntity();
                 if (entity.isAlive() && entity.isAttackable()) {
-                    try {
-                        method.invoke(mc);
-                    } catch (InvocationTargetException | IllegalAccessException e) {
-                        throw new RuntimeException(e);
-                    }
+                    mc.startAttack();
                 }
             }
         }

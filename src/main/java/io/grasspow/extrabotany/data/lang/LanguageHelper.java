@@ -202,7 +202,6 @@ public class LanguageHelper {
     private static void transBlock() {
         addBlock(ExtraBotanyBlocks.PHOTONIUM_BLOCK, "Photonium Block", "光子块");
         addBlock(ExtraBotanyBlocks.SHADOWIUM_BLOCK, "Shadowium Block", "暗影块");
-        addBlock(ExtraBotanyBlocks.AERIALITE_BLOCK, "Aerialite Block", "天空块");
         addBlock(ExtraBotanyBlocks.ORICHALCOS_BLOCK, "Orichalcos Block", "奥利哈刚块");
         addBlock(ExtraBotanyBlocks.PEDESTAL, "Livingrock Pedestal", "活石祭坛");
         addBlock(ExtraBotanyBlocks.MANA_BUFFER, "Mana Buffer", "魔力缓存器");

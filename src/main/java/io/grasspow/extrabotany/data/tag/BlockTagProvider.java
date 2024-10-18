@@ -40,22 +40,21 @@ public class BlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
         registerForgeTag();
         tag(ExtraBotanyTags.Blocks.BLOCKS_PHOTONIUM).add(PHOTONIUM_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.BLOCKS_SHADOWIUM).add(SHADOWIUM_BLOCK.get());
-        tag(ExtraBotanyTags.Blocks.BLOCKS_AERIALITE).add(AERIALITE_BLOCK.get());
         tag(ExtraBotanyTags.Blocks.BLOCKS_ORICHALCOS).add(ORICHALCOS_BLOCK.get());
     }
 
     private void registerForgeTag() {
         Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK, AERIALITE_BLOCK
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK
         ).map(RegistryObject::get).forEach(tag(Tags.Blocks.STORAGE_BLOCKS)::add);
     }
 
     private void registerVanillaTag() {
         Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK, AERIALITE_BLOCK
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK
         ).map(RegistryObject::get).forEach(tag(BlockTags.BEACON_BASE_BLOCKS)::add);
         Stream.of(
-                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, AERIALITE_BLOCK, ORICHALCOS_BLOCK,
+                PHOTONIUM_BLOCK, SHADOWIUM_BLOCK, ORICHALCOS_BLOCK,
                 PEDESTAL, MANA_BUFFER, QUANTUM_MANA_BUFFER, LIVINGROCK_BARREL,
                 DIMENSION_CATALYST, POWER_FRAME
         ).map(RegistryObject::get).forEach(tag(BlockTags.MINEABLE_WITH_PICKAXE)::add);

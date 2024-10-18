@@ -11,8 +11,8 @@ import java.util.List;
 
 import static io.grasspow.extrabotany.common.libs.CommonHelper.resId;
 
-public class BlockModelProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
-    public BlockModelProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+public class BlockstateForgeProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
+    public BlockstateForgeProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, LibMisc.MOD_ID, exFileHelper);
     }
 
@@ -21,7 +21,6 @@ public class BlockModelProvider extends net.minecraftforge.client.model.generato
         List.of(
                 ExtraBotanyBlocks.PHOTONIUM_BLOCK,
                 ExtraBotanyBlocks.SHADOWIUM_BLOCK,
-                ExtraBotanyBlocks.AERIALITE_BLOCK,
                 ExtraBotanyBlocks.ORICHALCOS_BLOCK,
                 ExtraBotanyBlocks.DIMENSION_CATALYST
         ).forEach(this::normal);

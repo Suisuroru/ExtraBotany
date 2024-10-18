@@ -57,7 +57,6 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
 
         ingotStorage(ExtraBotanyBlocks.PHOTONIUM_BLOCK, ExtraBotanyItems.PHOTONIUM, consumer);
         ingotStorage(ExtraBotanyBlocks.SHADOWIUM_BLOCK, ExtraBotanyItems.SHADOWIUM, consumer);
-        ingotStorage(ExtraBotanyBlocks.AERIALITE_BLOCK, ExtraBotanyItems.AERIALITE, consumer);
         ingotStorage(ExtraBotanyBlocks.ORICHALCOS_BLOCK, ExtraBotanyItems.ORICHALCOS, consumer);
 
         cosmeticBauble(consumer, ExtraBotanyItems.FOX_EAR.get(), BotaniaItems.pinkPetal);

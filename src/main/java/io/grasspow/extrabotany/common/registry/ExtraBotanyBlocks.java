@@ -37,7 +37,6 @@ public class ExtraBotanyBlocks {
 
     public static final RegistryObject<Block> PHOTONIUM_BLOCK = regDefBlock(LibBlockNames.PHOTONIUM_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
     public static final RegistryObject<Block> SHADOWIUM_BLOCK = regDefBlock(LibBlockNames.SHADOWIUM_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
-    public static final RegistryObject<Block> AERIALITE_BLOCK = regDefBlock(LibBlockNames.AERIALITE_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
     public static final RegistryObject<Block> ORICHALCOS_BLOCK = regDefBlock(LibBlockNames.ORICHALCOS_BLOCK, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
     public static final RegistryObject<Block> PEDESTAL = regDefBlock(LibBlockNames.PEDESTAL, PedestalBlock::new, livingrock());
     public static final RegistryObject<Block> MANA_BUFFER = regDefBlock(LibBlockNames.MANA_BUFFER, ManaBufferBlock::new, ManaBufferBlock.Variant.DEFAULT, livingrock());
