@@ -13,6 +13,7 @@ public abstract class ModBlockEntity extends SimpleInventoryBlockEntity {
     }
 
     protected void inventoryChanged() {
+        super.setChanged();
         if (level != null)
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
         VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);

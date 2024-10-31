@@ -10,6 +10,7 @@ import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import io.grasspow.extrabotany.xplat.ModXplatAbstractions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
@@ -29,15 +30,19 @@ import vazkii.patchouli.api.IMultiblock;
 import vazkii.patchouli.api.IStateMatcher;
 import vazkii.patchouli.api.PatchouliAPI;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class PedestalBlockEntity extends ModBlockEntity {
     private static final String TAG_SPEED = "speed";
     private static final String TAG_ENERGY = "energy";
+    private static final String TAG_PROGRESS = "progress";
+    private ResourceLocation lastRecipeID;
     private int speed = 0;
     private int energy = 0;
+    private int progress = 0;
     public static final BlockPos[] POOL_LOCATIONS = {
             new BlockPos(3, 0, 3), new BlockPos(-3, 0, 3), new BlockPos(3, 0, -3), new BlockPos(-3, 0, -3)
     };
@@ -98,9 +103,6 @@ public class PedestalBlockEntity extends ModBlockEntity {
             'N', BotaniaBlocks.naturaPylon
     ));
 
-    private Random rand = new Random();
-    public boolean processing = false;
-
     public PedestalBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ExtraBotanyEntities.Blocks.PEDESTAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
@@ -146,9 +148,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
     }
 
     public boolean processContainItem(ItemStack stack, Player player) {
-        processing = true;
         if (level == null) {
-            processing = false;
             return false;
         }
         SimpleContainer itemHandler = new SimpleContainer(2) {
@@ -159,9 +159,9 @@ public class PedestalBlockEntity extends ModBlockEntity {
         };
         itemHandler.setItem(0, getItemHandler().getItem(0));
         itemHandler.setItem(1, stack.copy());
-        Optional<PedestalClickRecipe> matchingRecipe = level.getRecipeManager().getRecipeFor(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get(), itemHandler, level);
+        Optional<PedestalClickRecipe> matchingRecipe = getMatchingRecipe(itemHandler, stack, player);
         matchingRecipe.ifPresent(recipe -> {
-            if (!recipe.containClickTool(stack.getItem())) return;
+            if (!recipe.containClickTool(stack)) return;
             if (player != null) {
                 stack.hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             } else {
@@ -169,16 +169,41 @@ public class PedestalBlockEntity extends ModBlockEntity {
                     stack.setCount(0);
                 }
             }
-            if (rand.nextInt(10) < 3) {
-                ItemStack result = recipe.assemble(itemHandler, getLevel().registryAccess());
+            if (progress > 5) {
+                ItemStack result = recipe.assemble(itemHandler, level.registryAccess());
                 player.getInventory().placeItemBackInInventory(result.copy());
                 removeItem();
+                progress = 0;
             } else {
+                progress++;
                 level.playSound(null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 1f, 1f);
             }
         });
-        processing = false;
         return matchingRecipe.isPresent();
+    }
+
+    private Optional<PedestalClickRecipe> getMatchingRecipe(SimpleContainer container, ItemStack toolStack, @Nullable Player player) {
+        if (level == null) return Optional.empty();
+
+        if (lastRecipeID != null) {
+            PedestalClickRecipe recipe = level.getRecipeManager()
+                    .byType(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get())
+                    .get(lastRecipeID);
+            if (recipe.matches(container, level) && recipe.getClickTools().test(toolStack)) {
+                return Optional.of(recipe);
+            }
+        }
+
+        List<PedestalClickRecipe> recipeList = level.getRecipeManager().getRecipesFor(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get(), container, level);
+        if (recipeList.isEmpty() && player != null) {
+            return Optional.empty();
+        }
+        Optional<PedestalClickRecipe> recipe = recipeList.stream().filter(recipe1 -> recipe1.getClickTools().test(toolStack)).findFirst();
+        if (recipe.isEmpty() && player != null) {
+            return Optional.empty();
+        }
+        lastRecipeID = recipe.get().getId();
+        return recipe;
     }
 
     public static void commonTick(Level level, BlockPos pos, BlockState state, PedestalBlockEntity self) {
@@ -212,6 +237,11 @@ public class PedestalBlockEntity extends ModBlockEntity {
                     self.addItem(new ItemStack(ExtraBotanyItems.SPIRIT_FUEL.get()));
                 }
                 self.setEnergy(0);
+            }
+        } else {
+            if (!level.isClientSide) {
+                self.setEnergy(0);
+                self.speed = 0;
             }
         }
 
@@ -269,6 +299,7 @@ public class PedestalBlockEntity extends ModBlockEntity {
         super.readPacketNBT(tag);
         speed = tag.getInt(TAG_SPEED);
         energy = tag.getInt(TAG_ENERGY);
+        progress = tag.getInt(TAG_PROGRESS);
     }
 
     @Override
@@ -276,5 +307,6 @@ public class PedestalBlockEntity extends ModBlockEntity {
         super.writePacketNBT(tag);
         tag.putInt(TAG_SPEED, speed);
         tag.putInt(TAG_ENERGY, energy);
+        tag.putInt(TAG_PROGRESS, progress);
     }
 }

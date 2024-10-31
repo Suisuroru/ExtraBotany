@@ -6,6 +6,7 @@ import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -41,14 +42,15 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
         return new PedestalBlockEntity(pPos, pState);
     }
 
-    //todo: pedestal's fast process
+    // edit from cutting board in Farmer's delight
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof PedestalBlockEntity pedestal) {
+        BlockEntity tileEntity = level.getBlockEntity(pos);
+        if (tileEntity instanceof PedestalBlockEntity pedestal) {
             ItemStack heldStack = player.getItemInHand(hand);
             ItemStack offhandStack = player.getOffhandItem();
-            if (pedestal.isEmpty() && !pedestal.processing) {
+
+            if (pedestal.isEmpty()) {
                 if (!offhandStack.isEmpty()) {
                     if (hand.equals(InteractionHand.MAIN_HAND) && !offhandStack.is(ExtraBotanyTags.Items.PEDESTAL_DENY) && !(heldStack.getItem() instanceof BlockItem)) {
                         return InteractionResult.PASS; // Pass to off-hand if that item is placeable
@@ -60,7 +62,7 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
                 if (heldStack.isEmpty()) {
                     return InteractionResult.PASS;
                 } else if (pedestal.addItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
-                    level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1F);
+                    level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F);
                     return InteractionResult.SUCCESS;
                 }
 
@@ -70,8 +72,14 @@ public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBloc
                 }
                 return InteractionResult.CONSUME;
             } else if (hand.equals(InteractionHand.MAIN_HAND)) {
-                player.getInventory().placeItemBackInInventory(pedestal.removeItem());
-                level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1F, 1F);
+                if (!player.isCreative()) {
+                    if (!player.getInventory().add(pedestal.removeItem())) {
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), pedestal.removeItem());
+                    }
+                } else {
+                    pedestal.removeItem();
+                }
+                level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.25F, 0.5F);
                 return InteractionResult.SUCCESS;
             }
         }
