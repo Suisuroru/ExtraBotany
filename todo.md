@@ -1,21 +1,28 @@
-### port 1.16.5 to 1.20.1
+### 1.16.5
 
-- block √
-- item √
+- blocks and items √  
+  skip temporarily:
+  - mounts: motor, car key.
+  - curios: gem of conquest.
+  - judah series.
+  - frigga apple:get from treasure box, can only be used once, add extra slots(RING, NECKLACE, CHARM) for player. (need
+    to be confirmed)
+- EGO √
 - config √
 - advancement √
 - damage handling √
 
-*The mounts have not been implemented because there is no available model, and it is difficult to implement.*
+### 1.12.2
 
-### port 1.12.2 to 1.20.1
-
-need drop off sth that maybe unnecessary.
-
-### current bug and things delayed
-
-- complete the unfinished items in 1.16.5.
-- pedestal's fast process.
+- pedestal √
+- hammers √  
+  ultimate hammer: unfinished
+- flowers
+- curios
+- item in bottles
+- Flux Manafield, Mana Liquefaction Device (maybe...)
+- Herrscher of the Void with its loots (maybe...)
+- Halloween‘s item (sweet!)
 
 ### textures needed repaint maybe
 
