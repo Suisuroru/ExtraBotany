@@ -73,8 +73,8 @@ public class PedestalClickRecipeCategory implements IRecipeCategory<PedestalClic
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, PedestalClickRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 32, 12).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 62, 12).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 93, 12).addItemStack(recipe.getResultItem(RegistryAccess.EMPTY));
+        builder.addSlot(RecipeIngredientRole.INPUT, 32, 14).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 62, 14).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 93, 14).addItemStack(recipe.getResultItem(RegistryAccess.EMPTY));
     }
 }

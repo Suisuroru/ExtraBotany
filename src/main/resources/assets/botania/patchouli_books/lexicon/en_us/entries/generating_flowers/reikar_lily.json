@@ -4,7 +4,6 @@
   "icon": "extrabotany:reikar_lily",
   "entry_color": "aa00",
   "advancement": "botania:main/elf_lexicon_pickup",
-  "turnin": "botania:main/generating_flower",
   "pages": [
     {
       "type": "text",

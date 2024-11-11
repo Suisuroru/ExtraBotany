@@ -3,7 +3,6 @@
   "category": "botania:functional_flowers",
   "icon": "extrabotany:serenitian",
   "advancement": "botania:main/pure_daisy_pickup",
-  "turnin": "botania:main/functional_flower",
   "pages": [
     {
       "type": "text",

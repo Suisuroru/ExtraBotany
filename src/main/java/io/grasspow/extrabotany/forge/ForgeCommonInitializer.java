@@ -39,7 +39,6 @@ import vazkii.botania.api.BotaniaForgeCapabilities;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.api.mana.ManaItem;
-import vazkii.botania.forge.CapabilityUtil;
 import vazkii.patchouli.api.PatchouliAPI;
 
 import java.util.Map;

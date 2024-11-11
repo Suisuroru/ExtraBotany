@@ -3,7 +3,6 @@
   "category": "botania:functional_flowers",
   "icon": "extrabotany:annoying_flower",
   "advancement": "botania:main/pure_daisy_pickup",
-  "turnin": "botania:main/functional_flower",
   "pages": [
     {
       "type": "text",

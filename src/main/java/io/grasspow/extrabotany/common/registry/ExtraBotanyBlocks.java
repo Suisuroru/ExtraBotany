@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -16,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.api.block_entity.SpecialFlowerBlockEntity;
 import vazkii.botania.common.block.FloatingSpecialFlowerBlock;
-import vazkii.botania.forge.block.ForgeSpecialFlowerBlock;
+import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.ArrayList;
 import java.util.function.BiFunction;
@@ -90,7 +91,7 @@ public class ExtraBotanyBlocks {
     }
 
     private static RegistryObject<Block> regDefFlower(String name, MobEffect effect, int duration, Supplier<BlockEntityType<? extends SpecialFlowerBlockEntity>> beType) {
-        RegistryObject<Block> block = BLOCKS.register(name, () -> new ForgeSpecialFlowerBlock(effect, duration, FLOWER_PROPS, beType));
+        RegistryObject<Block> block = BLOCKS.register(name, () -> createSpecialFlowerBlock(effect, duration, FLOWER_PROPS, beType));
         ExtraBotanyItems.regFlowerItem(block);
         MOD_FLOWERS.add(block);
         return block;
@@ -105,6 +106,15 @@ public class ExtraBotanyBlocks {
 
     private static final BlockBehaviour.Properties FLOWER_PROPS = BlockBehaviour.Properties.copy(Blocks.POPPY);
     private static final BlockBehaviour.Properties FLOATING_PROPS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.5F).sound(SoundType.GRAVEL).lightLevel(s -> 15);
+
+    private static FlowerBlock createSpecialFlowerBlock(
+            MobEffect effect, int effectDuration,
+            BlockBehaviour.Properties props,
+            Supplier<BlockEntityType<? extends SpecialFlowerBlockEntity>> beType) {
+        return XplatAbstractions.INSTANCE.createSpecialFlowerBlock(
+                effect, effectDuration, props, beType
+        );
+    }
 
     private static BlockBehaviour.Properties livingrock() {
         return BlockBehaviour.Properties.of().strength(2, 10).sound(SoundType.STONE).mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops();

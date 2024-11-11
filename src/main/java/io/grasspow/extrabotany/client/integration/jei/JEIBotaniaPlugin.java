@@ -2,18 +2,27 @@ package io.grasspow.extrabotany.client.integration.jei;
 
 import io.grasspow.extrabotany.client.integration.jei.crafting.*;
 import io.grasspow.extrabotany.common.crafting.*;
+import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
+import io.grasspow.extrabotany.common.item.brew.BaseBrewItemEX;
+import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.registration.IVanillaCategoryExtensionRegistration;
+import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
+import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
+import vazkii.botania.client.integration.jei.RunicAltarRecipeCategory;
+import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.crafting.BotaniaRecipeTypes;
+import vazkii.botania.common.item.BotaniaItems;
+import vazkii.botania.common.item.brew.BaseBrewItem;
+import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,10 +41,18 @@ public class JEIBotaniaPlugin implements IModPlugin {
     }
 
     @Override
+    public void registerItemSubtypes(ISubtypeRegistration registry) {
+        IIngredientSubtypeInterpreter<ItemStack> interpreter = (stack, ctx) -> BaseBrewItemEX.getSubtype(stack);
+        registry.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, ExtraBotanyItems.COCKTAIL.get(), interpreter);
+        registry.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, ExtraBotanyItems.SPLASH_GRENADE.get(), interpreter);
+        registry.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, ExtraBotanyItems.INFINITE_WINE.get(), interpreter);
+
+        registry.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, ExtraBotanyItems.MANA_DRIVE_RING.get(), (stack, ctx) -> String.valueOf(XplatAbstractions.INSTANCE.findManaItem(stack).getMana()));
+    }
+
+    @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
-        registry.addRecipeCategories(
-                new PedestalClickRecipeCategory(registry.getJeiHelpers().getGuiHelper())
-        );
+        registry.addRecipeCategories(new PedestalClickRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -50,6 +67,11 @@ public class JEIBotaniaPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
         registry.addRecipes(PedestalClickRecipeCategory.TYPE, sortRecipes(ExtraBotanyRecipeTypes.PEDESTAL_CLICK.get(), BY_ID));
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registry) {
+        registry.addRecipeCatalyst(new ItemStack(ExtraBotanyBlocks.PEDESTAL.get()), PedestalClickRecipeCategory.TYPE);
     }
 
     private static <T extends Recipe<C>, C extends Container> List<T> sortRecipes(RecipeType<T> type, Comparator<? super T> comparator) {

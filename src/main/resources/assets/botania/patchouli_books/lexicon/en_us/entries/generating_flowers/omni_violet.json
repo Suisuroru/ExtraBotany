@@ -3,7 +3,6 @@
   "category": "botania:generating_flowers",
   "icon": "extrabotany:omni_violet",
   "advancement": "botania:main/pure_daisy_pickup",
-  "turnin": "botania:main/generating_flower",
   "pages": [
     {
       "type": "text",

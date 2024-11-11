@@ -25,7 +25,6 @@ import net.minecraftforge.registries.RegistryObject;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.lib.BotaniaTags;
-import vazkii.botania.forge.block.ForgeSpecialFlowerBlock;
 import vazkii.botania.mixin.RecipeProviderAccessor;
 
 import java.util.function.Consumer;
@@ -548,7 +547,7 @@ public class CraftingRecipeProvider extends vazkii.botania.data.recipes.Crafting
     }
 
     private void buildingFloatingFlowerRecipes(Consumer<FinishedRecipe> consumer) {
-        MOD_FLOWERS.stream().filter(b -> b.get() instanceof ForgeSpecialFlowerBlock).forEach(b -> createFloatingFlowerRecipe(consumer, b));
+        MOD_FLOWERS.stream().filter(b -> !b.getId().getPath().startsWith("floating_")).forEach(b -> createFloatingFlowerRecipe(consumer, b));
     }
 
     protected void createFloatingFlowerRecipe(Consumer<FinishedRecipe> consumer, RegistryObject<Block> block) {
