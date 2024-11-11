@@ -174,7 +174,13 @@ dependencies {
 
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:$curios_version")
     implementation fg.deobf("vazkii.patchouli:Patchouli:$patchouli_version_forge")
-    implementation fg.deobf("vazkii.botania:Botania:$botania_version_forge")
+
+    // Botania
+    implementation fg.deobf("vazkii.botania:Botania:${botania_version_forge}:api")
+    implementation fg.deobf("vazkii.botania:Botania-xplat:$botania_version")
+    runtimeOnly fg.deobf("vazkii.botania:Botania:$botania_version_forge")
+
+    //JEI
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
