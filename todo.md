@@ -16,7 +16,6 @@
 
 - pedestal √
 - hammers √  
-  ultimate hammer: unfinished
 - flowers
 - curios
 - item in bottles

@@ -7,20 +7,14 @@ import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
 import io.grasspow.extrabotany.common.item.equipment.armor.*;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.*;
-import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ElementiumHammer;
-import io.grasspow.extrabotany.common.item.equipment.tool.hammer.ManasteelHammer;
-import io.grasspow.extrabotany.common.item.equipment.tool.hammer.TerrasteelHammer;
-import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
+import io.grasspow.extrabotany.common.item.equipment.tool.hammer.*;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
 import io.grasspow.extrabotany.common.item.food.ModFoods;
 import io.grasspow.extrabotany.common.item.len.*;
 import io.grasspow.extrabotany.common.item.misc.*;
 import io.grasspow.extrabotany.common.libs.LibItemNames;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -77,10 +71,10 @@ public class ExtraBotanyItems {
     public static final RegistryObject<Item> TRACE_LENS = regLensItem(LibItemNames.TRACE_LENS, stackTo16(), TraceLens::new, LensItem.PROP_CONTROL);
 
     //tool
-    public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefItem(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new, nonStackable());
-    public static final RegistryObject<Item> ELEMENTIUM_HAMMER = regDefItem(LibItemNames.ELEMENTIUM_HAMMER, ElementiumHammer::new, nonStackable());
-    public static final RegistryObject<Item> TERRASTEEL_HAMMER = regDefItem(LibItemNames.TERRASTEEL_HAMMER, TerrasteelHammer::new, nonStackable());
-    public static final RegistryObject<Item> ULTIMATE_HAMMER = regDefItem(LibItemNames.ULTIMATE_HAMMER, UltimateHammer::new, nonStackable());
+    public static final RegistryObject<Item> MANASTEEL_HAMMER = regDefTool(LibItemNames.MANASTEEL_HAMMER, ManasteelHammer::new , ModTiers.MANASTEEL, nonStackable());
+    public static final RegistryObject<Item> ELEMENTIUM_HAMMER = regDefTool(LibItemNames.ELEMENTIUM_HAMMER, ManasteelHammer::new , ModTiers.ELEMENTIUM, nonStackable());
+    public static final RegistryObject<Item> TERRASTEEL_HAMMER = regDefTool(LibItemNames.TERRASTEEL_HAMMER, ManasteelHammer::new , ModTiers.TERRASTEEL, nonStackable());
+    public static final RegistryObject<Item> ULTIMATE_HAMMER = regDefItem(LibItemNames.ULTIMATE_HAMMER, UltimateHammer::new,  nonStackable());
     public static final RegistryObject<Item> MANA_READER = regDefItem(LibItemNames.MANA_READER, ManaReader::new, nonStackable());
     public static final RegistryObject<Item> WALKING_CANE = regDefItem(LibItemNames.WALKING_CANE, WalkingCaneItem::new, nonStackable());
     public static final RegistryObject<Item> ROD_OF_DISCORD = regDefItem(LibItemNames.ROD_OF_DISCORD, RodOfDiscordItem::new, nonStackable());
@@ -207,6 +201,12 @@ public class ExtraBotanyItems {
 
     private static <I extends Item> RegistryObject<Item> regDefItem(String name, Function<Item.Properties, ? extends I> func, Item.Properties props) {
         RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(props));
+        MOD_ITEMS.add(item);
+        return item;
+    }
+
+    private static <I extends Item> RegistryObject<Item> regDefTool(String name, BiFunction<Tier,Item.Properties, ? extends I> func, Tier tier, Item.Properties props) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> func.apply(tier,props));
         MOD_ITEMS.add(item);
         return item;
     }

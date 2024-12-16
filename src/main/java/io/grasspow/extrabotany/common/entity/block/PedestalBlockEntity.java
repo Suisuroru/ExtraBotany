@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import io.grasspow.extrabotany.common.crafting.PedestalClickRecipe;
 import io.grasspow.extrabotany.common.item.ExtraBotanyItems;
 import io.grasspow.extrabotany.common.item.equipment.bauble.NatureOrbItem;
+import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyBlocks;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyRecipeTypes;
@@ -26,6 +27,8 @@ import vazkii.botania.client.fx.WispParticleData;
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.block.block_entity.PylonBlockEntity;
 import vazkii.botania.common.block.mana.ManaPoolBlock;
+import vazkii.botania.common.item.BotaniaItems;
+import vazkii.botania.common.lib.LibBlockNames;
 import vazkii.patchouli.api.IMultiblock;
 import vazkii.patchouli.api.IStateMatcher;
 import vazkii.patchouli.api.PatchouliAPI;
@@ -150,6 +153,21 @@ public class PedestalBlockEntity extends ModBlockEntity {
     public boolean processContainItem(ItemStack stack, Player player) {
         if (level == null) {
             return false;
+        }
+        if (getItem().getItem() instanceof UltimateHammer) {
+            if (stack.is(ExtraBotanyItems.GILDED_MASHED_POTATO.get()) && UltimateHammer.getRepair(getItem()) < 3 && stack.getCount() >= 5) {
+                UltimateHammer.setRepair(getItem(), UltimateHammer.getRepair(getItem()) + 1);
+                stack.shrink(5);
+                return true;
+            } else if (stack.is(BotaniaItems.elementiumSword) && UltimateHammer.getAttack(getItem()) < 10) {
+                UltimateHammer.setAttack(getItem(), UltimateHammer.getAttack(getItem()) + 1);
+                stack.shrink(1);
+                return true;
+            } else if (stack.is(ExtraBotanyItems.TERRASTEEL_HAMMER.get()) && !UltimateHammer.hasRange(getItem())) {
+                UltimateHammer.setRange(getItem(), true);
+                stack.shrink(1);
+                return true;
+            }
         }
         SimpleContainer itemHandler = new SimpleContainer(2) {
             @Override

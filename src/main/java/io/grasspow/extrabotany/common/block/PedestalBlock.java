@@ -1,6 +1,7 @@
 package io.grasspow.extrabotany.common.block;
 
 import io.grasspow.extrabotany.common.entity.block.PedestalBlockEntity;
+import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.libs.ExtraBotanyTags;
 import io.grasspow.extrabotany.common.registry.ExtraBotanyEntities;
 import net.minecraft.core.BlockPos;
@@ -26,6 +27,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.block.BotaniaWaterloggedBlock;
+import vazkii.botania.common.lib.LibBlockNames;
 
 public class PedestalBlock extends BotaniaWaterloggedBlock implements EntityBlock {
     public PedestalBlock(Properties pProperties) {

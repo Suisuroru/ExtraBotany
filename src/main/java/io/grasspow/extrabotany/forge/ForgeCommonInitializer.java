@@ -14,6 +14,7 @@ import io.grasspow.extrabotany.common.item.brew.InfiniteWineItem;
 import io.grasspow.extrabotany.common.item.equipment.BuddhistRelicsItem;
 import io.grasspow.extrabotany.common.item.equipment.bauble.*;
 import io.grasspow.extrabotany.common.item.equipment.tool.CameraItem;
+import io.grasspow.extrabotany.common.item.equipment.tool.hammer.UltimateHammer;
 import io.grasspow.extrabotany.common.item.equipment.weapon.*;
 import io.grasspow.extrabotany.common.item.misc.RewardBagItem;
 import io.grasspow.extrabotany.common.libs.LibBlockNames;
@@ -104,7 +105,8 @@ public class ForgeCommonInitializer {
     }
 
     private static final Supplier<Map<Item, Function<ItemStack, ManaItem>>> MANA_ITEM = Suppliers.memoize(() -> Map.of(
-            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem.SagesManaRingItemImpl::new
+            ExtraBotanyItems.SAGES_MANA_RING.get(), SagesManaRingItem.SagesManaRingItemImpl::new,
+            ExtraBotanyItems.ULTIMATE_HAMMER.get(), UltimateHammer.ManaItemImpl::new
     ));
 
     private static final Supplier<Map<Item, Function<ItemStack, INatureOrb>>> NATURE_ORB = Suppliers.memoize(() -> Map.of(

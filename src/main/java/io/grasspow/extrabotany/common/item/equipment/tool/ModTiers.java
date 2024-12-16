@@ -1,4 +1,4 @@
-package io.grasspow.extrabotany.common.item.equipment.tool.hammer;
+package io.grasspow.extrabotany.common.item.equipment.tool;
 
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;

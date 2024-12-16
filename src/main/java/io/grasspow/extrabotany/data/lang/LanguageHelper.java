@@ -44,6 +44,23 @@ public class LanguageHelper {
         add("death.attack.magic_armor_piercing.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
         add("death.attack.critical", "%1$s was slain by %2$s", "%1$s被%2$s杀死了");
         add("death.attack.critical.item", "%1$s was slain by %2$s with %3$s", "%1$s被%2$s用%3$s杀死了");
+
+        //ultimate_hammer upgrade
+        add("extrabotany.upgrade.attack1","Sharpness Upgrade I","锋利升级I");
+        add("extrabotany.upgrade.attack2","Sharpness Upgrade II","锋利升级II");
+        add("extrabotany.upgrade.attack3","Sharpness Upgrade III","锋利升级III");
+        add("extrabotany.upgrade.attack4","Sharpness Upgrade IV","锋利升级IV");
+        add("extrabotany.upgrade.attack5","Sharpness Upgrade V","锋利升级V");
+        add("extrabotany.upgrade.attack6","Sharpness Upgrade VI","锋利升级VI");
+        add("extrabotany.upgrade.attack7","Sharpness Upgrade VII","锋利升级VII");
+        add("extrabotany.upgrade.attack8","Sharpness Upgrade VIII","锋利升级VIII");
+        add("extrabotany.upgrade.attack9","Sharpness Upgrade IX","锋利升级IX");
+        add("extrabotany.upgrade.attack10","Sharpness Upgrade X","锋利升级X");
+        add("extrabotany.upgrade.repair1","Repair Upgrade I","修复升级I");
+        add("extrabotany.upgrade.repair2","Repair Upgrade II","修复升级II");
+        add("extrabotany.upgrade.repair3","Repair Upgrade III","修复升级III");
+        add("extrabotany.upgrade.range.on","Range Upgrade:On","范围升级:开启");
+        add("extrabotany.upgrade.range.off","Range Upgrade:Off","范围升级:关闭");
     }
 
     private static void transItem() {
