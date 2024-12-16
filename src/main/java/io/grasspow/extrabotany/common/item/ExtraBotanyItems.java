@@ -257,8 +257,6 @@ public class ExtraBotanyItems {
         return nonStackable().rarity(Rarity.EPIC).setNoRepair();
     }
 
-    ;
-
     public static DeferredRegister<Item> getItems() {
         return ITEMS;
     }

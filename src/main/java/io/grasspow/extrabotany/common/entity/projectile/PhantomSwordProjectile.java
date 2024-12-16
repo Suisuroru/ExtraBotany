@@ -95,7 +95,6 @@ public class PhantomSwordProjectile extends BaseSwordProjectile {
                 } else {
                     if (living.invulnerableTime == 0)
                         DamageHandler.INSTANCE.dmg(living, getOwner(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);
-                    ;
                     DamageHandler.INSTANCE.dmg(living, getOwner(), 7.5F, DamageHandler.INSTANCE.MAGIC);
                 }
             }

@@ -178,7 +178,7 @@ public class ExtraBotanyEntities {
     //ego
     public static final RegistryObject<EntityType<EGO>> EGO = ENTITY_TYPES.register(LibEntityNames.EGO,
             () -> EntityType.Builder
-                    .<EGO>of(EGO::new, MobCategory.MONSTER)
+                    .of(EGO::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.8F)
                     .fireImmune()
                     .clientTrackingRange(10)

@@ -32,8 +32,7 @@ public class AdvancementHandler {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTooltip(ItemTooltipEvent event) {
-        if (event.getItemStack().getItem() instanceof IAdvancementRequirement) {
-            IAdvancementRequirement r = (IAdvancementRequirement) event.getItemStack().getItem();
+        if (event.getItemStack().getItem() instanceof IAdvancementRequirement r) {
             Player playerSP = Minecraft.getInstance().player;
             if (playerSP != null) {
                 if (!hasDone(resId("main/" + r.getAdvancementName()).toString()))
@@ -51,8 +50,7 @@ public class AdvancementHandler {
             CuriosApi.getCuriosInventory(player).ifPresent((c) -> {
                 for (int i = 0; i < c.getSlots(); i++) {
                     final ItemStack stack = c.getEquippedCurios().getStackInSlot(i);
-                    if (stack.getItem() instanceof IAdvancementRequirement) {
-                        IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                    if (stack.getItem() instanceof IAdvancementRequirement r) {
                         if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
                             c.getEquippedCurios().setStackInSlot(i, ItemStack.EMPTY);
                             player.drop(stack, false);
@@ -63,8 +61,7 @@ public class AdvancementHandler {
             if (ConfigHandler.COMMON.doStrictAdvancementChecking.get()) {
                 for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                     final ItemStack stack = player.getInventory().getItem(i);
-                    if (stack.getItem() instanceof IAdvancementRequirement) {
-                        IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                    if (stack.getItem() instanceof IAdvancementRequirement r) {
                         if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
                             player.getInventory().setItem(i, ItemStack.EMPTY);
                             player.drop(stack, false);
@@ -74,8 +71,7 @@ public class AdvancementHandler {
             }
             for (final EquipmentSlot slot : EquipmentSlot.values()) {
                 final ItemStack stack = player.getItemBySlot(slot);
-                if (stack.getItem() instanceof IAdvancementRequirement) {
-                    IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                if (stack.getItem() instanceof IAdvancementRequirement r) {
                     if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
                         player.setItemSlot(slot, ItemStack.EMPTY);
                         player.drop(stack, false);
@@ -93,8 +89,7 @@ public class AdvancementHandler {
             if (player.isCreative()) {
                 return;
             }
-            if (event.getItem().getItem().getItem() instanceof IAdvancementRequirement) {
-                IAdvancementRequirement r = (IAdvancementRequirement) event.getItem().getItem().getItem();
+            if (event.getItem().getItem().getItem() instanceof IAdvancementRequirement r) {
                 if (!event.isCanceled() && !checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
                     event.setCanceled(true);
                 }

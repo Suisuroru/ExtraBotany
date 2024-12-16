@@ -22,8 +22,7 @@ public record LeftClickPack(ItemStack stack) implements BotaniaPacket {
     public void handle(MinecraftServer server, ServerPlayer player) {
         server.execute(() -> {
             if (!stack.isEmpty()) {
-                if (stack.getItem() instanceof IAdvancementRequirement) {
-                    IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                if (stack.getItem() instanceof IAdvancementRequirement r) {
                     if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) return;
                 }
                 if (stack.getItem() instanceof IItemWithLeftClick click) {

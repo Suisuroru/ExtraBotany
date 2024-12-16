@@ -81,8 +81,7 @@ public class NatureOrbItem extends BaubleItem implements CustomCreativeTabConten
     @Override
     public void onWornTick(ItemStack stack, LivingEntity entity) {
         super.onWornTick(stack, entity);
-        if (entity instanceof Player) {
-            Player player = (Player) entity;
+        if (entity instanceof Player player) {
             if (!player.level().isClientSide()) {
                 var orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(stack);
                 if (orb.getNature() > 100000 && player.tickCount % 5 == 0)

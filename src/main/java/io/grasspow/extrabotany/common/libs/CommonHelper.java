@@ -35,10 +35,8 @@ public class CommonHelper {
                 .distinct()
                 .toList();
         INatureOrb orb = ModXplatAbstractions.INSTANCE.findNatureOrbItem(stack);
-        if (orb == null) {
-        }
         potionsToRemove.forEach(potion -> {
-            if (stack.getItem() instanceof MaidArmorHelmetItem || orb != null && orb.addNature(-50)) {
+            if (stack.getItem() instanceof MaidArmorHelmetItem || (orb != null && orb.addNature(-50))) {
                 player.removeEffect(potion);
                 CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer) player, stack);
                 player.awardStat(Stats.ITEM_USED.get(stack.getItem()));

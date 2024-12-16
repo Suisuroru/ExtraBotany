@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class RewardBagItem extends Item {
     private static final Map<Variant, List<WeightCategory>> categoryMap = new HashMap<>();
-    private Variant variant;
+    private final Variant variant;
 
     public RewardBagItem(Properties prop, Variant variant) {
         super(prop);

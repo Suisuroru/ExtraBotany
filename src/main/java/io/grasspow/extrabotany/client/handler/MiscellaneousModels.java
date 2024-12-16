@@ -21,7 +21,6 @@ public class MiscellaneousModels {
     public BakedModel[] firstFractalWeaponModels = new BakedModel[10];
     public BakedModel[] coreGodWingsModel = new BakedModel[4];
     public BakedModel coreGodModel;
-    ;
 
     public void onModelRegister(ResourceManager rm, Consumer<ResourceLocation> consumer) {
         consumer.accept(resId("icon/influx_waver_projectile"));

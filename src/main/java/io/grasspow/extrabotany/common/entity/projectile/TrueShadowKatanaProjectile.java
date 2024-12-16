@@ -61,7 +61,6 @@ public class TrueShadowKatanaProjectile extends BaseSwordProjectile {
                 } else {
                     if (living.invulnerableTime == 0)
                         DamageHandler.INSTANCE.dmg(living, getOwner(), 2F, DamageHandler.INSTANCE.LIFE_LOSING);
-                    ;
                     DamageHandler.INSTANCE.dmg(living, getOwner(), 5.5F, DamageHandler.INSTANCE.MAGIC);
                 }
                 discard();

@@ -33,8 +33,7 @@ public class GeminiOrchidBlockEntity extends GeneratingFlowerBlockEntity {
                 if (block instanceof LiquidBlock fluid) {
                     tempMax = Math.max(tempMax, fluid.getFluid().getSource().getFluidType().getTemperature());
                     tempMin = Math.min(tempMin, fluid.getFluid().getSource().getFluidType().getTemperature());
-                } else if (block instanceof IFluidBlock) {
-                    IFluidBlock fluid = (IFluidBlock) block;
+                } else if (block instanceof IFluidBlock fluid) {
                     tempMax = Math.max(tempMax, fluid.getFluid().getFluidType().getTemperature());
                     tempMin = Math.min(tempMin, fluid.getFluid().getFluidType().getTemperature());
                 }
