@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
 import vazkii.botania.client.core.handler.ClientTickHandler;
 import vazkii.botania.client.core.helper.RenderHelper;
-import vazkii.botania.client.render.block_entity.SpecialFlowerBlockEntityRenderer;
 
 import javax.annotation.Nonnull;
 
