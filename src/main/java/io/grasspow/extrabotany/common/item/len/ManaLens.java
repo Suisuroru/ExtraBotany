@@ -59,11 +59,13 @@ public class ManaLens extends Lens {
         List<ManaInfusionRecipe> matchingCatRecipes = new ArrayList<>();
 
         for (var r : BotaniaRecipeTypes.getRecipes(level, BotaniaRecipeTypes.MANA_INFUSION_TYPE).values()) {
-            if (r instanceof ManaInfusionRecipe recipe && recipe.matches(stack)) {
-                if (recipe.getRecipeCatalyst() == null) {
-                    matchingNonCatRecipes.add(recipe);
-                } else if (recipe.getRecipeCatalyst().test(state)) {
-                    matchingCatRecipes.add(recipe);
+            if (r instanceof ManaInfusionRecipe) {
+                if (r.matches(stack)){
+                    if (r.getRecipeCatalyst() == null) {
+                        matchingNonCatRecipes.add(r);
+                    } else if (r.getRecipeCatalyst().test(state)) {
+                        matchingCatRecipes.add(r);
+                    }
                 }
             }
         }
